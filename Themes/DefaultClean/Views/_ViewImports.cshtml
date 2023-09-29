@@ -1,0 +1,29 @@
+﻿@inherits Web.Framework.NETCore.MVC.Mvc.Razor.RazorPage<TModel>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@*we remove the default InputTagHelper to prevent the checkbox duplicating: https://stackoverflow.com/questions/42544961/asp-net-core-custom-input-tag-helper-rendering-duplicate-checkboxes*@
+@removeTagHelper Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Web.Framework.NETCore.MVC
+@addTagHelper *, MiniProfiler.AspNetCore.Mvc
+
+@using Web.Framework.NETCore.MVC
+@using Microsoft.AspNetCore.Mvc.ViewFeatures
+
+@using Web.Framework.NETCore.MVC.Themes
+@using Web.Framework.NETCore.MVC.Infrastructure.Extensions
+@using Web.Framework.NETCore.MVC.Infrastructure.Interfaces
+@using DNE.CheckOut
+
+@using Web.Framework.NETCore.MVC.Core;
+@using Web.Framework.NETCore.MVC.Infrastructure.Data;
+@using Web.Framework.NETCore.MVC.Infrastructure.Data.Extensions;
+@using System.Dynamic;
+@using Web.Framework.NETCore.MVC.UI;
+@using DNE.CheckOut.Infrastructure;
+
+@using DNE.Models.Generic;
+@using DNE.Site
+@using DNE.Site.Models
+@using DNE.Site.Infrastructure.Extensions
+@using DNE.Site.ViewComponents
+@using DNE.Site.Models.Pages
+@using DNE.Models.Tables
