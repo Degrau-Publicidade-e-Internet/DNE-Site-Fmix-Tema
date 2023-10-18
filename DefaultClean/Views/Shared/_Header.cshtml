@@ -1,0 +1,891 @@
+﻿@using DNE.Site.ViewServices;
+@inject DNE.Site.ViewServices.HeaderView oHeaderView
+
+@{
+    var BannerMensagemClasse = "";
+    var OHeader = oHeaderView.GetHeader(ViewData["BodyID"] != null ? ViewData["BodyID"].ToString() : "");
+}
+
+<web-antiforgery-token />
+
+@if (OHeader.BannerMensagemTopo.IsAtivo)
+{
+    BannerMensagemClasse = "dg-tem-banner-mensagem-top";
+}
+
+<header class="dg-header @BannerMensagemClasse">
+
+    <input type="hidden" name="FBAPP_ID" id="FBAPP_ID" value="636648873464236" />
+    <input type="hidden" name="FBAPP_ID" id="G_client_id" value="1028179406320-c2tcqbvotsek6o48gnq8h44kuvc2ui6h.apps.googleusercontent.com" />
+
+    <!-- Acessibilidade -->
+    <a href="#main" class="dg-ac-irpara">
+        Ir para o Conteúdo
+    </a>
+    <!-- /Acessibilidade -->
+    <!-- Itens principais do header -->
+
+    <div class="container">
+        @if (OHeader.BannerMensagemTopo.IsAtivo)
+        {
+            <a class="dg-conteudounico-header" href="@OHeader.BannerMensagemTopo.Url" aria-label="Acessar página do evento">
+                <div class="dg-conteudounico-header__icone" style="background-image:url(https://static.drogarianovaesperanca.com.br/marcas/@OHeader.BannerMensagemTopo.Icone)"></div>
+                <p class="dg-conteudounico-header__texto-wrapper jsHeaderAvisoTexto">
+                    <span class="dg-conteudounico-header__texto">
+                        @OHeader.BannerMensagemTopo.Texto
+                    </span>
+                    <span class="dg-conteudounico-header__texto--2">
+                        @OHeader.BannerMensagemTopo.Texto
+                    </span>
+                </p>
+            </a>
+        }
+        <div class="dg-header-topo">
+            <div class="dg-header-logo">
+                <a href="@Html.Domain()/" class="dg-add-loading">
+                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/header/logo.png" alt="Drogaria Nova Esperança - Logotipo" loading="lazy">
+                </a>
+            </div>
+
+            <a href="javascript:void(0)" class="dg-header-m-abrirmenu" aria-label="Abrir menu principal" role="menuitem" menuaba="Principal">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+            <meta itemprop="url" content="@Html.Domain()" />
+            <div class="jsHeaderEventTimer dg-countdown-wrapper" style="display:none"></div>
+            <form class="dg-header-busca" action="/busca/" name="formBusca" id="formBuscaTopo">
+                <input autocorrect="off" autocapitalize="off" spellcheck="false" name="q" id="qPrincipal" required autocomplete="off" maxlength="60" type="text" class="dg-header-busca-input">
+                <label for="qPrincipal" class="dg-header-busca-label">O que você está procurando hoje?</label>
+                @* <div id="ResultadoAutoCompleteBusca"></div> *@
+                <!-- Usei button por semântica, mas pode trocar por "a" se preferir -->
+                <button aria-label="Buscar" class="dg-header-busca-btn" type="submit">
+                    <span class="dg-icon dg-icon-search"></span>
+                </button>
+
+                <div class="dg-header-busca-auto">
+                    <div class="dg-header-busca-auto-destaque"></div>
+
+                    <ul class="dg-header-busca-auto-lista">
+                    </ul>
+                    <a href="javascript:void(0)" class="dg-header-busca-auto-lista-vertodos" id="verTodos">
+                        <span class="dg-icon" role="presentation">+</span> Ver Todas
+                    </a>
+
+                </div>
+            </form>
+            <div class="dg-header-busca-overlay"></div>
+            
+            <div class="dg-header-sac">
+                <div class="dg-icon dg-icon-sac"></div>
+                <div class="dg-header-sac__block-wrapper">
+                    <div class="dg-header-sac__block">
+                        <div class="dg-header-sac__title">SAC</div>
+                        <div class="dg-header-sac__text">(11) 3990-5089</div>
+                    </div>
+                    <div class="dg-header-sac__block">
+                        <div class="dg-header-sac__title">Televendas</div>
+                        <div class="dg-header-sac__text">(11) 3990-7720</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dg-header-luz">
+                <button type="button" class="dg-header-luz-btn jsMudaTema">
+                    <svg xmlns="https://www.w3.org/2000/svg" width="26.534" height="26.516" viewBox="0 0 26.534 26.516">
+                        <path d="M144.471,61.508a.714.714,0,0,0-.68.712v2.4a.714.714,0,1,0,1.423,0v-2.4a.631.631,0,0,0,0-.074.714.714,0,0,0-.743-.637Zm-8.792,2.708c-.025,0-.05.006-.074.011a.714.714,0,0,0-.425,1.221l1.317,1.317a.714.714,0,1,0,1.009-1.009l-1.317-1.317a.713.713,0,0,0-.51-.223Zm17.744,0-.011.011a.713.713,0,0,0-.414.212l-1.317,1.317h0a.714.714,0,1,0,1.009,1.009l1.317-1.317h0a.714.714,0,0,0-.584-1.232Zm-8.835,2.761a6.6,6.6,0,0,0-6.541,6.562,7.5,7.5,0,0,0,1.837,5.15,8.243,8.243,0,0,1,2.081,4.046h5.256a8.242,8.242,0,0,1,2.081-4.046,7.5,7.5,0,0,0,1.837-5.15,6.606,6.606,0,0,0-6.552-6.562Zm-10.056,6.116a.711.711,0,0,0-.074.011h-2.4a.637.637,0,0,0-.074,0,.714.714,0,0,0,.074,1.423h2.4a.718.718,0,1,0,.074-1.434Zm22.67.053a.653.653,0,0,0-.074.011h-1.975a.636.636,0,0,0-.074,0,.714.714,0,0,0,.074,1.423h1.975a.718.718,0,1,0,.074-1.434Zm-19.793,7.093h0c-.021,0-.043.006-.064.01a.714.714,0,0,0-.425.212l-1.7,1.7a.714.714,0,1,0,1.009,1.009l1.7-1.7a.714.714,0,0,0-.52-1.232Zm14.346,0h0a.719.719,0,0,0-.5,1.232l1.7,1.7a.714.714,0,1,0,1.009-1.009l-1.7-1.7a.713.713,0,0,0-.51-.223Zm-9.748,3.929v3.249a.6.6,0,0,0,.605.605h3.961a.6.6,0,0,0,.605-.605V84.168Z" transform="translate(-131.349 -61.507)" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="dg-header-minhaconta">
+                <a href="javascript:void(0)" aria-label="Minha conta" class="dg-tooltip-hover">
+                    <span class="dg-icon dg-icon-user"></span>
+                    @* <span class="dg-tooltip">Minha Conta</span> *@
+                    <div class="dg-header-minhaconta__logar">
+                        <div class="dg-header-minhaconta__logar1">Bem-vindo de volta</div>
+                        <div class="dg-header-minhaconta__logar2">Entre na sua conta</div>
+                    </div>
+                </a>
+            </div>
+
+            <script id="templateLogadoLogado" type="text/x-jquery-tmpl">
+
+                {if RetornoLogado.logado}
+                <div class="dg-desktop-hide dg-menu-login-mobile">
+                    <img src="/assets/img/header/user.svg">
+                    <div class="dg-menu-login-mobile-top">
+                        <div>Bem-vindo, <strong>${RetornoLogado.NomeCliente}</strong></div>
+                        <div class="dg-menu-login-mobile-bottom">
+                            <a href="@Html.Domain()/central-do-cliente/?url=editarDados">
+                                Central do Cliente
+                            </a>
+                            <a href="javascript:void(0)" class="logOutCliente">
+                                Sair
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dg-header-minhaconta-modal dg-logado">
+                    <a href="javascript:void(0)" class="dg-header-minhaconta-modal-fechar dg-desktop-hide jsMobileFecharMenuLogin"><span class="dg-icon dg-icon-arrow01-left"></span>Voltar</a>
+                    <div class="dg-header-minhaconta-modal-topo">
+                        <div class="dg-titulo">Bem-vindo, <strong>${RetornoLogado.NomeCliente}</strong></div>
+                    </div>
+                    <nav class="dg-header-minhaconta-modal-login">
+                        <ul>
+                            <li>
+                                <a href="@Html.Domain()/central-do-cliente/?url=meusPedidos" class="dg-add-loading">
+                                    Meus pedidos
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Html.Domain()/central-do-cliente/?url=editarDados" class="dg-add-loading">
+                                    Central do Cliente
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Html.Domain()/central-do-cliente/?url=alterarSenha" class="dg-add-loading">
+                                    Alterar senha
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" class="logOutCliente">
+                                    Sair
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                {else}
+                <div class="dg-desktop-hide dg-menu-login-mobile">
+                    <img src="/assets/img/header/user.svg" alt="ìcone de usuário">
+                    <div>
+                        <div class="dg-menu-login-mobile-top">Bem-vindo, <strong>visitante</strong></div>
+                        <div class="dg-menu-login-mobile-bottom">
+                            <a href="javascript:void(0)" class="jsMobileAbrirEntrar">
+                                Entre
+                            </a>
+                            ou
+                            <a href="javascript:void(0)" class="jsMobileAbrirCriarConta">
+                                Crie sua conta
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dg-header-minhaconta-modal">
+            
+
+
+                    <div class="dg-header-minhaconta-flex">
+                        <a href="javascript:void(0)" class="dg-header-minhaconta-modal-fechar dg-desktop-hide jsMobileFecharMenuLogin"><span class="dg-icon dg-icon-arrow01-left"></span>Voltar</a>
+                        <div class="dg-desktop-hide dg-header-minhaconta-title-mobile">
+                            Se ainda não tem perfil <span>cadastre-se</span> ou <span>faça login</span> em sua conta.
+                        </div>
+                        <div class="dg-desktop-hide dg-header-minhaconta-title-mobile dg-style-cookie">
+                           <span>Faça login</span> em sua conta ou <span>cadastre-se</span>, se ainda não tem conta.
+                        </div>
+                        <form class="dg-header-minhaconta-modal-cadastro jsHeaderMinhacontaModalCadastro" id="modalCadastro" onsubmit="return false;" autocomplete="off">
+                            <div class="dg-titulo">
+                                Novo usuário?
+                                <p>
+                                    Seus dados serão cadastrados em um servidor seguro com total segurança.
+                                </p>
+                            </div>
+                            <div class="dg-titulo dg-style-cookie">
+                                Ainda não tem conta?
+                                <p>
+                                    Seus dados serão cadastrados em um servidor seguro com total segurança. 
+                                </p>
+                            </div>
+                            <div class="dg-header-minhaconta-modal-conteudo">
+                                <div>
+                                    <input required validar type="tel" id="VeryCPF" mascara="cpf">
+                                    <label for="VeryCPF">Digite seu CPF:</label>
+                                </div>
+                            </div>
+
+                            <div class="dg-header-minhaconta-modal-footer">
+                                <a href="javascript:void(0)" class="dg-header-minhaconta-modal-footer-google-btn" onclick="Cliente.EfetuarLoginGoogle()" >
+                                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/header/google.png" alt="Google Logo">
+                                </a>
+                                <a href="javascript:void(0)" onclick="Cliente.EfetuarLoginFaceBook()" class="dg-header-minhaconta-modal-footer-fb-btn">
+                                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/header/facebook.png" alt="facebook Logo">
+                                </a>
+                                <button type="submit" class="dg-header-minhaconta-modal-footer-btn dg-header-minhaconta-modal-cadastrar-footer-btn">
+                                    Cadastrar-se
+                                </button>
+                                
+                                <a href="@Html.Domain()/cadastro" class="dg-header-minhaconta-modal-footer-btn dg-header-minhaconta-modal-cadastrar-footer-btn dg-style-cookie">
+                                    Me cadastrar agora
+                                </a>
+
+                                @* <a href="javascript:void(0)" class="dg-header-minhaconta-modal-footer-voltar-btn">
+                                    Voltar
+                                </a> *@
+                            </div>
+                        </form>
+                        <div>
+                            <form class="dg-header-minhaconta-modal-login jsHeaderMinhacontaModalLogin" id="modalLogin" onsubmit="return false;" autocomplete="off">
+                                <div class="dg-titulo">
+                                    Fazer Login
+                                    <p>
+                                        Efetue o login para comprar e ter acesso aos detalhes do seu pedido.
+                                    </p>
+                                </div>
+                                <div class="dg-titulo dg-style-cookie">
+                                    Olá, novamente!
+                                    <p>
+                                       Efetue o login para comprar e ter acesso aos detalhes do seu pedido.
+                                    </p>
+                                </div>
+                                <div class="dg-header-minhaconta-modal-conteudo">
+                                    <div id="campoUsuarioLogin">
+                                        <input required type="text" mascara="lowercase" id="LoginUsuario" name="LoginUsuario">
+                                        <label for="LoginUsuario">Digite seu e-mail ou CPF:</label>
+                                    </div>
+
+                                    <div id="campoSenhaLogin">
+                                        <input required type="password" id="LoginSenha" name="LoginSenha">
+                                        <label for="LoginSenha">Digite sua Senha</label>
+                                    </div>
+                                </div>
+
+                                <div class="dg-header-minhaconta-modal-footer">
+                    
+
+                                     <div class="dg-header-minhaconta-modal-topo dg-header-minhaconta-modal-esqueci-url">
+                                        <a href="javascript:void(0)">
+                                            <svg xmlns="https://www.w3.org/2000/svg" width="10.356" height="12.083" viewBox="0 0 10.356 12.083">
+                                                <path id="locked" d="M5.1,14.333h9.148a.6.6,0,0,0,.6-.6V8.022a.6.6,0,0,0-.6-.593H13.67V6.595a4.757,4.757,0,0,0-1.149-3.112A3.921,3.921,0,0,0,9.681,2.25h0a3.931,3.931,0,0,0-2.84,1.23A4.745,4.745,0,0,0,5.687,6.592v.836H5.1a.6.6,0,0,0-.6.593v5.715A.6.6,0,0,0,5.1,14.333ZM7.116,6.595a3.376,3.376,0,0,1,.758-2.166V4.421a2.5,2.5,0,0,1,1.8-.8h.005a2.5,2.5,0,0,1,1.8.8v.005l0,0a3.362,3.362,0,0,1,.758,2.166v.834H7.116Z" transform="translate(-4.5 -2.25)" fill="#fc3141"/>
+                                            </svg>
+                                            <span class="dg-txt">
+                                                Esqueceu
+                                                <strong>sua senha?</strong>
+                                            </span>
+                                        </a>
+                                    </div>
+                                     
+                                     <div class="dg-header-minhaconta-modal-topo dg-header-minhaconta-modal-esqueci-url dg-style-cookie">
+                                        <a href="javascript:void(0)">
+                                            <svg xmlns="https://www.w3.org/2000/svg" width="10.356" height="12.083" viewBox="0 0 10.356 12.083">
+                                                <path id="locked" d="M5.1,14.333h9.148a.6.6,0,0,0,.6-.6V8.022a.6.6,0,0,0-.6-.593H13.67V6.595a4.757,4.757,0,0,0-1.149-3.112A3.921,3.921,0,0,0,9.681,2.25h0a3.931,3.931,0,0,0-2.84,1.23A4.745,4.745,0,0,0,5.687,6.592v.836H5.1a.6.6,0,0,0-.6.593v5.715A.6.6,0,0,0,5.1,14.333ZM7.116,6.595a3.376,3.376,0,0,1,.758-2.166V4.421a2.5,2.5,0,0,1,1.8-.8h.005a2.5,2.5,0,0,1,1.8.8v.005l0,0a3.362,3.362,0,0,1,.758,2.166v.834H7.116Z" transform="translate(-4.5 -2.25)" fill="#fc3141"/>
+                                            </svg>
+                                            <span class="dg-txt">
+                                                Esqueceu sua senha?
+                                                <strong>Clique aqui para redefinir!</strong>
+                                            </span>
+                                        </a>
+                                    </div>
+
+                                    <button type="submit" class="dg-header-minhaconta-modal-footer-btn btn-login-modal">
+                                        Entrar
+                                    </button>
+
+                                    <button type="submit" class="dg-header-minhaconta-modal-footer-btn btn-login-modal-senha" style="display:none">
+                                        Entrar
+                                    </button>
+                                    <div class="dg-header-minhaconta-modal-footer-social">
+                                        @* <a href="javascript:void(0)" class="dg-header-minhaconta-modal-footer-google-btn" onclick="Cliente.EfetuarLoginGoogle()" >
+                                            <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/header/google.png" alt="Google Logo">
+                                        </a>
+
+                                        <a href="javascript:void(0)" onclick="Cliente.EfetuarLoginFaceBook()" class="dg-header-minhaconta-modal-footer-fb-btn">
+                                            <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/header/facebook.png" alt="facebook Logo">
+                                        </a> *@
+                                    </div>
+                                </div>
+                                @* <a href="javascript:void(0)" class="dg-header-minhaconta-modal-criarconta-btn jsMobileAbrirCriarConta dg-desktop-hide">
+                                    <span class="dg-icon dg-icon-user"></span>
+                                    <span class="dg-txt">
+                                        Não é cliente?
+                                        <strong>Crie sua conta!</strong>
+                                    </span>
+                                </a> *@
+                            </form>
+                            <form class="dg-header-minhaconta-modal-esquecisenha jsHeaderMinhacontaModalEsqueciSenha" onsubmit="return false;" name="form-senha" id="form-senha" autocomplete="off">
+                                <div class="dg-form-senha-step dg-step-ativo" data-form-senha-step="1">
+                                    <div class="dg-titulo">
+                                        Esqueceu sua senha?
+                                        <p>
+                                            Preencha seu e-mail ou CPF abaixo para receber uma solicitação de mudança.
+                                        </p>
+                                    </div>
+                                    <div class="dg-titulo dg-style-cookie">
+                                        Esqueceu sua senha?
+                                        <p>
+                                            Preencha seu e-mail ou CPF abaixo para receber uma solicitação de mudança.
+                                        </p>
+                                    </div>
+                                    <div class="dg-header-minhaconta-modal-conteudo">
+                                        <div>
+                                            <input id="EsqueciSenhaEmail" required validar type="text" mascara="lowercase">
+                                            <label for="EsqueciSenhaEmail">Informe seu e-mail ou CPF:</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="dg-header-minhaconta-modal-footer">
+                                        <button type="submit" class="dg-header-minhaconta-modal-footer-btn dg-header-minhaconta-modal-footer-esqueci-btn">
+                                            Prosseguir
+                                        </button>
+
+                                        <a href="javascript:void(0)" class="dg-header-minhaconta-modal-footer-voltar-btn">
+                                            Voltar ao login
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="dg-form-senha-step" data-form-senha-step="2"></div>
+                                <div class="dg-form-senha-step" data-form-senha-step="3"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {/if}
+                <div class="dg-header-minhaconta-modal-overlay dg-mobile-hide"></div>
+            </script>
+            <script id="templateEsqueciSenhaResultado" type="text/x-jquery-tmpl">
+                {if Data.tipo == "1"}
+                <div class="dg-form-senha-email" style="text-align:center">
+                    <div class="dg-titulo">
+                        <div class="dg-icon dg-icon-avise-me" style="font-size: 40px;color: #f03443;"></div>
+                        Agora, crie sua nova senha
+                        <p>
+                            Para isso, siga o link que enviamos para <b>${Data.EMail}</b>.<br>
+                            Se não encontrar, verifique a caixa de spam.
+                        </p>
+                    </div>
+                    <div class="dg-header-minhaconta-modal-conteudo">
+                        <button type="button" class="jsVoltarParaLoginSenha dg-header-minhaconta-modal-footer-voltar-style">Voltar para o login</button>
+                        <div style="text-align:center">
+                            <button type="button" class="jsReenviarEmail dg-header-minhaconta-modal-footer-reenviar">Reenviar e-mail <span class="jsReenviarEmailTimer"></span></button>
+                        </div>
+                    </div>
+                </div>
+                {elseif Data.tipo == "2"}
+                <div class="dg-form-senha-celular" style="text-align:center">
+                    <div class="dg-titulo">
+                        Insira o código de verificação
+                        <p>
+                            Um código de 6 digitos foi enviado por SMS
+                        </p>
+                        <div class="dg-input-wrapper">
+                            <input type="text" maxlength="1" class="jsCodigoSmsInputEsqueciSenha" name="smsCodigo[]" />
+                            <input type="text" maxlength="1" class="jsCodigoSmsInputEsqueciSenha" name="smsCodigo[]" />
+                            <input type="text" maxlength="1" class="jsCodigoSmsInputEsqueciSenha" name="smsCodigo[]" />
+                            <input type="text" maxlength="1" class="jsCodigoSmsInputEsqueciSenha" name="smsCodigo[]" />
+                            <input type="text" maxlength="1" class="jsCodigoSmsInputEsqueciSenha" name="smsCodigo[]" />
+                            <input type="text" maxlength="1" class="jsCodigoSmsInputEsqueciSenha" name="smsCodigo[]" />
+                        </div>
+                        <div class="dg-wrapper-btns">
+                            <button type="button" class="jsVoltarParaLoginSenha dg-header-minhaconta-modal-footer-voltar-style">Voltar para o login</button>
+                            <button type="submit" class="dg-header-minhaconta-modal-footer-btn">Continuar</button>
+                        </div>
+                        <div style="text-align:center">
+                            <button type="button" class="jsReenviarCodigo dg-header-minhaconta-modal-footer-reenviar">Reenviar código <span class="jsReenviarCodigoTimer"></span></button>
+                        </div>
+                    </div>
+                </div>
+                {elseif Data.tipo == "3"}
+                <div class="dg-form-senha-suporte dg-header-minhaconta-modal-conteudo">
+                    <p style="max-width:340px;text-align:center;margin: 0 auto;">
+                        <span class="dg-icon dg-icon-televendas" style="display:block;font-size: 40px;color: #f03443;"></span>
+                        <span style="font-weight: 600;">Entre em contato com o nosso SAC para a validação de seu cadastro e atualização de suas informações:</span>
+                        <br><br>
+                        SAC: ${Data.NumeroSac} ou<br>
+                        <a style="color:#333333" href="mailto:sac@drogarianovaesperanca.com.br">
+                            <u>sac@drogarianovaesperanca.com.br</u>
+                        </a><br><br>
+                        Segunda a Sexta, das 8h às 18h<br>
+                        Sábado das 8h às 12h
+                    </p>
+                    <button type="button" class="jsVoltarParaLoginSenha dg-header-minhaconta-modal-footer-voltar-style">Voltar para o login</button>
+                </div>
+                {/if}
+            </script>
+            <script id="templateEsqueciSenha2" type="text/x-jquery-tmpl">
+                <div class="dg-titulo">
+                    Criar nova senha
+                    <p>Para continuar escolha</p>
+                </div>
+                <div class="dg-header-minhaconta-modal-conteudo">
+                    <label>
+                        <input type="radio" name="escolhaAlteracaoSenha" value="1" />
+                        <div>
+                            <p>
+                                <b>Receber por e-mail</b>
+                                <br>${Data.EMail}
+                            </p>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="escolhaAlteracaoSenha" value="2" />
+                        <div>
+                            <p>
+                                <b>Receber por código SMS</b>
+                                <br>${Data.TelCel}
+                            </p>
+                        </div>
+                    </label>
+                    <label>
+                        <input type="radio" name="escolhaAlteracaoSenha" value="3" />
+                        <div>
+                            <p>
+                                <b>Entrar em contato com o suporte técnico.</b>
+                            </p>
+                        </div>
+                    </label>
+                    <div class="dg-header-minhaconta-modal-footer">
+                        <button type="button" class="jsVoltaStep1Senha dg-header-minhaconta-modal-footer-voltar-style">Voltar</button>
+                        <button type="submit" class="dg-header-minhaconta-modal-footer-btn dg-header-minhaconta-modal-footer-esqueci-btn">Continuar</button>
+                    </div>
+                </div>
+            </script>
+            <div class="templateLogadoLogadoCont"></div>
+            <div class="dg-header-favoritos">
+                <a href="@Html.Domain()/meus-favoritos/" aria-label="Meus favoritos" class="dg-tooltip-hover dg-add-loading">
+                    <span class="dg-icon dg-icon-favorito"></span>
+                    <span class="dg-tooltip">Meus favoritos</span>
+                </a>
+            </div>
+
+            <a class="dg-header-m-abrirbusca" href="javascript:void(0)" aria-label="Abrir busca de Produtos">
+                <span class="dg-icon dg-icon-search"></span>
+            </a>
+
+
+            <div class="dg-header-carrinho">
+                <a href="@Html.Domain()/checkout/" class="titlecountcart" aria-label="Ir para o carrinho" dataformat="Ir para o carrinho ({0} itens)" title="Ir para o carrinho">
+                    <span class="dg-icon dg-icon-cart"></span>
+                    <div class="dg-header-carrinho-numero ContadorItensCart"></div>
+                </a>
+                <div class="dg-counter-carrinho">+ 1</div>
+
+                <!-- Minicarrinho -->
+                <div class="dg-minicarrinho">
+                    <div class="dg-titulo">
+                        Produtos incluídos <strong>no carrinho</strong>
+                    </div>
+
+                    <ul class="dg-minicarrinho-lista dg-minicarrinho-sidebar ReultCarrinhoItens">
+                    </ul>
+
+                    <div class="dg-minicarrinho-footer">
+                        <div class="dg-minicarrinho-total ResultGetTotalizerCart">
+                        </div>
+
+                        <div class="dg-minicarrinho-finalizar">
+                            <a href="@Html.Domain()/checkout/" class="dg-minicarrinho-btn">
+                                Finalizar compra
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dg-minicarrinho-overlay"></div>
+                <!-- /Minicarrinho -->
+
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <!-- /Itens principais do header -->
+    <!-- Menu Principal -->
+    <div class="container">
+        <div class="dg-relative">
+            <nav class="dg-header-menu">
+                <ul role="menubar" aria-label="Menu de Produtos">
+                    <li class="dg-header-menu-vertodas">
+                        <a href="javascript:void(0)" role="menuitem" menuaba="Principal">
+                            <span class="dg-icon-vertodas">
+                                <span class="dg-icon-vertodas-1"></span>
+                                <span class="dg-icon-vertodas-2"></span>
+                                <span class="dg-icon-vertodas-3"></span>
+                            </span>
+                            Ver todas
+                        </a>
+                    </li>
+
+                    <li menulocal="Medicamentos">
+                        <a href="@Html.Domain()/medicamentos/" role="menuitem" menuaba="Medicamentos">
+                            <span class="dg-icon-img dg-icon-img-medicamentos" role="presentation">
+                                <img src="@Html.Domain()/assets/img/header/icones/medicamentos.png" class="dg-icon-img-img" alt="Categoria: medicamentos" loading="lazy">
+                                <img src="@Html.Domain()/assets/img/header/icones/medicamentos-hover.png" class="dg-icon-img-hover" alt="Categoria: medicamentos hover" loading="lazy">
+                            </span>
+                            Medicamentos
+                        </a>
+                    </li>
+
+                    <li menulocal="Dermocosméticos">
+                        <a href="@Html.Domain()/dermocosmeticos/" role="menuitem" menuaba="Dermocosméticos">
+                            <span class="dg-icon-img dg-icon-img-dermocosmeticos" role="presentation">
+                                <img src="@Html.Domain()/assets/img/header/icones/dermocosmeticos.png" class="dg-icon-img-img" alt="Categoria: dermocosmeticos" loading="lazy">
+                                <img src="@Html.Domain()/assets/img/header/icones/dermocosmeticos-hover.png" class="dg-icon-img-hover" alt="Categoria: dermocosmeticos hover" loading="lazy">
+                            </span>
+                            Dermocosméticos
+                        </a>
+                    </li>
+
+                    <li menulocal="Perfumaria">
+                        <a href="@Html.Domain()/perfumaria/" role="menuitem" menuaba="Perfumaria">
+                            <span class="dg-icon-img dg-icon-img-perfumaria" role="presentation">
+                                <img src="@Html.Domain()/assets/img/header/icones/perfumaria.png" class="dg-icon-img-img" alt="Categoria: perfumaria" loading="lazy">
+                                <img src="@Html.Domain()/assets/img/header/icones/perfumaria-hover.png" class="dg-icon-img-hover" alt="Categoria: perfumaria hover" loading="lazy">
+                            </span>
+                            Perfumaria
+                        </a>
+                    </li>
+
+                    <li menulocal="Nutrição">
+                        <a href="@Html.Domain()/nutricao/" role="menuitem" menuaba="Nutrição">
+                            <span class="dg-icon-img dg-icon-img-nutricao" role="presentation">
+                                <img src="@Html.Domain()/assets/img/header/icones/nutricao.png" class="dg-icon-img-img" alt="Categoria: nutricao" loading="lazy">
+                                <img src="@Html.Domain()/assets/img/header/icones/nutricao-hover.png" class="dg-icon-img-hover" alt="Categoria: nutricao hover" loading="lazy">
+                            </span>
+                            Nutrição
+                        </a>
+                    </li>
+
+            
+
+                    <li menulocal="Genéricos">
+                        <a href="@Html.Domain()/genericos/" role="menuitem" class="dg-add-loading">
+                            <span class="dg-icon-img dg-icon-img-genericos" role="presentation">
+                                <img src="@Html.Domain()/assets/img/header/icones/genericos.png" class="dg-icon-img-img" alt="Categoria: genericos" loading="lazy">
+                                <img src="@Html.Domain()/assets/img/header/icones/genericos-hover.png" class="dg-icon-img-hover" alt="Categoria: genericos hover" loading="lazy">
+                            </span>
+                            Genéricos
+                        </a>
+                    </li>
+
+                    <li class="dg-header-menu-promocoes" menulocal="Promoções">
+                        <a href="@Html.Domain()/promocao/"  class="dg-add-loading">
+                            <span class="dg-icon-img dg-icon-img-promocoes" role="presentation">
+                                <img src="@Html.Domain()/assets/img/header/icones/promocoes.png" class="dg-icon-img-img" alt="Categoria: promocoes" loading="lazy">
+                                <img src="@Html.Domain()/assets/img/header/icones/promocoes-hover.png" class="dg-icon-img-hover" alt="Categoria: promocoes hover" loading="lazy">
+                            </span>
+                            Promoções
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+        </div>
+    </div>
+
+    <!-- /Menu Principal -->
+</header>
+
+@if (OHeader.BannerMensagemTopo.IsAtivo)
+{
+    <div class="dg-header-fix dg-bannerMensagemTopo"></div>
+} else {
+
+    <div class="dg-header-fix"></div>
+}
+
+<!-- ####  Fim do header  ####-->
+<!-- #### MENU ABERTO ####-->
+
+<nav class="dg-menuA">
+    <div class="container">
+
+        <ul>
+            <li class="dg-header-menu-login">
+                <div class="templateLogadoLogadoCont"></div>
+            </li>
+            <li>
+                <div class="dg-titulo">
+                    Categorias
+                </div>
+            </li>
+
+
+
+            @foreach (var categoria in OHeader.MenuCategorias)
+            {
+                <li>
+                    <a href="@Html.Domain()/@categoria.URLCategoria/" menuaba="@Html.Raw(categoria.Categoria)">
+                        @* <span class="dg-icon dg-icon-@categoria.URL"></span> *@
+                        <span class="dg-icon-img dg-icon-img-@categoria.URL" role="presentation">
+                            <img src="@Html.Domain()/assets/img/lazy.png" class="dg-icon-img-img" data-src-menu-icon="@categoria.URL" alt="Categoria: @categoria.URL" loading="lazy">
+                            <img src="@Html.Domain()/assets/img/lazy.png" class="dg-icon-img-hover" data-src-menu-icon="@categoria.URL-hover" alt="Categoria: @categoria.URL hover" loading="lazy">
+                        </span>
+                        @Html.Raw(categoria.Categoria)
+                       
+                    </a>
+
+                    <!-- submenu -->
+
+                    @{
+                        var classeExpandido = "";
+                        if (categoria.ID_Categoria == 1) {
+                            classeExpandido = "dg-categoria-grande dg-categoria-grande--1";
+                        }
+
+                        if (categoria.ID_Categoria == 2) {
+                            classeExpandido = "dg-categoria-grande dg-categoria-grande--2";
+                        }
+
+                        if (categoria.ID_Categoria == 12) {
+                            classeExpandido = "dg-categoria-grande dg-categoria-grande--3";
+                        }
+                    }
+
+                    <div class="dg-menuA-submenu @classeExpandido">
+                        <div class="dg-titulo" style="font-weight:bold">
+                            <a href="@Html.Domain()/@categoria.URLCategoria/">
+                                <div class="dg-tooltip-hover">
+                                    <div class="dg-tooltip dg-mobile-hide">Categoria: @Html.Raw(categoria.Categoria)</div>
+                                    <img src="@Html.Domain()/assets/img/lazy.png" class="dg-icon-img-hover" data-src-menu-icon="@categoria.URL-hover" alt="Categoria: @categoria.URL hover" loading="lazy">
+                                </div>
+                                @Html.Raw(categoria.Categoria)
+                            </a>
+                        </div>
+
+                        <div class="dg-menuA-submenu-destaques-box">
+
+                            <ul class="dg-menuA-submenu-destaques">
+
+                                @if (categoria.DestaquesN1.Count() > 0)
+                                {
+                                    foreach (var destaque in categoria.DestaquesN1)
+                                    {
+                                        <li>
+                                            <a href="@Html.Domain()/@categoria.URLCategoria/@destaque.LinkSubCategoria/">
+                                                <div class="dg-tooltip-hover">
+                                                    <div class="dg-tooltip dg-mobile-hide">Subcategoria: @destaque.SubCategoria</div>
+                                                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-menu="https://static.drogarianovaesperanca.com.br/marcas/@destaque.IconeSubCategoria" alt="Subcategoria: @destaque.SubCategoria" loading="lazy">
+                                                </div>
+                                                <span>
+                                                    <strong>
+                                                        @destaque.SubCategoria
+                                                    </strong>
+                                                    <span class="dg-mobile-hide">@destaque.TitleMenu</span>
+                                                </span>
+                                            </a>
+                                        </li>
+                                    }
+                                }
+
+                            </ul>
+
+                            @if (categoria.Itens.Count() > 0)
+                            {
+
+                                <ul class="dg-menuA-submenu-itens">
+
+                                    @foreach (var subCategoria in categoria.Itens)
+                                    {
+                                        <li>
+                                            <a href="@Html.Domain()/@subCategoria.URLSubCategoria/">@subCategoria.SubCategoria</a>
+                                        </li>
+                                    }
+                                    @* <li class="dg-menuA-submenu-item-ultimo"><a href="@Html.Domain()/@categoria.URLCategoria/">Ver Todas</a></li> *@
+                                </ul>
+                            }
+
+
+                        </div>
+
+                        @if (categoria.ID_Categoria != 1 && categoria.ID_Categoria != 2 && categoria.ID_Categoria != 12) {
+                            <a href="@categoria.BannerMenu.URLBanner" class="dg-menuA-submenu-banner dg-tooltip-hover">
+                                <img src="@Html.Domain()/assets/img/lazy.png" data-src-menu="https://static.drogarianovaesperanca.com.br/banners/dne/@categoria.BannerMenu.Imagem" alt="@categoria.BannerMenu.Alt" loading="lazy">
+                                <div class="dg-tooltip">@categoria.BannerMenu.Alt</div>
+                            </a>
+                        }
+                        
+                        <!--Mascote-->
+                        <div class="dg-menuA-submenu-mascote dg-tooltip-hover">
+                            <img src="@Html.Domain()/assets/img/lazy.png" data-src-menu="https://static.drogarianovaesperanca.com.br/marcas/@categoria.IconeMascote" alt="@categoria.IconeMascote_Alt" loading="lazy">
+                            <div class="dg-tooltip">@categoria.IconeMascote_Alt</div>
+                        </div>
+                        <!--Mascote-->
+                </div>
+
+                    <!-- submenu -->
+
+
+
+
+
+            </li>
+            }
+
+            
+            <li>
+                <a href="@Html.Domain()/promocao/" menuaba="Promoções" class="jsIgnoreJs dg-add-loading">
+                    <span class="dg-icon-img dg-icon-img-promocoes" role="presentation">
+                        <img src="@Html.Domain()/assets/img/lazy.png" class="dg-icon-img-img" data-src-menu-icon="promocoes" alt="icone promocoes" loading="lazy">
+                        <img src="@Html.Domain()/assets/img/lazy.png" class="dg-icon-img-hover" data-src-menu-icon="promocoes-hover" alt="icone promocoes hover" loading="lazy">
+                    </span>
+                    Promoções
+                </a>
+            </li>
+
+            <li class="dg-desktop-hide">
+                <a href="@Html.Domain()/genericos/" class="jsIgnoreJs dg-add-loading">
+                    <span class="dg-icon-img dg-icon-promocoes"  role="presentation">
+                        <img src="@Html.Domain()/assets/img/lazy.png" class="dg-icon-img-img" data-src-menu-icon="genericos" alt="icone genericos" loading="lazy">
+                        <img src="@Html.Domain()/assets/img/lazy.png" class="dg-icon-img-hover" data-src-menu-icon="genericos-hover" alt="icone genericos hover" loading="lazy">
+                    </span>
+                    Genéricos
+                </a>
+            </li>
+            <li class="dg-desktop-hide dg-header-favoritos-link">
+                <a href="@Html.Domain()/meus-favoritos/" class="jsIgnoreJs dg-add-loading">
+                <span class="dg-icon dg-icon-favorito dg-icon-img"></span>Favoritos</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="dg-menuA-overlay"></div>
+</nav>
+
+
+
+<!-- #### /MENU ABERTO ####-->
+
+
+<input type="hidden" id="ID_SubProduto-Aviso" value="" />
+
+
+<script id="templateCarrinhoItens" type="text/x-jquery-tmpl">
+
+    {for RowCartItem in Carrinho.ItensCart}
+    <li class="dg-minicarrinho-item">
+        <span class="dg-minicarrinho-item-img"><img src="@Html.Domain()/imagens/51x51/${RowCartItem.Foto}" alt="${RowCartItem.NomeProduto}"></span>
+
+        <span class="dg-minicarrinho-item-produto">
+            ${RowCartItem.NomeProduto} ${RowCartItem.ComplementoBrindes}
+        </span>
+        <span class="dg-minicarrinho-item-qtd">
+            <div class="dg-minicarrinho-item-qtd">
+                <input type="number" value="${RowCartItem.Qtd}" class="dg-minicarrinho-item-qtd-input" id="Qtd_${RowCartItem.ID_SubProduto}" name="Qtd_${RowCartItem.ID_SubProduto}" ID_SubProduto="${RowCartItem.ID_SubProduto}" onKeyPress="if(this.value.length==4) return false;" onkeydown="InputItemCart(this, event);">
+                <a href="javascript:void(0)" onclick="SetCarrinhoDelay(this, 'Menos')" class="dg-minicarrinho-item-qtd-menos" ID_SubProduto="${RowCartItem.ID_SubProduto}">-</a>
+                <a href="javascript:void(0)" onclick="SetCarrinhoDelay(this, 'Mais')" class="dg-minicarrinho-item-qtd-mais" ID_SubProduto="${RowCartItem.ID_SubProduto}">+</a>
+            </div>
+        </span>
+        {var ValorView = RowCartItem.ValorUnitario}
+        {if RowCartItem.ValorComDescontoUnitario > 0 && RowCartItem.ValorUnitario > RowCartItem.ValorComDescontoUnitario}
+            {var ValorView = RowCartItem.ValorComDescontoUnitario}
+        {/if}
+        <span class="dg-minicarrinho-item-total">R$${ValorView.FormatCurrency()}</span>
+        <a href="javascript:void(0)" 
+         nome="${RowCartItem.NomeProduto}" 
+        preco="${RowCartItem.ValorUnitario}" 
+        categoria="${RowCartItem.Categoria}"
+        marca="${RowCartItem.Marca}"
+        onclick="SetCarrinho(this, 'Remove')" class="dg-minicarrinho-item-apagar dg-tooltip-hover" aria-label="apagar produto" ID_SubProduto="${RowCartItem.ID_SubProduto}"><span class="dg-icon dg-icon-lixo"></span> <span class="dg-tooltip">Apagar produto</span></a>
+    </li>
+    {forelse}
+    <li class="dg-checkout-main-carrinho-item">
+        <p class="dg-minicarrinho-vazio">Você ainda não adicionou nenhum produto.</p>
+    </li>
+    {/for}
+
+</script>
+
+<script id="templateGetTotalizerCart" type="text/x-jquery-tmpl">
+    Total da compra
+    <strong>
+        R$${ValorTotalCarrinho.FormatCurrency()}
+    </strong>
+
+</script>
+
+
+
+<script id="template-AutoCompleteBuscaProdutoDestaque" type="text/x-jquery-tmpl">
+
+    <div class="dg-boxbuscaproduto jsBoxproduto {if Produto.Estoque < 1 && Produto.Controlado == false}dg-isIndisponivel{/if}" rel="${Produto.URLProduto}" data-slick-index="1" aria-hidden="false" tabindex="0" id_subproduto="${Produto.ID_SubProduto}" nome="${Produto.Produto}" marca="${Produto.Marca}" categoria="${Produto.Categoria}" preco="${Produto.Valor}">
+        <a class="dg-boxbuscaproduto-img" href="${Produto.URLProduto}" alt="${Produto.Produto}" tabindex="0">
+            <img src="@Html.Domain()/imagens/200x200/${Produto.Foto}" id="ImagemProd_${Produto.ID_SubProduto}" alt="${Produto.Produto}" title="${Produto.Produto}" loading="lazy" style="opacity: 1;">
+            {if Produto.Estoque < 1 && Produto.Controlado == false}
+                <div class="dg-boxproduto-desconto dg-boxproduto-desconto--indisponivel">Esgotado</div>
+            {/if}
+        </a>
+
+
+        <div class="dg-boxbuscaproduto-main">
+            <div class="dg-boxbuscaproduto-titulo">
+                <a href="${Produto.URLProduto}" title="${Produto.Produto}" alt="${Produto.Produto}" idimpression="${Produto.ID_SubProduto}" lista="lista Busca" nome="${Produto.Produto}" link="@Html.Domain()/${Produto.URLProduto}" tabindex="0">${Produto.Produto}  ${Produto.CplTraduzido} ${Produto.ComplementoBrindes}</a>
+            </div>
+        </div>
+
+        <div class="dg-boxbuscaproduto-preco" boxprodutovalor="${Produto.URLProduto}">
+            <span class="dg-boxbuscaproduto-preco-por">R$ ${String(Produto.Valor.toFixed(2)).replace(".", ",")}</span>
+            <div class="dg-boxbuscaproduto-parcelas">
+                ${Produto.QTDParcelas}x <span class="dg-small">de</span> R$ ${String(Produto.TotalParcela.toFixed(2)).replace(".", ",")}
+                @* <a href="javascript:void(0)" class="dg-broxproduto-parcelas-icone dg-tooltip-hover" aria-label="Valor em ${Produto.QTDParcelas}x sem juros para compras com parcela mínima de R$50,00. Consulte os juros aplicados em sua compra na escolha da forma de pagamento.">
+                    <span class="dg-icon" role="presentation">i</span>
+                    <span class="dg-tooltip">
+                        Valor em 3x sem juros para compras com <b>parcela mínima de R$ 50,00</b>. <span>
+                            *Consulte os juros
+                            aplicados em sua compra na escolha da forma de pagamento.
+                        </span>
+                    </span>
+                </a> *@
+            </div>
+        </div>
+
+
+        {if Produto.Controlado == true || Produto.VendaRestrita == true }
+        <a  href="${Produto.URLProduto}" class="dg-boxbuscaproduto-btn-controlado" rel="${Produto.ID_SubProduto}.ToString()">Saiba Mais</a>
+        {elseif Produto.Estoque < 1}
+         <div class="dg-boxproduto-compra">
+            <a href="javascript:void(0)" class="dg-boxproduto-compra-btn jsModalAviseMe" aria-label="Avisar chegada de ${Produto.Produto}" rel="${Produto.ID_SubProduto}" tabindex="0">
+                <span class="dg-icon dg-icon-avise-me"></span>
+                Avise-me
+            </a>
+        </div>
+        {else}
+        <div class="dg-boxbuscaproduto-compra">
+            <div class="dg-boxbuscaproduto-qtd">
+                <input type="number" class="dg-boxbuscaproduto-qtd-input" name="" id="QTD_${Produto.ID_SubProduto}"
+                    value="1" multiplo="1" maxlength="2" tabindex="0" onKeyPress="if(this.value.length==4) return false;">
+                <a href="javascript:void(0)" class="dg-boxbuscaproduto-qtd-menos" rel="${Produto.ID_SubProduto}" tabindex="0">-</a>
+                <a href="javascript:void(0)" class="dg-boxbuscaproduto-qtd-mais" rel="${Produto.Estoque}" tabindex="0">+</a>
+            </div>
+            <a href="javascript:void(0)" class="dg-boxbuscaproduto-compra-btn BtComprarProduto" aria-label="Comprar ${Produto.Produto}" id_subproduto="${Produto.ID_SubProduto}" tabindex="0">
+                Comprar <span class="dg-icon dg-icon-cart"></span>
+            </a>
+        </div>
+
+        {/if}
+    </div>
+
+
+
+</script>
+
+<script id="template-AutoCompleteBuscaProdutos" type="text/x-jquery-tmpl">
+
+    {for produto in Produtos}
+
+        <li>
+            <a href="${produto.URLProduto}" class="dg-header-busca-auto-lista-item">
+                <figure class="dg-img">
+                    <img src="@Html.Domain()/imagens/200x200/${produto.Foto}" alt="${produto.Produto}">
+                </figure>
+                <div class="dg-conteudo">
+                    <div class="dg-subtitulo">
+                        ${produto.Marca}
+                    </div>
+
+                    <div class="dg-titulo">
+                       ${produto.Produto} ${produto.CplTraduzido} ${produto.ComplementoBrindes}
+                    </div>
+                    <p class="dg-preco">
+                        R$ ${String(produto.ValorComDesconto.toFixed(2)).replace(".", ",")}
+                    </p>
+                </div>
+
+
+            </a>
+        </li>
+    {/for}
+</script>

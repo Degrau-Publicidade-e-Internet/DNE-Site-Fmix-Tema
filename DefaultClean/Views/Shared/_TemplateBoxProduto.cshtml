@@ -1,0 +1,491 @@
+﻿@model DNE.Site.Models.ListaDeProdutosModel;
+
+@{
+    int loopProduto = 0;
+
+    var listaProdutosFavoritos = Model.ProdutosFavoritos;
+
+    string Dominio = Model.Dominio;
+
+    var ReplaceImpression = "Busca";
+
+    if (Model.ReplaceImpression != "")
+    {
+        ReplaceImpression = Model.ReplaceImpression;
+    }
+    bool isTemosTambem = ViewData["TemosTambem"] == null ? false : true;
+    bool isCompreTambemCheckout = ViewData["compretambemCheckout"] == null ? false : true;
+
+    var _menorValorCF = "";
+    var origemBloco = ViewData["boxProduto"] == null ? "" : ViewData["boxProduto"].ToString();
+
+    var fromSlider = ViewData["fromSlider"] == null ? false : true;
+
+    if (Model.ProdutosModalSimilares) {
+        fromSlider = true;
+    }
+}
+
+@foreach (var product in Model.SubProduto)
+{
+
+    int Iconesofertas = 0;
+    int Iconesvendidos = 0;
+    int BTnIndisponivel = 0;
+    string NomeSEOProduto = "";
+    string Produto = product.Produto;
+    int ID_SubProduto = product.ID_SubProduto;
+    string Categoria = product.Categoria.ToLower();
+    decimal Valor = (product.Valor);
+    decimal ValorSiteSP = product.Valor;
+    string isFavorito = product.IsFavorito == true ? "dg-boxproduto-favorito" : "";
+    string dataFavorito = product.IsFavorito == true ? $"fav-{product.ID_SubProduto}" : "";
+
+    if (listaProdutosFavoritos.Count() > 0)
+    {
+        if (listaProdutosFavoritos.Contains(product.ID_SubProduto))
+        {
+            isFavorito = "dg-boxproduto-favorito";
+            dataFavorito = $"fav-{product.ID_SubProduto}";
+        }
+    }
+
+    int QtdComp = 1;
+    int QtdMult = 1;
+    int MostraTagPromocao = 0;
+
+    var oGPM = product.oGPM;
+
+    if (oGPM != null)
+    {
+        if (oGPM.Compre > 0 && oGPM.Pague > 0) { MostraTagPromocao = 1; }
+    }
+
+    var oGPM2 = product.oGPM2;
+
+    int MostraTagPromocao2 = 0;
+
+    if (oGPM2 != null)
+    {
+        if (oGPM2.QtdDesc > 0 && product.Estoque >= oGPM2.QtdDesc)
+        {
+            MostraTagPromocao2 = 1;
+        }
+
+    }
+
+    var _saidaBoxProduto = product.SaidaBoxProduto != new DateTime() ? product.SaidaBoxProduto.ToString("dd/MM/yyyy hh:mm:ss") : "";
+
+    string sURL = "";
+
+    NomeSEOProduto = product.SEO_title;
+
+    loopProduto++;
+
+    if (Produto != null)
+    {
+        sURL = product.sURL;
+    }
+
+    string sUrlSemelhantes = product.sUrlSemelhantes;
+
+    string Imagem = product.Foto;
+    string ID_Imagem = "ImagemProd_" + ID_SubProduto;
+    string sALT = Produto;
+    string sTitle = Produto;
+
+    var LValorProduto = product.ValorProduto;
+
+    if (LValorProduto.IsSevenPDV || product.IsSeloProgramaSaudeEvolucao)
+    {
+        product.IsDescontoLaboratorio = true;
+    }
+
+    decimal ValorDe = 0.00m;
+    decimal ValorTotal = 0;
+    int IfDesconto = 1;
+
+    decimal ValorComDesconto = (LValorProduto.ValorDesconto);
+
+    if (LValorProduto.ValorDesconto >= LValorProduto.ValorReal || LValorProduto.ValorDesconto <= 0)
+    {
+        IfDesconto = 0;
+    }
+
+    ValorTotal = LValorProduto.ValorReal;
+    ValorDe = LValorProduto.ValorReal;
+    Valor = LValorProduto.ValorSite;
+
+    ValorSiteSP = LValorProduto.ValorSiteSP;
+
+    int Estoque = product.Estoque;
+
+    decimal ValorNovo = 0;
+    if (ValorDe > 0.00m && IfDesconto > 0) { ValorNovo = Convert.ToDecimal(ValorDe); }
+
+    int DescontoPorcentagem = 0;
+    string DescontoPorcentagemCor = "laranja";
+
+    if (ValorNovo > 0)
+    {
+        DescontoPorcentagem = (int)(((ValorNovo - Valor) / ValorNovo) * 100);
+    }
+
+    if (product.MenorValorCF == false)
+    {
+        if (DescontoPorcentagem > 25 && DescontoPorcentagem <= 50)
+        {
+            DescontoPorcentagemCor = "roxo";
+        }
+        else if (DescontoPorcentagem > 50)
+        {
+            DescontoPorcentagemCor = "verde";
+        }
+
+    }
+    else
+    {
+        _menorValorCF = "dg-menorValorCF";
+    }
+
+
+
+    int BTnComprar = 0;
+    int BtnControlado = 0;
+    string isIndisponivel = "";
+    string isControlado = "";
+
+    if (product.Controlado)
+    {
+        BtnControlado = 1;
+        isControlado = "dg-boxproduto--controlado";
+    }
+    else if (Estoque <= 0 || product.Indisponivel)
+    {
+        BTnIndisponivel = 1;
+        isIndisponivel = "dg-boxproduto--indisponivel";
+    }
+    else
+    {
+        BTnComprar = 1;
+    }
+
+    <!-- PRODUTO -->
+    @if (fromSlider) {
+        @Html.Raw("<div>")
+    }
+
+    <div class="dg-boxproduto jsBoxproduto @isFavorito @isIndisponivel @isControlado @_menorValorCF " rel="@sURL" data-fav="@dataFavorito" data-SaidaBoxProduto="@_saidaBoxProduto"
+         nome="@Produto"
+         categoria="@product.Categoria"
+         marca="@product.Fabricante.ToString()"
+         preco="@Valor.ToString("#,0.00")"
+         id_subproduto="@product.ID_SubProduto">
+
+        <!-- img -->
+        <a class="dg-boxproduto-img" href="@sURL" title="@Produto" idImpression="@product.ID_SubProduto" lista="lista @origemBloco @ReplaceImpression" nome="@Produto" link="@sURL" alt="@Produto">
+            <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Dominio/imagens/132x132/@Imagem" id="@ID_Imagem" alt="@sALT" title="@sALT" loading="lazy">
+        </a>
+
+        <!-- Dados -->
+        <div class="dg-boxproduto-main">
+
+            @if (!isTemosTambem)
+            {
+                <h3 class="dg-boxproduto-titulo jsTituloHover">
+                    <a href="@sURL" title="@Produto" alt="@Produto" idImpression="@product.ID_SubProduto" lista="lista @ReplaceImpression" nome="@Produto" link="@sURL">@Produto  @if (product.Generico) { @product.Fabricante } @product.ComplementoBrindes
+            </a>
+                </h3>
+
+            }
+            else
+            {
+                <h4 class="dg-boxproduto-titulo jsTituloHover">
+                    <a href="@sURL" title="@Produto" alt="@Produto" idImpression="@product.ID_SubProduto" lista="lista @ReplaceImpression" nome="@Produto" link="@sURL">@Produto @if (product.Generico) { @product.Fabricante } @product.ComplementoBrindes</a>
+                </h4>
+
+            }
+            <div class="dg-boxproduto-tooltip">@Produto @product.ComplementoBrindes</div>
+
+            <div class="dg-boxproduto-categoria">
+                @product.Fabricante
+            </div>
+
+        </div>
+
+        <!-- Preço -->
+        <div class="dg-boxproduto-preco" boxprodutovalor="@ValorTotal.ToString()">
+
+            @if (MostraTagPromocao2 == 1)
+            {
+                if (oGPM2.QtdDesc > 0)
+                {
+                    <span class="dg-boxproduto-preco-de dg-boxproduto-preco-unidade">1 UN. R$@oGPM2.ValorSite.ToString("#,0.00")</span>
+                    <span class="dg-boxproduto-preco-por dg-boxproduto-preco-unidade">
+                        <small>@oGPM2.QtdDesc UN.</small> R$@oGPM2.PorUnidade.ToString("#,0.00")&nbsp;<span style="font-size:11px">CADA</span>
+                    </span>
+                }
+                else
+                {
+                    <span class="dg-boxproduto-preco-por">R$@ValorTotal.ToString("#,0.00")</span>
+                }
+            }
+            else if (IfDesconto == 1)
+            {
+
+
+                <span class="dg-boxproduto-preco-de"><span>De: </span>R$@ValorDe.ToString("#,0.00")</span>
+                <span class="dg-boxproduto-preco-por">
+                    <span>Por: </span>R$@Valor.ToString("#,0.00")
+                    @if (isCompreTambemCheckout == true)
+                    {
+                        <span class="dg-boxproduto-desconto-checkout">-@DescontoPorcentagem%</span>
+                    }
+                </span>
+            }
+            else
+            {
+                <span class="dg-boxproduto-preco-por">R$@ValorTotal.ToString("#,0.00")</span>
+            }
+
+        </div>
+
+        @if (product.VendaRestrita)
+        {
+            <a href="@sURL" class="dg-boxproduto-btn-controlado" rel="@ID_SubProduto.ToString()">Saiba Mais</a>
+        }
+        else if (product.Importado)
+        {
+            <div class="dg-boxproduto-btn-importado" rel="@ID_SubProduto.ToString()">
+                Importado
+            </div>
+        }
+        else if (BTnIndisponivel == 1)
+        {
+            <div class="dg-boxproduto-compra">
+                <a href="javascript:void(0)" class="dg-boxproduto-qtd jsModalAviseMe" rel="@product.ID_SubProduto">
+                    Avise-me
+                </a>
+
+                <a href="javascript:void(0)" class="dg-boxproduto-compra-btn jsModalAviseMe" role="link" aria-label="Avisar chegada de @Produto @product.ComplementoBrindes" rel="@product.ID_SubProduto">
+                    <span class="dg-icon dg-icon-avise-me"></span>
+                </a>
+            </div>
+        }
+        else if (BtnControlado == 1)
+        {
+            <a href="@sURL" class="dg-boxproduto-btn-controlado" rel="@ID_SubProduto.ToString()">Saiba Mais</a>
+        }
+        else if (BTnComprar == 1)
+        {
+            <form class="dg-boxproduto-compra">
+                <div class="dg-boxproduto-qtd">
+                    <input type="number" class="dg-boxproduto-qtd-input" name="" id="QTD_@product.ID_SubProduto" value="@QtdComp" multiplo="@QtdMult" maxlength="2" onKeyPress="if(this.value.length==4) return false;">
+                    <a href="javascript:void(0)" class="dg-boxproduto-qtd-menos" rel="@product.ID_SubProduto">-</a>
+                    <a href="javascript:void(0)" class="dg-boxproduto-qtd-mais" rel="@product.ID_SubProduto">+</a>
+                </div>
+
+                <a href="javascript:void(0)" class="dg-boxproduto-compra-btn BtComprarProduto" role="link" aria-label="Comprar @Produto @product.ComplementoBrindes" ID_SubProduto="@product.ID_SubProduto">
+                    <span class="dg-icon dg-icon-cart"></span>
+                </a>
+            </form>
+        }
+
+        <!-- Informações flutuantes -->
+        <div class="dg-boxproduto-info">
+            @if ((MostraTagPromocao == 1 && BTnComprar == 1) || (MostraTagPromocao2 == 1 && BTnComprar == 1) || product.IsDescontoLaboratorio || BTnIndisponivel == 1)
+            {
+
+
+
+                <div class="dg-boxproduto-tags-mobile dg-hide">
+                    @if (MostraTagPromocao == 1 && BTnComprar == 1)
+                    {
+
+                        if (oGPM.Compre <= Estoque)
+                        {
+                            <a href="javascript:void(0)" atributo="@product.ID_SubProduto" compre="@oGPM.Compre" pague="@oGPM.Pague" class="dg-boxproduto-desconto dg-boxproduto-desconto-comprexpaguey">
+                                Compre <strong>@oGPM.Compre</strong> pague <strong>@oGPM.Pague</strong>
+                            </a>
+                        }
+                    }
+                    else if (MostraTagPromocao2 == 1 && BTnComprar == 1)
+                    {
+                        <div class="dg-boxproduto-desconto dg-azul-escuro dg-tooltip-hover" role="generic" aria-label="Leve + pague -">Leve + pague -</div>
+                    }
+                    else
+                    {
+                        @if (product.IsDescontoLaboratorio)
+                        {
+                            <div class="dg-produto-tag-wrapper dg-boxprodudto-desconto-lab">
+                                <div class="dg-boxproduto-desconto dg-azul-escuro dg-tooltip-hover" role="generic" aria-label="desconto de">Desc. do Laboratório</div>
+                            </div>
+                        }
+                    }
+
+                    @if (BTnIndisponivel == 1)
+                    {
+                        <div class="dg-boxproduto-desconto dg-boxproduto-desconto--indisponivel" rel="@ID_SubProduto.ToString()"><span>Esgotado</span></div>
+                    }
+
+                </div>
+            }
+
+            @if (product.MenorValorCF == true)
+            {
+                <div class="dg-evento-tag"></div>
+            }
+
+            @if ((MostraTagPromocao == 1 && BTnComprar == 1) || (MostraTagPromocao2 == 1 && BTnComprar == 1) || product.IsDescontoLaboratorio || (IfDesconto > 0 && DescontoPorcentagem > 5) || BTnIndisponivel == 1 || Iconesofertas == 1 || Iconesvendidos == 1 || product.Generico == true
+           || product.Refrigerado == true)
+            {
+
+
+
+                <div class="dg-boxproduto-tags">
+
+                    @if (MostraTagPromocao == 1 && BTnComprar == 1)
+                    {
+                        if (oGPM != null && oGPM.Compre <= Estoque)
+                        {
+                            <a href="javascript:void(0)" atributo="@product.ID_SubProduto" compre="@oGPM.Compre" pague="@oGPM.Pague" class="dg-boxproduto-desconto dg-boxproduto-desconto-comprexpaguey">
+                                Compre <strong>@oGPM.Compre</strong> pague <strong>@oGPM.Pague</strong>
+                            </a>
+                        }
+                    }
+                    else if (MostraTagPromocao2 == 1 && BTnComprar == 1)
+                    {
+                        <div class="dg-boxproduto-desconto dg-boxproduto-desconto-levepague dg-azul-escuro dg-tooltip-hover" role="generic" aria-label="Leve + pague -">Leve + pague -</div>
+                    }
+                    else
+                    {
+                        @if (product.IsDescontoLaboratorio)
+                        {
+                            <div class="dg-produto-tag-wrapper dg-boxprodudto-desconto-lab dg-boxproduto-desconto--porcentagem">
+                                <div class="dg-boxproduto-desconto dg-azul-escuro dg-tooltip-hover" role="generic" aria-label="desconto de">Desc. do Laboratório</div>
+                            </div>
+                        }
+                        @if (IfDesconto > 0 && DescontoPorcentagem > 5)
+                        {
+
+
+                            <!-- Desconto -->
+                            <div class="dg-boxproduto-desconto dg-boxproduto-desconto--porcentagem dg-@DescontoPorcentagemCor dg-tooltip-hover" role="generic" aria-label="desconto de">
+                                <span class="dg-icon dg-icon-arrow01-down"></span> @DescontoPorcentagem%
+                                <div class="dg-tooltip-left">
+                                    Desconto
+                                </div>
+                            </div>
+                        }
+                    }
+
+                    @if (BTnIndisponivel == 1)
+                    {
+                        <div class="dg-boxproduto-desconto dg-boxproduto-desconto--indisponivel dg-tooltip-hover" rel="@ID_SubProduto.ToString()">
+                            <span>Esgotado</span>
+                            <div class="dg-tooltip-left">
+                                Esgotado
+                            </div>
+                        </div>
+                    }
+
+                    <!-- Tags -->
+                    @if (Iconesofertas == 1)
+                    {
+                        <div class="dg-produto-tag-wrapper">
+                            <div class="dg-boxproduto-tag dg-boxproduto-tag-oferta dg-tooltip-hover" role="img" aria-label="Produto em oferta">
+                                <span class="dg-icon dg-icon-promo-do-dia"></span>
+                                <div class="dg-tooltip-bottom">
+                                    Oferta
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    @if (Iconesvendidos == 1)
+                    {
+                        <div class="dg-produto-tag-wrapper">
+                            <div class="dg-boxproduto-tag dg-boxproduto-tag-mais-vendidos dg-tooltip-hover" role="img" aria-label="Mais vendido">
+                                <span class="dg-icon dg-icon-mais-vendidos"></span>
+                                <div class="dg-tooltip-bottom">
+                                    Mais vendido
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    @if (product.Generico == true)
+                    {
+                        <div class="dg-produto-tag-wrapper">
+                            <div class="dg-boxproduto-tag dg-boxproduto-tag-generico dg-tooltip-hover" role="img" aria-label="Medicamento genérico">
+                                <span class="dg-icon dg-icon-generico"></span>
+                                <div class="dg-tooltip-bottom">
+                                    Genérico
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    @if (product.Refrigerado == true)
+                    {
+                        <div class="dg-produto-tag-wrapper">
+                            <div class="dg-boxproduto-tag dg-boxproduto-tag-refrigerado dg-tooltip-hover" role="img" aria-label="Produto refrigerado">
+                                <span class="dg-icon"><img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/home/refrigerado.png" alt="Produto refrigerado" width="22"></span>
+                                <div class="dg-tooltip-bottom">
+                                    Refrigerado
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                if (DescontoPorcentagem >= 5)
+                {
+
+
+                    <div class="dg-boxproduto-tags">
+                        <!-- Desconto -->
+                        <div class="dg-boxproduto-desconto dg-boxproduto-desconto--porcentagem dg-@DescontoPorcentagemCor dg-tooltip-hover" role="generic" aria-label="desconto de">
+                            <span class="dg-icon dg-icon-arrow01-down"></span> @DescontoPorcentagem%
+                            <div class="dg-tooltip-left">
+                                Desconto
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            <!-- Sub-ações -->
+            <div class="dg-boxproduto-subacoes">
+                <a href="javascript:void(0)" class="dg-boxproduto-favoritar dg-tooltip-hover" role="link" aria-label="Adicionar aos favoritos" data-ID_SubProduto="@product.ID_SubProduto">
+                    <span class="dg-icon dg-icon-favorito"></span>
+                    <div class="dg-tooltip-bottom">
+                        Favorito
+                    </div>
+                </a>
+
+                @* <a href="@sUrlSemelhantes" class="dg-boxproduto-familia dg-tooltip-hover" role="link" aria-label="Visualizar similares">
+                    <span class="dg-icon dg-icon-familia"></span>
+                    <div class="dg-tooltip-bottom">
+                        Visualizar semelhantes
+                    </div>
+                </a> *@
+
+            </div>
+        </div>
+        <script>
+            ga('ec:addImpression', {             // Provide product details in an impressionFieldObject.
+                'id': '@product.ID_SubProduto',                     // Product ID (string).
+                'name': '@Produto',                // Product name (string).
+                'category': '@product.Categoria.ToString()',       // Product category (string).
+                'brand': '@product.Fabricante.ToString()',            // Product brand (string).
+                'list': '@ReplaceImpression',   // Product list (string).
+                'position': parseInt(@loopProduto.ToString()),               // Product position (number).
+            });
+        </script>
+    </div>
+    @if (fromSlider) {
+        @Html.Raw("</div>")
+    }
+}
