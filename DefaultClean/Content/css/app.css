@@ -68,7 +68,11 @@ body {
   }
 }
 
-#home-pg .dg-produto-compre-tambem::before, #home-pg .dg-produto-compre-tambem::after, #home-pg main::before, #home-pg main::after, #produto-pg .dg-produto-compre-tambem::before, #produto-pg .dg-produto-compre-tambem::after, #produto-pg main::before, #produto-pg main::after {
+#home-pg .dg-produto-compre-tambem, #home-pg main, #produto-pg .dg-produto-compre-tambem, #produto-pg main {
+  display: block;
+}
+
+#home-pg .dg-produto-compre-tambem::after, #home-pg .dg-produto-compre-tambem::before, #home-pg main::after, #home-pg main::before, #produto-pg .dg-produto-compre-tambem::after, #produto-pg .dg-produto-compre-tambem::before, #produto-pg main::after, #produto-pg main::before {
   display: none;
 }
 
@@ -163,6 +167,8 @@ body {
 
 .dg-home-destaques-wrapper {
   padding-top: 0;
+  padding-bottom: 0;
+  min-height: 253px;
 }
 
 .dg-home-produtos-topo {
@@ -179,6 +185,14 @@ body {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
+  padding-left: 0;
+  font-size: 17px;
+}
+
+.dg-home-produtos-topo .dg-home-produtos-titulo > img {
+  display: inline-block;
+  margin-right: 20px;
+  vertical-align: -5px;
 }
 
 .dg-home-produtos-topo::after {
@@ -302,7 +316,7 @@ body {
 }
 
 .dg-boxproduto .dg-boxproduto-compra .dg-boxproduto-qtd {
-  top: 0;
+  top: 3px;
 }
 
 .dg-boxproduto .dg-boxproduto-compra {
@@ -383,7 +397,7 @@ body {
 }
 
 .dg-boxproduto.dg-boxproduto-hover .dg-boxproduto-preco {
-  bottom: 65px;
+  bottom: 59px;
 }
 
 .dg-boxproduto.dg-boxproduto--indisponivel .dg-boxproduto-qtd {
@@ -525,5 +539,162 @@ body {
 
 .dg-header-menu ul li.dg-header-menu-vertodas .dg-icon-vertodas span {
   display: none;
+}
+
+.dg-boxproduto-tooltip {
+  top: 101%;
+}
+
+.dg-boxproduto-hover .dg-boxproduto-compra .dg-boxproduto-qtd, .dg-estoque-open .dg-boxproduto-compra .dg-boxproduto-qtd {
+  margin-left: 15px;
+}
+
+.dg-home-produtos {
+  padding-top: 21px;
+}
+
+.dg-home-descontos-wrapper {
+  padding: 30px 0 20px;
+  background: #00D19D;
+}
+
+.dg-home-descontos-wrapper .dg-home-produtos-titulo {
+  color: #fff;
+}
+
+.dg-home-descontos-wrapper .dg-home-descontos-lista {
+  margin-top: 0;
+}
+
+.dg-home-descontos-wrapper .dg-home-descontos-item {
+  margin-bottom: 0;
+}
+
+.dg-home-sintomas .dg-icon.dg-icon-dor-febre::before {
+  content: '';
+  width: 47px;
+  height: 47px;
+  background-image: url(../img/icones/navegue/dorefebre.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dg-home-sintomas .dg-icon.dg-icon-gripe::before {
+  content: '';
+  width: 47px;
+  height: 47px;
+  background-image: url(../img/icones/navegue/gripeeresfriado.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dg-home-sintomas .dg-icon.dg-icon-gastro::before {
+  content: '';
+  width: 47px;
+  height: 47px;
+  background-image: url(../img/icones/navegue/gastrointestinal.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dg-home-sintomas .dg-icon.dg-icon-calm::before {
+  content: '';
+  width: 47px;
+  height: 47px;
+  background-image: url(../img/icones/navegue/calmante.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dg-home-sintomas .dg-icon.dg-icon-allergy::before {
+  content: '';
+  width: 47px;
+  height: 47px;
+  background-image: url(../img/icones/navegue/alergia.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dg-home-sintomas .dg-icon.dg-icon-vitamina::before {
+  content: '';
+  width: 47px;
+  height: 47px;
+  background-image: url(../img/icones/navegue/vitaminas.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dg-home-sintomas .dg-icon.dg-icon-diabetes::before {
+  content: '';
+  width: 47px;
+  height: 47px;
+  background-image: url(../img/icones/navegue/diabetes.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dg-home-sintomas .dg-icon.dg-icon-dor-musc::before {
+  content: '';
+  width: 47px;
+  height: 47px;
+  background-image: url(../img/icones/navegue/dormuscular.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dg-home-sintomas .dg-icon-suplementos::before {
+  content: '';
+  width: 47px;
+  height: 47px;
+  background-image: url(../img/icones/navegue/suplementos.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.dg-home-sintomas .dg-home-sintomas-lista {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.dg-home-sintomas .dg-home-sintomas-lista a {
+  width: auto;
+  padding: 0;
+}
+
+.dg-home-sintomas .dg-home-sintomas-lista a:hover .dg-home-sintomas-lista-txt {
+  color: #0e9e7a;
+}
+
+.dg-home-sintomas .dg-home-sintomas-lista a .dg-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 87px;
+  height: 87px;
+  border-radius: 19px;
+  padding: 0;
+  line-height: 1;
+  background-color: #012399;
+}
+
+.dg-home-sintomas .dg-home-sintomas-lista-txt {
+  font-size: 11px;
+  color: #012399;
+}
+
+.dg-home-produtos-topo--no-after::after {
+  display: none;
+}
+
+.dg-footer {
+  background-color: #0B1841;
 }
 /*# sourceMappingURL=app.css.map */

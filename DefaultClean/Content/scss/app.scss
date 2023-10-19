@@ -66,8 +66,11 @@ body {
     }
 }
 
-#home-pg .dg-produto-compre-tambem::before, #home-pg .dg-produto-compre-tambem::after, #home-pg main::before, #home-pg main::after, #produto-pg .dg-produto-compre-tambem::before, #produto-pg .dg-produto-compre-tambem::after, #produto-pg main::before, #produto-pg main::after {
-    display: none;
+#home-pg .dg-produto-compre-tambem, #home-pg main, #produto-pg .dg-produto-compre-tambem, #produto-pg main {
+    display: block;
+    &::after, &::before {
+        display: none;
+    }
 }
 
 .dg-header {
@@ -154,6 +157,8 @@ body {
 
 .dg-home-destaques-wrapper {
     padding-top: 0;
+    padding-bottom: 0;
+    min-height: 253px
 }
 
 .dg-home-produtos-topo {
@@ -162,6 +167,13 @@ body {
     align-items: center;
     .dg-home-produtos-titulo {
         order: 1;
+        padding-left: 0;
+        font-size: 17px;
+        > img {
+            display: inline-block;
+            margin-right: 20px;
+            vertical-align: -5px;
+        }
     }
     &::after {
         content: '';
@@ -257,7 +269,7 @@ body {
     .dg-boxproduto-compra {
         height: 32px;
         .dg-boxproduto-qtd {
-            top: 0;
+            top: 3px;
         }
     }
     .dg-boxproduto-compra {
@@ -321,7 +333,7 @@ body {
     }
     &.dg-boxproduto-hover {
         .dg-boxproduto-preco {
-            bottom: 65px;
+            bottom: 59px;
         }
     }
     &.dg-boxproduto--indisponivel  {
@@ -462,4 +474,162 @@ body {
             display: none;
         }
     }
+}
+
+.dg-boxproduto-tooltip {
+    top: 101%;
+}
+
+.dg-boxproduto-hover .dg-boxproduto-compra .dg-boxproduto-qtd, .dg-estoque-open .dg-boxproduto-compra .dg-boxproduto-qtd {
+    margin-left: 15px;
+}
+
+.dg-home-produtos {
+    padding-top: 21px;
+}
+
+.dg-home-descontos-wrapper {
+    padding: 30px 0 20px;
+    background: $corComplementar;
+    .dg-home-produtos-titulo {
+        color: #fff;
+    }
+    .dg-home-descontos-lista {
+        margin-top: 0;
+    }
+    .dg-home-descontos-item {
+        margin-bottom: 0;
+    }
+}
+
+.dg-home-sintomas {
+    .dg-icon.dg-icon-dor-febre {
+        &::before {
+            content: '';
+            width: 47px;
+            height: 47px;
+            background-image: url(../img/icones/navegue/dorefebre.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+    .dg-icon.dg-icon-gripe {
+        &::before {
+            content: '';
+            width: 47px;
+            height: 47px;
+            background-image: url(../img/icones/navegue/gripeeresfriado.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+    .dg-icon.dg-icon-gastro {
+        &::before {
+            content: '';
+            width: 47px;
+            height: 47px;
+            background-image: url(../img/icones/navegue/gastrointestinal.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+    .dg-icon.dg-icon-calm {
+        &::before {
+            content: '';
+            width: 47px;
+            height: 47px;
+            background-image: url(../img/icones/navegue/calmante.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+    .dg-icon.dg-icon-allergy {
+        &::before {
+            content: '';
+            width: 47px;
+            height: 47px;
+            background-image: url(../img/icones/navegue/alergia.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+    .dg-icon.dg-icon-vitamina {
+        &::before {
+            content: '';
+            width: 47px;
+            height: 47px;
+            background-image: url(../img/icones/navegue/vitaminas.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+    .dg-icon.dg-icon-diabetes {
+        &::before {
+            content: '';
+            width: 47px;
+            height: 47px;
+            background-image: url(../img/icones/navegue/diabetes.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+    .dg-icon.dg-icon-dor-musc{
+        &::before {
+            content: '';
+            width: 47px;
+            height: 47px;
+            background-image: url(../img/icones/navegue/dormuscular.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+    .dg-icon-suplementos {
+        &::before {
+            content: '';
+            width: 47px;
+            height: 47px;
+            background-image: url(../img/icones/navegue/suplementos.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+    .dg-home-sintomas-lista {
+        justify-content: space-between;
+        margin-bottom: 0;
+    }
+    .dg-home-sintomas-lista a {
+        width: auto;
+        padding: 0;
+        &:hover {
+            .dg-home-sintomas-lista-txt {
+                color: #0e9e7a;
+            } 
+        }
+        .dg-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 87px;
+            height: 87px;
+            border-radius: 19px;
+            padding: 0;
+            line-height: 1;
+            background-color: #012399;
+        }
+    }
+
+    .dg-home-sintomas-lista-txt {
+        font-size: 11px;
+        color: #012399;
+    }
+}
+
+.dg-home-produtos-topo--no-after {
+    &::after {
+        display: none;
+    }
+}
+
+.dg-footer {
+    background-color: $corPrimaria;
 }
