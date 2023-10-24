@@ -1543,3 +1543,72 @@ body {
         }
     }
 }
+
+body {
+    .dg-header-minhaconta-flex {
+        .dg-titulo p {
+            margin-top: 12px;
+            font-size: 13px;
+        }
+    }
+    #campoSenhaLogin label {
+        margin-bottom: 0;
+    }
+    .dg-header-minhaconta-modal-conteudo>div>label {
+        margin-bottom: 6px;
+    }
+    .dg-header-minhaconta-modal-conteudo {
+        padding-top: 10px;
+    }
+    @media (min-width: 992px) {
+        .dg-header-minhaconta-modal {
+            max-width: 673px;
+            height: 254px;
+        }
+    }
+    .dg-header-minhaconta-modal-esqueci-url a {
+        font-size: 10px;
+        strong {
+            color: $corPrimaria;
+        }
+    }
+    .dg-header-minhaconta-flex .dg-header-minhaconta-modal-footer {
+        border-bottom: 0;
+    }
+    .dg-header-minhaconta-modal-footer-btn {
+        height: 44px;
+        border-radius: 12px;
+        background: $corComplementar;
+    }
+    .dg-header-minhaconta-modal-login .dg-header-minhaconta-modal-footer-btn {
+        height: 44px;
+        border-radius: 12px;
+        background-color: $corSecundaria;
+    }
+    .dg-header-minhaconta-modal-cadastro .dg-header-minhaconta-modal-footer-btn {
+        width: auto;
+        flex: 1;
+    }
+    .dg-header-minhaconta-modal-login .dg-header-minhaconta-modal-footer-btn{
+        min-width: 166px;
+    }
+    .dg-header-minhaconta-modal-footer-google-btn {
+        padding-top: 12px;
+    }
+    .dg-header-minhaconta-modal-footer-fb-btn {
+        padding-top: 15px;
+    }
+    .dg-header-minhaconta-modal-footer-google-btn, .dg-header-minhaconta-modal-footer-fb-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+    }
+    .dg-header-minhaconta-modal-esquecisenha .dg-header-minhaconta-modal-footer-btn {
+        background-color: $corSecundaria;
+    }
+    .dg-header-minhaconta-modal-footer-voltar-btn, .dg-header-minhaconta-modal-esquecisenha .dg-header-minhaconta-modal-footer-btn {
+        height: 44px;
+        border-radius: 12px;
+        flex: 1;
+    }
+}

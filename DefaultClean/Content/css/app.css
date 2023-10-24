@@ -1783,4 +1783,89 @@ body .dg-minicarrinho .dg-minicarrinho-item-apagar {
 body .dg-minicarrinho .dg-minicarrinho-item-apagar .dg-icon {
   display: none;
 }
+
+body .dg-header-minhaconta-flex .dg-titulo p {
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+body #campoSenhaLogin label {
+  margin-bottom: 0;
+}
+
+body .dg-header-minhaconta-modal-conteudo > div > label {
+  margin-bottom: 6px;
+}
+
+body .dg-header-minhaconta-modal-conteudo {
+  padding-top: 10px;
+}
+
+@media (min-width: 992px) {
+  body .dg-header-minhaconta-modal {
+    max-width: 673px;
+    height: 254px;
+  }
+}
+
+body .dg-header-minhaconta-modal-esqueci-url a {
+  font-size: 10px;
+}
+
+body .dg-header-minhaconta-modal-esqueci-url a strong {
+  color: #0B1841;
+}
+
+body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-footer {
+  border-bottom: 0;
+}
+
+body .dg-header-minhaconta-modal-footer-btn {
+  height: 44px;
+  border-radius: 12px;
+  background: #00D19D;
+}
+
+body .dg-header-minhaconta-modal-login .dg-header-minhaconta-modal-footer-btn {
+  height: 44px;
+  border-radius: 12px;
+  background-color: #002399;
+}
+
+body .dg-header-minhaconta-modal-cadastro .dg-header-minhaconta-modal-footer-btn {
+  width: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+body .dg-header-minhaconta-modal-login .dg-header-minhaconta-modal-footer-btn {
+  min-width: 166px;
+}
+
+body .dg-header-minhaconta-modal-footer-google-btn {
+  padding-top: 12px;
+}
+
+body .dg-header-minhaconta-modal-footer-fb-btn {
+  padding-top: 15px;
+}
+
+body .dg-header-minhaconta-modal-footer-google-btn, body .dg-header-minhaconta-modal-footer-fb-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+}
+
+body .dg-header-minhaconta-modal-esquecisenha .dg-header-minhaconta-modal-footer-btn {
+  background-color: #002399;
+}
+
+body .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-header-minhaconta-modal-esquecisenha .dg-header-minhaconta-modal-footer-btn {
+  height: 44px;
+  border-radius: 12px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
 /*# sourceMappingURL=app.css.map */
