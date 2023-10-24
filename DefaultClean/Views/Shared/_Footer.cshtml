@@ -19,8 +19,8 @@
         <li><a href="@Html.Domain()/programas-laboratorios/">Programa dos Laboratórios</a></li> *@
   
            
-        <nav>
-            <ul>
+        <nav class="links-nav">
+            <ul class="links-nav-list">
                 <li class="title" role="heading">Sobre a Farmácia Mix</li>
                 <li><a href="/nossa-historia/">Quem Somos</a></li>
                 <li><a href="/trabalhe-conosco/">Trabalhe Conosco</a></li>
@@ -28,7 +28,7 @@
                 <li><a href="/nossas-lojas/">Localização</a></li>
                 <li><a href="/conteudo-informativo/">Conteúdo Informativo</a></li>
             </ul>
-            <ul>
+            <ul class="links-nav-list">
                 <li class="title" role="heading">Serviços</li>
                 <li><a href="/pagamentos/">Política de Pagamento</a></li>
                 <li><a href="/politica-de-cookies/">Política de Cookies</a></li>
@@ -37,7 +37,7 @@
                 <li><a href="/frete-e-entrega/">Política de Frete e Entrega</a></li>
                 <li><a href="/politica-de-reembolso-e-devolucao/">Política de Devolução</a></li>
             </ul>
-            <ul>
+            <ul class="links-nav-list">
                 <li class="title" role="heading">Relacionamento</li>
                 <li><a href="#">Meus Pedidos</a></li>
                 <li><a href="#">Como Comprar</a></li>
@@ -45,10 +45,8 @@
                 <li><a href="#">Fale Com o Farmacêutico</a></li>
             </ul>
         </nav>
-        <div>
-            <div class="dg-footer-titulo">
-                Receba ofertas e novidades por e-mail
-            </div>
+        <div class="dg-footer-news">
+            <div class="title">Receba ofertas e novidades por e-mail</div>
 
             <form class="dg-footer-news-form" id="FormNewsletter">
                 <div class="dg-footer-news-nome">
@@ -57,32 +55,33 @@
                 </div>
 
                 <div class="dg-footer-news-email">
-                    <input id="NewsEmail" name="NewsEmail" type="email" mascara="lowercase" class="dg-footer-news-input" required validar>
-                    <label for="NewsEmail" class="dg-footer-news-label">Digite seu e-mail</label>
-
-                    <!-- Usei button por semântica, mas pode trocar por "a" se preferir -->
+                    <div class="dg-relative">
+                        <input id="NewsEmail" name="NewsEmail" type="email" mascara="lowercase" class="dg-footer-news-input" required validar>
+                        <label for="NewsEmail" class="dg-footer-news-label">Digite seu e-mail</label>
+                    </div>
                     <button aria-label="Buscar" role="button" class="dg-footer-news-btn">
                         Enviar
                     </button>
                 </div>
+                
             </form>
         </div>
-        <div>
+        <div class="dg-footer-info-extra">
             <div>
                 <div class="title">
-                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/call-calling.svg" />
-                    Televendas
+                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/call-calling.svg" />Televendas
                 </div>
                 <p>
                     (11) 3990-7720<br>
-                    Segunda a Sexta, das 8h as 18h.<br>
-                    Sábado das 8h as 12h.
+                    <span class="small">
+                        Segunda a Sexta, das 8h as 18h.<br>
+                        Sábado das 8h as 12h.
+                    </span>
                 </p>
             </div>
             <div>
                 <div class="title">
-                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/Wavy.svg" />
-                    Selos e Certificados
+                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/Wavy.svg" />Selos e Certificados
                 </div>
                 <div class="dg-footer-selos-lista">
                     <div class="dg-footer-selos-ebit">
@@ -105,106 +104,79 @@
             </div>
             <div>
                 <div class="title">
-                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/messages.svg" />
-                    SAC
+                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/messages.svg" />SAC
                 </div>
                 <p>
                     (11) 0000-0000 ou sac@farmaciamix.com.br<br>
-                    Segunda a Sexta, das 8h as 18h.<br>
-                    Sábado das 8h as 12h.
+                    <span class="small">
+                        Segunda a Sexta, das 8h as 18h.<br>
+                        Sábado das 8h as 12h.
+                    </span>
                 </p>
             </div>
             <div>
                 <div class="title">
                     A Fmix apoia:
                 </div>
-                <div class="dg-footer-linha2-instituicoes">
-                    <div class="dg-footer-linha2-instituicoes-lista">
-                        <a href="https://www.graacc.org.br/" target="_blank">
-                            <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/graacc.png" alt="Graac - Combatendo e vencendo o câncer infantil" loading="lazy">
-                        </a>
-                        <a href="https://ibcc.org.br/sobre-o-ibcc/o-cancer-de-mama-no-alvo-da-moda/" target="_blank">
-                            <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/cancer-mama.png" alt="Campanha Câncer de Mama no alvo da Moda" loading="lazy">
-                        </a>
+                <div class="dg-footer-linha2-instituicoes-lista">
+                    <a href="https://www.graacc.org.br/" target="_blank">
+                        <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/graacc.png" alt="Graac - Combatendo e vencendo o câncer infantil" loading="lazy">
+                    </a>
+                    <a href="https://ibcc.org.br/sobre-o-ibcc/o-cancer-de-mama-no-alvo-da-moda/" target="_blank">
+                        <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/cancer-mama.png" alt="Campanha Câncer de Mama no alvo da Moda" loading="lazy">
+                    </a>
 
-                        <a href="https://institutoayrtonsenna.org.br/pt-br.html" target="_blank">
-                            <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/ayrton-senna.png" alt="Instituto Ayrton Senna" loading="lazy">
-                        </a>
+                    <a href="https://institutoayrtonsenna.org.br/pt-br.html" target="_blank">
+                        <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/ayrton-senna.png" alt="Instituto Ayrton Senna" loading="lazy">
+                    </a>
 
-                    </div>
                 </div>
             </div>
             <div>
                 <div class="title">
                     Siga-nos
                 </div>
-                <div class="dg-footer-linha2-ondeestamos">
-                    <div class="dg-footer-linha2-lista">
-                        <a href="https://www.facebook.com/DrogariaNovaEsperanca/" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Facebook">
-                            <span class="dg-icon dg-icon-fb"></span>
-                            <span class="dg-tooltip">Facebook</span>
-                        </a>
+                <div class="dg-footer-linha2-lista">
+                    <a href="https://www.instagram.com/drogarianovaesperancaoficial/" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Instagram">
+                        <span class="dg-icon dg-icon-insta"></span>
+                        <span class="dg-tooltip">Instagram</span>
+                    </a>
 
-                        <a href="https://www.instagram.com/drogarianovaesperancaoficial/" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Instagram">
-                            <span class="dg-icon dg-icon-insta"></span>
-                            <span class="dg-tooltip">Instagram</span>
-                        </a>
+                    <a href="https://www.facebook.com/DrogariaNovaEsperanca/" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Facebook">
+                        <span class="dg-icon dg-icon-fb"></span>
+                        <span class="dg-tooltip">Facebook</span>
+                    </a>
 
-                        <a href="https://www.youtube.com/channel/UC0jmeYyaBF0w1rbGH1zYIkA/featured" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Youtube">
-                            <span class="dg-icon dg-icon-yt"></span>
-                            <span class="dg-tooltip">Youtube</span>
-                        </a>
-                        <a href="https://www.linkedin.com/company/drogaria-nova-esperanca/?originalSubdomain=br" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Linkedin">
-                            <span class="dg-icon dg-icon-linkedin"></span>
-                            <span class="dg-tooltip">Linkedin</span>
-                        </a>
+                    @* <a href="https://www.youtube.com/channel/UC0jmeYyaBF0w1rbGH1zYIkA/featured" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Youtube">
+                        <span class="dg-icon dg-icon-yt"></span>
+                        <span class="dg-tooltip">Youtube</span>
+                    </a> *@
 
-                        <a href="https://twitter.com/drogariadne" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Twitter">
-                            <span class="dg-icon dg-icon-twitter"></span>
-                            <span class="dg-tooltip">Twitter</span>
-                        </a>
+                    <a href="https://www.linkedin.com/company/drogaria-nova-esperanca/?originalSubdomain=br" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Linkedin">
+                        <span class="dg-icon dg-icon-linkedin"></span>
+                        <span class="dg-tooltip">Linkedin</span>
+                    </a>
 
-                    </div>
+                    @* <a href="https://twitter.com/drogariadne" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Twitter">
+                        <span class="dg-icon dg-icon-twitter"></span>
+                        <span class="dg-tooltip">Twitter</span>
+                    </a> *@
                 </div>
             </div>
             <div>
                 <div class="title">
-                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/wallet-2.svg" />
-                    Formas de pagamento
+                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/wallet-2.svg" />Formas de pagamento
                 </div>
-                 <div class="dg-footer-linha2-pagamento">
-                    <div class="dg-footer-linha2-lista">
-                        <span class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="MasterCard">
-                            <span class="dg-icon dg-icon-mastercard"></span>
-                            <span class="dg-tooltip">MasterCard</span>
-                        </span>
-                        <span class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Visa">
-                            <span class="dg-icon dg-icon-visa"></span>
-                            <span class="dg-tooltip">Visa</span>
-                        </span>
-                        <span class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="American Express">
-                            <span class="dg-icon dg-icon-american-express"></span>
-                            <span class="dg-tooltip">American Express</span>
-                        </span>
-                        <span class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Elo">
-                            <span class="dg-icon dg-icon-elo"></span>
-                            <span class="dg-tooltip">Elo</span>
-                        </span>
-                        <span class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Boleto">
-                            <span class="dg-icon dg-icon-boleto"></span>
-                            <span class="dg-tooltip">Boleto</span>
-                        </span>
-
-                        <span class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Pix">
-                            <span class="dg-icon dg-icon-pix"></span>
-                            <span class="dg-tooltip">Pix</span>
-                        </span>
-
-                    </div>
-                </div>
+                <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/Themes/DefaultClean/Content/img/footer/pagamento.png" alt="Instituto Ayrton Senna" loading="lazy">
             </div>
         </div>
-        <div></div>
+        <div class="dg-footer-info-extra-2">
+            <img src="@Html.Domain()/Themes/DefaultClean/Content/img/footer/logo-fmix.svg" alt="Logo FMIX">
+            <p>Todas as informações contidas neste site não devem ser usadas para automedicação. Ao persistirem os sintomas um médico deverá ser consultado. **O valor poderá sofrer acréscimo de juros da operadora do cartão de crédito.</p>
+            <p class="dg-desenvolvido">
+                Desenvolvido por Degrau Publicidade<img src="@Html.Domain()/Themes/DefaultClean/Content/img/footer/logo-degrau.svg" alt="Logo Degrau Publicidade">
+            </p>
+        </div>
         @* <div class="dg-footer-selos">
             <div class="title">
                 Selos e certificados
@@ -446,6 +418,10 @@
         </div> *@
     </div>
 </footer>
+<div class="dg-outro-banner" style="background-image:url(@Html.Domain()/Themes/DefaultClean/Content/img/footer/outro.png)"></div>
+<p class="dg-copyright container">
+    O nome Farmácia MIX e o domínio www.farmaciamix.com.br são marcas registradas por Drogaria Nova Esperança Eireli, fundada em 1972 sob o C.N.P.J: 43.575.877/0005-47 - Inscrição Estadual: 130.441.051.118 - situada na Av. Pacaembú nº 1202/1208, Pacaembú - São Paulo / SP - CEP: 01234-000 - Licença municipal para funcionamento: 20210010104803 - ANVISA Autorização / MS 7805415 - CMVS - 355030801-477-012446-1-2 - Farmacêuticos: Dr. Julio Cesar de Souza Silva - CRF: 102533, Dr. Bruno Henrique Medeiros Diniz - CRF 102369, Dra. Gisele Boccati Tomita - CRF 44580. As receitas médicas devem ser apresentadas pelo FAX: (11) 3990-7730 ou para o e-mail receita@farmaciamix.com.br.
+</p>
 
 <div class="dg-mascote-loja">
     @await Component.InvokeAsync("Mascote")
@@ -464,8 +440,6 @@
 <script src="/assets/js/Ajax_Cliente.js?v1" type="text/javascript" asp-append-version="true" defer></script>
 
 @Html.CssFiles(ResourceLocation.Footer, true)
-
-<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="ext/javascript" defer charset="UTF-8" data-domain-script="f7a4d77f-36bc-461e-b74c-dce2346b31af"></script>
 
 <script type="to-defer">
 @Html.ScriptsFiles(ResourceLocation.Footer, true)
@@ -512,14 +486,14 @@
             })
         }, 1);
         
-        if ($('.jsIsDesktop').is(':visible')) {
+        @* if ($('.jsIsDesktop').is(':visible')) {
             $('body').append('<script id="monitoramento_gvp_chat_flutuante" type="text/javascript" lang="javascript" src="https://webapp.ideacrm.com.br/monitoramento.js.aspx?idc=7554&floatingchat=1" />');
             $('body').append('<script fetchpriority="low" type="text/javascript" src="https://app.dialugo.com/embed/monitoramentoChatHumano.js" />');
-        }
+        } *@
     }
 </script>
 
-<noscript>
+@* <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QHM64" height="0" width="0"
             style="display:none;visibility:hidden"></iframe>
 </noscript>
@@ -532,7 +506,7 @@
             j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-5QHM64');
-</script>
+</script> *@
 
 <script type="application/ld+json">
     {

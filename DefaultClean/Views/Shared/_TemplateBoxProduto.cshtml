@@ -21,6 +21,10 @@
 
     var fromSlider = ViewData["fromSlider"] == null ? false : true;
 
+    var horizontal = ViewData["horizontal"] == null ? false : true;
+    
+    string isHorizontal = horizontal == true ? "dg-boxproduto-horizontal" : "";
+
     if (Model.ProdutosModalSimilares) {
         fromSlider = true;
     }
@@ -170,12 +174,12 @@
         BTnComprar = 1;
     }
 
-    <!-- PRODUTO -->
+    <!-- PRODUTO -->    
     @if (fromSlider) {
         @Html.Raw("<div>")
     }
 
-    <div class="dg-boxproduto jsBoxproduto @isFavorito @isIndisponivel @isControlado @_menorValorCF " rel="@sURL" data-fav="@dataFavorito" data-SaidaBoxProduto="@_saidaBoxProduto"
+    <div class="dg-boxproduto jsBoxproduto @isFavorito @isIndisponivel @isControlado @_menorValorCF @isHorizontal" rel="@sURL" data-fav="@dataFavorito" data-SaidaBoxProduto="@_saidaBoxProduto"
          nome="@Produto"
          categoria="@product.Categoria"
          marca="@product.Fabricante.ToString()"
@@ -184,9 +188,12 @@
 
         <!-- img -->
         <a class="dg-boxproduto-img" href="@sURL" title="@Produto" idImpression="@product.ID_SubProduto" lista="lista @origemBloco @ReplaceImpression" nome="@Produto" link="@sURL" alt="@Produto">
-            <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Dominio/imagens/132x132/@Imagem" id="@ID_Imagem" alt="@sALT" title="@sALT" loading="lazy">
+            <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Dominio/imagens/215x215/@Imagem" id="@ID_Imagem" alt="@sALT" title="@sALT" loading="lazy">
         </a>
 
+        @if (horizontal) {
+            @Html.Raw("<div class='dg-box-produto-horizontal-wrapper'>")
+        }
         <!-- Dados -->
         <div class="dg-boxproduto-main">
 
@@ -252,7 +259,19 @@
 
         @if (product.VendaRestrita)
         {
-            <a href="@sURL" class="dg-boxproduto-btn-controlado" rel="@ID_SubProduto.ToString()">Saiba Mais</a>
+            <div class="dg-boxproduto-compra">
+                <div class="dg-relative">
+                    <div class="dg-boxproduto-compra-bg">
+                        <a href="@sURL" class="dg-boxproduto-qtd" rel="@ID_SubProduto.ToString()">
+                            Saiba Mais
+                        </a>
+
+                        <a href="@sURL" class="dg-boxproduto-compra-btn" aria-label="Saiba mais sobre @Produto @product.ComplementoBrindes" rel="@product.ID_SubProduto">
+                            <span class="dg-icon dg-icon-saiba-mais"></span>
+                        </a>
+                    </div>z
+                </div>
+            </div>
         }
         else if (product.Importado)
         {
@@ -263,31 +282,51 @@
         else if (BTnIndisponivel == 1)
         {
             <div class="dg-boxproduto-compra">
-                <a href="javascript:void(0)" class="dg-boxproduto-qtd jsModalAviseMe" rel="@product.ID_SubProduto">
-                    Avise-me
-                </a>
+                <div class="dg-relative">
+                    <div class="dg-boxproduto-compra-bg">
+                        <a href="javascript:void(0)" class="dg-boxproduto-qtd jsModalAviseMe" rel="@product.ID_SubProduto">
+                            Avise-me
+                        </a>
 
-                <a href="javascript:void(0)" class="dg-boxproduto-compra-btn jsModalAviseMe" role="link" aria-label="Avisar chegada de @Produto @product.ComplementoBrindes" rel="@product.ID_SubProduto">
-                    <span class="dg-icon dg-icon-avise-me"></span>
-                </a>
+                        <a href="javascript:void(0)" class="dg-boxproduto-compra-btn jsModalAviseMe" role="link" aria-label="Avisar chegada de @Produto @product.ComplementoBrindes" rel="@product.ID_SubProduto">
+                            <span class="dg-icon dg-icon-avise-me"></span>
+                        </a>
+                    </div>
+                </div>
             </div>
         }
         else if (BtnControlado == 1)
         {
-            <a href="@sURL" class="dg-boxproduto-btn-controlado" rel="@ID_SubProduto.ToString()">Saiba Mais</a>
+            <div class="dg-boxproduto-compra">
+                <div class="dg-relative">
+                    <div class="dg-boxproduto-compra-bg">
+                        <a href="@sURL" class="dg-boxproduto-qtd" rel="@ID_SubProduto.ToString()">
+                            Saiba Mais
+                        </a>
+
+                        <a href="@sURL" class="dg-boxproduto-compra-btn" aria-label="Saiba mais sobre @Produto @product.ComplementoBrindes" rel="@product.ID_SubProduto">
+                            <span class="dg-icon dg-icon-saiba-mais"></span>
+                        </a>
+                    </div>z
+                </div>
+            </div>
         }
         else if (BTnComprar == 1)
         {
             <form class="dg-boxproduto-compra">
-                <div class="dg-boxproduto-qtd">
-                    <input type="number" class="dg-boxproduto-qtd-input" name="" id="QTD_@product.ID_SubProduto" value="@QtdComp" multiplo="@QtdMult" maxlength="2" onKeyPress="if(this.value.length==4) return false;">
-                    <a href="javascript:void(0)" class="dg-boxproduto-qtd-menos" rel="@product.ID_SubProduto">-</a>
-                    <a href="javascript:void(0)" class="dg-boxproduto-qtd-mais" rel="@product.ID_SubProduto">+</a>
-                </div>
+                <div class="dg-relative">
+                    <div class="dg-boxproduto-compra-bg">
+                        <div class="dg-boxproduto-qtd">
+                            <input type="number" class="dg-boxproduto-qtd-input" name="" id="QTD_@product.ID_SubProduto" value="@QtdComp" multiplo="@QtdMult" maxlength="2" onKeyPress="if(this.value.length==4) return false;">
+                            <a href="javascript:void(0)" class="dg-boxproduto-qtd-menos" rel="@product.ID_SubProduto">-</a>
+                            <a href="javascript:void(0)" class="dg-boxproduto-qtd-mais" rel="@product.ID_SubProduto">+</a>
+                        </div>
 
-                <a href="javascript:void(0)" class="dg-boxproduto-compra-btn BtComprarProduto" role="link" aria-label="Comprar @Produto @product.ComplementoBrindes" ID_SubProduto="@product.ID_SubProduto">
-                    <span class="dg-icon dg-icon-cart"></span>
-                </a>
+                        <a href="javascript:void(0)" class="dg-boxproduto-compra-btn BtComprarProduto" role="link" aria-label="Comprar @Produto @product.ComplementoBrindes" ID_SubProduto="@product.ID_SubProduto">
+                            <span class="dg-icon dg-icon-cart"></span>
+                        </a>
+                    </div>
+                </div>
             </form>
         }
 
@@ -295,8 +334,6 @@
         <div class="dg-boxproduto-info">
             @if ((MostraTagPromocao == 1 && BTnComprar == 1) || (MostraTagPromocao2 == 1 && BTnComprar == 1) || product.IsDescontoLaboratorio || BTnIndisponivel == 1)
             {
-
-
 
                 <div class="dg-boxproduto-tags-mobile dg-hide">
                     @if (MostraTagPromocao == 1 && BTnComprar == 1)
@@ -484,6 +521,9 @@
                 'position': parseInt(@loopProduto.ToString()),               // Product position (number).
             });
         </script>
+        @if (horizontal) {
+            @Html.Raw("</div>")
+        }
     </div>
     @if (fromSlider) {
         @Html.Raw("</div>")

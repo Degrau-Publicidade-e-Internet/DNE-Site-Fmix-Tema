@@ -277,8 +277,9 @@
             <div class="dg-home-boxproduto-slide jsDescontoPromocionaisSlider dg-loading dg-hide-event">
 
                 @{
-                    ViewData["boxProduto"] = "Farmaciaonline";
+                    ViewData["boxProduto"] = "CadaUmPor";
                     ViewData["fromSlider"] = "fromSlider";
+                    ViewData["horizontal"] = null;
                 }
 
                 @await Html.PartialAsync("_TemplateBoxProduto", Model.FarmaciaOnline, new ViewDataDictionary(ViewData){{"Farmaciaonline", ViewData["dasda"]}})
@@ -298,9 +299,6 @@
                     </h2>
                 </div>
 
-                <div class="dg-home-descontos-destaques">@await Component.InvokeAsync("BannersEstruturado")</div>
-
-
                 <div class="dg-home-descontos-lista dg-loading">
                     @if (areaEstruturada.ItemEstrutura.Count() > 0)
                     {
@@ -315,11 +313,11 @@
 
                                 <img class="tns-lazy-img dg-home-descontos-img @if(!string.IsNullOrEmpty(item.ImagemHover)){
                         <text>dg-hover</text>
-                        }" src="@Html.Domain()/assets/img/lazy.png" width="200" height="400" data-src="https://static.drogarianovaesperanca.com.br/marcas/@item.Imagem" alt="@Html.Raw(@item.Descricao)" loading="lazy" role="presentation">
+                        }" src="@Html.Domain()/assets/img/lazy.png" width="224" height="414" data-src="https://static.drogarianovaesperanca.com.br/marcas/@item.Imagem" alt="@Html.Raw(@item.Descricao)" loading="lazy" role="presentation">
 
                                 @if (!string.IsNullOrEmpty(item.ImagemHover))
                                 {
-                                    <img class="dg-home-descontos-img-hover" src="@Html.Domain()/assets/img/lazy.png" width="200" height="400" data-src-lazy="https://static.drogarianovaesperanca.com.br/marcas/@item.ImagemHover" alt="@Html.Raw(@item.Descricao)" loading="lazy" role="presentation">
+                                    <img class="dg-home-descontos-img-hover" src="@Html.Domain()/assets/img/lazy.png" width="224" height="414" data-src-lazy="https://static.drogarianovaesperanca.com.br/marcas/@item.ImagemHover" alt="@Html.Raw(@item.Descricao)" loading="lazy" role="presentation">
                                 }
                             </a>
                         }
@@ -348,6 +346,7 @@
                 @{
                     ViewData["boxProduto"] = "OfertasEspeciais";
                     ViewData["fromSlider"] = "fromSlider";
+                    ViewData["horizontal"] = null;
                 }
 
                 @await Html.PartialAsync("_TemplateBoxProduto", Model.OfertasEspeciais, new ViewDataDictionary(ViewData){{"OfertasEspeciais", ViewData["boxProduto"]}})
@@ -505,22 +504,32 @@
             </a>
         </section> *@
 
+        <div class="dg-home-descontos-destaques">@await Component.InvokeAsync("BannersEstruturado")</div>
+
+        <div class="dg-home-produtos-estruturados">
+            @{
+                ViewData["boxProduto"] = "MaisVendidos";
+                ViewData["fromSlider"] = "fromSlider";
+                ViewData["horizontal"] = "horizontal";
+            }
+
+            @await Html.PartialAsync("_TemplateBoxProduto", Model.MaisVendidos, new ViewDataDictionary(ViewData){{"MaisVendidos", ViewData["dasda"]}})
+        </div>
+
         <section class="dg-home-produtos">
             <div class="dg-home-produtos-topo dg-home-produtos-topo--no-after">
                 <h2 class="dg-home-produtos-titulo">
                     <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/discount-shape.svg" />
                     Aproveite e Compre também
                 </h2>
-
-                @* <div class="dg-home-produtos-vermais dg-mobile-hide">
-                    <a href="@Html.Domain()/aproveite-e-compre-tambem/" class="dg-add-loading"><strong>+</strong> Ver todos</a>
-                </div> *@
             </div>
 
             <div class="dg-home-boxproduto-slide dg-loading">
                 @{
                     ViewData["boxProduto"] = "MaisVendidos";
                     ViewData["fromSlider"] = "fromSlider";
+                    ViewData["horizontal"] = null;
+
                 }
 
                 @await Html.PartialAsync("_TemplateBoxProduto", Model.MaisVendidos, new ViewDataDictionary(ViewData){{"MaisVendidos", ViewData["dasda"]}})
@@ -766,5 +775,5 @@
 @{
     Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Home.css", false);
     Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/slick.js", false);
-    Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Home.js", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/Homev1.js", false);
 }

@@ -636,7 +636,8 @@
                     }
 
                     <div class="dg-menuA-submenu @classeExpandido">
-                        <div class="dg-titulo" style="font-weight:bold">
+                    @* <div class="dg-menuA-submenu"> *@
+                        @* <div class="dg-titulo" style="font-weight:bold">
                             <a href="@Html.Domain()/@categoria.URLCategoria/">
                                 <div class="dg-tooltip-hover">
                                     <div class="dg-tooltip dg-mobile-hide">Categoria: @Html.Raw(categoria.Categoria)</div>
@@ -644,11 +645,11 @@
                                 </div>
                                 @Html.Raw(categoria.Categoria)
                             </a>
-                        </div>
+                        </div> *@
 
                         <div class="dg-menuA-submenu-destaques-box">
 
-                            <ul class="dg-menuA-submenu-destaques">
+                            <ul class="dg-menuA-submenu-itens">
 
                                 @if (categoria.DestaquesN1.Count() > 0)
                                 {
@@ -656,27 +657,15 @@
                                     {
                                         <li>
                                             <a href="@Html.Domain()/@categoria.URLCategoria/@destaque.LinkSubCategoria/">
-                                                <div class="dg-tooltip-hover">
-                                                    <div class="dg-tooltip dg-mobile-hide">Subcategoria: @destaque.SubCategoria</div>
-                                                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-menu="https://static.drogarianovaesperanca.com.br/marcas/@destaque.IconeSubCategoria" alt="Subcategoria: @destaque.SubCategoria" loading="lazy">
-                                                </div>
-                                                <span>
-                                                    <strong>
-                                                        @destaque.SubCategoria
-                                                    </strong>
-                                                    <span class="dg-mobile-hide">@destaque.TitleMenu</span>
-                                                </span>
+                                                @destaque.SubCategoria
                                             </a>
                                         </li>
                                     }
                                 }
 
-                            </ul>
+                                @if (categoria.Itens.Count() > 0)
+                                {
 
-                            @if (categoria.Itens.Count() > 0)
-                            {
-
-                                <ul class="dg-menuA-submenu-itens">
 
                                     @foreach (var subCategoria in categoria.Itens)
                                     {
@@ -685,32 +674,108 @@
                                         </li>
                                     }
                                     @* <li class="dg-menuA-submenu-item-ultimo"><a href="@Html.Domain()/@categoria.URLCategoria/">Ver Todas</a></li> *@
-                                </ul>
-                            }
+                                }
+                            </ul>
+                            <div class="dg-boxproduto jsBoxproduto" rel="https://dev01.farmaciamix.com.br/fortice-com-30-comprimidos-40742/?utm_source=Carrossel+Home&amp;utm_medium=Farmacia+Online&amp;utm_campaign=Farmacia+Online&amp;utm_term=FORTICE+COM+30+COMPRIMIDOS" data-fav="" data-saidaboxproduto="" nome="FORTICE COM 30 COMPRIMIDOS " categoria="Nutrição" marca="EUROFARMA" preco="155,88" id_subproduto="40742">
+                                <!-- img -->
+                                <a class="dg-boxproduto-img" href="https://dev01.farmaciamix.com.br/fortice-com-30-comprimidos-40742/?utm_source=Carrossel+Home&amp;utm_medium=Farmacia+Online&amp;utm_campaign=Farmacia+Online&amp;utm_term=FORTICE+COM+30+COMPRIMIDOS" title="FORTICE COM 30 COMPRIMIDOS " idimpression="40742" lista="lista CadaUmPor Busca" nome="FORTICE COM 30 COMPRIMIDOS " link="https://dev01.farmaciamix.com.br/fortice-com-30-comprimidos-40742/?utm_source=Carrossel+Home&amp;utm_medium=Farmacia+Online&amp;utm_campaign=Farmacia+Online&amp;utm_term=FORTICE+COM+30+COMPRIMIDOS" alt="FORTICE COM 30 COMPRIMIDOS ">
+                                    <img src="/imagens/215x215/fortice-30-comprimidos-a-definir-00dd9139e6.jpg" data-src-lazy="/imagens/215x215/fortice-30-comprimidos-a-definir-00dd9139e6.jpg" id="ImagemProd_40742" alt="FORTICE COM 30 COMPRIMIDOS " title="FORTICE COM 30 COMPRIMIDOS " loading="lazy">
+                                </a>
+
+                                <!-- Dados -->
+                                <div class="dg-boxproduto-main">
+
+                                        <h3 class="dg-boxproduto-titulo jsTituloHover">
+                                            <a href="https://dev01.farmaciamix.com.br/fortice-com-30-comprimidos-40742/?utm_source=Carrossel+Home&amp;utm_medium=Farmacia+Online&amp;utm_campaign=Farmacia+Online&amp;utm_term=FORTICE+COM+30+COMPRIMIDOS" title="FORTICE COM 30 COMPRIMIDOS " alt="FORTICE COM 30 COMPRIMIDOS " idimpression="40742" lista="lista Busca" nome="FORTICE COM 30 COMPRIMIDOS " link="https://dev01.farmaciamix.com.br/fortice-com-30-comprimidos-40742/?utm_source=Carrossel+Home&amp;utm_medium=Farmacia+Online&amp;utm_campaign=Farmacia+Online&amp;utm_term=FORTICE+COM+30+COMPRIMIDOS">FORTICE COM 30 COMPRIMIDOS    
+                                    </a>
+                                        </h3>
+                                    <div class="dg-boxproduto-tooltip" style="display: none;">FORTICE COM 30 COMPRIMIDOS  </div>
+
+                                    <div class="dg-boxproduto-categoria">
+                                        EUROFARMA
+                                    </div>
+
+                                </div>
+
+                                <!-- Preço -->
+                                <div class="dg-boxproduto-preco" boxprodutovalor="204,52">
+
+                                        <span class="dg-boxproduto-preco-de"><span>De: </span>R$204,52</span>
+                                        <span class="dg-boxproduto-preco-por">
+                                            <span>Por: </span>R$155,88
+                                        </span>
+
+                                </div>
+
+                                    <form class="dg-boxproduto-compra">
+                                        <div class="dg-relative">
+                                            <div class="dg-boxproduto-compra-bg">
+                                                <div class="dg-boxproduto-qtd">
+                                                    <input type="number" class="dg-boxproduto-qtd-input dg-ativado" name="" id="QTD_40742" value="1" multiplo="1" maxlength="2" onkeypress="if(this.value.length==4) return false;">
+                                                    <a href="javascript:void(0)" class="dg-boxproduto-qtd-menos dg-ativado" rel="40742">-</a>
+                                                    <a href="javascript:void(0)" class="dg-boxproduto-qtd-mais dg-ativado" rel="40742">+</a>
+                                                </div>
+
+                                                <a href="javascript:void(0)" class="dg-boxproduto-compra-btn BtComprarProduto" role="link" aria-label="Comprar FORTICE COM 30 COMPRIMIDOS  " id_subproduto="40742">
+                                                    <span class="dg-icon dg-icon-cart"></span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                <!-- Informações flutuantes -->
+                                <div class="dg-boxproduto-info">
+
+
+                                        <div class="dg-boxproduto-tags">
+
+                                                    <!-- Desconto -->
+                                                    <div class="dg-boxproduto-desconto dg-boxproduto-desconto--porcentagem dg-laranja dg-tooltip-hover" role="generic" aria-label="desconto de">
+                                                        <span class="dg-icon dg-icon-arrow01-down"></span> 23%
+                                                        <div class="dg-tooltip-left">
+                                                            Desconto
+                                                        </div>
+                                                    </div>
+
+
+                                            <!-- Tags -->
+
+
+
+                                        </div>
+                                    <!-- Sub-ações -->
+                                    <div class="dg-boxproduto-subacoes">
+                                        <a href="javascript:void(0)" class="dg-boxproduto-favoritar dg-tooltip-hover" role="link" aria-label="Adicionar aos favoritos" data-id_subproduto="40742">
+                                            <span class="dg-icon dg-icon-favorito"></span>
+                                            <div class="dg-tooltip-bottom">
+                                                Favorito
+                                            </div>
+                                        </a>
+
+
+                                    </div>
+                                </div>
+                            </div>
 
 
                         </div>
 
-                        @if (categoria.ID_Categoria != 1 && categoria.ID_Categoria != 2 && categoria.ID_Categoria != 12) {
+                        @* @if (categoria.ID_Categoria != 1 && categoria.ID_Categoria != 2 && categoria.ID_Categoria != 12) {
                             <a href="@categoria.BannerMenu.URLBanner" class="dg-menuA-submenu-banner dg-tooltip-hover">
                                 <img src="@Html.Domain()/assets/img/lazy.png" data-src-menu="https://static.drogarianovaesperanca.com.br/banners/dne/@categoria.BannerMenu.Imagem" alt="@categoria.BannerMenu.Alt" loading="lazy">
                                 <div class="dg-tooltip">@categoria.BannerMenu.Alt</div>
                             </a>
-                        }
+                        } *@
                         
                         <!--Mascote-->
-                        <div class="dg-menuA-submenu-mascote dg-tooltip-hover">
+                        @* <div class="dg-menuA-submenu-mascote dg-tooltip-hover">
                             <img src="@Html.Domain()/assets/img/lazy.png" data-src-menu="https://static.drogarianovaesperanca.com.br/marcas/@categoria.IconeMascote" alt="@categoria.IconeMascote_Alt" loading="lazy">
                             <div class="dg-tooltip">@categoria.IconeMascote_Alt</div>
-                        </div>
+                        </div> *@
                         <!--Mascote-->
-                </div>
+                    </div>
 
                     <!-- submenu -->
-
-
-
-
 
             </li>
             }
@@ -757,23 +822,28 @@
 
     {for RowCartItem in Carrinho.ItensCart}
     <li class="dg-minicarrinho-item">
-        <span class="dg-minicarrinho-item-img"><img src="@Html.Domain()/imagens/51x51/${RowCartItem.Foto}" alt="${RowCartItem.NomeProduto}"></span>
+        <span class="dg-minicarrinho-item-img"><img src="@Html.Domain()/imagens/57x57/${RowCartItem.Foto}" alt="${RowCartItem.NomeProduto}"></span>
 
-        <span class="dg-minicarrinho-item-produto">
-            ${RowCartItem.NomeProduto} ${RowCartItem.ComplementoBrindes}
-        </span>
+        <div class="dg-minicarrinho-item-produto-wrapper">
+            <div class="dg-minicarrinho-item-produto">
+                ${RowCartItem.NomeProduto} ${RowCartItem.ComplementoBrindes}
+            </div>
+            <div class="dg-minicarrinho-item-marca">
+                Fabricado por: <b>${RowCartItem.Marca}</b>
+            </div>
+        </div>
         <span class="dg-minicarrinho-item-qtd">
+            {var ValorView = RowCartItem.ValorUnitario}
+            {if RowCartItem.ValorComDescontoUnitario > 0 && RowCartItem.ValorUnitario > RowCartItem.ValorComDescontoUnitario}
+                {var ValorView = RowCartItem.ValorComDescontoUnitario}
+            {/if}
+            <span class="dg-minicarrinho-item-total">R$${ValorView.FormatCurrency()}</span>
             <div class="dg-minicarrinho-item-qtd">
                 <input type="number" value="${RowCartItem.Qtd}" class="dg-minicarrinho-item-qtd-input" id="Qtd_${RowCartItem.ID_SubProduto}" name="Qtd_${RowCartItem.ID_SubProduto}" ID_SubProduto="${RowCartItem.ID_SubProduto}" onKeyPress="if(this.value.length==4) return false;" onkeydown="InputItemCart(this, event);">
                 <a href="javascript:void(0)" onclick="SetCarrinhoDelay(this, 'Menos')" class="dg-minicarrinho-item-qtd-menos" ID_SubProduto="${RowCartItem.ID_SubProduto}">-</a>
                 <a href="javascript:void(0)" onclick="SetCarrinhoDelay(this, 'Mais')" class="dg-minicarrinho-item-qtd-mais" ID_SubProduto="${RowCartItem.ID_SubProduto}">+</a>
             </div>
         </span>
-        {var ValorView = RowCartItem.ValorUnitario}
-        {if RowCartItem.ValorComDescontoUnitario > 0 && RowCartItem.ValorUnitario > RowCartItem.ValorComDescontoUnitario}
-            {var ValorView = RowCartItem.ValorComDescontoUnitario}
-        {/if}
-        <span class="dg-minicarrinho-item-total">R$${ValorView.FormatCurrency()}</span>
         <a href="javascript:void(0)" 
          nome="${RowCartItem.NomeProduto}" 
         preco="${RowCartItem.ValorUnitario}" 
