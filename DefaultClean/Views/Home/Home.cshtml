@@ -333,7 +333,7 @@
             <div class="dg-home-produtos-topo">
                 <h2 class="dg-home-produtos-titulo">
                     <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/discount-shape.svg" />
-                    Ofertas especiais
+                    Ofertas <strong>especiais</strong>
                 </h2>
 
                 <div class="dg-home-produtos-vermais dg-mobile-hide">
@@ -515,27 +515,31 @@
 
             @await Html.PartialAsync("_TemplateBoxProduto", Model.MaisVendidos, new ViewDataDictionary(ViewData){{"MaisVendidos", ViewData["dasda"]}})
         </div>
+    </div>
 
-        <section class="dg-home-produtos">
-            <div class="dg-home-produtos-topo dg-home-produtos-topo--no-after">
-                <h2 class="dg-home-produtos-titulo">
-                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/discount-shape.svg" />
-                    Aproveite e Compre também
-                </h2>
-            </div>
+    <section class="dg-home-produtos-aproveite">
+        <div class="container">
+            <section class="dg-home-produtos">
+                <div class="dg-home-produtos-topo dg-home-produtos-topo--no-after">
+                    <h2 class="dg-home-produtos-titulo">
+                        <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/discount-shape.svg" />
+                        Aproveite e <strong>Compre também</strong>
+                    </h2>
+                </div>
 
-            <div class="dg-home-boxproduto-slide dg-loading">
-                @{
-                    ViewData["boxProduto"] = "MaisVendidos";
-                    ViewData["fromSlider"] = "fromSlider";
-                    ViewData["horizontal"] = null;
+                <div class="dg-home-boxproduto-slide dg-loading">
+                    @{
+                        ViewData["boxProduto"] = "MaisVendidos";
+                        ViewData["fromSlider"] = "fromSlider";
+                        ViewData["horizontal"] = null;
 
-                }
+                    }
 
-                @await Html.PartialAsync("_TemplateBoxProduto", Model.MaisVendidos, new ViewDataDictionary(ViewData){{"MaisVendidos", ViewData["dasda"]}})
+                    @await Html.PartialAsync("_TemplateBoxProduto", Model.MaisVendidos, new ViewDataDictionary(ViewData){{"MaisVendidos", ViewData["dasda"]}})
 
-            </div>
-        </section>
+                </div>
+            </section>
+        </div>
     </div>
 </main>
 
@@ -775,5 +779,5 @@
 @{
     Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Home.css", false);
     Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/slick.js", false);
-    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/Homev1.js", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/Homev2.js", false);
 }

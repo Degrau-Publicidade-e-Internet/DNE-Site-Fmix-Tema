@@ -486,10 +486,6 @@
 
             </div>
         </div>
-
-
-
-
     </div>
     <!-- /Itens principais do header -->
     <!-- Menu Principal -->
@@ -594,10 +590,25 @@
     <div class="container">
 
         <ul>
-            <li class="dg-header-menu-login">
+            <li class="dg-header-menu-login dg-desktop-hide">
+                <div class="dg-header-copy">
+                    <div class="dg-header-logo">
+                        <a href="@Html.Domain()/" class="dg-add-loading">
+                            <img src="@Html.Domain()/Themes/DefaultClean/Content/img/header/logo-white.svg" alt="Drogaria Nova Esperança - Logotipo" loading="lazy">
+                        </a>
+                    </div>
+                    <div class="dg-header-carrinho">
+                        <a href="@Html.Domain()/checkout/" class="titlecountcart" aria-label="Ir para o carrinho" dataformat="Ir para o carrinho ({0} itens)" title="Ir para o carrinho">
+                            <span class="dg-icon dg-icon-cart"></span>
+                            <div class="dg-header-carrinho-numero ContadorItensCart"></div>
+                        </a>
+                        <div class="dg-counter-carrinho">+ 1</div>
+                    </div>
+                    <a href="javascript:void(0)" aria-label="Fechar Menu Principal" class="dg-menuA-fechar" title="Fechar Menu"></a>
+                </div>
                 <div class="templateLogadoLogadoCont"></div>
             </li>
-            <li>
+            <li class="dg-mobile-hide">
                 <div class="dg-titulo">
                     Categorias
                 </div>

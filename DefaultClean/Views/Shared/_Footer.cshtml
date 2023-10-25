@@ -17,35 +17,32 @@
         <li class="dg-mobile-hide"><a href="@Html.Domain()/como-comprar/">Como comprar</a></li>
         <li><a href="javascript:void(0)" onclick="abrirModal({id:'templateFaleComFarmaceutico', titulo:'Fale com o <strong>Farmacêutico</strong>', startFunction: modalFarmaceutico})">Fale com o Farmacêutico</a></li>
         <li><a href="@Html.Domain()/programas-laboratorios/">Programa dos Laboratórios</a></li> *@
-  
-           
-        <nav class="links-nav">
-            <ul class="links-nav-list">
-                <li class="title" role="heading">Sobre a Farmácia Mix</li>
-                <li><a href="/nossa-historia/">Quem Somos</a></li>
-                <li><a href="/trabalhe-conosco/">Trabalhe Conosco</a></li>
-                <li><a href="javascript:void(0)" onclick="abrirModal({id:'templateIndiqueUmAmigo',titulo:'Indique a Drogaria Nova Esperança a um <strong>amigo</strong>', startFunction: modalIndiqueAmigo})">Indique Nossa Loja</a></li>
-                <li><a href="/nossas-lojas/">Localização</a></li>
-                <li><a href="/conteudo-informativo/">Conteúdo Informativo</a></li>
-            </ul>
-            <ul class="links-nav-list">
-                <li class="title" role="heading">Serviços</li>
-                <li><a href="/pagamentos/">Política de Pagamento</a></li>
-                <li><a href="/politica-de-cookies/">Política de Cookies</a></li>
-                <li><a href="/politica-de-seguranca/">Política de Segurança</a></li>
-                <li><a href="/politica-de-privacidade/">Política de Privacidade</a></li>
-                <li><a href="/frete-e-entrega/">Política de Frete e Entrega</a></li>
-                <li><a href="/politica-de-reembolso-e-devolucao/">Política de Devolução</a></li>
-            </ul>
-            <ul class="links-nav-list">
-                <li class="title" role="heading">Relacionamento</li>
-                <li><a href="#">Meus Pedidos</a></li>
-                <li><a href="#">Como Comprar</a></li>
-                <li><a href="#">Central do Cliente</a></li>
-                <li><a href="#">Fale Com o Farmacêutico</a></li>
-            </ul>
-        </nav>
-        <div class="dg-footer-news">
+
+        <ul class="links-nav-list dg-order2-mobile dg-order1-desktop">
+            <li class="title" role="heading">Sobre a Farmácia Mix</li>
+            <li><a href="/nossa-historia/">Quem Somos</a></li>
+            <li><a href="/trabalhe-conosco/">Trabalhe Conosco</a></li>
+            <li><a href="javascript:void(0)" onclick="abrirModal({id:'templateIndiqueUmAmigo',titulo:'Indique a Drogaria Nova Esperança a um <strong>amigo</strong>', startFunction: modalIndiqueAmigo})">Indique Nossa Loja</a></li>
+            <li><a href="/nossas-lojas/">Localização</a></li>
+            <li><a href="/conteudo-informativo/">Conteúdo Informativo</a></li>
+        </ul>
+        <ul class="links-nav-list dg-order3-mobile dg-order2-desktop">
+            <li class="title" role="heading">Serviços</li>
+            <li><a href="/pagamentos/">Política de Pagamento</a></li>
+            <li><a href="/politica-de-cookies/">Política de Cookies</a></li>
+            <li><a href="/politica-de-seguranca/">Política de Segurança</a></li>
+            <li><a href="/politica-de-privacidade/">Política de Privacidade</a></li>
+            <li><a href="/frete-e-entrega/">Política de Frete e Entrega</a></li>
+            <li><a href="/politica-de-reembolso-e-devolucao/">Política de Devolução</a></li>
+        </ul>
+        <ul class="links-nav-list dg-order4-mobile dg-order3-desktop">
+            <li class="title" role="heading">Relacionamento</li>
+            <li><a href="#">Meus Pedidos</a></li>
+            <li><a href="#">Como Comprar</a></li>
+            <li><a href="#">Central do Cliente</a></li>
+            <li><a href="#">Fale Com o Farmacêutico</a></li>
+        </ul>
+        <div class="dg-footer-news dg-order1-mobile dg-order4-desktop">
             <div class="title">Receba ofertas e novidades por e-mail</div>
 
             <form class="dg-footer-news-form" id="FormNewsletter">
@@ -66,111 +63,109 @@
                 
             </form>
         </div>
-        <div class="dg-footer-info-extra">
-            <div>
-                <div class="title">
-                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/call-calling.svg" />Televendas
-                </div>
-                <p>
-                    (11) 3990-7720<br>
-                    <span class="small">
-                        Segunda a Sexta, das 8h as 18h.<br>
-                        Sábado das 8h as 12h.
-                    </span>
-                </p>
+        <div class="dg-footer-info-extra dg-footer-info-extra-1 dg-order7-mobile dg-order5-desktop">
+            <div class="title">
+                <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/call-calling.svg" />Televendas
             </div>
-            <div>
-                <div class="title">
-                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/Wavy.svg" />Selos e Certificados
-                </div>
-                <div class="dg-footer-selos-lista">
-                    <div class="dg-footer-selos-ebit">
-                        <a href="https://www.ebit.com.br/Drogaria-Nova-Esperanca" target="_blank">
-                            <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/ebit.png" alt="Selo E-bit - Excelente" loading="lazy">
-                        </a>
-                    </div>
-                    <div class="dg-footer-selos-secure">
-                        <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/secure.png" alt="Selo 100% Secure" loading="lazy">
-                    </div>
-
-                    <div class="dg-footer-selos-reclameaqui">
-                        <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/reclameaqui.png" alt="Selo Reclame Aqui" loading="lazy">
-                    </div>
-
-                    <div class="dg-footer-selos-pci">
-                        <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/pci.png" alt="Selo PCI DDS Certified" loading="lazy">
-                    </div>
-                </div>
+            <p>
+                (11) 3990-7720<br>
+                <span class="small">
+                    Segunda a Sexta, das 8h as 18h.<br>
+                    Sábado das 8h as 12h.
+                </span>
+            </p>
+        </div>
+        <div class="dg-footer-info-extra dg-footer-info-extra-2 dg-order6-mobile dg-order6-desktop">
+            <div class="title">
+                <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/Wavy.svg" />Selos e Certificados
             </div>
-            <div>
-                <div class="title">
-                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/messages.svg" />SAC
-                </div>
-                <p>
-                    (11) 0000-0000 ou sac@farmaciamix.com.br<br>
-                    <span class="small">
-                        Segunda a Sexta, das 8h as 18h.<br>
-                        Sábado das 8h as 12h.
-                    </span>
-                </p>
-            </div>
-            <div>
-                <div class="title">
-                    A Fmix apoia:
-                </div>
-                <div class="dg-footer-linha2-instituicoes-lista">
-                    <a href="https://www.graacc.org.br/" target="_blank">
-                        <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/graacc.png" alt="Graac - Combatendo e vencendo o câncer infantil" loading="lazy">
+            <div class="dg-footer-selos-lista">
+                <div class="dg-footer-selos-ebit">
+                    <a href="https://www.ebit.com.br/Drogaria-Nova-Esperanca" target="_blank">
+                        <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/ebit.png" alt="Selo E-bit - Excelente" loading="lazy">
                     </a>
-                    <a href="https://ibcc.org.br/sobre-o-ibcc/o-cancer-de-mama-no-alvo-da-moda/" target="_blank">
-                        <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/cancer-mama.png" alt="Campanha Câncer de Mama no alvo da Moda" loading="lazy">
-                    </a>
-
-                    <a href="https://institutoayrtonsenna.org.br/pt-br.html" target="_blank">
-                        <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/ayrton-senna.png" alt="Instituto Ayrton Senna" loading="lazy">
-                    </a>
-
                 </div>
-            </div>
-            <div>
-                <div class="title">
-                    Siga-nos
+                <div class="dg-footer-selos-secure">
+                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/secure.png" alt="Selo 100% Secure" loading="lazy">
                 </div>
-                <div class="dg-footer-linha2-lista">
-                    <a href="https://www.instagram.com/drogarianovaesperancaoficial/" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Instagram">
-                        <span class="dg-icon dg-icon-insta"></span>
-                        <span class="dg-tooltip">Instagram</span>
-                    </a>
 
-                    <a href="https://www.facebook.com/DrogariaNovaEsperanca/" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Facebook">
-                        <span class="dg-icon dg-icon-fb"></span>
-                        <span class="dg-tooltip">Facebook</span>
-                    </a>
-
-                    @* <a href="https://www.youtube.com/channel/UC0jmeYyaBF0w1rbGH1zYIkA/featured" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Youtube">
-                        <span class="dg-icon dg-icon-yt"></span>
-                        <span class="dg-tooltip">Youtube</span>
-                    </a> *@
-
-                    <a href="https://www.linkedin.com/company/drogaria-nova-esperanca/?originalSubdomain=br" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Linkedin">
-                        <span class="dg-icon dg-icon-linkedin"></span>
-                        <span class="dg-tooltip">Linkedin</span>
-                    </a>
-
-                    @* <a href="https://twitter.com/drogariadne" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Twitter">
-                        <span class="dg-icon dg-icon-twitter"></span>
-                        <span class="dg-tooltip">Twitter</span>
-                    </a> *@
+                <div class="dg-footer-selos-reclameaqui">
+                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/reclameaqui.png" alt="Selo Reclame Aqui" loading="lazy">
                 </div>
-            </div>
-            <div>
-                <div class="title">
-                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/wallet-2.svg" />Formas de pagamento
+
+                <div class="dg-footer-selos-pci">
+                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/pci.png" alt="Selo PCI DDS Certified" loading="lazy">
                 </div>
-                <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/Themes/DefaultClean/Content/img/footer/pagamento.png" alt="Instituto Ayrton Senna" loading="lazy">
             </div>
         </div>
-        <div class="dg-footer-info-extra-2">
+        <div class="dg-footer-info-extra dg-footer-info-extra-3 dg-order5-mobile dg-order7-desktop">
+            <div class="title">
+                <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/messages.svg" />SAC
+            </div>
+            <p>
+                (11) 0000-0000 ou sac@farmaciamix.com.br<br>
+                <span class="small">
+                    Segunda a Sexta, das 8h as 18h.<br>
+                    Sábado das 8h as 12h.
+                </span>
+            </p>
+        </div>
+        <div class="dg-footer-info-extra dg-footer-info-extra-4 dg-order8-mobile dg-order9-desktop">
+            <div class="title">
+                A Fmix apoia:
+            </div>
+            <div class="dg-footer-linha2-instituicoes-lista">
+                <a href="https://www.graacc.org.br/" target="_blank">
+                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/graacc.png" alt="Graac - Combatendo e vencendo o câncer infantil" loading="lazy">
+                </a>
+                <a href="https://ibcc.org.br/sobre-o-ibcc/o-cancer-de-mama-no-alvo-da-moda/" target="_blank">
+                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/cancer-mama.png" alt="Campanha Câncer de Mama no alvo da Moda" loading="lazy">
+                </a>
+
+                <a href="https://institutoayrtonsenna.org.br/pt-br.html" target="_blank">
+                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/ayrton-senna.png" alt="Instituto Ayrton Senna" loading="lazy">
+                </a>
+
+            </div>
+        </div>
+        <div class="dg-footer-info-extra dg-footer-info-extra-5 dg-order9-mobile dg-order10-desktop">
+            <div class="title">
+                Siga-nos
+            </div>
+            <div class="dg-footer-linha2-lista">
+                <a href="https://www.instagram.com/drogarianovaesperancaoficial/" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Instagram">
+                    <span class="dg-icon dg-icon-insta"></span>
+                    <span class="dg-tooltip">Instagram</span>
+                </a>
+
+                <a href="https://www.facebook.com/DrogariaNovaEsperanca/" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Facebook">
+                    <span class="dg-icon dg-icon-fb"></span>
+                    <span class="dg-tooltip">Facebook</span>
+                </a>
+
+                @* <a href="https://www.youtube.com/channel/UC0jmeYyaBF0w1rbGH1zYIkA/featured" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Youtube">
+                    <span class="dg-icon dg-icon-yt"></span>
+                    <span class="dg-tooltip">Youtube</span>
+                </a> *@
+
+                <a href="https://www.linkedin.com/company/drogaria-nova-esperanca/?originalSubdomain=br" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Linkedin">
+                    <span class="dg-icon dg-icon-linkedin"></span>
+                    <span class="dg-tooltip">Linkedin</span>
+                </a>
+
+                @* <a href="https://twitter.com/drogariadne" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Twitter">
+                    <span class="dg-icon dg-icon-twitter"></span>
+                    <span class="dg-tooltip">Twitter</span>
+                </a> *@
+            </div>
+        </div>
+        <div class="dg-footer-info-extra dg-footer-info-extra-6 dg-order10-mobile dg-order11-desktop">
+            <div class="title">
+                <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/wallet-2.svg" />Formas de pagamento
+            </div>
+            <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/Themes/DefaultClean/Content/img/footer/pagamento.png" alt="Instituto Ayrton Senna" loading="lazy">
+        </div>
+        <div class="dg-footer-info-extra_2 dg-order11-mobile dg-order8-desktop">
             <img src="@Html.Domain()/Themes/DefaultClean/Content/img/footer/logo-fmix.svg" alt="Logo FMIX">
             <p>Todas as informações contidas neste site não devem ser usadas para automedicação. Ao persistirem os sintomas um médico deverá ser consultado. **O valor poderá sofrer acréscimo de juros da operadora do cartão de crédito.</p>
             <p class="dg-desenvolvido">
