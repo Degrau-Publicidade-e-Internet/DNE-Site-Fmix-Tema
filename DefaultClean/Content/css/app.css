@@ -2745,4 +2745,71 @@ body .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-form-senha-step[dat
     padding: 10px !important;
   }
 }
+
+body .dg-produto-breadcrumb {
+  font-style: normal;
+  font-size: 9px;
+  color: #0B1841;
+}
+
+body .dg-produto-breadcrumb a {
+  color: #0B1841;
+}
+
+body .dg-produto-breadcrumb li {
+  padding-right: 12px;
+}
+
+body .dg-produto-breadcrumb li::after {
+  content: '';
+  display: inline-block;
+  margin-left: 12px;
+  padding-left: 0;
+  width: 5px;
+  height: 8px;
+  background-image: url(../img/icones/chevron-breadcrumb.svg);
+  background-repeat: no-repeat;
+}
+
+body .dg-produto .dg-produto-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 19px 26px;
+  border: 1px solid #D2D2D2;
+  border-radius: 25px;
+  max-width: 100%;
+}
+
+body .dg-produto .dg-produto-info {
+  max-width: 277px;
+  border: 1px solid #D2D2D2;
+  border-radius: 25px;
+  margin-left: 30px;
+  min-height: 439px;
+}
+
+body .dg-produto .dg-produto-tags {
+  top: 0;
+  right: unset;
+  left: 0;
+}
+
+body .dg-produto .dg-produto-img-subacoes {
+  left: unset;
+  right: 0;
+  padding: 0;
+}
+
+body .dg-produto .dg-produto-img-principal img {
+  max-height: 323px;
+}
+
+body .dg-produto .dg-produto-img-box {
+  padding-top: 62px;
+}
+
+body .dg-produto .dg-produto-img-principal {
+  height: 323px;
+}
 /*# sourceMappingURL=app.css.map */

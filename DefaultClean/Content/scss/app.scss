@@ -2330,4 +2330,62 @@ body {
             padding: 10px !important;
         }
     }
+
+    .dg-produto-breadcrumb {
+        font-style: normal;
+        font-size: 9px;
+        color: $corPrimaria;
+        a {
+            color: $corPrimaria;
+        }
+        li {
+            padding-right: 12px;
+            &::after {
+                content: '';
+                display: inline-block;
+                margin-left: 12px;
+                padding-left: 0;
+                width: 5px;
+                height: 8px;
+                background-image: url(../img/icones/chevron-breadcrumb.svg);
+                background-repeat: no-repeat;
+            }
+        }
+    }
+
+    .dg-produto {
+        .dg-produto-img {
+            display: flex;
+            padding: 19px 26px;
+            border: 1px solid #D2D2D2;
+            border-radius: 25px;
+            max-width: 100%;
+        }
+        .dg-produto-info {
+            max-width: 277px;
+            border: 1px solid #D2D2D2;
+            border-radius: 25px;
+            margin-left: 30px;
+            min-height: 439px;
+        }
+        .dg-produto-tags {
+            top: 0;
+            right: unset;
+            left: 0;
+        }
+        .dg-produto-img-subacoes {
+            left: unset;
+            right: 0;
+            padding: 0;
+        }
+        .dg-produto-img-principal img {
+            max-height: 323px;
+        }
+        .dg-produto-img-box {
+            padding-top: 62px;
+        }
+        .dg-produto-img-principal {
+            height: 323px;
+        }
+    }
 }
