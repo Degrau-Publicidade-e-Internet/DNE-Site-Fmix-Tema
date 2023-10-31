@@ -102,18 +102,27 @@
                 <a href="javascript:void(0)" aria-label="Minha conta" class="dg-tooltip-hover">
                     <span class="dg-icon dg-icon-user"></span>
                     @* <span class="dg-tooltip">Minha Conta</span> *@
-                    <div class="dg-header-minhaconta__logar">
-                        <div class="dg-header-minhaconta__logar1">Bem-vindo de volta</div>
-                        <div class="dg-header-minhaconta__logar2">Entre na sua conta</div>
+                    <div class="dg-header-minhaconta__logar jsMenuLoginPreview dg-loading">
+                        @* <div class="dg-header-minhaconta__logar1">Bem-vindo de volta</div>
+                        <div class="dg-header-minhaconta__logar2">Entre na sua conta</div> *@
                     </div>
                 </a>
             </div>
 
+            <script id="templateLogadoMenu" type="text/x-jquery-tmpl">
+                {if RetornoLogado.logado}
+                    <div class="dg-header-minhaconta__logar1">Bem-vindo, <strong>${RetornoLogado.NomeCliente}</strong></div>
+                    @* <div class="dg-header-minhaconta__logar2">Entre na sua conta</div> *@
+                {else}
+                    <div class="dg-header-minhaconta__logar1">Bem-vindo de volta</div>
+                    <div class="dg-header-minhaconta__logar2">Entre na sua conta</div>
+                {/if}
+            </script>
             <script id="templateLogadoLogado" type="text/x-jquery-tmpl">
 
                 {if RetornoLogado.logado}
                 <div class="dg-desktop-hide dg-menu-login-mobile">
-                    <img src="/assets/img/header/user.svg">
+                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/frame-mobile.svg" width="37" height="37">
                     <div class="dg-menu-login-mobile-top">
                         <div>Bem-vindo, <strong>${RetornoLogado.NomeCliente}</strong></div>
                         <div class="dg-menu-login-mobile-bottom">
@@ -127,10 +136,10 @@
                     </div>
                 </div>
                 <div class="dg-header-minhaconta-modal dg-logado">
-                    <a href="javascript:void(0)" class="dg-header-minhaconta-modal-fechar dg-desktop-hide jsMobileFecharMenuLogin"><span class="dg-icon dg-icon-arrow01-left"></span>Voltar</a>
+                    @* <a href="javascript:void(0)" class="dg-header-minhaconta-modal-fechar dg-desktop-hide jsMobileFecharMenuLogin"><span class="dg-icon dg-icon-arrow01-left"></span>Voltar</a>
                     <div class="dg-header-minhaconta-modal-topo">
                         <div class="dg-titulo">Bem-vindo, <strong>${RetornoLogado.NomeCliente}</strong></div>
-                    </div>
+                    </div> *@
                     <nav class="dg-header-minhaconta-modal-login">
                         <ul>
                             <li>
@@ -158,7 +167,7 @@
                 </div>
                 {else}
                 <div class="dg-desktop-hide dg-menu-login-mobile">
-                    <img src="/assets/img/header/user.svg" alt="ìcone de usuário">
+                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/frame-mobile.svg" width="37" height="37" alt="ìcone de usuário">
                     <div>
                         <div class="dg-menu-login-mobile-top">Bem-vindo, <strong>visitante</strong></div>
                         <div class="dg-menu-login-mobile-bottom">
@@ -346,7 +355,7 @@
                 {if Data.tipo == "1"}
                 <div class="dg-form-senha-email" style="text-align:center">
                     <div class="dg-titulo">
-                        <div class="dg-icon dg-icon-avise-me" style="font-size: 40px;color: #f03443;"></div>
+                        <div class="dg-icon dg-icon-avise-me" style="font-size: 40px;color: #00D19D;"></div>
                         Agora, crie sua nova senha
                         <p>
                             Para isso, siga o link que enviamos para <b>${Data.EMail}</b>.<br>
@@ -387,7 +396,7 @@
                 {elseif Data.tipo == "3"}
                 <div class="dg-form-senha-suporte dg-header-minhaconta-modal-conteudo">
                     <p style="max-width:340px;text-align:center;margin: 0 auto;">
-                        <span class="dg-icon dg-icon-televendas" style="display:block;font-size: 40px;color: #f03443;"></span>
+                        <span class="dg-icon dg-icon-televendas" style="display:block;font-size: 40px;color: #00D19D;"></span>
                         <span style="font-weight: 600;">Entre em contato com o nosso SAC para a validação de seu cadastro e atualização de suas informações:</span>
                         <br><br>
                         SAC: ${Data.NumeroSac} ou<br>

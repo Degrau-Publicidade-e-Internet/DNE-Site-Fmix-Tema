@@ -141,10 +141,20 @@ body {
             align-items: center;
     width: auto;
     padding-top: 0;
+    min-width: 179px;
   }
   .dg-header .dg-header-minhaconta__logar {
     text-align: left;
     margin-left: 13px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  .dg-header .dg-header-minhaconta__logar.dg-loading::before {
+    margin: auto;
+  }
+  .dg-header .dg-header-minhaconta__logar.dg-loading::after {
+    display: none;
   }
   .dg-header .dg-header-minhaconta__logar1 {
     font-size: 14px;
@@ -208,6 +218,12 @@ body {
   display: inline-block;
   margin-right: 20px;
   vertical-align: -5px;
+}
+
+@media (max-width: 379px) {
+  .dg-home-produtos-topo .dg-home-produtos-titulo > img {
+    margin-right: 2px;
+  }
 }
 
 .dg-home-produtos-topo::after {
@@ -641,18 +657,24 @@ body .dg-menuA > .container > ul > li > a {
 }
 
 body .dg-menuA > .container > ul > li {
-  padding-left: 22px;
-  background-image: url(../img/icones/chevron-right-blue.svg);
   background-repeat: no-repeat;
-  background-position: center right 5px;
 }
 
-body .dg-menuA > .container > ul > li a {
-  color: #0B1841 !important;
+@media (min-width: 992px) {
+  body .dg-menuA > .container > ul > li {
+    padding-left: 22px;
+    background-position: center right 5px;
+    background-image: url(../img/icones/chevron-right-blue.svg);
+  }
 }
 
-body .dg-menuA > .container > ul > li a:hover, body .dg-menuA > .container > ul > li a:focus {
-  color: #0B1841 !important;
+@media (min-width: 992px) {
+  body .dg-menuA > .container > ul > li a {
+    color: #0B1841 !important;
+  }
+  body .dg-menuA > .container > ul > li a:hover, body .dg-menuA > .container > ul > li a:focus {
+    color: #0B1841 !important;
+  }
 }
 
 body .dg-menuA-submenu-itens {
@@ -2096,7 +2118,11 @@ body .dg-header-minhaconta-modal-conteudo {
 @media (min-width: 992px) {
   body .dg-header-minhaconta-modal {
     max-width: 673px;
-    height: 254px;
+    min-height: 254px;
+    height: auto;
+  }
+  body .dg-header-minhaconta-modal form {
+    min-height: 254px;
   }
 }
 
@@ -2118,10 +2144,18 @@ body .dg-header-minhaconta-modal-footer-btn {
   background: #00D19D;
 }
 
+body .dg-header-minhaconta-modal-footer-btn:hover, body .dg-header-minhaconta-modal-footer-btn:focus {
+  background: #00b88a;
+}
+
 body .dg-header-minhaconta-modal-login .dg-header-minhaconta-modal-footer-btn {
   height: 44px;
   border-radius: 12px;
   background-color: #002399;
+}
+
+body .dg-header-minhaconta-modal-login .dg-header-minhaconta-modal-footer-btn:hover, body .dg-header-minhaconta-modal-login .dg-header-minhaconta-modal-footer-btn:focus {
+  background-color: #001d80;
 }
 
 body .dg-header-minhaconta-modal-cadastro .dg-header-minhaconta-modal-footer-btn {
@@ -2491,22 +2525,26 @@ body .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-header-minhaconta-m
   body .dg-header .dg-header-carrinho {
     top: unset;
   }
+  body .dg-menuA {
+    top: 188px;
+  }
+  body .dg-menuA > .container {
+    overflow: unset;
+  }
   body .dg-menuA > .container > ul {
     width: 100%;
     height: 100%;
-    padding-top: 237px;
     padding-bottom: 0;
     border-radius: 0;
     background: none;
+    border-top: 1px solid #294BBB;
   }
   body .dg-menuA > .container > ul > .dg-menuA-fechar {
     display: none;
   }
   body .dg-menuA > .container > ul > li {
     height: auto;
-    padding-bottom: 15px !important;
-    padding-top: 15px !important;
-    border-bottom: 1px solid #294BBB;
+    padding: 0 !important;
   }
   body .dg-menuA > .container > ul > li > a {
     padding: 0 !important;
@@ -2514,6 +2552,14 @@ body .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-header-minhaconta-m
     font-size: 15px;
     font-weight: bold;
     color: #fff !important;
+    padding-bottom: 15px !important;
+    padding-top: 15px !important;
+    padding-left: 22px !important;
+    border-bottom: 1px solid #294BBB;
+    border-radius: 0 !important;
+    background-position: center right 24px;
+    background-image: url(../img/icones/chevron-right.svg);
+    background-repeat: no-repeat;
   }
   body .dg-menuA > .container > ul > li > a:hover, body .dg-menuA > .container > ul > li > a:focus {
     color: #fff !important;
@@ -2522,11 +2568,33 @@ body .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-header-minhaconta-m
     position: static;
   }
   body .dg-menuA > .container .dg-header-menu-login {
-    top: 49px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    top: -188px;
     width: 100%;
     height: 188px;
-    padding: 0;
-    background-color: #002399;
+    padding: 22px 20px 0 !important;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  body .dg-menuA > .container .dg-header-menu-login .templateLogadoLogadoCont {
+    margin: auto 0;
+  }
+  body .dg-menuA > .container .dg-header-menu-login .dg-menu-login-mobile-top {
+    font-size: 20px;
+    font-weight: 500;
+    color: #00D19D;
+  }
+  body .dg-menuA > .container .dg-header-menu-login .dg-menu-login-mobile-top strong {
+    font-weight: 500;
+    color: #00D19D;
+  }
+  body .dg-menuA > .container .dg-header-menu-login .dg-menu-login-mobile-bottom {
+    color: #fff;
   }
   body .dg-header-copy {
     display: -webkit-box;
@@ -2571,6 +2639,86 @@ body .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-header-minhaconta-m
   }
 }
 
+@media (max-width: 991px) {
+  .dg-header-menu-login .dg-header-minhaconta-modal .dg-header-minhaconta-modal-login .dg-titulo, .dg-header-menu-login .dg-header-minhaconta-modal .dg-header-minhaconta-modal-cadastro .dg-titulo, .dg-header-menu-login .dg-header-minhaconta-modal .dg-header-minhaconta-modal-esquecisenha .dg-titulo {
+    font-weight: 500;
+  }
+  .dg-header-minhaconta-title-mobile span, .dg-header-menu-login .dg-header-minhaconta-modal .dg-header-minhaconta-modal-login .dg-titulo, .dg-header-menu-login .dg-header-minhaconta-modal .dg-header-minhaconta-modal-cadastro .dg-titulo, .dg-header-menu-login .dg-header-minhaconta-modal .dg-header-minhaconta-modal-esquecisenha .dg-titulo, .dg-header-menu-login .dg-header-minhaconta-modal .dg-header-minhaconta-modal-login .dg-titulo strong, .dg-header-menu-login .dg-header-minhaconta-modal .dg-header-minhaconta-modal-cadastro .dg-titulo strong, .dg-header-menu-login .dg-header-minhaconta-modal .dg-header-minhaconta-modal-esquecisenha .dg-titulo strong {
+    color: #0B1841;
+  }
+  .dg-header-minhaconta-flex > *:last-child {
+    border-bottom: 0;
+  }
+  .dg-header-menu-login .dg-header-minhaconta-modal .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-fb-btn, .dg-header-menu-login .dg-header-minhaconta-modal .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-google-btn {
+    border-radius: 12px;
+  }
+  .dg-header-menu-login .dg-header-minhaconta-modal .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-google-btn {
+    background-color: #eeeff1;
+  }
+  .dg-header-minhaconta-modal-footer-fb-btn {
+    padding-top: 13px !important;
+  }
+  .dg-menuA .dg-menuA-submenu .dg-menuA-fechar-submenu {
+    padding-left: 22px !important;
+    padding-right: 0 !important;
+    padding-bottom: 15px !important;
+    padding-top: 15px !important;
+    font-size: 12px !important;
+    line-height: 17px !important;
+    text-transform: uppercase;
+    border-bottom: 1px solid #294BBB;
+    color: #fff;
+  }
+  .dg-menuA > .container > ul > li:not(.dg-header-menu-login)::before {
+    display: none;
+  }
+  .dg-menuA > .container > ul > li > a.dg-ativo + .dg-menuA-submenu {
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding-left: 0;
+    background: none;
+    max-height: 100%;
+    overflow: auto;
+  }
+  .dg-menuA .dg-boxproduto {
+    display: none;
+  }
+  .dg-menuA .dg-menuA-submenu-destaques-box {
+    display: block;
+  }
+  .dg-menuA .dg-menuA-submenu-itens {
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+  .dg-menuA .dg-menuA-submenu::before {
+    display: none;
+  }
+  .dg-menuA .dg-menuA-submenu-itens li {
+    height: auto;
+    padding: 0 !important;
+  }
+  .dg-menuA .dg-menuA-submenu-itens li a {
+    text-transform: uppercase;
+    border-bottom: 1px solid #294BBB;
+    padding-left: 22px !important;
+    padding-right: 0 !important;
+    padding-bottom: 15px !important;
+    padding-top: 15px !important;
+    font-size: 12px !important;
+    line-height: 17px !important;
+    background-position: center right 24px;
+    background-image: url(../img/icones/chevron-right.svg);
+    background-repeat: no-repeat;
+    color: #fff;
+  }
+  .dg-menuA .dg-menuA-submenu-itens li a:hover {
+    text-decoration: none;
+  }
+}
+
 .dg-header-minhaconta-modal-overlay {
   z-index: 24;
   background-color: rgba(11, 24, 65, 0.8);
@@ -2582,5 +2730,19 @@ body .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-header-minhaconta-m
 
 .dg-menuA-overlay {
   background-color: rgba(0, 35, 153, 0.9);
+}
+
+body .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-conteudo {
+  padding-top: 6px;
+}
+
+body .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer-voltar-style, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer-voltar-style, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer-voltar-style, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer-voltar-style {
+  border-radius: 12px;
+}
+
+@media (max-width: 991px) {
+  body .dg-header-menu-login .dg-header-minhaconta-modal .dg-form-senha-step[data-form-senha-step="3"] button {
+    padding: 10px !important;
+  }
 }
 /*# sourceMappingURL=app.css.map */
