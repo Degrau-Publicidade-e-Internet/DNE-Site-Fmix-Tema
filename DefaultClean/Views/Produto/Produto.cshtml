@@ -439,6 +439,9 @@
                     <p class="dg-produto-info-side__descricao">
                         O Creme Cicatricure Antissinais é indicado para o cuidado da pele do rosto, pescoço e colo. O produto proporciona hidratação para a pele, ajudando a reduzir contra rugas profundas e proporcionando mais firmeza. A pele fica....
                     </p>
+                    <div>
+                        <a class="dg-produto-info-side__descricao__vertd">Ver mais características</a>
+                    </div>
                     <div class="dg-produto-info-side__bottom">
                         <div class="dg-produto-img-listagem">
                             @foreach (var f in Fotos)
@@ -661,12 +664,12 @@
                         {
 
                             <div class="dg-produto-info-preco-de">De: @ValorDe.ToString("#,0.00")</div>
-                            <div class="dg-produto-info-preco-por" itemprop="price" content="@Valor.ToString().Replace(",", ".")">Por: R$@Valor.ToString("#,0.00")</div>
+                            <div class="dg-produto-info-preco-por" itemprop="price" content="@Valor.ToString().Replace(",", ".")">R$@Valor.ToString("#,0.00")</div>
 
                         }
                         else
                         {
-                            <div class="dg-produto-info-preco-por" itemprop="price" content="@ValorTotal.ToString().Replace(",", ".")">Por: R$@ValorTotal.ToString("#,0.00")</div>
+                            <div class="dg-produto-info-preco-por" itemprop="price" content="@ValorTotal.ToString().Replace(",", ".")">R$@ValorTotal.ToString("#,0.00")</div>
                         }
 
 
@@ -698,16 +701,7 @@
                                 @if (BTnIndisponivel == 0)
                                 {
                                     @if (EstoqueAtual > 0) { Estoque = EstoqueAtual; }
-                                    @if (MostraBtnPromocao == 1)
-                                    {
-
-                                        @if (PromocaoMedicamento != null)
-                                        {
-                                            <a href="javascript:void(0)" class="dg-produto-acoes-btns-compre3 BtComprarProdutoPromocao" ID_SubProduto="@SP.ID_SubProduto" compre="@PromocaoMedicamento.Compre" pague="@PromocaoMedicamento.Pague">
-                                                <span class="dg-produto-acoes-btns-compre3-compre">Compre @PromocaoMedicamento.Compre</span> <span class="dg-produto-acoes-btns-compre3-pague">pague @PromocaoMedicamento.Pague</span> <span class="dg-icon dg-icon-cart"></span>
-                                            </a>
-                                        }
-                                    }
+                                    
                                     <form class="dg-produto-acoes-btns-compra" name="formcomprar" id="formcomprar">
                                         <div class="dg-produto-acoes-btns-compra-qtd">
                                             <input type="number" class="dg-produto-acoes-btns-compra-qtd-input" name="" id="QTD_@SP.ID_SubProduto" value="1" multiplo="1" maxlength="4">
@@ -719,6 +713,17 @@
                                             Comprar <span class="dg-icon dg-icon-cart"></span>
                                         </a>
                                     </form>
+
+                                    @if (MostraBtnPromocao == 1)
+                                    {
+
+                                        @if (PromocaoMedicamento != null)
+                                        {
+                                            <a href="javascript:void(0)" class="dg-produto-acoes-btns-compre3 BtComprarProdutoPromocao" ID_SubProduto="@SP.ID_SubProduto" compre="@PromocaoMedicamento.Compre" pague="@PromocaoMedicamento.Pague">
+                                                <span class="dg-produto-acoes-btns-compre3-compre">Compre @PromocaoMedicamento.Compre</span> <span class="dg-produto-acoes-btns-compre3-pague">pague @PromocaoMedicamento.Pague</span> <span class="dg-icon dg-icon-cart"></span>
+                                            </a>
+                                        }
+                                    }
 
                                     @* if(mostraProdutoEpharma){
 
@@ -744,16 +749,20 @@
 
                                     }
 
-                                    @* <form id="buscaFreteProdutoForm" class="dg-produto-acoes-btns-frete">
-                                        <input id="buscarCepProduto" type="tel" class="dg-produto-acoes-btns-frete-input" mascara="cep" validar required>
-                                        <label for="buscarCepProduto">Calcule frete e prazo</label>
+                                    <div>
+                                        <p class="dg-produto-acoes-btns-frete__titulo">Calcular frete e <b>prazo de entrega</b></p>
+                                        <form id="buscaFreteProdutoForm" class="dg-produto-acoes-btns-frete">
+                                            <input id="buscarCepProduto" type="tel" class="dg-produto-acoes-btns-frete-input" mascara="cep" validar required>
+                                            <label for="buscarCepProduto">Digite seu CEP</label>
 
-                                        <button type="submit" class="dg-produto-acoes-btns-frete-btn buscaFreteProduto" aria-label="Calcular Frete" atributo="">
-                                            <span class="dg-icon dg-icon-search"></span>
-                                        </button>
-                                        <div id="templateFreteProduto"></div>
-                                        <input type="hidden" value="" id="ValorTotal" />
-                                    </form> *@
+                                            <button type="submit" class="dg-produto-acoes-btns-frete-btn buscaFreteProduto" aria-label="Calcular Frete" atributo="">
+                                                <span class="dg-icon dg-icon-search"></span>
+                                            </button>
+                                            <div id="templateFreteProduto"></div>
+                                            <input type="hidden" value="" id="ValorTotal" />
+                                        </form>
+                                    </div>
+
                                     @if (SP.RX)
                                     {
                                         <label class="dg-produto-enviar-receita dg-mobile-hide">
@@ -1016,6 +1025,49 @@
 
 @* Abas *@
 
+@if (Model.TemosTambem.SubProduto.Count() > 0)
+{
+    ViewData["TemosTambem"] = "TemosTambem";
+    <div class="dg-produto-compre-tambem">
+        <div class="container">
+            <section>
+                <h3 class="dg-produto-titulo">
+                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/discount-shape.svg" alt="">Produtos <strong>Semelhantes</strong>
+                </h3>
+                <p class="dg-produto-subtitulo">Os produtos abaixo são relacionados ao produto visitado, aproveite para conhecê-los.</p>
+
+                <div class="dg-produto-boxproduto-slide dg-loading">
+                    @{
+                        ViewData["fromSlider"] = "fromSlider";
+                    }
+                    @await Html.PartialAsync("_TemplateBoxProduto", Model.TemosTambem)
+                </div>
+            </section>
+
+        </div>
+    </div>
+    
+    ViewData["TemosTambem"] = "TemosTambem";
+    <div class="dg-produto-compre-tambem">
+        <div class="container">
+            <section>
+                <h3 class="dg-produto-titulo">
+                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/discount-shape.svg" alt="">Produtos <strong>Complementares</strong>
+                </h3>
+                <p class="dg-produto-subtitulo">Os produtos abaixo são relacionados ao produto visitado, aproveite para conhecê-los.</p>
+
+                <div class="dg-produto-boxproduto-slide dg-loading">
+                    @{
+                        ViewData["fromSlider"] = "fromSlider";
+                    }
+                    @await Html.PartialAsync("_TemplateBoxProduto", Model.TemosTambem)
+                </div>
+            </section>
+
+        </div>
+    </div>
+}
+
 <div class="container">
 
     @if (MostraProdutoImportado == 1)
@@ -1081,6 +1133,8 @@
 
     @if (!string.IsNullOrEmpty(SP.SeoDescricaoProduto) || !string.IsNullOrEmpty(Descricao) || !string.IsNullOrEmpty(SP.PdfBula.Trim()) || !string.IsNullOrEmpty(SP.Bula.Trim()) || !string.IsNullOrEmpty(SP.AvisoLegal.Trim()))
     {
+        <h3 class="dg-produto-abas__titulo">
+            <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/bag-2.svg" alt="">Características do produto <b>@SP.NomeProduto @if (SP.Generico) { @SP.Marca } @SP.ComplementoBrindes</b></h3>
 
         <section class="dg-produto-abas">
             @* <h3 class="dg-titulo">
@@ -1089,15 +1143,12 @@
 
             <div class="dg-produtos-abas-listagem">
                 <div class="dg-produtos-abas">
-                    <div class="dg-produtos-abas-titulo dg-mobile-hide">Sobre o <span>produto:</span></div>
-                    <div class="dg-produtos-abas-titulo dg-desktop-hide">Mais informações sobre esse produto</div>
-
-                    <a href="javascript:void(0)" data-produto-aba="Detalhes" class="dg-produto-aba-btn">Detalhes</a>
+                    <a href="javascript:void(0)" data-produto-aba="Detalhes" class="dg-produto-aba-btn">Detalhes do produto</a>
 
                     @if (!string.IsNullOrEmpty(SP.SeoDescricaoProduto))
                     {
                         @* Aba *@
-                        <a href="javascript:void(0)" data-produto-aba="Descrição" class="dg-produto-aba-btn">Descrição</a>
+                        <a href="javascript:void(0)" data-produto-aba="Descrição" class="dg-produto-aba-btn">Descrição do produto</a>
                         @* /Aba *@
                     }
 
@@ -1288,31 +1339,6 @@
 
         </div>
 
-    </div>
-}
-
-
-
-@if (Model.TemosTambem.SubProduto.Count() > 0)
-{
-    ViewData["TemosTambem"] = "TemosTambem";
-    <div class="dg-produto-compre-tambem">
-        <div class="container">
-            <section>
-                <h3 class="dg-produto-titulo">
-                    Aproveite e <strong>Compre também</strong>
-                </h3>
-                <p class="dg-produto-subtitulo">Os produtos abaixo são relacionados ao produto visitado, aproveite para conhecê-los.</p>
-
-                <div class="dg-produto-boxproduto-slide dg-loading">
-                    @{
-                        ViewData["fromSlider"] = "fromSlider";
-                    }
-                    @await Html.PartialAsync("_TemplateBoxProduto", Model.TemosTambem)
-                </div>
-            </section>
-
-        </div>
     </div>
 }
 

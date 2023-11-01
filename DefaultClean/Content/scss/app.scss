@@ -2354,6 +2354,33 @@ body {
     }
 
     .dg-produto {
+        .dg-produto-info-preco-valores {
+            width: 100%;
+        }
+        .dg-produto-info-sp {
+            font-size: 14px;
+            line-height: 1;
+            font-weight: 500;
+            color: #CCCCCC;
+        }
+        .dg-produto-info-preco-de {
+            font-size: 16.75px;
+            font-weight: 500;
+            line-height: 30px;
+            color: $corPrimaria;
+        }
+        .dg-produto-info-preco-por {
+            line-height: 1;
+            font-size: 51.55px;
+            font-weight: bold;
+            color: $corComplementar;
+        }
+        .dg-produto-info-preco-parcelamento {
+            font-size: 16.75px;
+            font-weight: 600px;
+            line-height: 30px;
+            color: $corPrimaria;
+        }
         .dg-produto-img {
             display: flex;
             padding: 0;
@@ -2371,8 +2398,128 @@ body {
             max-width: 277px;
             border: 1px solid #D2D2D2;
             border-radius: 25px;
-            margin-left: 30px;
+            margin-left: 49px;
             min-height: 439px;
+            padding: 0;
+            overflow: hidden;
+            .dg-produto-acoes {
+                margin: 0;
+                flex: 1;
+                background: #F5F9FD;
+                padding: 19px;
+
+                .dg-produto-acoes-btns-compra-qtd-menos, .dg-produto-acoes-btns-compra-qtd-mais {
+                    top: 5px;
+                    width: 13px;
+                    height: 13px;
+                    border-radius: 4px;
+                    line-height: 13px;
+                    font-size: 13px;
+                    background-color: $corComplementar;
+                    color: #fff;
+                    font-weight: 500;
+                    padding-left: 1px;
+                }
+                .dg-produto-acoes-btns-compra-qtd-menos {
+                    padding-left: 0;
+                }
+                .dg-produto-acoes-btns-compra-qtd {
+                    width: 62px
+                }
+                .dg-produto-acoes-btns-compra-qtd-input {
+                    border-radius: 0;
+                    font-size: 15.75px;
+                    font-weight: 500;
+                    background-color: rgba(0,0,0,0);
+                    color: $corPrimaria;
+                }
+                .dg-produto-acoes-btns-compra-btn {
+                    width: auto;
+                    flex: 1;
+                    padding: 12px;
+                    margin-left: 16px;
+                    margin-bottom: 8px;
+                    border-radius: 12px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    background: $corComplementar;
+                    &:hover, &:focus {
+                        background: darken($corComplementar, 5%);
+                    }
+                }
+                .dg-produto-acoes-btns-frete__titulo {
+                    padding-left: 11px;
+                    margin: 0 0 5px;
+                    font-size: 12px;
+                    line-height: 24px;
+                }
+                .dg-icon.dg-icon-cart {
+                    position: static;
+                    display: inline-block;
+                    width: 25px;
+                    height: 24px;
+                    margin-left: 6px;
+                    vertical-align: middle;
+                    background-image: url(../img/icones/produto/shopping-cart.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    &::before {
+                        display: none;
+                    }
+                }
+                .dg-produto-acoes-btns-compre3 {
+                    height: 48px;
+                    padding: 12px 20px 12px 20px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    margin-bottom: 8px;
+                    border-radius: 12px;
+                    background-color: $corSecundaria;
+                    &:hover {
+                        background-color: darken($corSecundaria, 5%);
+                    }
+                    .dg-icon.dg-icon-cart {
+                        background-image: url(../img/icones/produto/discount-shape-white.svg);
+                    }
+                }
+                .BtComprarProdutoPromocao2 {
+                    height: 48px;
+                    padding-top: 15px;
+                    margin-bottom: 8px;
+                    border-radius: 12px;
+                    font-size: 11px;
+                    color: #8b9eb7;
+                    border-color: $corSecundaria;
+                    background-image: url(../img/icones/produto/percentage.svg);
+                }
+                .BtComprarProdutoPromocao2 span {
+                    color: $corComplementar;
+                }
+                .dg-produto-acoes-btns-frete>label {
+                    font-weight: 500;
+                    font-size: 12px;
+                    color: #626669;
+                }
+                .dg-produto-acoes-btns-frete>input, .dg-produto-acoes-btns-frete>label {
+                    border-radius: 12px;
+                    text-transform: uppercase;
+                    height: 44px;
+                }
+                .dg-produto-acoes-btns-frete-btn {
+                    top: 3px;
+                    padding-top: 6px;
+                    height: 36px;
+                    width: 36px;
+                    border-radius: 12px;
+                    background: $corSecundaria;
+                }
+            }
+        }
+        .dg-produto-info-preco {
+            height: 159px;
+            padding: 20px 30px 14px;
+            border: 0;
+            margin: 0;
         }
         .dg-produto-tags {
             top: 19px;
@@ -2412,18 +2559,23 @@ body {
                 -webkit-box-orient: vertical;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                height: 42px;
-                margin: 15px 0 0;
+                max-height: 42px;
+                margin: 15px 0;
                 font-size: 12px;
                 line-height: 14px;
                 color: #969696;
+                &__vertd {
+                    font-size: 12px;
+                    line-height: 14px;
+                    color: #0085FF;
+                }
             }
             .dg-produto-info-titulo {
                 margin-bottom: 0;
                 font-size: 25px;
                 font-weight: bold;
                 line-height: 30px;
-                color: #0B1841;
+                color: $corPrimaria;
                 
                 display: block; 
                 display: -webkit-box;
@@ -2448,12 +2600,18 @@ body {
                 }
             }
             .dg-produto-acoes-modais {
+                > h2 {
+                    margin-bottom: 0;
+                }
                 > * {
                     flex: 1;
                     max-width: 154px;
                     margin-right: 5px;
                     &:last-child {
                         margin-right: 0;
+                    }
+                    > h2 {
+                        margin-bottom: 0;
                     }
                 }
             }
@@ -2508,5 +2666,132 @@ body {
             display: flex;
             max-width: 100%;
         }
+    }
+    .dg-produto-abas__titulo, .dg-produto-titulo {
+        img {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 20px;
+        }
+    }
+    .dg-produto-abas {
+        &__titulo {
+            margin-bottom: 38px;
+            font-size: 17px;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: $corPrimaria;
+        }
+        .dg-produtos-abas {
+            width: 289px;
+            border-color: #DCE1E7;
+            border-width: 2px;
+            .dg-produto-aba-btn {
+                height: 48px;
+                padding: 0 23px;
+                margin-bottom: 28px;
+                border: 0;
+                line-height: 48px;
+                font-size: 12px;
+                font-weight: 600;
+                color: $corPrimaria;
+                background-color: #F5F9FD;
+                border-radius: 12px;
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    width: 24px;
+                    height: 24px;
+                    margin-right: 20px;
+                    vertical-align: middle;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-image: url(../img/icones/produto/info/box.svg);
+                }
+                &:hover:not(.dg-ativo) {
+                    color: $corPrimaria;
+                    background-color: darken(#F5F9FD, 5%);
+                }
+                &.dg-ativo {
+                    color: #fff;
+                    background-color: $corSecundaria;
+                    &::before {
+                        background-image: url(../img/icones/produto/info/ativo/box.svg);
+                    }
+                }
+                &[data-produto-aba="Detalhes"] {
+                    &::before {
+                        background-image: url(../img/icones/produto/info/box.svg);
+                    }
+                    &.dg-ativo::before {
+                        background-image: url(../img/icones/produto/info/ativo/box.svg);
+                    }
+                }
+                &[data-produto-aba="Descrição"] {
+                    &::before {
+                        background-image: url(../img/icones/produto/info/box.svg);
+                    }
+                    &.dg-ativo::before {
+                        background-image: url(../img/icones/produto/info/ativo/box.svg);
+                    }
+                }
+                &[data-produto-aba="BulaPdf"] {
+                    &::before {
+                        background-image: url(../img/icones/produto/info/folder-pdf.svg);
+                    }
+                    &.dg-ativo::before {
+                        background-image: url(../img/icones/produto/info/ativo/box.svg);
+                    }
+                }
+                &[data-produto-aba="Bula"] {
+                    &::before {
+                        background-image: url(../img/icones/produto/info/receipt-item.svg);
+                    }
+                    &.dg-ativo::before {
+                        background-image: url(../img/icones/produto/info/ativo/box.svg);
+                    }
+                }
+                &[data-produto-aba="AvisoLegal"] {
+                    &::before {
+                        background-image: url(../img/icones/produto/info/box.svg);
+                    }
+                    &.dg-ativo::before {
+                        background-image: url(../img/icones/produto/info/ativo/box.svg);
+                    }
+                }
+            }
+        }
+        .dg-produtos-abas-textos .dg-produto-aba-info-wrapper, .dg-produtos-abas, .dg-produtos-abas-textos {
+            background-color: #F5F9FD;
+        }
+        .dg-produtos-abas, .dg-produtos-abas-textos {
+            padding: 42px 24px;
+        }
+    }
+    .dg-produtos-abas-textos .dg-produto-aba-info h1 b, .dg-produtos-abas-textos .dg-produto-aba-info h1 strong, .dg-produtos-abas-textos .dg-produto-aba-info h2 b, .dg-produtos-abas-textos .dg-produto-aba-info h2 strong, .dg-produtos-abas-textos .dg-produto-aba-info h3 b, .dg-produtos-abas-textos .dg-produto-aba-info h3 strong, .dg-produtos-abas-textos .dg-produto-aba-info h4 b, .dg-produtos-abas-textos .dg-produto-aba-info h4 strong, .dg-produtos-abas-textos .dg-produto-aba-info h5 b, .dg-produtos-abas-textos .dg-produto-aba-info h5 strong, .dg-produtos-abas-textos .dg-produto-aba-info h6 b, .dg-produtos-abas-textos .dg-produto-aba-info h6 strong {
+        color: $corComplementar !important;
+    }
+    .dg-produtos-abas-textos .dg-produto-aba-info h3 b, .dg-produtos-abas-textos .dg-produto-aba-info h3 strong {
+        color: $corPrimaria !important;
+    }
+    .dg-produtos-abas-textos .dg-produto-aba-info div, .dg-produtos-abas-textos .dg-produto-aba-info p, .dg-produtos-abas-textos .dg-produto-aba-info span {
+        line-height: 1.2;
+        color: $corPrimaria !important;
+    }
+    .dg-produto-aba-info {
+        a {
+            color: #0085FF;
+        }
+    }
+    .dg-produtos-abas-textos .dg-produto-aba-info::-webkit-scrollbar-thumb {
+        background-color: $corComplementar;
+    }
+    .dg-produtos-abas-textos .dg-produto-aba-info::-webkit-scrollbar-thumb:hover {
+        background-color: darken($corComplementar, 5%);
+    }
+    .dg-produto-anvisa .dg-produto-aba-descricao-medicamento {
+        color: $corPrimaria;
+        border-color: $corPrimaria;
+        border-radius: 11px;
     }
 }
