@@ -3160,6 +3160,17 @@ body .dg-produto-abas__titulo img, body .dg-produto-titulo img {
   margin-right: 20px;
 }
 
+body .dg-produto-enviar-receita {
+  width: 100%;
+  margin-top: 8px;
+}
+
+body .dg-produto-enviar-receita span {
+  color: #8b9eb7;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#002399), to(#002399));
+  background-image: linear-gradient(#002399, #002399);
+}
+
 body .dg-produto-abas__titulo {
   margin-bottom: 38px;
   font-size: 17px;

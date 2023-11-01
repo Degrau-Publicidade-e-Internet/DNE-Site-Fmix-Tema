@@ -2674,6 +2674,14 @@ body {
             margin-right: 20px;
         }
     }
+    .dg-produto-enviar-receita {
+        width: 100%;
+        margin-top: 8px;
+        span {
+            color: #8b9eb7;
+            background-image: linear-gradient($corSecundaria, $corSecundaria);
+        }
+    }
     .dg-produto-abas {
         &__titulo {
             margin-bottom: 38px;
