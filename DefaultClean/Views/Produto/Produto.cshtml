@@ -406,6 +406,13 @@
                                 Visualizar semelhantes
                             </div>
                         </a>
+                        
+                        <a href="@Html.Domain()/@Model.ProdutoSemelhante" class="dg-produto-img-familia dg-tooltip-hover" aria-label="Visualizar similares">
+                            <span class="dg-icon dg-icon-share"></span>
+                            <div class="dg-tooltip-bottom">
+                                Compartilhar
+                            </div>
+                        </a>
                     </div>
 
 
@@ -749,6 +756,10 @@
 
                                     }
 
+                                    <button type="button" class="dg-produto-btn-assinatura">
+                                        ASSINAR plano<img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/edit.svg" alt="" />
+                                    </button>
+
                                     <div>
                                         <p class="dg-produto-acoes-btns-frete__titulo">Calcular frete e <b>prazo de entrega</b></p>
                                         <form id="buscaFreteProdutoForm" class="dg-produto-acoes-btns-frete">
@@ -765,11 +776,11 @@
 
                                     @if (SP.RX)
                                     {
-                                        <label class="dg-produto-enviar-receita dg-mobile-hide">
-                                            <span class="jsReceitaBtn">Envie sua receita</span>
-                                            <input type="file" class="jsReceitaFile">
-                                        </label>
                                     }
+                                    <label class="dg-produto-enviar-receita dg-mobile-hide">
+                                        <span class="jsReceitaBtn">Envie sua receita</span>
+                                        <input type="file" class="jsReceitaFile">
+                                    </label>
                                     <script id="templateFreteProdutoConteudo" type="text/x-jquery-tmpl">
                                         <div class="dg-subtitulo">CEP: <span>${RetornoFrete.CEP}</span></div>
                                         <ul class="dg-checkout-main-fretes">
