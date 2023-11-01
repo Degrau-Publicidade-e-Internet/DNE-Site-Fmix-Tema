@@ -507,7 +507,7 @@ body {
             }
         }
         .dg-boxproduto-compra-bg, .dg-boxproduto-qtd, .dg-boxproduto-compra-btn  {
-            background-color: #00D19D;
+            background-color: $corComplementar;
             color: #fff;
         }
     }
@@ -1736,7 +1736,7 @@ body {
             color: #969696;
             b {
                 font-weight: bold;
-                color: #00D19D;
+                color: $corComplementar;
             }
         }
         .dg-minicarrinho-item-total {
@@ -2166,10 +2166,10 @@ body {
                     .dg-menu-login-mobile-top {
                         font-size: 20px;
                         font-weight: 500;
-                        color: #00D19D;
+                        color: $corComplementar;
                         strong {
                             font-weight: 500;
-                            color: #00D19D;
+                            color: $corComplementar;
                         }
                     }
                     .dg-menu-login-mobile-bottom {
@@ -2356,10 +2356,16 @@ body {
     .dg-produto {
         .dg-produto-img {
             display: flex;
-            padding: 19px 26px;
+            padding: 0;
             border: 1px solid #D2D2D2;
             border-radius: 25px;
             max-width: 100%;
+            overflow: hidden;
+            .dg-produto-img-box {
+                display: flex;
+                align-items: center;
+                padding: 19px 11px;
+            }
         }
         .dg-produto-info {
             max-width: 277px;
@@ -2369,23 +2375,138 @@ body {
             min-height: 439px;
         }
         .dg-produto-tags {
-            top: 0;
+            top: 19px;
             right: unset;
-            left: 0;
+            left: 26px;
         }
         .dg-produto-img-subacoes {
             left: unset;
-            right: 0;
+            top: 15px;
+            right: 15px;
             padding: 0;
         }
         .dg-produto-img-principal img {
-            max-height: 323px;
+            max-height: 336px;
         }
         .dg-produto-img-box {
-            padding-top: 62px;
+            height: auto;
         }
         .dg-produto-img-principal {
-            height: 323px;
+            width: 336px;
+            height: 336px;
+            margin-top: 20px;
+        }
+        .dg-produto-info-side {
+            display: flex;
+            flex-direction: column;
+            padding: 30px 15px 28px 40px;
+            flex: 1;
+            background-color: #F5F9FD;
+            &__bottom {
+                margin-top: auto;
+            }
+            &__descricao {
+                display: block; 
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                height: 42px;
+                margin: 15px 0 0;
+                font-size: 12px;
+                line-height: 14px;
+                color: #969696;
+            }
+            .dg-produto-info-titulo {
+                margin-bottom: 0;
+                font-size: 25px;
+                font-weight: bold;
+                line-height: 30px;
+                color: #0B1841;
+                
+                display: block; 
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .dg-produto-img-listagem {
+                padding: 10px 0 26px
+            }
+            .dg-produto-info-fabricacao {
+                width: 100%;
+                margin-top: 15px;
+                text-align: left;
+                font-size: 11px;
+                font-weight: 500;
+                line-height: 24px;
+                color: #969696;
+                h2 {
+                    font-weight: 500;
+                }
+            }
+            .dg-produto-acoes-modais {
+                > * {
+                    flex: 1;
+                    max-width: 154px;
+                    margin-right: 5px;
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+            .dg-produto-img-listagem-item {
+                width: 64px;
+                height: 64px;
+                margin-bottom: 0;
+                border-radius: 12px;
+                border: 1px solid #D2D2D2;
+                text-align: center;
+                background-color: rgba(0,0,0,0);
+            }
+            .dg-produto-acoes-modais-btn {
+                padding: 9px;
+                border-radius: 8px;
+                text-align: center;
+                font-size: 12px;
+                background-color: #8B9EB7;
+                color: #fff;
+                &::before {
+                    display: none;
+                }
+                &::after {
+                    content: '';
+                    display: inline-block;
+                    position: static;
+                    width: 18px;
+                    height: 18px;
+                    vertical-align: -5px;
+                    margin-left: 10px;
+                    background-image: url(../img/icones/expand.svg);
+                    opacity: 1;
+                }
+                strong {
+                    display: inline-block;
+                    font-size: 12px;
+                    text-transform: uppercase;
+                }
+                &:hover, &:focus {
+                    background-color: darken(#8B9EB7, 5%);
+                    strong {
+                        color: #fff;
+                    }
+                }
+            }
+            .dg-produto-info-fabricacao a, .dg-produto-info-fabricacao strong {
+                color: $corComplementar
+            }
+        }
+        .dg-produto-acoes-modais {
+            margin-right: 0;
+            display: flex;
+            max-width: 100%;
         }
     }
 }

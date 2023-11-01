@@ -324,7 +324,7 @@
             <section class="dg-produto-img @isFavorito">
                 <div class="dg-produto-img-box">
                     <figure class="dg-produto-img-principal">
-                        <img fetchpriority="high" itemprop="image" src="/imagens-complete/323x323/@SP.Foto" img-zoom="@SP.Foto" width="323" height="323" title="@(SP.Generico == false ? "COMPRAR " + SP.NomeProduto : "COMPRAR " + SP.NomeProduto + " - " + SP.Marca)" alt="@(SP.Generico == false ? "COMPRAR " + SP.NomeProduto : "COMPRAR " + SP.NomeProduto + " - " + SP.Marca)">
+                        <img fetchpriority="high" itemprop="image" src="/imagens-complete/336x336/@SP.Foto" img-zoom="@SP.Foto" width="336" height="336" title="@(SP.Generico == false ? "COMPRAR " + SP.NomeProduto : "COMPRAR " + SP.NomeProduto + " - " + SP.Marca)" alt="@(SP.Generico == false ? "COMPRAR " + SP.NomeProduto : "COMPRAR " + SP.NomeProduto + " - " + SP.Marca)">
                         <span class="dg-produto-img-zoom"></span>
                     </figure>
 
@@ -411,8 +411,8 @@
 
                 </div>
 
-                <div>
-                     <section itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <div class="dg-produto-info-side">
+                    <section itemprop="offers" itemscope itemtype="https://schema.org/Offer">
                         <meta itemprop="url" content="@Urlcanonical" />
                         <meta itemprop="availability" href="https://schema.org/@_seoProduct.offers.availability" />
                         <meta itemprop="itemCondition" href="https://schema.org/NewCondition" />
@@ -436,183 +436,15 @@
                             }
                         </div>
                     </section>
-                     <div class="dg-produto-acoes-modais">
-                        @if (MostraProdutoImportado == 1)
-                        {
-                            <div class="dg-produto-acoes-modais-valoraprox">
-                                <span>Valor aproximado, sujeito às oscilações cambiais.</span>
-                            </div>
-
-                            <div class="dg-produto-acoes-modais-importado">
-                                <p>
-                                    A <strong>Drogaria Nova Esperança</strong> presta assessoria de importação de
-                                    medicamentos seguindo as normas estabelecidas pela ANVISA na
-                                    RDC nº 81 de 11/2008. A importação é feita em nome do próprio
-                                    paciente e todas as etapas do processo ficam registradas.
-                                </p>
-                                <p class="dg-produto-acoes-modais-importado-email">
-                                    Para tirar suas dúvidas ou obter mais informações, consulte nossa central de
-                                    atendimento pelo telefone abaixo ou envie e-mail para <a href="mailto:importados@drogarianovaesperanca.com.br">importados@drogarianovaesperanca.com.br</a>
-                                </p>
-                                <p class="dg-produto-acoes-modais-importado-tel">
-                                    <strong>Televendas:</strong> 11 3990-7720
-                                </p>
-                            </div>
-
-                        }
-                        else
-                        {
-
-                            @* @if (SP.IsSeloProgramaSaudeEvolucao)
-                        {
-                        <div class="dg-produto-acoes-modais-textos">
-
-                        <div class="dg-produto-acoes-modais-textos-saudeevolucao">
-                        <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/home/saude-evolucao.png" alt="Saúde em Evolução">
-                        </div>
-
-                        </div>
-                        } *@
-
-
-                            @if (MostraDetalhesCompraTrue == 1)
-                            {
-                                <h2>
-                                    <a href="javascript:void(0)" class="dg-produto-acoes-modais-btn" onclick="abrirModal({titulo:'Compra <span>Parcelada</span>',id:'templateCompraParcelada', startFunction: modalParcelas})">
-                                        <strong>Compra parcelada</strong>
-                                    </a>
-                                </h2>
-
-                                <script id="templateCompraParcelada" type="text/x-jquery-tmpl">
-                                    <div class="dg-subtitulo">Confira a opção de pagamento desejada.</div>
-                                    <ul class="dg-modal-templateCompraParcelada-flag-lista">
-                                    @foreach (var _fo in Model.ValCart.FormasPagamento)
-                                    {
-                                                                <li>
-                                                                    <button type="button" class="dg-modal-templateCompraParcelada-flag"  data-flag="@_fo.FormaPagamento" arial-label="Ver parcelas de @_fo.FormaPagamento"></button>
-                                                                </li>
-                                    }
-                                    </ul>
-                                    <ul class="dg-modal-templateCompraParcelada-formas-lista">
-                                    @foreach (var _fo in Model.ValCart.FormasPagamento)
-                                    {
-                                                                <li data-flag-item="@_fo.FormaPagamento">
-                                                                    <ul data-itens="@_fo.OpcoesPagamento.Count()">
-                                                @foreach (var _op in _fo.OpcoesPagamento)
-                                                {
-                                                                                            <li>
-                                                        @_op.OpcaoPagamento
-                                                        @if (_op.TotalGeralJuros > 0)
-                                                        {
-                                                                                                                        <span>Com Juros</span>
-                                                        }
-                                                                                                R$ @_op.ValorParcela.ToString("#,0.00")
-                                                        @if (_op.TotalGeralJuros > 0)
-                                                        {
-                                                                                                                        <span> - Total R$ @_op.TotalGeralJuros.ToString("#,0.00")</span>
-                                                        }
-                                                                                            </li>
-                                                }
-
-                                                                    </ul>
-                                                                </li>
-                                    }
-                                    </ul>
-                                    <div class="dg-modal-templateCompraParcelada-formas-footer">
-                                        Consulte os juros aplicados em sua compra na escolha da forma de pagamento.
-                                    </div>
-                                </script>
-                            }
-
-                        }
-                        <div>
-                            <h2>
-                                @if (SP.ID_Categoria == 2 || SP.ID_Categoria == 34)
-                                {
-                                <a href="javascript:void(0)" class="dg-produto-acoes-modais-btn" onclick="abrirModal({titulo:'Para que serve', id:'templateProdutoParaQueServe'})">
-                                    <strong>Para que serve</strong>
-                                </a>
-                                } else {
-                                    <a href="javascript:void(0)" class="dg-produto-acoes-modais-btn" onclick="abrirModal({titulo:'Apresentação', id:'templateProdutoParaQueServe'})">
-                                        <strong>Apresentação</strong>
-                                    </a>
-                                }
-                            </h2>
-
-                            <div id="templateProdutoParaQueServe" style="display:none">
-                                @{
-
-                                    string PrincipalIndicacao = SP.PrincipalIndicacao;
-
-                                    if (string.IsNullOrEmpty(PrincipalIndicacao))
-                                    {
-                                        PrincipalIndicacao = "Não informado.";
-                                    }
-                                }
-
-                                @Html.Raw(@PrincipalIndicacao)
-                            </div>
-                        </div>
-
-                        <h2>
-                            <a href="javascript:void(0)" class="dg-produto-acoes-modais-btn" onclick="abrirModal({titulo:'Ficha técnica',id:'templateFichaTecnica'})">
-                                <strong>Ficha técnica</strong>
-                            </a>
-                        </h2>
-
-                    </div>
-                    <script id="templateFichaTecnica" type="text/x-jquery-tmpl">
-                        <ul>
-                            <li>Nome do Produto: @SP.NomeProduto</li>
-                            <li>SKU: <span> @SP.ID_SubProduto</span></li>
-
-                        @if (FnProject.GetListWhiteIPsPageProduct().Where(x => x.IP == FnProject.GetIPCliente()).Count() > 0)
-                        {
-                                    <li>C&oacute;digo EAN: <span itemprop="gtin13">@SP.CodBarras</span></li>
-                        }
-
-                        @if (!string.IsNullOrEmpty(SP.RegistroMS))
-                        {
-                                    <li>Registro Minist&eacute;rio da Sa&uacute;de: @SP.RegistroMS</li>
-                        }
-
-                        @if (!string.IsNullOrEmpty(SP.PrincipioAtivo))
-                        {
-                            var i = 0;
-                                <li>Princ&iacute;pio Ativo: @foreach (var item in Model.PrincipioAtivo)
-                                {
-                                    i++;
-                                            <a href="@FnProject.Dominio()/principio-ativo/@item.UrlPrincipio/"> @item.Principio @if (i < Model.PrincipioAtivo.Count())
-                                        {
-                                            <span>,</span>
-                                        } </a>
-                                }
-                                    </li>
-
-
-                        }
-
-                        @if (!string.IsNullOrEmpty(SP.Marca))
-                        {
-                                    <li>Fabricante: @SP.Marca</li>
-                        }
-
-                        @if (!string.IsNullOrEmpty(SP.SAC))
-                        {
-                                    <li>SAC Fabricante: @SP.SAC</li>
-                        }
-
-                        @if (!string.IsNullOrEmpty(SP.Email))
-                        {
-                                    <li>E-mail Fabricante: @SP.Email</li>
-                        }
-                        </ul>
-                    </script>
-                    <div class="dg-produto-img-listagem">
+                    <p class="dg-produto-info-side__descricao">
+                        O Creme Cicatricure Antissinais é indicado para o cuidado da pele do rosto, pescoço e colo. O produto proporciona hidratação para a pele, ajudando a reduzir contra rugas profundas e proporcionando mais firmeza. A pele fica....
+                    </p>
+                    <div class="dg-produto-info-side__bottom">
+                        <div class="dg-produto-img-listagem">
                             @foreach (var f in Fotos)
                             {
                                 <a href="javascript:void(0)" class="dg-produto-img-listagem-item">
-                                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="/imagens/100x100/@f.Foto" img-foco="@f.Foto" width="50" height="50" alt="@(SP.Generico == false ? "COMPRAR " + SP.NomeProduto : "COMPRAR " + SP.NomeProduto + " - " + SP.Marca)" title="@(SP.Generico == false ? "COMPRAR " + SP.NomeProduto : "COMPRAR " + SP.NomeProduto + " - " + SP.Marca)" loading="lazy">
+                                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="/imagens/51x51/@f.Foto" img-foco="@f.Foto" width="51" height="51" alt="@(SP.Generico == false ? "COMPRAR " + SP.NomeProduto : "COMPRAR " + SP.NomeProduto + " - " + SP.Marca)" title="@(SP.Generico == false ? "COMPRAR " + SP.NomeProduto : "COMPRAR " + SP.NomeProduto + " - " + SP.Marca)" loading="lazy">
                                 </a>
                             }
                             @if (SP.Video.Length > 1)
@@ -622,12 +454,173 @@
                                     <a href="javascript:void(0)" class="dg-produto-img-listagem-item" video="https://www.youtube.com/embed/@vI?autoplay=1" rel="video">
                                         <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="https://i1.ytimg.com/vi/@vI/default.jpg" alt="Vídeo" title="Vídeo" loading="lazy">
                                     </a>
+                                }
+                            }
+                        </div>
+                        <div class="dg-produto-acoes-modais">
+                            <div>
+                                <h2>
+                                    @if (SP.ID_Categoria == 2 || SP.ID_Categoria == 34)
+                                    {
+                                    <a href="javascript:void(0)" class="dg-produto-acoes-modais-btn" onclick="abrirModal({titulo:'Para que serve', id:'templateProdutoParaQueServe'})">
+                                        <strong>Para que serve</strong>
+                                    </a>
+                                    } else {
+                                        <a href="javascript:void(0)" class="dg-produto-acoes-modais-btn" onclick="abrirModal({titulo:'Apresentação', id:'templateProdutoParaQueServe'})">
+                                            <strong>Apresentação</strong>
+                                        </a>
+                                    }
+                                </h2>
 
+                                <div id="templateProdutoParaQueServe" style="display:none">
+                                    @{
+
+                                        string PrincipalIndicacao = SP.PrincipalIndicacao;
+
+                                        if (string.IsNullOrEmpty(PrincipalIndicacao))
+                                        {
+                                            PrincipalIndicacao = "Não informado.";
+                                        }
+                                    }
+
+                                    @Html.Raw(@PrincipalIndicacao)
+                                </div>
+                            </div>
+                            
+                            @if (MostraProdutoImportado == 1)
+                            {
+                                <div class="dg-produto-acoes-modais-valoraprox">
+                                    <span>Valor aproximado, sujeito às oscilações cambiais.</span>
+                                </div>
+
+                                <div class="dg-produto-acoes-modais-importado">
+                                    <p>
+                                        A <strong>Drogaria Nova Esperança</strong> presta assessoria de importação de
+                                        medicamentos seguindo as normas estabelecidas pela ANVISA na
+                                        RDC nº 81 de 11/2008. A importação é feita em nome do próprio
+                                        paciente e todas as etapas do processo ficam registradas.
+                                    </p>
+                                    <p class="dg-produto-acoes-modais-importado-email">
+                                        Para tirar suas dúvidas ou obter mais informações, consulte nossa central de
+                                        atendimento pelo telefone abaixo ou envie e-mail para <a href="mailto:importados@drogarianovaesperanca.com.br">importados@drogarianovaesperanca.com.br</a>
+                                    </p>
+                                    <p class="dg-produto-acoes-modais-importado-tel">
+                                        <strong>Televendas:</strong> 11 3990-7720
+                                    </p>
+                                </div>
+
+                            }
+                            else
+                            {
+
+
+                                @if (MostraDetalhesCompraTrue == 1)
+                                {
+                                    <h2>
+                                        <a href="javascript:void(0)" class="dg-produto-acoes-modais-btn" onclick="abrirModal({titulo:'Compra <span>Parcelada</span>',id:'templateCompraParcelada', startFunction: modalParcelas})">
+                                            <strong>Parcelas</strong>
+                                        </a>
+                                    </h2>
+
+                                    <script id="templateCompraParcelada" type="text/x-jquery-tmpl">
+                                        <div class="dg-subtitulo">Confira a opção de pagamento desejada.</div>
+                                        <ul class="dg-modal-templateCompraParcelada-flag-lista">
+                                        @foreach (var _fo in Model.ValCart.FormasPagamento)
+                                        {
+                                                                    <li>
+                                                                        <button type="button" class="dg-modal-templateCompraParcelada-flag"  data-flag="@_fo.FormaPagamento" arial-label="Ver parcelas de @_fo.FormaPagamento"></button>
+                                                                    </li>
+                                        }
+                                        </ul>
+                                        <ul class="dg-modal-templateCompraParcelada-formas-lista">
+                                        @foreach (var _fo in Model.ValCart.FormasPagamento)
+                                        {
+                                                                    <li data-flag-item="@_fo.FormaPagamento">
+                                                                        <ul data-itens="@_fo.OpcoesPagamento.Count()">
+                                                    @foreach (var _op in _fo.OpcoesPagamento)
+                                                    {
+                                                                                                <li>
+                                                            @_op.OpcaoPagamento
+                                                            @if (_op.TotalGeralJuros > 0)
+                                                            {
+                                                                                                                            <span>Com Juros</span>
+                                                            }
+                                                                                                    R$ @_op.ValorParcela.ToString("#,0.00")
+                                                            @if (_op.TotalGeralJuros > 0)
+                                                            {
+                                                                                                                            <span> - Total R$ @_op.TotalGeralJuros.ToString("#,0.00")</span>
+                                                            }
+                                                                                                </li>
+                                                    }
+
+                                                                        </ul>
+                                                                    </li>
+                                        }
+                                        </ul>
+                                        <div class="dg-modal-templateCompraParcelada-formas-footer">
+                                            Consulte os juros aplicados em sua compra na escolha da forma de pagamento.
+                                        </div>
+                                    </script>
                                 }
 
                             }
+                            
+
+                            <h2>
+                                <a href="javascript:void(0)" class="dg-produto-acoes-modais-btn" onclick="abrirModal({titulo:'Ficha técnica',id:'templateFichaTecnica'})">
+                                    <strong>Ficha técnica</strong>
+                                </a>
+                            </h2>
 
                         </div>
+                        <script id="templateFichaTecnica" type="text/x-jquery-tmpl">
+                            <ul>
+                                <li>Nome do Produto: @SP.NomeProduto</li>
+                                <li>SKU: <span> @SP.ID_SubProduto</span></li>
+
+                            @if (FnProject.GetListWhiteIPsPageProduct().Where(x => x.IP == FnProject.GetIPCliente()).Count() > 0)
+                            {
+                                        <li>C&oacute;digo EAN: <span itemprop="gtin13">@SP.CodBarras</span></li>
+                            }
+
+                            @if (!string.IsNullOrEmpty(SP.RegistroMS))
+                            {
+                                        <li>Registro Minist&eacute;rio da Sa&uacute;de: @SP.RegistroMS</li>
+                            }
+
+                            @if (!string.IsNullOrEmpty(SP.PrincipioAtivo))
+                            {
+                                var i = 0;
+                                    <li>Princ&iacute;pio Ativo: @foreach (var item in Model.PrincipioAtivo)
+                                    {
+                                        i++;
+                                                <a href="@FnProject.Dominio()/principio-ativo/@item.UrlPrincipio/"> @item.Principio @if (i < Model.PrincipioAtivo.Count())
+                                            {
+                                                <span>,</span>
+                                            } </a>
+                                    }
+                                        </li>
+
+
+                            }
+
+                            @if (!string.IsNullOrEmpty(SP.Marca))
+                            {
+                                        <li>Fabricante: @SP.Marca</li>
+                            }
+
+                            @if (!string.IsNullOrEmpty(SP.SAC))
+                            {
+                                        <li>SAC Fabricante: @SP.SAC</li>
+                            }
+
+                            @if (!string.IsNullOrEmpty(SP.Email))
+                            {
+                                        <li>E-mail Fabricante: @SP.Email</li>
+                            }
+                            </ul>
+                        </script>
+                    </div>
                 </div>
 
 
