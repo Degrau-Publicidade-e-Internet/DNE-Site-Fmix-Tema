@@ -431,7 +431,7 @@
                         </h1>
 
                          <div class="dg-produto-info-fabricacao">
-                            <h2 class="dg-mobile-hide">
+                            <h2 class="">
                                 Fabricado por
                                 <a href="@Html.Domain()/marcas/@SP.FabricanteURL.ToLower()">
                                     <strong>@SP.Marca</strong>
@@ -644,7 +644,9 @@
             <section class="dg-produto-info" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
 
                 
-
+                <h1 class="dg-produto-info-titulo dg-desktop-hide">
+                    @SP.NomeProduto @if (SP.Generico) { @SP.Marca } @SP.ComplementoBrindes
+                </h1>
 
 
                 <div class="dg-produto-info-preco">
@@ -671,12 +673,12 @@
                         {
 
                             <div class="dg-produto-info-preco-de">De: @ValorDe.ToString("#,0.00")</div>
-                            <div class="dg-produto-info-preco-por" itemprop="price" content="@Valor.ToString().Replace(",", ".")">R$@Valor.ToString("#,0.00")</div>
+                            <div data-size="@Valor.ToString("#,0.00").Count()" class="dg-produto-info-preco-por" itemprop="price" content="@Valor.ToString().Replace(",", ".")">R$@Valor.ToString("#,0.00")</div>
 
                         }
                         else
                         {
-                            <div class="dg-produto-info-preco-por" itemprop="price" content="@ValorTotal.ToString().Replace(",", ".")">R$@ValorTotal.ToString("#,0.00")</div>
+                            <div data-size="@Valor.ToString("#,0.00").Count()" class="dg-produto-info-preco-por" itemprop="price" content="@ValorTotal.ToString().Replace(",", ".")">R$@ValorTotal.ToString("#,0.00")</div>
                         }
 
 
@@ -760,7 +762,7 @@
                                         ASSINAR plano<img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/edit.svg" alt="" />
                                     </button>
 
-                                    <div>
+                                    <div class="dg-produto-acoes-btns-frete__wrapper">
                                         <p class="dg-produto-acoes-btns-frete__titulo">Calcular frete e <b>prazo de entrega</b></p>
                                         <form id="buscaFreteProdutoForm" class="dg-produto-acoes-btns-frete">
                                             <input id="buscarCepProduto" type="tel" class="dg-produto-acoes-btns-frete-input" mascara="cep" validar required>
@@ -840,7 +842,7 @@
                                             <a href="javascript:void(0)" id="btnMostraSimilar" class="dg-produto-acoes-btns-similares-btn jsProdutoIndisponivel jsOpenSimilaresModal" rel="@SP.ID_SubProduto" nameSimilar="@SP.Produto" idSimilar="@SP.ID_SubProduto" principioAtivoSimilar="@SP.PrincipioAtivo">Ver Genéricos e Similares</a>
                                         }
                                         <a href="javascript:void(0)" class="dg-produto-acoes-btns-aviseme-btn jsModalAviseMe" rel="@SP.ID_SubProduto">
-                                            Avise-me <strong>quando chegar</strong><span class="dg-icon dg-icon-avise-me dg-desktop-hide"></span>
+                                            Avise-me <strong>quando chegar</strong><img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/message.svg" alt="">
                                         </a>
                                     </div>
                                 }
@@ -857,7 +859,7 @@
                                     <p class="dg-produto-acoes-proibido-aviso"><strong>MEDICAMENTO SUJEITO A CONTROLE ESPECIAL - RDC Nº 405 - 22/07/2020 - MINISTÉRIO DA SAÚDE</strong></p>
                                     <p class="dg-produto-acoes-proibido-txt">Por determinação da <strong>Anvisa</strong>, este medicamento não pode ser comercializado pela internet. Para mais informações, entre em contato com o nosso televendas.</p>
                                     <div class="dg-produto-acoes-proibido-tel">
-                                        <span class="dg-icon dg-icon-televendas-1"></span>
+                                        <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/call-calling.svg" alt="">
                                         <div class="dg-txt">
                                             <p>11 3990 7720</p>
                                             <strong>Segunda a Sábado</strong>, das 8h às 20h
@@ -875,7 +877,7 @@
                                     <p class="dg-produto-acoes-proibido-aviso"><strong>MEDICAMENTO SUJEITO A CONTROLE ESPECIAL PORTARIA Nº 344 - 01/02/1999 - MINISTÉRIO DA SAÚDE</strong></p>
                                     <p class="dg-produto-acoes-proibido-txt">Por determinação da <strong>Anvisa</strong>, este medicamento não pode ser comercializado pela internet. Para mais informações, entre em contato com o nosso televendas.</p>
                                     <div class="dg-produto-acoes-proibido-tel">
-                                        <span class="dg-icon dg-icon-televendas-1"></span>
+                                        <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/call-calling.svg" alt="">
                                         <div class="dg-txt">
                                             <p>11 3990 7720</p>
                                             <strong>Segunda a Sábado</strong>, das 8h às 20h
@@ -897,7 +899,7 @@
                                 <p class="dg-produto-acoes-proibido-aviso"><strong>Medicamento de venda restrita a Clínicas e Hospitais</strong></p>
                                 <p class="dg-produto-acoes-proibido-txt">Para mais informações entre em contato com nosso Televendas.</p>
                                 <div class="dg-produto-acoes-proibido-tel">
-                                    <span class="dg-icon dg-icon-televendas-1"></span>
+                                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/call-calling.svg" alt="">
                                     <div class="dg-txt">
                                         <p>11 3990 7720</p>
                                         <strong>Segunda a Sábado</strong>, das 8h às 20h
