@@ -504,16 +504,17 @@
             </a>
         </section> *@
 
-        <div class="dg-home-descontos-destaques">@await Component.InvokeAsync("BannersEstruturado")</div>
+        <div class="dg-home-descontos-destaques">@await Component.InvokeAsync("BannersDestaqueExtra")</div>
 
+        <!-- Bebber tem como mudar pra dg-home-produtos-destaque-extra -->
         <div class="dg-home-produtos-estruturados">
             @{
-                ViewData["boxProduto"] = "MaisVendidos";
+                ViewData["boxProduto"] = "DestaqueExtra";
                 ViewData["fromSlider"] = "fromSlider";
                 ViewData["horizontal"] = "horizontal";
             }
 
-            @await Html.PartialAsync("_TemplateBoxProduto", Model.MaisVendidos, new ViewDataDictionary(ViewData){{"MaisVendidos", ViewData["dasda"]}})
+            @await Html.PartialAsync("_TemplateBoxProduto", Model.DestaqueExtra, new ViewDataDictionary(ViewData){{"DestaqueExtra", ViewData["dasda"]}})
         </div>
     </div>
 

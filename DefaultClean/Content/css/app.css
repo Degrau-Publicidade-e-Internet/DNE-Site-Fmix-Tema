@@ -182,7 +182,7 @@ body {
 
 .dg-header-fix {
   height: 159px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .dg-home-destaques-wrapper {
@@ -3216,14 +3216,7 @@ body .dg-produto .dg-produto-img-subacoes {
 
 @media (max-width: 991px) {
   body .dg-produto .dg-produto-img-subacoes {
-    top: 19px;
     right: 10px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
   }
 }
 
@@ -3442,11 +3435,6 @@ body .dg-produto .dg-produto-info-side .dg-produto-acoes-modais > * > h2 {
     text-align: left;
     font-size: 10px;
   }
-  body .dg-produto .dg-produto-info-side .dg-produto-acoes-modais .dg-produto-acoes-modais-btn::after {
-    margin-left: 0;
-    -ms-flex-negative: 0;
-        flex-shrink: 0;
-  }
 }
 
 body .dg-produto .dg-produto-info-side .dg-produto-img-listagem-item {
@@ -3534,18 +3522,6 @@ body .dg-produto-abas__titulo {
   font-weight: 400;
   text-transform: uppercase;
   color: #0B1841;
-}
-
-@media (max-width: 991px) {
-  body .dg-produto-abas__titulo {
-    margin-bottom: 16px;
-  }
-}
-
-@media (min-width: 992px) {
-  body .dg-produto-abas__titulo .dg-desktop-regular {
-    font-weight: 400;
-  }
 }
 
 body .dg-produto-abas .dg-produtos-abas {
@@ -3726,8 +3702,6 @@ body .dg-produto-anvisa .dg-produto-aba-descricao-medicamento {
     z-index: 13;
     padding: 20px;
     border-radius: 22px 22px 0 0;
-    -webkit-box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.1);
-            box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.1);
   }
   body .dg-produto .dg-produto-info .dg-produto-info-preco {
     margin-right: auto;
@@ -3771,21 +3745,6 @@ body .dg-produto-anvisa .dg-produto-aba-descricao-medicamento {
     height: auto;
     float: left;
   }
-  body .dg-produto-img-box .dg-produto-tags {
-    left: 19px;
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
-    -webkit-box-flex: 0;
-        -ms-flex: 0;
-            flex: 0;
-  }
-  body .dg-produto-img-box .dg-produto-tags .dg-produto-tag-wrapper {
-    margin: 0 24px 0 0;
-  }
   body .dg-ProdutoisPodeComprarPromocao2 .dg-produto .dg-produto-info .dg-produto-acoes .dg-produto-acoes-btns-compre3 {
     -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -3816,67 +3775,6 @@ body .dg-produto-anvisa .dg-produto-aba-descricao-medicamento {
   }
   body .dg-ProdutoisPodeComprarPromocao2 .dg-produto .dg-produto-info .dg-produto-acoes-btns-compra .dg-produto-acoes-btns-compra-btn span {
     margin: 0;
-  }
-  body .dg-produtos-abas-listagem {
-    margin-bottom: 16px;
-  }
-  body .dg-produto-abas .dg-produtos-abas {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-    padding: 20px;
-  }
-  body .dg-produto-abas .dg-produtos-abas .dg-produto-aba-btn {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    margin: 0 16px 0 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    height: 86px;
-    line-height: normal;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    text-align: center;
-    background-image: none;
-    padding: 0 4px;
-    max-width: 33.333%;
-  }
-  body .dg-produto-abas .dg-produtos-abas .dg-produto-aba-btn::before {
-    margin: 0 0 10px;
-  }
-  body .dg-produto-abas .dg-produtos-abas .dg-produto-aba-btn:last-child {
-    margin-right: 0;
-  }
-  body .dg-ProdutoisPodeComprar .dg-produto-acoes-btns-compra, body .dg-ProdutoisPodeComprar2 .dg-produto-acoes-btns-compra, body .dg-ProdutoisProibido .dg-produto-acoes-btns-compra, body .dg-ProdutoisProibido2 .dg-produto-acoes-btns-compra {
-    position: static !important;
-    padding: 0 !important;
-    background-color: rgba(0, 0, 0, 0) !important;
-    -webkit-box-shadow: none !important;
-            box-shadow: none !important;
-  }
-  body .dg-produto .dg-produto-info .dg-produto-acoes .dg-produto-acoes-btns-compra-btn {
-    margin: 0;
-  }
-  body .dg-ProdutoisPodeComprar .dg-produto-acoes-btns-compra div.dg-produto-acoes-btns-compra-qtd, body .dg-ProdutoisPodeComprar2 .dg-produto-acoes-btns-compra div.dg-produto-acoes-btns-compra-qtd, body .dg-ProdutoisProibido .dg-produto-acoes-btns-compra div.dg-produto-acoes-btns-compra-qtd, body .dg-ProdutoisProibido2 .dg-produto-acoes-btns-compra div.dg-produto-acoes-btns-compra-qtd {
-    display: block;
-    width: 54px;
-    margin-top: 0;
-    margin-right: 16px;
-  }
-  body#produto-pg .dg-produto-breadcrumb {
-    display: block;
-    margin-bottom: 20px;
   }
 }
 /*# sourceMappingURL=app.css.map */
