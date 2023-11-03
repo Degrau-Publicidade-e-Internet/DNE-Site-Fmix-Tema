@@ -1,0 +1,24 @@
+﻿@model Banners
+
+@if (!string.IsNullOrEmpty(Model.Imagem))
+{
+    <a href="@Model.URLBanner" target="@Model.Target">
+        <img src="@Html.Domain()/assets/img/home/destaque0.png"
+         data-src-lazy="@Model.DataSrcImagem/banners/fmix/@Model.Imagem"
+         alt="@Model.Alt"
+         width="50"
+         height="50"
+         title="@Model.Alt" loading="lazy" />
+    </a>
+}
+
+
+
+
+
+
+
+
+
+
+
