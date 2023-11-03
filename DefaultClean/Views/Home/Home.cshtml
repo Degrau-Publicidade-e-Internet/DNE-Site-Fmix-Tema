@@ -504,8 +504,9 @@
             </a>
         </section> *@
 
-        <div class="dg-home-descontos-destaques">@await Component.InvokeAsync("BannersEstruturado")</div>
+        <div class="dg-home-descontos-destaques">@await Component.InvokeAsync("BannersDestaqueExtra")</div>
 
+        <!-- Bebber tem como mudar pra dg-home-produtos-destaque-extra -->
         <div class="dg-home-produtos-estruturados">
             @{
                 ViewData["boxProduto"] = "MaisVendidos";
