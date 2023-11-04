@@ -415,8 +415,15 @@
                         </a>
                     </div>
 
-
                 </div>
+
+                @if (BTnComprar == 1) {
+                    @if (MostraDetalhesCompraTrue == 1) {
+                        @if (BTnIndisponivel != 0) {
+                            <p class="dg-desktop-hide" style="text-align: center;margin-bottom: 10px;font-size: 10px;">Desculpe-nos, nosso estoque para este produto <strong>está esgotado</strong>.</p>
+                        }
+                    }
+                }
 
                 <div class="dg-produto-info-side">
                     <section itemprop="offers" itemscope itemtype="https://schema.org/Offer">
@@ -631,6 +638,35 @@
                             </ul>
                         </script>
                     </div>
+
+                    @if (MostraDetalhesCompraFalse == 1)
+                    {
+                        <div class="dg-desktop-hide dg-produto-acoes-proibido-mobile">
+                            @if (SP.Controlado405)
+                            {
+                                <div class="dg-produto-acoes-proibido">
+                                    <h4 class="dg-produto-acoes-proibido-titulo">Comercialização proibida pela internet</h4>
+                                    <p class="dg-produto-acoes-proibido-aviso"><strong>MEDICAMENTO SUJEITO A CONTROLE ESPECIAL - RDC Nº 405 - 22/07/2020 - MINISTÉRIO DA SAÚDE</strong></p>
+                                    <p class="dg-produto-acoes-proibido-txt">Por determinação da <strong>Anvisa</strong>, este medicamento não pode ser comercializado pela internet. Para mais informações, entre em contato com o nosso televendas.</p>
+                                </div>
+                            } else {
+                                <div class="dg-produto-acoes-proibido">
+                                    <h4 class="dg-produto-acoes-proibido-titulo">Comercialização proibida pela internet</h4>
+                                    <p class="dg-produto-acoes-proibido-aviso"><strong>MEDICAMENTO SUJEITO A CONTROLE ESPECIAL PORTARIA Nº 344 - 01/02/1999 - MINISTÉRIO DA SAÚDE</strong></p>
+                                    <p class="dg-produto-acoes-proibido-txt">Por determinação da <strong>Anvisa</strong>, este medicamento não pode ser comercializado pela internet. Para mais informações, entre em contato com o nosso televendas.</p>
+                                </div>
+                            }
+                        </div>
+                    }
+
+                     @if (MostraProdutoVendaRestrita == 1)
+                    {
+                        <div class="dg-produto-acoes-proibido dg-desktop-hide dg-produto-acoes-proibido-mobile">
+                            <h4 class="dg-produto-acoes-proibido-titulo">Este produto tem comercialização proibida pela internet</h4>
+                            <p class="dg-produto-acoes-proibido-aviso"><strong>Medicamento de venda restrita a Clínicas e Hospitais</strong></p>
+                            <p class="dg-produto-acoes-proibido-txt">Para mais informações entre em contato com nosso Televendas.</p>
+                        </div>
+                    }
                 </div>
 
 
@@ -854,7 +890,7 @@
                             @if (SP.Controlado405)
                             {
 
-                                <div class="dg-produto-acoes-proibido">
+                                <div class="dg-produto-acoes-proibido dg-mobile-hide">
                                     <h4 class="dg-produto-acoes-proibido-titulo">Comercialização proibida pela internet</h4>
                                     <p class="dg-produto-acoes-proibido-aviso"><strong>MEDICAMENTO SUJEITO A CONTROLE ESPECIAL - RDC Nº 405 - 22/07/2020 - MINISTÉRIO DA SAÚDE</strong></p>
                                     <p class="dg-produto-acoes-proibido-txt">Por determinação da <strong>Anvisa</strong>, este medicamento não pode ser comercializado pela internet. Para mais informações, entre em contato com o nosso televendas.</p>
@@ -867,12 +903,18 @@
                                     </div>
                                 </div>
                                 <div class="dg-produto-acoes-btns-compra dg-desktop-hide">
-                                    <a class="dg-produto-acoes-televenda" href="tel:+551139907720">(11) 3990-7720<span class="dg-icon dg-icon-televendas-1"></span></a>
+                                    <a class="dg-produto-acoes-televenda" href="tel:+551139907720">
+                                        <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/call-calling-white.svg" alt="">
+                                        <span>
+                                            <span>(11) 3990-7720</span>
+                                            <span>Segunda a Sábado das 8h às 20h</span>
+                                        </span>
+                                    </a>
                                 </div>
                             }
                             else
                             {
-                                <div class="dg-produto-acoes-proibido">
+                                <div class="dg-produto-acoes-proibido dg-mobile-hide">
                                     <h4 class="dg-produto-acoes-proibido-titulo">Comercialização proibida pela internet</h4>
                                     <p class="dg-produto-acoes-proibido-aviso"><strong>MEDICAMENTO SUJEITO A CONTROLE ESPECIAL PORTARIA Nº 344 - 01/02/1999 - MINISTÉRIO DA SAÚDE</strong></p>
                                     <p class="dg-produto-acoes-proibido-txt">Por determinação da <strong>Anvisa</strong>, este medicamento não pode ser comercializado pela internet. Para mais informações, entre em contato com o nosso televendas.</p>
@@ -885,7 +927,13 @@
                                     </div>
                                 </div>
                                 <div class="dg-produto-acoes-btns-compra dg-desktop-hide">
-                                    <a class="dg-produto-acoes-televenda" href="tel:+551139907720">(11) 3990-7720<span class="dg-icon dg-icon-televendas-1"></span></a>
+                                    <a class="dg-produto-acoes-televenda" href="tel:+551139907720">
+                                        <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/call-calling-white.svg" alt="">
+                                        <span>
+                                            <span>(11) 3990-7720</span>
+                                            <span>Segunda a Sábado das 8h às 20h</span>
+                                        </span>
+                                    </a>
                                 </div>
                             }
 
@@ -894,7 +942,7 @@
                         @if (MostraProdutoVendaRestrita == 1)
                         {
 
-                            <div class="dg-produto-acoes-proibido">
+                            <div class="dg-produto-acoes-proibido dg-mobile-hide">
                                 <h4 class="dg-produto-acoes-proibido-titulo">Este produto tem comercialização proibida pela internet</h4>
                                 <p class="dg-produto-acoes-proibido-aviso"><strong>Medicamento de venda restrita a Clínicas e Hospitais</strong></p>
                                 <p class="dg-produto-acoes-proibido-txt">Para mais informações entre em contato com nosso Televendas.</p>

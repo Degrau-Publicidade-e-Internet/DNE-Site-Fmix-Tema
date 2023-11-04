@@ -1,6 +1,63 @@
+$corPrimaria: #0B1841;
+$corSecundaria: #002399;
+$corComplementar: #00D19D;
+
+body {
+    color: $corPrimaria;
+    background-color: #fff;
+}
+.dg-relative {
+    position: relative;
+}
+.dg-home-produtos-titulo, .dg-header-busca-label, .dg-boxproduto-titulo a, .dg-boxproduto-preco, .dg-header-minhaconta__logar1 {
+    color: $corPrimaria;
+}
+.dg-header-menu {
+    background-color: $corPrimaria;
+}
+.dg-header-busca-btn, .dg-header-carrinho-numero {
+    background-color: $corSecundaria;
+}
+.dg-header-carrinho>a {
+    width: 50px;
+    height: 50px;
+    padding-top: 13px;
+    border-radius: 15px;
+    background-color: $corComplementar;
+    background-image: url(../img/icones/shopping-cart-cart.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    &:hover {
+        background-color: darken($corComplementar, 5%);
+    }
+}
+.dg-header-menu > ul {
+    justify-content: space-between;
+    padding: 0 40px;
+}
+.dg-header-menu > ul > li {
+    width: auto !important;
+    > a {
+        padding-top: 15px !important;
+        font-weight: bold !important;
+        font-size: 15px !important;
+        letter-spacing: .5px;
+    }
+    &.dg-header-menu-vertodas::before {
+        display: none;
+    }
+}
+.dg-header-busca-btn {
+    box-shadow: none;
+}
+.dg-header-menu > ul > li > a > .dg-icon-img {
+    display: none;
+}
+
+
 @media (min-width: 1280px) {
     .container {
-        padding: 1220px;
+        width: 1220px;
     }
 }
 
@@ -2288,7 +2345,19 @@ body {
         }
     }
 
+    .dg-ProdutoisEsgotado .dg-produto-acoes-btns .dg-produto-acoes-btns-similares-btn, .dg-ProdutoisEsgotado2 .dg-produto-acoes-btns .dg-produto-acoes-btns-similares-btn, .dg-produto-acoes-btns-similares-btn {
+        display: none
+    }
+
     .dg-produto {
+        .dg-produto-img-box .dg-produto-tags {
+            flex: 0;
+            flex-wrap: nowrap;
+            flex-direction: row-reverse;
+            .dg-produto-tag-wrapper {
+                margin: 0 24px 0 0;
+            }
+        }
         .dg-produto-img-box .dg-produto-tags .dg-produto-desconto {
             border-radius: 3px;
             font-weight: 600;
@@ -2395,6 +2464,9 @@ body {
                 display: flex;
                 align-items: center;
                 padding: 19px 11px;
+                @media (max-width: 991px) {
+                    border-radius: 0;
+                }
             }
             &.dg-produto-img-favorito {
                 .dg-icon.dg-icon-favorito {
@@ -2585,7 +2657,7 @@ body {
             }
         }
         .dg-produto-tags {
-            top: 19px;
+            top: 15px;
             right: unset;
             left: 26px;
             .dg-produto-desconto{
@@ -3113,6 +3185,32 @@ body {
                 margin: 0 24px 0 0;
             }
         }
+        .dg-ProdutoisEsgotado .dg-produto-acoes-aviseme .dg-produto-acoes-btns-similares-btn, .dg-ProdutoisEsgotado .dg-produto-acoes-aviseme .dg-produto-acoes-btns-aviseme-btn, .dg-ProdutoisEsgotado2 .dg-produto-acoes-aviseme .dg-produto-acoes-btns-similares-btn, .dg-ProdutoisEsgotado2 .dg-produto-acoes-aviseme .dg-produto-acoes-btns-aviseme-btn {
+            font-size: 10px;
+        }
+        .dg-ProdutoisEsgotado .dg-produto-acoes-aviseme .dg-produto-acoes-btns-aviseme-btn, .dg-ProdutoisEsgotado2 .dg-produto-acoes-aviseme .dg-produto-acoes-btns-aviseme-btn {
+            background: #E00D4C;
+        }
+        .dg-ProdutoisEsgotado .dg-produto-acoes-aviseme, .dg-ProdutoisEsgotado2 .dg-produto-acoes-aviseme {
+            justify-content: flex-start;
+        }
+        .dg-ProdutoisEsgotado, .dg-ProdutoisEsgotado2 {
+            .dg-produto .dg-produto-info {
+                .dg-produto-acoes {
+                    max-width: 100%;
+                    .dg-produto-acoes-btns-aviseme-btn {
+                        display: block;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+        .dg-ProdutoisEsgotado .dg-produto-acoes-aviseme>p, .dg-ProdutoisEsgotado2 .dg-produto-acoes-aviseme>p {
+            display: none;
+        }
+        .dg-ProdutoisEsgotado .dg-produto-acoes-aviseme .dg-produto-acoes-btns-similares-btn strong, .dg-ProdutoisEsgotado .dg-produto-acoes-aviseme .dg-produto-acoes-btns-aviseme-btn strong, .dg-ProdutoisEsgotado2 .dg-produto-acoes-aviseme .dg-produto-acoes-btns-similares-btn strong, .dg-ProdutoisEsgotado2 .dg-produto-acoes-aviseme .dg-produto-acoes-btns-aviseme-btn strong {
+            display: inline;
+        }
         .dg-ProdutoisPodeComprarPromocao2 {
             .dg-produto {
                 .dg-produto-info {
@@ -3166,6 +3264,8 @@ body {
                 background-image: none;
                 padding: 0 4px;
                 max-width: 33.333%;
+                justify-content: flex-start;
+                padding-top: 9px;
                 &::before {
                     margin: 0 0 10px;
                 }
@@ -3174,7 +3274,7 @@ body {
                 }
             }
         }
-        .dg-ProdutoisPodeComprar .dg-produto-acoes-btns-compra, .dg-ProdutoisPodeComprar2 .dg-produto-acoes-btns-compra, .dg-ProdutoisProibido .dg-produto-acoes-btns-compra, .dg-ProdutoisProibido2 .dg-produto-acoes-btns-compra {
+        .dg-ProdutoisEsgotado .dg-produto-acoes-aviseme, .dg-ProdutoisEsgotado2 .dg-produto-acoes-aviseme, .dg-ProdutoisPodeComprar .dg-produto-acoes-btns-compra, .dg-ProdutoisPodeComprar2 .dg-produto-acoes-btns-compra, .dg-ProdutoisProibido .dg-produto-acoes-btns-compra, .dg-ProdutoisProibido2 .dg-produto-acoes-btns-compra {
             position: static !important;
             padding: 0 !important;
             background-color: rgba(0,0,0,0) !important;
@@ -3190,9 +3290,105 @@ body {
             margin-top: 0;
             margin-right: 16px;
         }
+        .dg-ProdutoisPodeComprar .dg-produto-acoes-btns, .dg-ProdutoisPodeComprarPromocao .dg-produto-acoes-btns, .dg-ProdutoisPodeComprarPromocao2 .dg-produto-acoes-btns, .dg-ProdutoisEsgotado .dg-produto-acoes-btns, .dg-ProdutoisEsgotado2 .dg-produto-acoes-btns {
+            max-width: 100%;
+            margin-top: 0;
+        }
         &#produto-pg .dg-produto-breadcrumb {
             display: block;
             margin-bottom: 20px;
+        }
+        .dg-ProdutoisPodeComprar .dg-produto-acoes-televenda, .dg-ProdutoisPodeComprar2 .dg-produto-acoes-televenda, .dg-ProdutoisProibido .dg-produto-acoes-televenda, .dg-ProdutoisProibido2 .dg-produto-acoes-televenda {
+            font-size: 10px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            background: $corComplementar;
+            color: #fff;
+            > span {
+                > span:first-child {
+                    font-weight: bold;
+                }
+                > span:last-child {
+                    color: #000;
+                }
+            }
+        }
+        .dg-ProdutoisPodeComprar .dg-produto-info .dg-produto-acoes, .dg-ProdutoisPodeComprar2 .dg-produto-info .dg-produto-acoes, .dg-ProdutoisProibido .dg-produto-info .dg-produto-acoes, .dg-ProdutoisProibido2 .dg-produto-info .dg-produto-acoes {
+            max-width: 241px;
+        }
+        .dg-produto {
+
+            .dg-produto-acoes-proibido {
+                margin-top: 28px;
+            }
+            .dg-produto-acoes-proibido-mobile {
+                text-align: center;
+                .dg-produto-acoes-proibido-titulo {
+                    font-size: 11px;
+                    height: auto;
+                    margin-bottom: 10px
+                }
+                .dg-produto-acoes-proibido-aviso {
+                    margin-bottom: 4px;
+                    font-size: 8px;
+                    line-height: 12px;
+                }
+                .dg-produto-acoes-proibido-txt {
+                    margin-bottom: 0;
+                    font-size: 7px;
+                    line-height: 9px;
+                }
+            }
+        }
+        .dg-produto-abas {
+            .dg-produtos-abas {
+                border-radius: 24px 24px 0 0;
+            }
+            .dg-produtos-abas-textos {
+                display: block;
+                padding: 16px 24px;
+                border-radius: 0 0 24px 24px;
+                &.dg-ativo {
+                    position: static;
+                }
+                .dg-produto-aba-info-close {
+                    display: none;
+                }
+                .dg-produtos-abas-textos-wrapper {
+                    width: 100%;
+                    background-color: rgba(0,0,0,0);
+                    padding: 0;
+                    border-radius: 0;
+                    transform: none;
+                    animation: none !important;
+                    max-height: 234px;
+                    overflow: auto;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 575px) {
+    body {
+        .dg-ProdutoisEsgotado .dg-produto-acoes-aviseme .dg-produto-acoes-btns-aviseme-btn, .dg-ProdutoisEsgotado2 .dg-produto-acoes-aviseme .dg-produto-acoes-btns-aviseme-btn {
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 385px) {
+    body {
+        .dg-ProdutoisPodeComprar .dg-produto-info .dg-produto-acoes, .dg-ProdutoisPodeComprar2 .dg-produto-info .dg-produto-acoes, .dg-ProdutoisProibido .dg-produto-info .dg-produto-acoes, .dg-ProdutoisProibido2 .dg-produto-info .dg-produto-acoes {
+            max-width: 220px;
+        }
+        .dg-ProdutoisPodeComprar .dg-produto-acoes-televenda, .dg-ProdutoisPodeComprar2 .dg-produto-acoes-televenda, .dg-ProdutoisProibido .dg-produto-acoes-televenda, .dg-ProdutoisProibido2 .dg-produto-acoes-televenda {
+            > span {
+                > span:last-child {
+                    font-size: 9px;
+                }
+            }
         }
     }
 }
