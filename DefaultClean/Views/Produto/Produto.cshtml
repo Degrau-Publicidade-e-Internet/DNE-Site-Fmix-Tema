@@ -1479,9 +1479,10 @@
 
 <script id="templateModalEpharma_autorizar" type="text/x-jquery-tmpl">
     <div class="dg-modal-header">
-        <img class="jsImagemIndustria" src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/discount-shape.svg" alt="Ícone desconto">
+        <img class="jsImagemIndustria" src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/discount-shape-green-pbm.svg" alt="Ícone desconto">
         <div class="dg-modal-header__esquerda">Economizando com o programa de laboratório, informe seus dados.</div>
-        <div>pague: <span id="valorDesconto-epharma">0</span></div>
+        <div class="dg-modal-header__pague">Pague: <span id="valorDesconto-epharma">0</span></div>
+        <p class="dg-modal-header__sobre"><a>Clique aqui</a> e saiba mais sobre o programa de laboratório.</p>
     </div>
     <div action="" class="dg-modal-form">
         @* <div class="dg-modal-form__esquerda">
@@ -1492,6 +1493,8 @@
             <input type="text" placeholder="Digite Nº de CPF" id="cpfModalEpharma" validar mascara="cpf">
             <button type="submit">Autorizar</button>
         </form>
+        <p>Continuar e pagar R$40,90</p>
+        <button type="button"></button>
     </div>
 </script>
 

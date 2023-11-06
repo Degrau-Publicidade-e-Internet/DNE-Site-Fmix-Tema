@@ -3168,9 +3168,29 @@ body {
             align-items: flex-start;
             background-color: $corPrimaria;
             background-image: none;
+            padding: 26px;
             &__esquerda {
                 padding: 0;
+                margin: 19px 0 17px;
+                font-size: 20px;
+                line-height: 30px;
                 background-color: rgba(0,0,0,0);
+            }
+            &__pague {
+                margin-bottom: 18px;
+                font-size: 32px;
+                line-height: 30px;
+                font-weight: bold;
+                color: $corComplementar;
+            }
+            &__sobre {
+                font-size: 14px;
+                line-height: 18px;
+                color: #fff;
+                a {
+                    text-decoration: underline;
+                    color: #fff;
+                }
             }
         }
     }

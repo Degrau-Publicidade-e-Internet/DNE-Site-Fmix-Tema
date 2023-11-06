@@ -3807,11 +3807,34 @@ body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-header {
           align-items: flex-start;
   background-color: #0B1841;
   background-image: none;
+  padding: 26px;
 }
 
 body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-header__esquerda {
   padding: 0;
+  margin: 19px 0 17px;
+  font-size: 20px;
+  line-height: 30px;
   background-color: rgba(0, 0, 0, 0);
+}
+
+body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-header__pague {
+  margin-bottom: 18px;
+  font-size: 32px;
+  line-height: 30px;
+  font-weight: bold;
+  color: #00D19D;
+}
+
+body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-header__sobre {
+  font-size: 14px;
+  line-height: 18px;
+  color: #fff;
+}
+
+body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-header__sobre a {
+  text-decoration: underline;
+  color: #fff;
 }
 
 @media (max-width: 991px) {
