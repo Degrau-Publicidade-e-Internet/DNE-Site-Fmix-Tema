@@ -2943,6 +2943,9 @@ body {
             display: inline-block;
             vertical-align: middle;
             margin-right: 20px;
+            @media (max-width: 991px) {
+                vertical-align: -6px;
+            }
         }
     }
     .dg-produto-enviar-receita {
@@ -3105,6 +3108,79 @@ body {
 }
 
 body {
+    .dg-produto-titulo {
+        padding-top: 0;
+        padding-left: 0;
+        margin-bottom: 17px;
+    }
+    .dg-produto-compre-tambem {
+        margin-bottom: 51px;
+        @media (max-width: 991px) {
+            margin-bottom: 34px;
+        }
+        .tns-ovh {
+            margin-top: -10px;
+            padding: 10px 0;
+        }
+    }
+    @media (min-width: 992px) {
+        .dg-modal-id-templateCompraParcelada .dg-modal-templateCompraParcelada-formas-lista ul {
+            padding: 11px 0;
+        }
+    }
+    .dg-modal-id-templateCompraParcelada .dg-modal-templateCompraParcelada-formas-footer {
+        padding: 10px 0 0;
+    }
+    .dg-modal-id-templateCompraParcelada .dg-modal-templateCompraParcelada-formas-footer, .dg-modal-id-templateCompraParcelada .dg-modal-templateCompraParcelada-formas-lista {
+        color: $corPrimaria;
+    }
+    .dg-modal-id-templateCompraParcelada .dg-modal-templateCompraParcelada-formas-lista {
+        li {
+            border: 0;
+        }
+    }
+    .dg-modal-id-templateCompraParcelada .dg-modal-templateCompraParcelada-formas-footer{
+        border: 0;
+    }
+    .dg-modal-container {
+        border: 0;
+        border-radius: 15px;
+        background-color: #F5F9FD;
+        .dg-modal-conteudo {
+            padding: 22px 80px 36px;
+            font-size: 12px;
+            line-height: 14px;
+            @media (max-width: 991px) {
+                padding: 16px;
+            }
+            .dg-titulo {
+                margin-bottom: 25px;
+                border-bottom: 0;
+                padding: 0;
+                font-size: 20px;
+                line-height: 30px;
+                text-align: center;
+                font-weight: bold;
+                text-transform: none;
+                color: inherit;
+                background-color: rgba(0,0,0,0);
+                @media (max-width: 991px) {
+                    margin-bottom: 12px;
+                }
+                span {
+                    color: $corComplementar;
+                }
+                + .dg-subtitulo {
+                    margin-top: -30px;
+                    border: 0;
+                    @media (max-width: 991px) {
+                        margin-top: -20px;
+                    }
+                }
+            }
+        }
+    }
+
     .dg-produto-acoes-btns {
         display: flex;
         flex-direction: column;
@@ -3118,6 +3194,9 @@ body {
         margin-bottom: 8px;
         border-radius: 0;
         background-color: aliceblue;
+        @media (max-width: 991px) {
+            margin: 0;
+        }
         &.dg-loading {
             height: 62px;
             .dg-produto-PBM__sobre {
@@ -3134,8 +3213,11 @@ body {
             background-image: none;
             line-height: 16px;
             text-transform: uppercase;
+            @media (max-width: 991px) {
+                margin: 0;
+            }
             img {
-                margin-right: 10px;
+                margin-right: 8px;
             }
             &__text {
                 > div:first-child {
@@ -3155,12 +3237,84 @@ body {
             line-height: 14px;
             text-align: center;
             color: $corComplementar;
+            @media (max-width: 991px) {
+                display: none;
+            }
+        }
+    }
+
+    @media (max-width: 991px) {
+        .dg-produto {
+            .dg-produto-acoes-btns[data-produto-epharma="False"] {
+                flex-direction: row;
+                .dg-produto-PBM {
+                    flex: 1;
+                    order: 1;
+                    margin-bottom: 0;
+                    margin-right: 16px;
+                    // line-height: 48px;
+                    padding: 0;
+                    &__esquerda {
+                        &__text {
+                            >  div:first-child {
+                                font-size: 11.31px;
+                                line-height: 12.9px;
+                            }
+                            
+                            > div:last-child {
+                                font-size: 9.69px;
+                                line-height: 12.9px;
+                            }
+                        }
+                    }
+                    // span {
+                    //     display: inline;
+                    //     font-size: 11.83px;
+                    // }
+                    // .dg-icon {
+                    //     display: none;
+                    // }
+                }
+                .dg-produto-acoes-btns-compra-qtd {
+                    display: none;
+                }
+                .dg-produto-acoes-btns-compra {
+                    width: auto;
+                    order: 2;
+                    .dg-produto-acoes-btns-compra-btn {
+                        font-size: 0;
+                        margin: 0;
+                        span {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
         }
     }
     .dg-modal-id-templateModalEpharma_autorizar {
+        .dg-modal-fechar {
+            top: 28px;
+            right: 22px;
+            width: 34px;
+            height: 34px;
+            border-radius: 0;
+            font-size: 0;
+            background-color: rgba(0,0,0,0);
+            background-image: url(../img/icones/produto/autorizar-fechar.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            &:hover, &:focus {
+                background-image: url(../img/icones/produto/autorizar-fechar-hover.svg);
+            }
+        }
         .dg-modal-container {
             max-width: 352px;
             min-width: auto;
+            background: none;
+        }
+        .dg-modal-conteudo {
+            padding: 0;
         }
         .dg-modal-header {
             display: flex;
@@ -3191,6 +3345,73 @@ body {
                     text-decoration: underline;
                     color: #fff;
                 }
+                p {
+                    margin-top: 0;
+                }
+            }
+        }
+        .dg-modal-form {
+            display: block;
+            padding: 0;
+            border-radius: 0 0 15px 15px;
+            background-color: #F5F9FD;
+
+            &__direita {
+                position: relative;
+                padding: 3px 26px 24px;
+                background-color: $corPrimaria;
+                border-radius: 0 0 15px 15px;
+                margin: 0;
+                div {
+                    margin: 0;
+                }
+                input {
+                    height: 44px;
+                    padding: 13px 21px;
+                    margin: 0 !important;
+                    background-color: #F5F9FD;
+                    margin: 0;
+                }
+                button {
+                    position: absolute;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 44px;
+                    height: 44px;
+                    padding: 0;
+                    top: 0;
+                    margin: 0;
+                    right: 0;
+                    border-radius: 0;
+                    background-color: rgba(0,0,0,0);
+                    &:hover, &:focus {
+                        background-color: rgba(0,0,0,0);
+                    }
+                }
+            }
+            &__continuar {
+                padding: 22px 26px;
+                border-radius: 0 0 15px 15px;
+                text-align: center;
+                background-color: #F5F9FD;
+                p {
+                    margin-top: 0;
+                    margin-bottom: 16px;
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 18px;
+                }
+                button {
+                    width: 100%;
+                    height: 44px;
+                    padding: 12px 0;
+                    border-radius: 11px;
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: #fff;
+                    background-color: $corComplementar;
+                }
             }
         }
     }
@@ -3219,8 +3440,8 @@ body {
                 position: fixed;
                 bottom: 0;
                 left: 0;
-                z-index: 13;
-                padding: 20px;
+                z-index: 23;
+                padding: 16px 20px;
                 border-radius: 22px 22px 0 0;
                 box-shadow: 0 -4px 4px 0 rgba(0,0,0,0.1);
                 .dg-produto-info-preco {
@@ -3229,7 +3450,7 @@ body {
                 }
                 .dg-produto-info-titulo {
                     padding-top: 0;
-                    margin-bottom: 20px;
+                    margin-bottom: 15px;
                     font-size: 12px;
                     font-weight: 600;
                     flex-basis: 100%;
@@ -3474,6 +3695,9 @@ body {
     body {
         .dg-ProdutoisPodeComprar .dg-produto-info .dg-produto-acoes, .dg-ProdutoisPodeComprar2 .dg-produto-info .dg-produto-acoes, .dg-ProdutoisProibido .dg-produto-info .dg-produto-acoes, .dg-ProdutoisProibido2 .dg-produto-info .dg-produto-acoes {
             max-width: 220px;
+            .dg-produto-PBM {
+                margin-right: 8px;
+            }
         }
         .dg-ProdutoisPodeComprar .dg-produto-acoes-televenda, .dg-ProdutoisPodeComprar2 .dg-produto-acoes-televenda, .dg-ProdutoisProibido .dg-produto-acoes-televenda, .dg-ProdutoisProibido2 .dg-produto-acoes-televenda {
             > span {

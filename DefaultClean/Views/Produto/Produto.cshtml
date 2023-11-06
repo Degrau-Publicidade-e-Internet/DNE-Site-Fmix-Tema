@@ -479,7 +479,7 @@
                                 <h2>
                                     @if (SP.ID_Categoria == 2 || SP.ID_Categoria == 34)
                                     {
-                                    <a href="javascript:void(0)" class="dg-produto-acoes-modais-btn" onclick="abrirModal({titulo:'Para que serve', id:'templateProdutoParaQueServe'})">
+                                    <a href="javascript:void(0)" class="dg-produto-acoes-modais-btn" onclick="abrirModal({titulo:'Para que <span>serve</span>', id:'templateProdutoParaQueServe'})">
                                         <strong>Para que serve</strong>
                                     </a>
                                     } else {
@@ -584,7 +584,7 @@
                             
 
                             <h2>
-                                <a href="javascript:void(0)" class="dg-produto-acoes-modais-btn" onclick="abrirModal({titulo:'Ficha técnica',id:'templateFichaTecnica'})">
+                                <a href="javascript:void(0)" class="dg-produto-acoes-modais-btn" onclick="abrirModal({titulo:'Ficha <span>técnica</span>',id:'templateFichaTecnica'})">
                                     <strong>Ficha técnica</strong>
                                 </a>
                             </h2>
@@ -738,7 +738,7 @@
                 <div class="dg-produto-acoes">
                    
 
-                    <div class="dg-produto-acoes-btns">
+                    <div class="dg-produto-acoes-btns" data-produto-epharma="@mostraProdutoEpharma">
                         @if (BTnComprar == 1)
                         {
                             @if (MostraDetalhesCompraTrue == 1)
@@ -770,6 +770,8 @@
                                         }
                                     }
 
+                                    if(mostraProdutoEpharma){
+                                    }
                                     <div class="dg-produto-PBM jsOpenEpharma_Modal dg-loading" tabindex="0" role="button">
                                         <div class="dg-produto-PBM__esquerda">
                                             <img class="jsImagemIndustria" src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/discount-shape-white.svg" alt="Ícone desconto">
@@ -782,11 +784,7 @@
                                             <input type="hidden" value="@Model.ProdutoEpharma.id_cliente" id="id_clienteIndustria">
                                         </div>
                                         <p class="dg-produto-PBM__sobre">Economize com o programa de laboratório.</p>
-                                    </div>
-                                    if(mostraProdutoEpharma){
-
-
-                                    }                                    
+                                    </div>            
                                     
                                     if (MostraBtnPromocao2 == 1)
                                     {
@@ -1098,7 +1096,6 @@
                 <h3 class="dg-produto-titulo">
                     <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/discount-shape.svg" alt="">Produtos <strong>Semelhantes</strong>
                 </h3>
-                <p class="dg-produto-subtitulo">Os produtos abaixo são relacionados ao produto visitado, aproveite para conhecê-los.</p>
 
                 <div class="dg-produto-boxproduto-slide dg-loading">
                     @{
@@ -1118,7 +1115,6 @@
                 <h3 class="dg-produto-titulo">
                     <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/discount-shape.svg" alt="">Produtos <strong>Complementares</strong>
                 </h3>
-                <p class="dg-produto-subtitulo">Os produtos abaixo são relacionados ao produto visitado, aproveite para conhecê-los.</p>
 
                 <div class="dg-produto-boxproduto-slide dg-loading">
                     @{
@@ -1490,11 +1486,19 @@
             <div class="dg-modal-form__esquerda-texto">Informamos ao lado o preço do produto com o desconto mínimo oferecido pelo programa. Este desconto pode alterar de acordo com os itens da cesta, a quantidade do produto e o CPF, Cartão ou Cupom informado.</div>
         </div> *@
         <form class="dg-modal-form__direita jsEpharma_form-autorizar">
-            <input type="text" placeholder="Digite Nº de CPF" id="cpfModalEpharma" validar mascara="cpf">
-            <button type="submit">Autorizar</button>
+            <div style="position:relative">
+                <input type="text" placeholder="Digite Nº de CPF" id="cpfModalEpharma" validar mascara="cpf">
+                <button type="submit">
+                    <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.19005 1.04754e-07C0.887563 7.81279e-08 0.585076 0.114521 0.34627 0.35992C-0.115422 0.834357 -0.115422 1.61963 0.34627 2.09407L5.12239 7.00205L0.346269 11.91C-0.115423 12.3845 -0.115423 13.1697 0.346269 13.6442C0.80796 14.1186 1.57214 14.1186 2.03383 13.6442L7.65373 7.86912C8.11542 7.39468 8.11542 6.60941 7.65373 6.13497L2.03383 0.35992C1.79503 0.114521 1.49254 1.31381e-07 1.19005 1.04754e-07Z" fill="#0B1841"/>
+                    </svg>
+                </button>
+            </div>
         </form>
-        <p>Continuar e pagar R$40,90</p>
-        <button type="button"></button>
+        <div class="dg-modal-form__continuar">
+            <p>Continuar e pagar R$40,90</p>
+            <button type="button">COMPRAR SEM DESCONTO</button>
+        </div>
     </div>
 </script>
 
@@ -1853,7 +1857,8 @@
 @{
     Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Produto.css", false);
     Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/slick.js", false);
-    Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Produto.js", false);
+    @* Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Produto.js", false); *@
     Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Assinatura.js", false);
     Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Epharma.js", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/Produto_v2.js", false);
 }

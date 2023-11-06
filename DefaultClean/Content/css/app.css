@@ -3543,6 +3543,12 @@ body .dg-produto-abas__titulo img, body .dg-produto-titulo img {
   margin-right: 20px;
 }
 
+@media (max-width: 991px) {
+  body .dg-produto-abas__titulo img, body .dg-produto-titulo img {
+    vertical-align: -6px;
+  }
+}
+
 body .dg-produto-enviar-receita {
   width: 100%;
   margin-top: 8px;
@@ -3719,6 +3725,101 @@ body .dg-produto-anvisa .dg-produto-aba-descricao-medicamento {
   background-image: url(../img/icones/produto/fechar.svg);
 }
 
+body .dg-produto-titulo {
+  padding-top: 0;
+  padding-left: 0;
+  margin-bottom: 17px;
+}
+
+body .dg-produto-compre-tambem {
+  margin-bottom: 51px;
+}
+
+@media (max-width: 991px) {
+  body .dg-produto-compre-tambem {
+    margin-bottom: 34px;
+  }
+}
+
+body .dg-produto-compre-tambem .tns-ovh {
+  margin-top: -10px;
+  padding: 10px 0;
+}
+
+@media (min-width: 992px) {
+  body .dg-modal-id-templateCompraParcelada .dg-modal-templateCompraParcelada-formas-lista ul {
+    padding: 11px 0;
+  }
+}
+
+body .dg-modal-id-templateCompraParcelada .dg-modal-templateCompraParcelada-formas-footer {
+  padding: 10px 0 0;
+}
+
+body .dg-modal-id-templateCompraParcelada .dg-modal-templateCompraParcelada-formas-footer, body .dg-modal-id-templateCompraParcelada .dg-modal-templateCompraParcelada-formas-lista {
+  color: #0B1841;
+}
+
+body .dg-modal-id-templateCompraParcelada .dg-modal-templateCompraParcelada-formas-lista li {
+  border: 0;
+}
+
+body .dg-modal-id-templateCompraParcelada .dg-modal-templateCompraParcelada-formas-footer {
+  border: 0;
+}
+
+body .dg-modal-container {
+  border: 0;
+  border-radius: 15px;
+  background-color: #F5F9FD;
+}
+
+body .dg-modal-container .dg-modal-conteudo {
+  padding: 22px 80px 36px;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+@media (max-width: 991px) {
+  body .dg-modal-container .dg-modal-conteudo {
+    padding: 16px;
+  }
+}
+
+body .dg-modal-container .dg-modal-conteudo .dg-titulo {
+  margin-bottom: 25px;
+  border-bottom: 0;
+  padding: 0;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: none;
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+@media (max-width: 991px) {
+  body .dg-modal-container .dg-modal-conteudo .dg-titulo {
+    margin-bottom: 12px;
+  }
+}
+
+body .dg-modal-container .dg-modal-conteudo .dg-titulo span {
+  color: #00D19D;
+}
+
+body .dg-modal-container .dg-modal-conteudo .dg-titulo + .dg-subtitulo {
+  margin-top: -30px;
+  border: 0;
+}
+
+@media (max-width: 991px) {
+  body .dg-modal-container .dg-modal-conteudo .dg-titulo + .dg-subtitulo {
+    margin-top: -20px;
+  }
+}
+
 body .dg-produto-acoes-btns {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3739,6 +3840,12 @@ body .dg-produto-PBM {
   margin-bottom: 8px;
   border-radius: 0;
   background-color: aliceblue;
+}
+
+@media (max-width: 991px) {
+  body .dg-produto-PBM {
+    margin: 0;
+  }
 }
 
 body .dg-produto-PBM.dg-loading {
@@ -3766,8 +3873,14 @@ body .dg-produto-PBM__esquerda {
   text-transform: uppercase;
 }
 
+@media (max-width: 991px) {
+  body .dg-produto-PBM__esquerda {
+    margin: 0;
+  }
+}
+
 body .dg-produto-PBM__esquerda img {
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 body .dg-produto-PBM__esquerda__text > div:first-child {
@@ -3789,9 +3902,81 @@ body .dg-produto-PBM__sobre {
   color: #00D19D;
 }
 
+@media (max-width: 991px) {
+  body .dg-produto-PBM__sobre {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="False"] {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="False"] .dg-produto-PBM {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    margin-bottom: 0;
+    margin-right: 16px;
+    padding: 0;
+  }
+  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="False"] .dg-produto-PBM__esquerda__text > div:first-child {
+    font-size: 11.31px;
+    line-height: 12.9px;
+  }
+  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="False"] .dg-produto-PBM__esquerda__text > div:last-child {
+    font-size: 9.69px;
+    line-height: 12.9px;
+  }
+  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="False"] .dg-produto-acoes-btns-compra-qtd {
+    display: none;
+  }
+  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="False"] .dg-produto-acoes-btns-compra {
+    width: auto;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="False"] .dg-produto-acoes-btns-compra .dg-produto-acoes-btns-compra-btn {
+    font-size: 0;
+    margin: 0;
+  }
+  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="False"] .dg-produto-acoes-btns-compra .dg-produto-acoes-btns-compra-btn span {
+    margin: 0;
+  }
+}
+
+body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-fechar {
+  top: 28px;
+  right: 22px;
+  width: 34px;
+  height: 34px;
+  border-radius: 0;
+  font-size: 0;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url(../img/icones/produto/autorizar-fechar.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-fechar:hover, body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-fechar:focus {
+  background-image: url(../img/icones/produto/autorizar-fechar-hover.svg);
+}
+
 body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-container {
   max-width: 352px;
   min-width: auto;
+  background: none;
+}
+
+body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-conteudo {
+  padding: 0;
 }
 
 body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-header {
@@ -3837,6 +4022,88 @@ body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-header__sobre a {
   color: #fff;
 }
 
+body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-header__sobre p {
+  margin-top: 0;
+}
+
+body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-form {
+  display: block;
+  padding: 0;
+  border-radius: 0 0 15px 15px;
+  background-color: #F5F9FD;
+}
+
+body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-form__direita {
+  position: relative;
+  padding: 3px 26px 24px;
+  background-color: #0B1841;
+  border-radius: 0 0 15px 15px;
+  margin: 0;
+}
+
+body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-form__direita div {
+  margin: 0;
+}
+
+body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-form__direita input {
+  height: 44px;
+  padding: 13px 21px;
+  margin: 0 !important;
+  background-color: #F5F9FD;
+  margin: 0;
+}
+
+body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-form__direita button {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  top: 0;
+  margin: 0;
+  right: 0;
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-form__direita button:hover, body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-form__direita button:focus {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-form__continuar {
+  padding: 22px 26px;
+  border-radius: 0 0 15px 15px;
+  text-align: center;
+  background-color: #F5F9FD;
+}
+
+body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-form__continuar p {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-form__continuar button {
+  width: 100%;
+  height: 44px;
+  padding: 12px 0;
+  border-radius: 11px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #00D19D;
+}
+
 @media (max-width: 991px) {
   body .dg-produto-acoes-btns {
     position: static !important;
@@ -3867,8 +4134,8 @@ body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-header__sobre a {
     position: fixed;
     bottom: 0;
     left: 0;
-    z-index: 13;
-    padding: 20px;
+    z-index: 23;
+    padding: 16px 20px;
     border-radius: 22px 22px 0 0;
     -webkit-box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.1);
             box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.1);
@@ -3879,7 +4146,7 @@ body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-header__sobre a {
   }
   body .dg-produto .dg-produto-info .dg-produto-info-titulo {
     padding-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-size: 12px;
     font-weight: 600;
     -ms-flex-preferred-size: 100%;
@@ -4134,6 +4401,9 @@ body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-header__sobre a {
 @media (max-width: 385px) {
   body .dg-ProdutoisPodeComprar .dg-produto-info .dg-produto-acoes, body .dg-ProdutoisPodeComprar2 .dg-produto-info .dg-produto-acoes, body .dg-ProdutoisProibido .dg-produto-info .dg-produto-acoes, body .dg-ProdutoisProibido2 .dg-produto-info .dg-produto-acoes {
     max-width: 220px;
+  }
+  body .dg-ProdutoisPodeComprar .dg-produto-info .dg-produto-acoes .dg-produto-PBM, body .dg-ProdutoisPodeComprar2 .dg-produto-info .dg-produto-acoes .dg-produto-PBM, body .dg-ProdutoisProibido .dg-produto-info .dg-produto-acoes .dg-produto-PBM, body .dg-ProdutoisProibido2 .dg-produto-info .dg-produto-acoes .dg-produto-PBM {
+    margin-right: 8px;
   }
   body .dg-ProdutoisPodeComprar .dg-produto-acoes-televenda > span > span:last-child, body .dg-ProdutoisPodeComprar2 .dg-produto-acoes-televenda > span > span:last-child, body .dg-ProdutoisProibido .dg-produto-acoes-televenda > span > span:last-child, body .dg-ProdutoisProibido2 .dg-produto-acoes-televenda > span > span:last-child {
     font-size: 9px;
