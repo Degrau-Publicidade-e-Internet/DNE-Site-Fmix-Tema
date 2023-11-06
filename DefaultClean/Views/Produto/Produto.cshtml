@@ -450,8 +450,8 @@
                             }
                         </div>
                     </section>
-                    <p class="dg-produto-info-side__descricao">
-                        O Creme Cicatricure Antissinais é indicado para o cuidado da pele do rosto, pescoço e colo. O produto proporciona hidratação para a pele, ajudando a reduzir contra rugas profundas e proporcionando mais firmeza. A pele fica....
+                    <p class="dg-produto-info-side__descricao dg-SuplementoDescricao">
+                        @SP.SuplementoDescricao
                     </p>
                     <div>
                         <a class="dg-produto-info-side__descricao__vertd">Ver mais características</a>
@@ -1124,7 +1124,7 @@
                     @{
                         ViewData["fromSlider"] = "fromSlider";
                     }
-                    @await Html.PartialAsync("_TemplateBoxProduto", Model.TemosTambem)
+                    @await Html.PartialAsync("_TemplateBoxProduto", Model.TemosTambemComplementar)
                 </div>
             </section>
 
