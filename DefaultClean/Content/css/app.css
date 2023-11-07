@@ -3717,12 +3717,22 @@ body .dg-produto-anvisa .dg-produto-aba-descricao-medicamento {
   border-top-color: transparent;
 }
 
-.dg-modal-id-templateFreteProduto .dg-modal-conteudo .dg-titulo span {
-  color: #002399;
+.dg-modal-fechar {
+  top: 16px;
+  right: 22px;
+  width: 34px;
+  height: 34px;
+  border-radius: 0;
+  font-size: 0;
+  background-color: rgba(0, 0, 0, 0) !important;
+  background-image: url(../img/icones/produto/autorizar-fechar.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.dg-modal-id-templateFreteProduto .dg-modal-fechar {
-  background-image: url(../img/icones/produto/fechar.svg);
+.dg-modal-fechar:hover, .dg-modal-fechar:focus {
+  background-color: rgba(0, 0, 0, 0) !important;
+  background-image: url(../img/icones/produto/autorizar-fechar-hover.svg);
 }
 
 body .dg-produto-titulo {
@@ -3795,7 +3805,7 @@ body .dg-modal-container .dg-modal-conteudo .dg-titulo {
   text-align: center;
   font-weight: bold;
   text-transform: none;
-  color: inherit;
+  color: #0B1841;
   background-color: rgba(0, 0, 0, 0);
 }
 
@@ -3909,13 +3919,13 @@ body .dg-produto-PBM__sobre {
 }
 
 @media (max-width: 991px) {
-  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="False"] {
+  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="True"] {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
   }
-  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="False"] .dg-produto-PBM {
+  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="True"] .dg-produto-PBM {
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
@@ -3926,47 +3936,30 @@ body .dg-produto-PBM__sobre {
     margin-right: 16px;
     padding: 0;
   }
-  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="False"] .dg-produto-PBM__esquerda__text > div:first-child {
+  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="True"] .dg-produto-PBM__esquerda__text > div:first-child {
     font-size: 11.31px;
     line-height: 12.9px;
   }
-  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="False"] .dg-produto-PBM__esquerda__text > div:last-child {
+  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="True"] .dg-produto-PBM__esquerda__text > div:last-child {
     font-size: 9.69px;
     line-height: 12.9px;
   }
-  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="False"] .dg-produto-acoes-btns-compra-qtd {
+  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="True"] .dg-produto-acoes-btns-compra-qtd {
     display: none;
   }
-  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="False"] .dg-produto-acoes-btns-compra {
+  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="True"] .dg-produto-acoes-btns-compra {
     width: auto;
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
   }
-  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="False"] .dg-produto-acoes-btns-compra .dg-produto-acoes-btns-compra-btn {
+  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="True"] .dg-produto-acoes-btns-compra .dg-produto-acoes-btns-compra-btn {
     font-size: 0;
     margin: 0;
   }
-  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="False"] .dg-produto-acoes-btns-compra .dg-produto-acoes-btns-compra-btn span {
+  body .dg-produto .dg-produto-acoes-btns[data-produto-epharma="True"] .dg-produto-acoes-btns-compra .dg-produto-acoes-btns-compra-btn span {
     margin: 0;
   }
-}
-
-body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-fechar {
-  top: 28px;
-  right: 22px;
-  width: 34px;
-  height: 34px;
-  border-radius: 0;
-  font-size: 0;
-  background-color: rgba(0, 0, 0, 0);
-  background-image: url(../img/icones/produto/autorizar-fechar.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-fechar:hover, body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-fechar:focus {
-  background-image: url(../img/icones/produto/autorizar-fechar-hover.svg);
 }
 
 body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-container {
@@ -4408,5 +4401,367 @@ body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-form__continuar butto
   body .dg-ProdutoisPodeComprar .dg-produto-acoes-televenda > span > span:last-child, body .dg-ProdutoisPodeComprar2 .dg-produto-acoes-televenda > span > span:last-child, body .dg-ProdutoisProibido .dg-produto-acoes-televenda > span > span:last-child, body .dg-ProdutoisProibido2 .dg-produto-acoes-televenda > span > span:last-child {
     font-size: 9px;
   }
+}
+
+body .dg-modal-id-dgmodalsimilares .dg-modal-container {
+  max-width: 682px;
+  min-width: auto;
+}
+
+body .dg-modal-id-dgmodalsimilares .dg-modal-container .dg-modal-conteudo {
+  padding: 0;
+}
+
+body .dg-modal-id-dgmodalsimilares .dg-modal-container .dg-modal-conteudo .dg-titulo {
+  padding: 20px 0 16px;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 991px) {
+  body .dg-modal-id-dgmodalsimilares .dg-modal-container .dg-modal-conteudo .dg-titulo {
+    padding: 16px;
+  }
+}
+
+body .dg-modal-id-dgmodalsimilares .dg-modal-container .dg-modal-conteudo .dg-subtitulo {
+  margin-top: 28px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+@media (max-width: 991px) {
+  body .dg-modal-id-dgmodalsimilares .dg-modal-container .dg-modal-conteudo .dg-subtitulo {
+    margin-top: 16px;
+  }
+}
+
+body .dg-modal-id-dgmodalsimilares .dg-modal-container .dg-modal-conteudo .tns-outer {
+  padding: 19px 52px 22px !important;
+}
+
+@media (max-width: 991px) {
+  body .dg-modal-id-dgmodalsimilares .dg-modal-container .dg-modal-conteudo .tns-outer {
+    padding: 6px !important;
+  }
+}
+
+body .dg-modal-id-dgmodalsimilares .dg-modal-container .dg-modal-conteudo .tns-outer .tns-ovh {
+  padding: 10px;
+}
+
+body .dg-modal-id-dgmodalsimilares .dg-modal-container .dg-modal-conteudo .dg-modal-similares-final {
+  padding-bottom: 28px;
+}
+
+@media (max-width: 991px) {
+  body .dg-modal-id-dgmodalsimilares .dg-modal-container .dg-modal-conteudo .dg-modal-similares-final {
+    padding-bottom: 16px;
+  }
+}
+
+body .dg-modal-id-dgmodalsimilares .dg-modal-container .dg-modal-conteudo .dg-modal-similares-final a {
+  margin-top: 0;
+}
+
+body .dg-modal-id-templateAvise .dg-modal-container {
+  min-width: auto;
+  max-width: 584px;
+}
+
+body .dg-modal-id-templateAvise .dg-modal-conteudo {
+  padding: 0;
+}
+
+body .dg-modal-id-templateAvise .dg-modal-conteudo .dg-titulo {
+  padding: 20px 0 16px;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 991px) {
+  body .dg-modal-id-templateAvise .dg-modal-conteudo .dg-titulo {
+    padding: 16px;
+  }
+}
+
+body .dg-modal-id-templateAvise .dg-modal-conteudo .template-avise {
+  padding: 26px 62px 52px;
+}
+
+@media (max-width: 991px) {
+  body .dg-modal-id-templateAvise .dg-modal-conteudo .template-avise {
+    padding: 16px;
+  }
+}
+
+body .dg-modal-id-templateAvise .dg-modal-conteudo .template-avise__recaptcha-submit {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 13px;
+}
+
+@media (max-width: 991px) {
+  body .dg-modal-id-templateAvise .dg-modal-conteudo .template-avise__recaptcha-submit {
+    display: block;
+  }
+}
+
+body .dg-modal-id-templateAvise .dg-modal-conteudo .template-avise form > div > div > label {
+  height: 44px;
+  margin-bottom: 13px;
+  background: #E4E7ED;
+}
+
+body .dg-modal-id-templateAvise .dg-modal-conteudo .template-avise .dg-avise-recaptcha {
+  max-width: 228px;
+  height: 58.5px !important;
+}
+
+body .dg-modal-id-templateAvise .dg-modal-conteudo .template-avise .dg-avise-recaptcha iframe {
+  -webkit-transform: scale(0.75);
+          transform: scale(0.75);
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+}
+
+body .dg-modal-id-templateAvise .dg-modal-conteudo .template-avise .dg-avise-recaptcha div {
+  width: auto !important;
+  height: auto !important;
+}
+
+body .dg-modal-id-templateAvise .dg-modal-conteudo .template-avise button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 44px;
+  padding: 13px 23px;
+  border-radius: 11px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 19.4px;
+  background-color: #00D19D;
+  color: #fff;
+}
+
+body .dg-modal-id-templateAvise .dg-modal-conteudo .template-avise button img {
+  margin-left: 10px;
+}
+
+body .dg-modal-id-templateAvise .dg-modal-conteudo .template-avise button:hover, body .dg-modal-id-templateAvise .dg-modal-conteudo .template-avise button:focus {
+  background-color: #00b88a;
+}
+
+@media (max-width: 991px) {
+  body .dg-modal-id-templateAvise .dg-modal-conteudo .template-avise button {
+    margin-top: 13px;
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+body .dg-modal-id-templateModalEpharma_formulario .dg-modal-container .dg-modal-conteudo {
+  padding: 20px;
+}
+
+body .dg-modal-id-templateModalEpharma_formulario .dg-modal-container .dg-modal-fechar {
+  border-radius: 7px;
+  background-color: #f5f9fd !important;
+  top: -10px;
+  right: 14px;
+}
+
+body .dg-cadastro-conteudo-txt, body .dg-cadastro-conteudo-permissoes-btn {
+  color: #626669;
+}
+
+body .dg-modal-id-templateModalPBMPDV .dg-modal-header__esquerda, body .dg-modal-id-templateModalEpharma_formulario .dg-modal-header__esquerda {
+  background-color: #0B1841;
+}
+
+body .dg-modal-id-templateModalPBMPDV .dg-label, body .dg-modal-id-templateModalEpharma_formulario .dg-label {
+  height: 44px;
+  background: #F5F9FD;
+  color: #626669;
+}
+
+body .dg-cadastro-conteudo > div > label, body .dg-modal-id-templateModalPBMPDV .dg-select + label, body .dg-modal-id-templateModalEpharma_formulario .dg-select + label {
+  background: #F5F9FD;
+}
+
+body .dg-cadastro-conteudo > div > input:hover + label {
+  background: #e0ecf9;
+}
+
+body .dg-modal-id-templateModalPBMPDV .dg-input:not([type="file"]), body .dg-modal-id-templateModalEpharma_formulario .dg-input:not([type="file"]) {
+  min-height: 44px;
+}
+
+body .dg-cadastro-topo, body .dg-cadastro-conteudo {
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+body .dg-produto-titulo, body .dg-cadastro-conteudo-permissoes {
+  color: #0B1841;
+}
+
+body .dg-cadastro-conteudo-txt {
+  font-weight: 500;
+}
+
+body .dg-cadastro-conteudo-txt a {
+  font-weight: 600;
+}
+
+body .dg-cadastro {
+  margin-top: 50px;
+}
+
+body .dg-cadastro-topo > .dg-titulo {
+  padding-top: 0;
+  padding-left: 75px;
+  color: #0B1841;
+}
+
+body .dg-cadastro-topo > .dg-titulo strong {
+  color: #0B1841;
+}
+
+body .dg-cadastro-rodape {
+  padding: 0;
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+body .dg-cadastro-conteudo {
+  padding-right: 60px;
+  padding-left: 60px;
+}
+
+body .dg-cadastro-conteudo-txt a {
+  color: #002399;
+}
+
+body .dg-cadastro-conteudo-permissoes .dg-titulo strong, body .dg-cadastro-conteudo-permissoes-btn strong, body .dg-cadastro-conteudo-permissoes-btn:hover .dg-icon, body .dg-cadastro-conteudo-permissoes-btn:focus .dg-icon {
+  color: #E00D4C;
+}
+
+body .dg-modal-id-dgmodalsimilares .dg-subtitulo {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+body .dg-modal-id-dgmodalsimilares .dg-subtitulo strong {
+  color: #0B1841;
+}
+
+body .dg-modal-id-templateModalPBMPDV input[type="checkbox"] + label:before, body .dg-modal-id-templateModalEpharma_formulario input[type="checkbox"] + label:before {
+  border-color: #0B1841;
+}
+
+body .dg-modal-id-templateModalPBMPDV input:checked + label:before, body .dg-modal-id-templateModalEpharma_formulario input:checked + label:before {
+  border-color: #00D19D;
+}
+
+body .dg-modal-id-templateModalPBMPDV input:checked + label:after, body .dg-modal-id-templateModalEpharma_formulario input:checked + label:after {
+  background: #00D19D;
+}
+
+body .dg-modal-similares-final a, body .dg-cadastro-rodape-btn {
+  min-height: 48px;
+  border-radius: 12px;
+  background: #00D19D;
+}
+
+body .dg-modal-similares-final a:hover, body .dg-modal-similares-final a:focus, body .dg-cadastro-rodape-btn:hover, body .dg-cadastro-rodape-btn:focus {
+  background: #00b88a;
+}
+
+body .dg-modal-similares-final a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 304px;
+  margin: 0 auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10px;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .dg-modal-similares-final a img {
+  margin-left: 10px;
+}
+
+body .dg-modal-id-templateModalPBMPDV .dg-select, body .dg-modal-id-templateModalEpharma_formulario .dg-select {
+  background: transparent url(../img/icones/select-vermelho.png) no-repeat top right 0;
+}
+
+body .dg-modal-id-templateModalPBMPDV button, body .dg-modal-id-templateModalEpharma_formulario button {
+  background-color: #00D19D;
+}
+
+body .dg-cadastro-conteudo-versenha {
+  top: 11px;
+  height: 24px;
+}
+
+body .dg-cadastro-conteudo-versenha:hover {
+  opacity: .75;
+}
+
+body .dg-icon.dg-icon-eye {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-image: url(../img/icones/eye-slash.svg);
+  background-position: center;
+}
+
+body .dg-icon.dg-icon-eye::before {
+  display: none;
+}
+
+body .dg-cadastro-conteudo-permissoes-btn .dg-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-image: url(../img/icones/edit.svg);
+  background-position: center;
+}
+
+body .dg-cadastro-conteudo-permissoes-btn .dg-icon::before {
+  display: none;
+}
+
+body .dg-modal-id-templateFreteProduto .dg-modal-conteudo .dg-titulo span {
+  color: #002399;
+}
+
+body .dg-modal-id-templateFreteProduto .dg-modal-container .dg-modal-conteudo .dg-titulo + .dg-subtitulo {
+  margin-top: -20px;
+}
+
+body .dg-modal-id-templateFreteProduto .dg-modal-fechar {
+  background-image: url(../img/icones/produto/fechar.svg);
 }
 /*# sourceMappingURL=app.css.map */

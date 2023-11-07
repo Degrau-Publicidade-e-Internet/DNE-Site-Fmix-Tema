@@ -696,9 +696,13 @@
                     <input type="email" name="EmailAvise" id="EmailAvise" mascara="lowercase" required validar/>
                     <label for="EmailAvise">Email:</label>
                 </div>
-
-                <div id="aviseme-vcg" class="dg-avise-recaptcha"></div>
-                <input type="button" class="btn btn-form-avise" data-idsubproduto="${response}" value="Quero receber o aviso" onclick="AvisoProdutoIndisponivel(this);" />
+                <div class="template-avise__recaptcha-submit">
+                    <div id="aviseme-vcg" class="dg-avise-recaptcha"></div>
+                    <button type="button" class="btn btn-form-avise" data-idsubproduto="${response}" onclick="AvisoProdutoIndisponivel(this);">
+                        Quero receber o aviso
+                        <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/aviso-btn.svg" alt="">
+                    </button>
+                </div>
             </div>
         </form>
         <a href="javascript:void(0)" class="fechar"><i class="icon-fechar"></i></a>

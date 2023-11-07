@@ -1,0 +1,163 @@
+﻿@model DNE.Models.Views.vClienteModel
+
+@{
+    ViewData["BodyID"] = "cadastro-pg";
+}
+
+<!-- ####  PAGINA #### -->
+<div class="container">
+    <main id="main" class="dg-cadastro">
+        <div class="dg-cadastro-topo">
+            <h1 class="dg-titulo">
+                Insira seus dados para <strong>criar um novo cadastro:</strong>
+            </h1>
+        </div>
+
+        <form action="" class="dg-cadastro-form">
+            <input type="hidden" name="ID_Cliente" id="ID_Cliente" value="0">
+            <div class="dg-cadastro-conteudo">
+                
+                <div class="dg-cadastro-conteudo-33">
+                    <input type="text" name="Nome" id="Nome" value="@Model.Nome" required validar>
+                    <label for="Nome">
+                        Nome
+                    </label>
+                </div>
+
+                <div class="dg-cadastro-conteudo-33">
+                    <input type="text" name="Sobrenome" id="Sobrenome" value="@Model.Sobrenome" required validar>
+                    <label for="Sobrenome">
+                        Sobrenome
+                    </label>
+                </div>
+
+                <div class="dg-cadastro-conteudo-33">
+                    <input type="tel" name="DataNasc" id="DataNasc" mascara="data" required validar>
+                    <label for="DataNasc">
+                        Data Nascimento
+                    </label>
+                </div>
+                    <div class="dg-cadastro-conteudo-33">
+                        <select name="Sexo" id="Sexo" required validar>
+                            <option id="S" val="" disabled selected>Selecione</option>
+                            <option id="M" val="M">Masculino</option>
+                            <option id="F" val="F">Feminino</option>
+                            <option id="I" val="I">Indefinido</option>
+                        </select>
+                        <label for="Sexo">
+                            Sexo
+                        </label>
+
+                    </div>                
+
+                <div class="dg-cadastro-conteudo-33">
+                    <input type="tel" name="CPF" id="CPF" value="@Model.CPF" mascara="cpf" required validar>
+                    <label for="CPF">
+                        CPF
+                    </label>
+                </div>
+
+                <div class="dg-cadastro-conteudo-33">
+                    <input type="email" name="Email" id="Email" value="@Model.EMail" mascara="lowercase" required validar>
+                    <label for="Email">
+                        E-mail
+                    </label>
+                </div>
+
+                <div class="dg-cadastro-conteudo-33">
+                    <input type="tel" name="TelRes" id="TelRes" mascara="telefone" validar>
+                    <label for="TelRes">
+                        Telefone Residencial
+                    </label>
+                </div>
+
+
+                <div class="dg-cadastro-conteudo-33">
+                    <input type="tel" name="TelCel" id="TelCel" mascara="telefone" required validar>
+                    <label for="TelCel">
+                        Telefone Celular
+                    </label>
+                </div>
+
+                <div class="dg-cadastro-conteudo-33">
+                    <input type="tel" name="TelCom" id="TelCom" mascara="telefone" validar>
+                    <label for="TelCom">
+                        Telefone Comercial
+                    </label>
+                </div>
+
+                <div class="dg-cadastro-conteudo-50">
+                    <input type="password" class="jsIsPassword" name="Senha" id="Senha" autocomplete="new-password" required validar>
+                    <label for="Senha">
+                        Senha
+                    </label>
+                    <a href="javascript:void(0)" class="dg-cadastro-conteudo-versenha" aria-label="Deixa campo de senha visível"><span class="dg-icon dg-icon-eye"></span></a>
+                </div>
+
+                <div class="dg-cadastro-conteudo-50">
+                    <input type="password" class="jsIsPassword" name="ConfirmaSenha" id="ConfirmaSenha" required validar>
+                    <label for="ConfirmaSenha">
+                        Confirmar senha
+                    </label>
+                    <a href="javascript:void(0)" class="dg-cadastro-conteudo-versenha" aria-label="Deixa campo de senha visível"><span class="dg-icon dg-icon-eye"></span></a>
+                </div>
+
+                <div class="dg-cadastro-conteudo-33 dg-cadastro-separador">
+                    <a href="javascript:void(0)" class="dg-cadastro-conteudo-permissoes-btn">
+                        <strong>Permissões</strong>
+                        <span>Edite aqui as suas permissões</span>
+                        <span class="dg-icon dg-icon-editar"></span>
+                    </a>
+                    @* zzz *@
+                    <div class="dg-cadastro-conteudo-permissoes">
+                        <h3 class="dg-titulo">
+                            Receba <strong>novidades</strong>, <strong>promoções</strong> e <strong>ofertas</strong> personalizadas!
+                        </h3>
+                        <div>
+                            <input type="checkbox" name="News" id="News" checked>
+                            <label for="News">E-mail</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="SMS" id="SMS" checked>
+                            <label for="SMS">SMS</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="LGPD_Redes_sociais" id="LGPD_Redes_sociais" checked>
+                            <label for="LGPD_Redes_sociais">Redes Sociais</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="WhatsApp" id="WhatsApp" checked>
+                            <label for="WhatsApp">WhatsApp</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dg-cadastro-conteudo-33" style="flex: 1;">
+                    <p class="dg-cadastro-conteudo-txt">
+                        As informações aqui solicitadas são utilizadas conforme demonstrado em nossa <a href="@Html.Domain()/politica-de-privacidade/" target="_blank">Política de Privacidade</a> e <a href="@Html.Domain()/termo-de-uso/" target="_blank">Termos de Uso</a>
+                    </p>
+                </div>
+                <div class="dg-cadastro-conteudo-25">
+                    <button type="submit" class="dg-cadastro-rodape-btn">
+                        Gravar Cadastro
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </main>
+    <input type="hidden" name="FW" id="FW" value="@ViewBag.FW" />
+</div>
+
+
+
+@*@Html.Raw(@Model.SEOOrganization)*@
+
+
+
+<!-- #### //PAGINA #### -->
+
+@{
+    Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Cadastro.css", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Cadastro.js", false);
+}

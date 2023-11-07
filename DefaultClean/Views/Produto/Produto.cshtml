@@ -771,20 +771,20 @@
                                     }
 
                                     if(mostraProdutoEpharma){
-                                    }
-                                    <div class="dg-produto-PBM jsOpenEpharma_Modal dg-loading" tabindex="0" role="button">
-                                        <div class="dg-produto-PBM__esquerda">
-                                            <img class="jsImagemIndustria" src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/discount-shape-white.svg" alt="Ícone desconto">
-                                            <div class="dg-produto-PBM__esquerda__text">
-                                                <div>
-                                                    Pague <span id="getValorDescontoEpharma">R$ @Model.ProdutoEpharma.valor.ToString("#,0.00")</span>
+                                        <div class="dg-produto-PBM jsOpenEpharma_Modal dg-loading" tabindex="0" role="button">
+                                            <div class="dg-produto-PBM__esquerda">
+                                                <img class="jsImagemIndustria" src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/discount-shape-white.svg" alt="Ícone desconto">
+                                                <div class="dg-produto-PBM__esquerda__text">
+                                                    <div>
+                                                        Pague <span id="getValorDescontoEpharma">R$ @Model.ProdutoEpharma.valor.ToString("#,0.00")</span>
+                                                    </div>
+                                                    <div>Ativar desconto lab</div>
                                                 </div>
-                                                <div>Ativar desconto lab</div>
+                                                <input type="hidden" value="@Model.ProdutoEpharma.id_cliente" id="id_clienteIndustria">
                                             </div>
-                                            <input type="hidden" value="@Model.ProdutoEpharma.id_cliente" id="id_clienteIndustria">
-                                        </div>
-                                        <p class="dg-produto-PBM__sobre">Economize com o programa de laboratório.</p>
-                                    </div>            
+                                            <p class="dg-produto-PBM__sobre">Economize com o programa de laboratório.</p>
+                                        </div>            
+                                    }
                                     
                                     if (MostraBtnPromocao2 == 1)
                                     {
@@ -1425,7 +1425,10 @@
         ${SimilaresHtml}
     </div>
     <div class='dg-modal-similares-final'>
-        <a href="${SimilaresUrl}">Ver todos os genéricos e similares</a>
+        <a href="${SimilaresUrl}">
+            <span>Ver todos os genéricos e similares</span>
+            <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/generico.svg" alt="Ícone generico">
+        </a>
     </div>
     @*   <!-- Some HTML here -->
         <scr{{= ""}}ipt type="text/javascript">
@@ -1496,7 +1499,7 @@
             </div>
         </form>
         <div class="dg-modal-form__continuar">
-            <p>Continuar e pagar R$40,90</p>
+            <p>Continuar e pagar R$@ValorTotal.ToString("#,0.00")/p>
             <button type="button">COMPRAR SEM DESCONTO</button>
         </div>
     </div>
