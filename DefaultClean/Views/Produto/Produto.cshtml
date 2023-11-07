@@ -454,7 +454,7 @@
                         @SP.SuplementoDescricao
                     </p>
                     <div>
-                        <a class="dg-produto-info-side__descricao__vertd">Ver mais características</a>
+                        <button type="button" class="dg-produto-info-side__descricao__vertd jsIrParaCaracteristicas">Ver mais características</butto>
                     </div>
                     <div class="dg-produto-info-side__bottom">
                         <div class="dg-produto-img-listagem">
@@ -1128,7 +1128,7 @@
     </div>
 }
 
-<div class="container">
+<div class="container jsCaracteristicas">
 
     @if (MostraProdutoImportado == 1)
     {
@@ -1863,5 +1863,5 @@
     @* Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Produto.js", false); *@
     Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Assinatura.js", false);
     Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Epharma.js", false);
-    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/Produto_v2.js", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/Produto_v4.js", false);
 }

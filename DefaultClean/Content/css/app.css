@@ -3338,9 +3338,15 @@ body .dg-produto .dg-produto-info-side__descricao {
 }
 
 body .dg-produto .dg-produto-info-side__descricao__vertd {
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0);
   font-size: 12px;
   line-height: 14px;
   color: #0085FF;
+}
+
+body .dg-produto .dg-produto-info-side__descricao__vertd:hover, body .dg-produto .dg-produto-info-side__descricao__vertd:focus {
+  background-color: rgba(0, 0, 0, 0);
 }
 
 body .dg-produto .dg-produto-info-side .dg-produto-info-titulo {

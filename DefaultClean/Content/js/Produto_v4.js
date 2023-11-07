@@ -299,6 +299,11 @@ $(document).ready(function () {
 	if (linksBlank.length > 0) {
 		linksBlank.attr('rel', 'noopener');
 	}
+
+	var target_offset = $('.jsCaracteristicas').offset().top;
+	$('.jsIrParaCaracteristicas').on('click', function() {
+		$('html, body').animate({ scrollTop: target_offset }, 300);
+	});
 });
 
 function modalParcelas() {

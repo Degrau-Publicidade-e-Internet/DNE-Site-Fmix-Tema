@@ -2783,9 +2783,14 @@ body {
                     margin: 10px 0;
                 }
                 &__vertd {
+                    padding: 0;
+                    background-color: rgba(0,0,0,0);
                     font-size: 12px;
                     line-height: 14px;
                     color: #0085FF;
+                    &:hover, &:focus {
+                        background-color: rgba(0,0,0,0);
+                    }
                 }
             }
             .dg-produto-info-titulo {
