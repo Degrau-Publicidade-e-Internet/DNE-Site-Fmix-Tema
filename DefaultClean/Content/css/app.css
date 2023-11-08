@@ -5033,4 +5033,194 @@ body .dg-header-busca-auto-lista-vertodos:hover, body .dg-header-busca-auto-list
   color: #002399;
   background-color: rgba(0, 0, 0, 0);
 }
+
+body .dg-home-descontos .tns-inner {
+  margin: 0 !important;
+}
+
+body .dg-home-descontos-lista2 {
+  position: relative;
+  height: 414px;
+}
+
+@media (min-width: 992px) {
+  body .dg-home-descontos-lista2__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    min-width: 1200px;
+  }
+}
+
+body .dg-home-descontos-lista2__wrapper > div {
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  body .dg-home-descontos-lista2__wrapper > div {
+    margin-right: 19px;
+  }
+  body .dg-home-descontos-lista2__wrapper > div:last-child {
+    margin-right: 0;
+  }
+}
+
+body .dg-home-descontos-lista2__info {
+  position: absolute;
+  width: 152px;
+  right: 34px;
+  bottom: 70px;
+  color: #fff;
+}
+
+@media (max-width: 991px) {
+  body .dg-home-descontos-lista2__info {
+    right: 30px;
+    bottom: 40px;
+    width: 114px;
+  }
+}
+
+body .dg-home-descontos-lista2__info-nome {
+  margin-bottom: 10px;
+  font-size: 25.81px;
+  font-weight: bold;
+}
+
+@media (max-width: 991px) {
+  body .dg-home-descontos-lista2__info-nome {
+    font-size: 19.35px;
+  }
+}
+
+body .dg-home-descontos-lista2__info-ate {
+  font-size: 15.18px;
+  font-weight: 500;
+}
+
+@media (max-width: 991px) {
+  body .dg-home-descontos-lista2__info-ate {
+    font-size: 11.38px;
+  }
+}
+
+body .dg-home-descontos-lista2__info-desconto {
+  font-size: 72.86px;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+@media (max-width: 991px) {
+  body .dg-home-descontos-lista2__info-desconto {
+    font-size: 54.65px;
+  }
+}
+
+body .dg-home-descontos-lista2__item {
+  position: relative;
+  display: block;
+  width: 214px;
+  height: 414px;
+  -webkit-transition: width 200ms linear;
+  transition: width 200ms linear;
+  background-image: url(../img/home-descontos/btn-top.svg), url(../img/home-descontos/background.png);
+  background-repeat: no-repeat;
+  background-position: 87% 35px, left top;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+@media (max-width: 991px) {
+  body .dg-home-descontos-lista2__item {
+    margin: 0;
+    width: 168px;
+    height: 311px;
+    background-image: url(../img/home-descontos/background-mobile.png);
+    background-position: left top;
+  }
+}
+
+body .dg-home-descontos-lista2__item img {
+  position: absolute;
+  top: -30px;
+  left: -14px;
+  -webkit-transform: scale(0.38);
+          transform: scale(0.38);
+}
+
+@media (min-width: 992px) {
+  body .dg-home-descontos-lista2__item img {
+    -webkit-transform: scale(0.5116);
+            transform: scale(0.5116);
+    top: -3px;
+    left: 7px;
+    -webkit-transition: opacity 200ms linear;
+    transition: opacity 200ms linear;
+    opacity: 0;
+  }
+  body .dg-home-descontos-lista2__item:not(:hover) img {
+    -webkit-animation: 300ms showHide2 linear;
+            animation: 300ms showHide2 linear;
+    opacity: 1;
+  }
+  body .dg-home-descontos-lista2__item:hover {
+    width: 421px;
+    background-position: 92% 35px, left top;
+  }
+  body .dg-home-descontos-lista2__item:hover img {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    top: 93px;
+    left: 41px;
+    -webkit-animation: 300ms showHide linear;
+            animation: 300ms showHide linear;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes showHide {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes showHide {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes showHide2 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes showHide2 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 /*# sourceMappingURL=app.css.map */

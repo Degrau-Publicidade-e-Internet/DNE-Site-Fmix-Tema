@@ -245,9 +245,9 @@ $(document).ready(function(){
           });
     });
 
-    if ($('.dg-home-descontos-lista').length > 0) {
+    if ($('.dg-home-descontos-lista2').length > 0 && window.innerWidth < 992) {
         var descontoLista = tns({
-            container: '.dg-home-descontos-lista',
+            container: '.dg-home-descontos-lista2__wrapper',
             items: 2,
             slideBy: 'page',
             autoplay: true,
@@ -257,14 +257,8 @@ $(document).ready(function(){
             mouseDrag: true,
             nav: false,
             responsive: {
-                480: {
-                    items: 3,
-                },
-                992: {
-                    items: 4,
-                },
-                1280: {
-                    items: 5,
+                575: {
+                    items: 3
                 },
             }
         });
