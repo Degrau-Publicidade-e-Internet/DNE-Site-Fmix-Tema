@@ -294,13 +294,41 @@
                 <div class="dg-home-produtos-topo dg-home-produtos-topo--no-after">
                     <h2 class="dg-home-produtos-titulo">
                         <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/percentage-square.svg" />
-                        @Html.Raw(@Model.AreaEstrutura.Titulo)
+                        @* @Html.Raw(@Model.AreaEstrutura.Titulo) *@
+                        Seleção de <b>Descontos</b>
                         <span class="dg-show-blackfriday"> DE BLACK FRIDAY!</span>
                     </h2>
                 </div>
 
-                <div class="dg-home-descontos-lista dg-loading">
-                    @if (areaEstruturada.ItemEstrutura.Count() > 0)
+                <div class="dg-home-descontos-lista2">
+                    <div class="dg-home-descontos-lista2__wrapper">
+
+
+@if (Model.ProdutoSelecaoDesconto.Count() > 0)
+{
+    foreach (var item in Model.ProdutoSelecaoDesconto)
+    {
+        <div>
+            <a class="dg-home-descontos-lista2__item" href="@item.Link">
+                <img src="@item.Foto" alt="">
+                <div class="dg-home-descontos-lista2__info">
+                    <div class="dg-home-descontos-lista2__info-nome">@item.Produto </div>
+                    <div class="dg-home-descontos-lista2__info-ate">Com até</div>
+                    <div class="dg-home-descontos-lista2__info-desconto">@item.Desconto %</div>
+                </div>
+            </a>
+        </div>
+    }
+}
+                       
+
+
+                        
+
+
+
+                    </div>
+                    @* @if (areaEstruturada.ItemEstrutura.Count() > 0)
                     {
                         foreach (var item in areaEstruturada.ItemEstrutura)
                         {
@@ -321,7 +349,7 @@
                                 }
                             </a>
                         }
-                    }
+                    } *@
 
                 </div>
             </section>
@@ -780,5 +808,5 @@
 @{
     Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Home.css", false);
     Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/slick.js", false);
-    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/Homev2.js", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/Home_v5.js", false);
 }
