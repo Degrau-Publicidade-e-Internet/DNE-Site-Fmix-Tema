@@ -360,7 +360,7 @@ body {
             transition: 300ms ease left;
         }
     }
-    &.dg-boxproduto-hover .dg-boxproduto-compra {
+    &.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) .dg-boxproduto-compra {
         &-bg {
             width: 100%;
         }
@@ -436,12 +436,22 @@ body {
         line-height: 17px;
         background-color: #01D06D;
     }
-    &.dg-boxproduto-hover {
+    &.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) {
         .dg-boxproduto-preco {
             bottom: 61px;
         }
     }
 
+    &.dg-boxproduto--indisponivel  {
+        .dg-boxproduto-compra-bg, .dg-boxproduto-qtd, .dg-boxproduto-compra-btn  {
+            background-color: #E00D4C;
+        }
+    }
+    &.dg-boxproduto--controlado  {
+        .dg-boxproduto-compra-bg, .dg-boxproduto-qtd, .dg-boxproduto-compra-btn  {
+            background-color: $corPrimaria;
+        }
+    }
     &.dg-boxproduto--indisponivel, &.dg-boxproduto--controlado  {
         .dg-boxproduto-qtd {
             height: 32px;
@@ -462,9 +472,9 @@ body {
             font-size: 12px;
         }
         .dg-boxproduto-compra-bg, .dg-boxproduto-qtd, .dg-boxproduto-compra-btn  {
-            background-color: #E00D4C;
+            color: #fff;
         }
-        // &.dg-boxproduto-hover .dg-boxproduto-compra .dg-boxproduto-qtd {
+        // &.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) .dg-boxproduto-compra .dg-boxproduto-qtd {
         //     margin-left: 80px;
         // }
         .dg-icon-avise-me {
@@ -479,9 +489,9 @@ body {
                 display: none;
             }
         }
-        &.dg-boxproduto-hover {
+        &.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) {
             .dg-boxproduto-compra .dg-boxproduto-qtd {
-                left: 40%;
+                left: 43%;
             }
         }
     }
@@ -498,10 +508,6 @@ body {
             &::before {
                 display: none;
             }
-        }
-        .dg-boxproduto-compra-bg, .dg-boxproduto-qtd, .dg-boxproduto-compra-btn  {
-            background-color: $corComplementar;
-            color: #fff;
         }
     }
 
@@ -650,7 +656,7 @@ body {
                     top: 8px;
                 }
             }
-            &.dg-boxproduto-hover {
+            &.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) {
                 .dg-boxproduto-preco {
                     bottom: 61px;
                 }
@@ -706,9 +712,6 @@ body {
                     .dg-menuA-submenu-itens li a {
                         font-size: 11px !important;
                     }
-                    .dg-boxproduto {
-                        width: 291px;
-                    }
                 }
                 &.dg-categoria-grande--2 {
                     .dg-menuA-submenu-itens li {
@@ -719,13 +722,13 @@ body {
                     .dg-menuA-submenu-itens li a {
                         font-size: 10px !important;
                     }
-                    .dg-boxproduto {
-                        width: 291px;
-                    }
                 }
                 &.dg-categoria-grande--1 {
-                    .dg-boxproduto {
-                        width: 400px;
+                }
+                .dg-boxproduto {
+                    width: 291px;
+                    &.dg-boxproduto-hover .dg-boxproduto-compra-btn {
+                        margin-left: -55px;
                     }
                 }
             }
@@ -868,13 +871,14 @@ body {
     top: unset;
 }
 
-.dg-boxproduto-hover .dg-boxproduto-compra .dg-boxproduto-qtd, .dg-estoque-open .dg-boxproduto-compra .dg-boxproduto-qtd {
+.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) .dg-boxproduto-compra .dg-boxproduto-qtd, .dg-estoque-open .dg-boxproduto-compra .dg-boxproduto-qtd {
     left: 45%;
     margin-left: 0;
 }
 
 .dg-home-produtos {
     padding-top: 21px;
+    margin-bottom: 24px;
 }
 
 .dg-home-descontos-wrapper {
@@ -1488,6 +1492,7 @@ body {
     }
     .dg-boxproduto-preco {
         padding: 0;
+        box-shadow: none;
     }
     .dg-boxproduto-preco-por {
         margin-top: 18px;
@@ -1568,10 +1573,10 @@ body {
             color: #fff;
         }
     }
-    &.dg-boxproduto-hover .dg-boxproduto-compra .dg-boxproduto-qtd, &.dg-estoque-open .dg-boxproduto-compra .dg-boxproduto-qtd {
+    &.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) .dg-boxproduto-compra .dg-boxproduto-qtd, &.dg-estoque-open .dg-boxproduto-compra .dg-boxproduto-qtd {
         margin-left: 0;
     }
-    &.dg-boxproduto-hover .dg-boxproduto-preco {
+    &.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) .dg-boxproduto-preco {
         background: none;
         box-shadow: none;
     }
@@ -4003,6 +4008,17 @@ body {
     }
     .dg-header-busca.dg-ativo .dg-header-busca-auto {
         display: block;
+        @media (max-width: 991px) {
+            max-height: 300px;
+            max-height: calc(100% - 137px);
+            position: fixed;
+            top: 137px;
+            overflow: auto;
+            box-shadow: none;
+        }
+        &::before {
+            display: none;
+        }
     }
     .dg-header-busca-auto-destaque, .dg-header-busca-auto-lista {
         width: 100%;
@@ -4016,6 +4032,9 @@ body {
         margin-bottom: 13px;
         @media (max-width: 991px) {
             margin-bottom: 8px;
+        }
+        @media (max-height: 680px) and (min-width: 992px) {
+            margin-bottom: 4px;
         }
         &:first-child {
             display: flex;
@@ -4032,15 +4051,24 @@ body {
             color: $corSecundaria;
         }
         &__lista {
-            display: flex;
-            flex-flow: column wrap;
-            height: 150px;
+            list-style: auto;
+            padding-left: 12px;
+            @media (min-width: 991px) {
+                display: flex;
+                flex-flow: column wrap;
+                height: 150px;
+            }
             li {
                 font-size: 12px;
                 font-weight: 400;
                 line-height: 18px;
                 color: $corPrimaria;
                 margin-bottom: 7px;
+                cursor: pointer;
+                &:hover {
+                    color: $corSecundaria;
+                    text-decoration: underline;
+                }
             }
         }
     }
@@ -4059,8 +4087,23 @@ body {
                 line-height: 18px;
                 color: $corPrimaria;
                 margin-bottom: 7px;
+                cursor: pointer;
                 &:last-child {
                     margin-bottom: 0;
+                }
+                @media (max-height: 680px) and (min-width: 992px) {
+                    &:nth-child(3) ~ li {
+                        display: none;
+                    }
+                }
+                @media (max-width: 991px) {
+                    &:nth-child(3) ~ li {
+                        display: none;
+                    }
+                }
+                &:hover {
+                    color: $corSecundaria;
+                    text-decoration: underline;
                 }
             }
         }
@@ -4070,15 +4113,31 @@ body {
         font-size: 13px;
         font-weight: 500;
         color: $corSecundaria;
+        @media (max-height: 680px) and (min-width: 992px) {
+            margin-bottom: 4px;
+        }
     }
     
     .dg-header-busca-bdestaque {
         margin-top: 13px;
+        @media (max-width: 991px) {
+            display: none
+        }
     }
     .dg-header .dg-header-busca-auto-lista {
         display: block;
         .dg-boxbuscaproduto-btn-controlado {
-            width: auto;
+            width: 34px;
+            height: 34px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url(../img/icones/sms-tracking2.svg);
+            font-size: 0;
+            background-color: $corPrimaria;
+            border-radius: 8px;
+            &:hover, &:focus {
+                background-color: lighten($corPrimaria, 15%);
+            }
         }
         .dg-boxbuscaproduto-compra-btn {
             width: 34px;
@@ -4106,6 +4165,9 @@ body {
             top: 38px;
         }
         &.dg-loading {
+            &::after {
+                z-index: 30;
+            }
             &::before {
                 left: 50%;
                 top: 50%;
@@ -4113,6 +4175,7 @@ body {
                 width: 36px;
                 height: 36px;
                 background-color: rgba(0,0,0,0);
+                z-index: 31;
             }
         }
         &::before {
@@ -4352,5 +4415,18 @@ body {
                 }
             }
         }
+    }
+    .dg-home-descontos-destaques {
+        margin-bottom: 29px;
+    }
+    .dg-home-descontos-destaques > a {
+        display: block;
+    }
+    .dg-home-sintomas {
+        margin-bottom: 29px;
+    }
+
+    .dg-home-destaques2-wrapper {
+        padding-top: 0;
     }
 }

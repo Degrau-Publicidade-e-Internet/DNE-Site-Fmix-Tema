@@ -1,6 +1,15 @@
 var RecaptchaScript = false;
 var paginaAtual;
 
+$(document).ready(function () {
+    $('body').on('click', '.jsTermoParaPesquisa', function() {
+        var termo = $(this).attr('data-termo');
+        $('#qPrincipal').val(termo);
+        $('#qPrincipal').trigger('change');
+        GetAutoCompleteBusca($('#qPrincipal')[0], 1)
+    });
+});
+
 Header.busca = function() {
     $(".dg-header-busca-input").keyup(function(){
         verificarLabelInputBusca(this);
@@ -66,105 +75,106 @@ Header.busca = function() {
         }
     });
 
-    function GetAutoCompleteBusca(e, Pagina) {
-        var item = {};
-        item.Busca = $(e).val().trim();
-        item.Pagina = Pagina;
-        item.Marca = '';
-        item.Ordem = 0;
+};
 
-        // $(".dg-header-busca").removeClass("dg-ativo");
+function gravaResultadoBusca(tipo, busca) {
+    var item = {};
+    item.tipoPesquisa = tipo;
+    item.busca = busca;
 
-        if (item.Busca.length > 2) {
+    $.ajax({
+        type: 'POST',
+        url: DominioAjax + "/Api/GravaResultadoBuscaAutoComplete/",
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify(item),
+        headers: addAntiForgeryToken({}), //<< obrigatorio pessoal
+        dataType: 'json',
+        success: function (response) {},
+        error: function (XMLHttpRequest, textStatus, errorThrown) {},
+        failure: function (msg) {}
+    });
+}
 
-            $(e).addClass("dg-loading");
-            $('.dg-header-busca-auto').addClass("dg-loading");
+function GetAutoCompleteBusca(e, Pagina) {
+    var item = {};
+    item.Busca = $(e).val().trim();
+    item.Pagina = Pagina;
+    item.Marca = '';
+    item.Ordem = 0;
 
-            AjaxAutoComplete = $.ajax({
-                type: 'POST',
-                url: DominioAjax + "/Api/GetAutoCompleteBusca",
-                data: JSON.stringify(item),
-                headers: addAntiForgeryToken({}), //<< obrigatorio pessoal
-                contentType: 'application/json; charset=utf-8',
-                dataType: 'json',
-                success: function (response) {
+    // $(".dg-header-busca").removeClass("dg-ativo");
 
-                    var verAll = $(e).val().trim();
-                    $(".dg-header-busca-auto-destaque").empty();
-                    $(".dg-header-busca-auto-lista").empty();
+    if (item.Busca.length > 2) {
 
-                    $(e).removeClass("dg-loading");
+        $(e).addClass("dg-loading");
+        $('.dg-header-busca-auto').addClass("dg-loading");
 
-                    var urlFamilia = "";
-
-                    var produtosLista = [];
-                    var urlFamilia = '';
-
-                    var buscaInfo = {
-                        Termo: item.Busca
-                    }
-
-                    $('.dg-header-busca-auto').removeClass("dg-loading");
-
-                    if (response.Lista.length > 0) {
-                        response.Lista.map(function (e, i) {
-
-                            if (i == 0) {
-                                urlFamilia = DominioAjax + "/busca/?q=" + String(verAll).split(" ")[0].toLowerCase() + "";
-                                var resultado = TrimPath.processDOMTemplate("#template-AutoCompleteBuscaProdutoDestaque", { Produto: e });
-                                $(".dg-header-busca-auto-destaque").html(resultado);
-                                ativarContadoresInputAutocomplete('.dg-header-busca-auto-destaque');
-                            }
-
-                            produtosLista.push(e);
-                            console.log(produtosLista);
-                            
-                        });
-                    }
-
-                    buscaInfo.Produtos = produtosLista;
-
-                    $('.dg-header-busca-sem-pesquisa').hide();
-                    
-                    var resultado = TrimPath.processDOMTemplate("#template-AutoCompleteBuscaProdutos", { buscaInfo });
-                    $(".dg-header-busca-auto-lista").html(resultado);
-                    
-                    $(".dg-header-busca").addClass("dg-ativo");
-                    
-                    if (response.Lista.length > 0) {
-                        $("#verTodos").attr("href", urlFamilia);
-
-                        gravaResultadoBusca(0, $(e).val().trim())
-                    } else {
-                        gravaResultadoBusca(1, $(e).val().trim())
-                    }
-                },
-                error: function (data) {},
-                failure: function (errMsg) {}
-            });
-
-        } else {
-            $(".dg-header-busca-auto-lista").html("");
-            $(".dg-header-busca").addClass("dg-ativo");
-            $('.dg-header-busca-sem-pesquisa').show();
-        }
-    }
-
-    function gravaResultadoBusca(tipo, busca) {
-        var item = {};
-        item.tipoPesquisa = tipo;
-        item.busca = busca;
-
-        $.ajax({
+        AjaxAutoComplete = $.ajax({
             type: 'POST',
-            url: DominioAjax + "/Api/GravaResultadoBuscaAutoComplete/",
-            contentType: 'application/json; charset=utf-8',
+            url: DominioAjax + "/Api/GetAutoCompleteBusca",
             data: JSON.stringify(item),
             headers: addAntiForgeryToken({}), //<< obrigatorio pessoal
+            contentType: 'application/json; charset=utf-8',
             dataType: 'json',
-            success: function (response) {},
-            error: function (XMLHttpRequest, textStatus, errorThrown) {},
-            failure: function (msg) {}
+            success: function (response) {
+
+                var verAll = $(e).val().trim();
+                $(".dg-header-busca-auto-destaque").empty();
+                $(".dg-header-busca-auto-lista").empty();
+
+                $(e).removeClass("dg-loading");
+
+                var urlFamilia = "";
+
+                var produtosLista = [];
+                var urlFamilia = '';
+
+                var buscaInfo = {
+                    Termo: item.Busca
+                }
+
+                $('.dg-header-busca-auto').removeClass("dg-loading");
+
+                if (response.Lista.length > 0) {
+                    response.Lista.map(function (e, i) {
+
+                        if (i == 0) {
+                            urlFamilia = DominioAjax + "/busca/?q=" + String(verAll).split(" ")[0].toLowerCase() + "";
+                            var resultado = TrimPath.processDOMTemplate("#template-AutoCompleteBuscaProdutoDestaque", { Produto: e });
+                            $(".dg-header-busca-auto-destaque").html(resultado);
+                            ativarContadoresInputAutocomplete('.dg-header-busca-auto-destaque');
+                        }
+
+                        produtosLista.push(e);
+                        console.log(produtosLista);
+                        
+                    });
+                }
+
+                buscaInfo.Produtos = produtosLista;
+
+                $('.dg-header-busca-sem-pesquisa').hide();
+                
+                var resultado = TrimPath.processDOMTemplate("#template-AutoCompleteBuscaProdutos", { buscaInfo });
+                $(".dg-header-busca-auto-lista").html(resultado);
+                
+                $(".dg-header-busca").addClass("dg-ativo");
+                
+                if (response.Lista.length > 0) {
+                    $("#verTodos").attr("href", urlFamilia);
+
+                    gravaResultadoBusca(0, $(e).val().trim())
+                } else {
+                    gravaResultadoBusca(1, $(e).val().trim())
+                }
+            },
+            error: function (data) {},
+            failure: function (errMsg) {}
         });
+
+    } else {
+        $(".dg-header-busca-auto-lista").html("");
+        $(".dg-header-busca").addClass("dg-ativo");
+        $('.dg-header-busca-sem-pesquisa').show();
     }
-};
+}
