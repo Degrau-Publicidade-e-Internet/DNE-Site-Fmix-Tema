@@ -245,24 +245,24 @@ $(document).ready(function(){
           });
     });
 
-    if ($('.dg-home-descontos-lista2').length > 0 && window.innerWidth < 992) {
-        var descontoLista = tns({
-            container: '.dg-home-descontos-lista2__wrapper',
-            items: 2,
-            slideBy: 'page',
-            autoplay: true,
-            autoplayButton: false, 
-            autoplayButtonOutput: false, 
-            lazyload: true,
-            mouseDrag: true,
-            nav: false,
-            responsive: {
-                575: {
-                    items: 3
-                },
-            }
-        });
-    }
+    // if ($('.dg-home-descontos-lista2').length > 0 && window.innerWidth < 992) {
+    //     var descontoLista = tns({
+    //         container: '.dg-home-descontos-lista2__wrapper',
+    //         items: 2,
+    //         slideBy: 'page',
+    //         autoplay: true,
+    //         autoplayButton: false, 
+    //         autoplayButtonOutput: false, 
+    //         lazyload: true,
+    //         mouseDrag: true,
+    //         nav: false,
+    //         responsive: {
+    //             575: {
+    //                 items: 3
+    //             },
+    //         }
+    //     });
+    // }
 
     $(".dg-home-boxproduto-slide").removeClass("dg-loading");
     $(".dg-home-descontos-lista").removeClass("dg-loading");
