@@ -168,6 +168,7 @@ body {
 .dg-home-destaques-wrapper {
     padding-top: 0;
     padding-bottom: 0;
+    margin-top: 20px;
     @media (min-width: 992px) {
         min-height: 253px
     }
@@ -839,12 +840,26 @@ body {
         width: 24px;
         height: 24px;
         margin-top: -1px;
+        background-image: url(../img/icones/category-green.svg);
         background-image: url(../img/icones/category.svg);
         background-repeat: no-repeat;
         background-position: center;
+        transition: 300ms ease background-image;
         span {
             display: none;
         }
+    }
+    a:hover, a:focus {
+        color: $corComplementar;
+        .dg-icon-vertodas {
+            background-image: url(../img/icones/category-green.svg);
+        }
+    }
+}
+
+.dg-header-menu > ul > li > a {
+    &:hover, &:focus {
+        color: $corComplementar;
     }
 }
 
@@ -2305,7 +2320,10 @@ body {
 }
 
 .dg-menuA-overlay {
-    background-color: rgba(0, 35, 153, .9);
+    background-color: rgba(0, 0, 0, 0);
+    @media (max-width: 991px) {
+        background-color: rgba(0, 35, 153, .9);
+    }
 }
 
 body {

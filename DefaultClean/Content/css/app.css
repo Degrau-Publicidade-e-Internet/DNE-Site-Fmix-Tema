@@ -188,6 +188,7 @@ body {
 .dg-home-destaques-wrapper {
   padding-top: 0;
   padding-bottom: 0;
+  margin-top: 20px;
 }
 
 @media (min-width: 992px) {
@@ -956,13 +957,28 @@ body .dg-menuA-submenu-destaques-box .dg-boxproduto.dg-boxproduto-hover .dg-boxp
   width: 24px;
   height: 24px;
   margin-top: -1px;
+  background-image: url(../img/icones/category-green.svg);
   background-image: url(../img/icones/category.svg);
   background-repeat: no-repeat;
   background-position: center;
+  -webkit-transition: 300ms ease background-image;
+  transition: 300ms ease background-image;
 }
 
 .dg-header-menu ul li.dg-header-menu-vertodas .dg-icon-vertodas span {
   display: none;
+}
+
+.dg-header-menu ul li.dg-header-menu-vertodas a:hover, .dg-header-menu ul li.dg-header-menu-vertodas a:focus {
+  color: #00D19D;
+}
+
+.dg-header-menu ul li.dg-header-menu-vertodas a:hover .dg-icon-vertodas, .dg-header-menu ul li.dg-header-menu-vertodas a:focus .dg-icon-vertodas {
+  background-image: url(../img/icones/category-green.svg);
+}
+
+.dg-header-menu > ul > li > a:hover, .dg-header-menu > ul > li > a:focus {
+  color: #00D19D;
 }
 
 .dg-boxproduto-tooltip {
@@ -2730,7 +2746,13 @@ body .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-header-minhaconta-m
 }
 
 .dg-menuA-overlay {
-  background-color: rgba(0, 35, 153, 0.9);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+@media (max-width: 991px) {
+  .dg-menuA-overlay {
+    background-color: rgba(0, 35, 153, 0.9);
+  }
 }
 
 body .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-conteudo {
