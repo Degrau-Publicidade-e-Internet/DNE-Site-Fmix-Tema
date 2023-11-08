@@ -710,7 +710,10 @@
                                     @* <li class="dg-menuA-submenu-item-ultimo"><a href="@Html.Domain()/@categoria.URLCategoria/">Ver Todas</a></li> *@
                                 }
                             </ul>
-                            <div class="dg-boxproduto jsBoxproduto" rel="https://dev01.farmaciamix.com.br/fortice-com-30-comprimidos-40742/?utm_source=Carrossel+Home&amp;utm_medium=Farmacia+Online&amp;utm_campaign=Farmacia+Online&amp;utm_term=FORTICE+COM+30+COMPRIMIDOS" data-fav="" data-saidaboxproduto="" nome="FORTICE COM 30 COMPRIMIDOS " categoria="Nutrição" marca="EUROFARMA" preco="155,88" id_subproduto="40742">
+
+                            @Html.Raw(categoria.ProdutoDestaque)
+
+                            @* <div class="dg-boxproduto jsBoxproduto" rel="https://dev01.farmaciamix.com.br/fortice-com-30-comprimidos-40742/?utm_source=Carrossel+Home&amp;utm_medium=Farmacia+Online&amp;utm_campaign=Farmacia+Online&amp;utm_term=FORTICE+COM+30+COMPRIMIDOS" data-fav="" data-saidaboxproduto="" nome="FORTICE COM 30 COMPRIMIDOS " categoria="Nutrição" marca="EUROFARMA" preco="155,88" id_subproduto="40742">
                                 <!-- img -->
                                 <a class="dg-boxproduto-img" href="https://dev01.farmaciamix.com.br/fortice-com-30-comprimidos-40742/?utm_source=Carrossel+Home&amp;utm_medium=Farmacia+Online&amp;utm_campaign=Farmacia+Online&amp;utm_term=FORTICE+COM+30+COMPRIMIDOS" title="FORTICE COM 30 COMPRIMIDOS " idimpression="40742" lista="lista CadaUmPor Busca" nome="FORTICE COM 30 COMPRIMIDOS " link="https://dev01.farmaciamix.com.br/fortice-com-30-comprimidos-40742/?utm_source=Carrossel+Home&amp;utm_medium=Farmacia+Online&amp;utm_campaign=Farmacia+Online&amp;utm_term=FORTICE+COM+30+COMPRIMIDOS" alt="FORTICE COM 30 COMPRIMIDOS ">
                                     <img src="/imagens/215x215/fortice-30-comprimidos-a-definir-00dd9139e6.jpg" data-src-lazy="/imagens/215x215/fortice-30-comprimidos-a-definir-00dd9139e6.jpg" id="ImagemProd_40742" alt="FORTICE COM 30 COMPRIMIDOS " title="FORTICE COM 30 COMPRIMIDOS " loading="lazy">
@@ -789,7 +792,7 @@
 
                                     </div>
                                 </div>
-                            </div>
+                            </div> *@
 
 
                         </div>
@@ -807,6 +810,8 @@
                             <div class="dg-tooltip">@categoria.IconeMascote_Alt</div>
                         </div> *@
                         <!--Mascote-->
+
+                        
                     </div>
 
                     <!-- submenu -->
