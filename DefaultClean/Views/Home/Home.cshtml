@@ -302,56 +302,22 @@
 
                 <div class="dg-home-descontos-lista2">
                     <div class="dg-home-descontos-lista2__wrapper">
-                        <div>
-                            <a class="dg-home-descontos-lista2__item" href="#">
-                                <img src="@Html.Domain()/Themes/DefaultClean/Content/img/home-descontos/produto.png" alt="">
-                                <div class="dg-home-descontos-lista2__info">
-                                    <div class="dg-home-descontos-lista2__info-nome">Melatonina</div>
-                                    <div class="dg-home-descontos-lista2__info-ate">Com até</div>
-                                    <div class="dg-home-descontos-lista2__info-desconto">10%</div>
+                        @if (Model.ProdutoSelecaoDesconto.Count() > 0)
+                        {
+                            foreach (var item in Model.ProdutoSelecaoDesconto)
+                            {
+                                <div>
+                                    <a class="dg-home-descontos-lista2__item" href="@item.Link">
+                                        <img src="/imagens/160x160/@item.Foto" alt="">
+                                        <div class="dg-home-descontos-lista2__info">
+                                            <div class="dg-home-descontos-lista2__info-nome">@item.Produto </div>
+                                            <div class="dg-home-descontos-lista2__info-ate">Com até</div>
+                                            <div class="dg-home-descontos-lista2__info-desconto">@item.Desconto%</div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
-                        </div>
-                        <div>
-                            <a class="dg-home-descontos-lista2__item" href="#">
-                                <img src="@Html.Domain()/Themes/DefaultClean/Content/img/home-descontos/produto.png" alt="">
-                                <div class="dg-home-descontos-lista2__info">
-                                    <div class="dg-home-descontos-lista2__info-nome">Melatonina</div>
-                                    <div class="dg-home-descontos-lista2__info-ate">Com até</div>
-                                    <div class="dg-home-descontos-lista2__info-desconto">10%</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div>
-                            <a class="dg-home-descontos-lista2__item" href="#">
-                                <img src="@Html.Domain()/Themes/DefaultClean/Content/img/home-descontos/produto.png" alt="">
-                                <div class="dg-home-descontos-lista2__info">
-                                    <div class="dg-home-descontos-lista2__info-nome">Melatonina</div>
-                                    <div class="dg-home-descontos-lista2__info-ate">Com até</div>
-                                    <div class="dg-home-descontos-lista2__info-desconto">10%</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div>
-                            <a class="dg-home-descontos-lista2__item" href="#">
-                                <img src="@Html.Domain()/Themes/DefaultClean/Content/img/home-descontos/produto.png" alt="">
-                                <div class="dg-home-descontos-lista2__info">
-                                    <div class="dg-home-descontos-lista2__info-nome">Melatonina</div>
-                                    <div class="dg-home-descontos-lista2__info-ate">Com até</div>
-                                    <div class="dg-home-descontos-lista2__info-desconto">10%</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div>
-                            <a class="dg-home-descontos-lista2__item" href="#">
-                                <img src="@Html.Domain()/Themes/DefaultClean/Content/img/home-descontos/produto.png" alt="">
-                                <div class="dg-home-descontos-lista2__info">
-                                    <div class="dg-home-descontos-lista2__info-nome">Melatonina</div>
-                                    <div class="dg-home-descontos-lista2__info-ate">Com até</div>
-                                    <div class="dg-home-descontos-lista2__info-desconto">10%</div>
-                                </div>
-                            </a>
-                        </div>
+                            }
+                        }
                     </div>
                     @* @if (areaEstruturada.ItemEstrutura.Count() > 0)
                     {
