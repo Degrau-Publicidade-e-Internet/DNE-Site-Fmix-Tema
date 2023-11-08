@@ -40,7 +40,7 @@
                 </p>
             </a>
         }
-        <div class="dg-header-topo">
+        <div class="dg-header-topo dg-ativo-busca">
             <div class="dg-header-logo">
                 <a href="@Html.Domain()/" class="dg-add-loading">
                     <img src="@Html.Domain()/Themes/DefaultClean/Content/img/header/logo.png" alt="Drogaria Nova Esperança - Logotipo" loading="lazy">
@@ -64,14 +64,28 @@
                 </button>
 
                 <div class="dg-header-busca-auto">
-                    <div class="dg-header-busca-auto-destaque"></div>
-
-                    <ul class="dg-header-busca-auto-lista">
-                    </ul>
-                    <a href="javascript:void(0)" class="dg-header-busca-auto-lista-vertodos" id="verTodos">
-                        <span class="dg-icon" role="presentation">+</span> Ver Todas
-                    </a>
-
+                    @* <div class="dg-header-busca-auto-destaque"></div> *@
+                    <div class="dg-header-busca-sem-pesquisa dg-hide">
+                        <div class="dg-header-busca-sem-pesquisa__titulo">Mais Buscados</div>
+                        <ol class="dg-header-busca-sem-pesquisa__lista">
+                            <li>Vitaminas Neo Quimica</li>
+                            <li>Vitaminas Neo Quimica</li>
+                            <li>Vitaminas Neo Quimica</li>
+                            <li>Vitaminas Neo Quimica</li>
+                            <li>Vitaminas Neo Quimica</li>
+                            <li>Vitaminas Neo Quimica</li>
+                            <li>Vitaminas Neo Quimica</li>
+                            <li>Vitaminas Neo Quimica</li>
+                            <li>Vitaminas Neo Quimica</li>
+                            <li>Vitaminas Neo Quimica</li>
+                            <li>Vitaminas Neo Quimica</li>
+                            <li>Vitaminas Neo Quimica</li>
+                        </ol>
+                    </div>
+                    <div class="dg-header-busca-auto-lista"></div>
+                    <div class="dg-header-busca-bdestaque">
+                        <img src="@Html.Domain()/Themes/DefaultClean/Content/img/header-banner.png" width="100%">
+                    </div>
                 </div>
             </form>
             <div class="dg-header-busca-overlay"></div>
@@ -893,7 +907,7 @@
 
     <div class="dg-boxbuscaproduto jsBoxproduto {if Produto.Estoque < 1 && Produto.Controlado == false}dg-isIndisponivel{/if}" rel="${Produto.URLProduto}" data-slick-index="1" aria-hidden="false" tabindex="0" id_subproduto="${Produto.ID_SubProduto}" nome="${Produto.Produto}" marca="${Produto.Marca}" categoria="${Produto.Categoria}" preco="${Produto.Valor}">
         <a class="dg-boxbuscaproduto-img" href="${Produto.URLProduto}" alt="${Produto.Produto}" tabindex="0">
-            <img src="@Html.Domain()/imagens/200x200/${Produto.Foto}" id="ImagemProd_${Produto.ID_SubProduto}" alt="${Produto.Produto}" title="${Produto.Produto}" loading="lazy" style="opacity: 1;">
+            <img src="@Html.Domain()/imagens/76x76/${Produto.Foto}" id="ImagemProd_${Produto.ID_SubProduto}" alt="${Produto.Produto}" title="${Produto.Produto}" loading="lazy" style="opacity: 1;">
             {if Produto.Estoque < 1 && Produto.Controlado == false}
                 <div class="dg-boxproduto-desconto dg-boxproduto-desconto--indisponivel">Esgotado</div>
             {/if}
@@ -953,29 +967,74 @@
 </script>
 
 <script id="template-AutoCompleteBuscaProdutos" type="text/x-jquery-tmpl">
+    <div>
+        <div class="dg-header-busca-sugestao-pesquisa">
+            <div class="dg-header-busca-sugestao-pesquisa__titulo">Sugestões de pesquisa</div>
+            <ol class="dg-header-busca-sugestao-pesquisa__lista">
+                <li><b>${buscaInfo.Termo}</b> Lorem</li>
+                <li><b>${buscaInfo.Termo}</b> ipsum</li>
+                <li><b>${buscaInfo.Termo}</b> dolor</li>
+                <li><b>${buscaInfo.Termo}</b> sit</li>
+                <li><b>${buscaInfo.Termo}</b> amet</li>
+                <li><b>${buscaInfo.Termo}</b> Lorem</li>
+            </ol>
+        </div>
+        <div class="dg-header-busca-termo">Resultados para "${buscaInfo.Termo}”</div>
+        {if buscaInfo.Produtos.length > 0}
+            <ul class="dg-header-busca-produtos-lista">
+                {for produto in buscaInfo.Produtos}
+                    <li>
+                        <a href="${produto.URLProduto}" class="dg-header-busca-auto-lista-item">
+                            <figure class="dg-img">
+                                <img src="@Html.Domain()/imagens/76x76/${produto.Foto}" alt="${produto.Produto}">
+                            </figure>
+                            <div class="dg-conteudo">
+                                @* <div class="dg-subtitulo">
+                                    ${produto.Marca}
+                                </div> *@
 
-    {for produto in Produtos}
+                                <div class="dg-titulo">
+                                ${produto.Produto} ${produto.CplTraduzido} ${produto.ComplementoBrindes}
+                                </div>
+                                <p class="dg-preco">
+                                    <span>POR:</span>
+                                    R$ ${String(produto.ValorComDesconto.toFixed(2)).replace(".", ",")}
+                                </p>
+                            </div>
+                        </a>
+                        {if produto.Controlado == true || produto.VendaRestrita == true }
+                        <a  href="${produto.URLProduto}" class="dg-boxbuscaproduto-btn-controlado" rel="${produto.ID_SubProduto}.ToString()">Saiba Mais</a>
+                        {elseif produto.Estoque < 1}
+                        <div class="dg-boxproduto-compra">
+                            <a href="javascript:void(0)" class="dg-boxproduto-compra-btn jsModalAviseMe" aria-label="Avisar chegada de ${produto.Produto}" rel="${produto.ID_SubProduto}" tabindex="0">
+                                <span class="dg-icon dg-icon-avise-me"></span>
+                                Avise-me
+                            </a>
+                        </div>
+                        {else}
+                        <div class="dg-boxbuscaproduto-compra">
+                            <div class="dg-boxbuscaproduto-qtd dg-hide">
+                                <input type="number" class="dg-boxbuscaproduto-qtd-input" name="" id="QTD_${produto.ID_SubProduto}"
+                                    value="1" multiplo="1" maxlength="2" tabindex="0" onKeyPress="if(this.value.length==4) return false;">
+                                <a href="javascript:void(0)" class="dg-boxbuscaproduto-qtd-menos" rel="${produto.ID_SubProduto}" tabindex="0">-</a>
+                                <a href="javascript:void(0)" class="dg-boxbuscaproduto-qtd-mais" rel="${produto.Estoque}" tabindex="0">+</a>
+                            </div>
+                            <a href="javascript:void(0)" class="dg-boxbuscaproduto-compra-btn BtComprarProduto" aria-label="Comprar ${produto.Produto}" id_subproduto="${produto.ID_SubProduto}" tabindex="0">
+                                Comprar <span class="dg-icon dg-icon-cart"></span>
+                            </a>
+                        </div>
 
-        <li>
-            <a href="${produto.URLProduto}" class="dg-header-busca-auto-lista-item">
-                <figure class="dg-img">
-                    <img src="@Html.Domain()/imagens/200x200/${produto.Foto}" alt="${produto.Produto}">
-                </figure>
-                <div class="dg-conteudo">
-                    <div class="dg-subtitulo">
-                        ${produto.Marca}
-                    </div>
-
-                    <div class="dg-titulo">
-                       ${produto.Produto} ${produto.CplTraduzido} ${produto.ComplementoBrindes}
-                    </div>
-                    <p class="dg-preco">
-                        R$ ${String(produto.ValorComDesconto.toFixed(2)).replace(".", ",")}
-                    </p>
-                </div>
-
-
-            </a>
-        </li>
-    {/for}
+                        {/if}
+                    </li>
+                {/for}
+            </ul>
+            <div>
+                <a href="javascript:void(0)" class="dg-header-busca-auto-lista-vertodos" id="verTodos">
+                    Ver todos os produtos
+                </a>
+            </div>
+        {else}
+            <div>Nenhum resultado encontrado.</div>
+        {/if}
+    </div>
 </script>

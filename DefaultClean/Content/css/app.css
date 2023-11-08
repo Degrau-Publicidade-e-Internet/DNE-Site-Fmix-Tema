@@ -4770,4 +4770,245 @@ body .dg-modal-id-templateFreteProduto .dg-modal-container .dg-modal-conteudo .d
 body .dg-modal-id-templateFreteProduto .dg-modal-fechar {
   background-image: url(../img/icones/produto/fechar.svg);
 }
+
+body .dg-header-busca.dg-ativo .dg-header-busca-auto {
+  display: block;
+}
+
+body .dg-header-busca-auto-destaque, body .dg-header-busca-auto-lista {
+  width: 100%;
+  padding: 0;
+  border: 0;
+}
+
+body .dg-header-busca-produtos-lista li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 13px;
+}
+
+@media (max-width: 991px) {
+  body .dg-header-busca-produtos-lista li {
+    margin-bottom: 8px;
+  }
+}
+
+body .dg-header-busca-produtos-lista li:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .dg-header-busca-produtos-lista li:nth-child(3) ~ li {
+  display: none;
+}
+
+body .dg-header-busca-sem-pesquisa__titulo {
+  margin-bottom: 17px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #002399;
+}
+
+body .dg-header-busca-sem-pesquisa__lista {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  height: 150px;
+}
+
+body .dg-header-busca-sem-pesquisa__lista li {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #0B1841;
+  margin-bottom: 7px;
+}
+
+body .dg-header-busca-sugestao-pesquisa__titulo {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #002399;
+}
+
+body .dg-header-busca-sugestao-pesquisa__lista {
+  margin-bottom: 24px;
+}
+
+body .dg-header-busca-sugestao-pesquisa__lista li {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #0B1841;
+  margin-bottom: 7px;
+}
+
+body .dg-header-busca-sugestao-pesquisa__lista li:last-child {
+  margin-bottom: 0;
+}
+
+body .dg-header-busca-termo {
+  margin-bottom: 11px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #002399;
+}
+
+body .dg-header-busca-bdestaque {
+  margin-top: 13px;
+}
+
+body .dg-header .dg-header-busca-auto-lista {
+  display: block;
+}
+
+body .dg-header .dg-header-busca-auto-lista .dg-boxbuscaproduto-btn-controlado {
+  width: auto;
+}
+
+body .dg-header .dg-header-busca-auto-lista .dg-boxbuscaproduto-compra-btn {
+  width: 34px;
+  height: 34px;
+  font-size: 0;
+  border-radius: 8px;
+  background-color: #00D19D;
+  background-image: url(../img/icones/shopping-cart-cart.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 0;
+  background-size: 18px;
+}
+
+body .dg-header .dg-header-busca-auto-lista .dg-boxbuscaproduto-compra-btn:hover, body .dg-header .dg-header-busca-auto-lista .dg-boxbuscaproduto-compra-btn:focus {
+  background-color: #00b88a;
+}
+
+body .dg-header-busca-auto {
+  top: 44px;
+  width: 100%;
+  border-radius: 0 0 12px 12px;
+  padding: 13px 26px 15px;
+}
+
+@media (max-width: 991px) {
+  body .dg-header-busca-auto {
+    padding: 13px;
+    top: 38px;
+  }
+}
+
+body .dg-header-busca-auto.dg-loading::before {
+  left: 50%;
+  top: 50%;
+  margin: -18px 0 0 -18px;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+body .dg-header-busca-auto::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background-color: #D7D7D7;
+  width: auto;
+  margin: 0 60px 0 26px;
+}
+
+@media (max-width: 991px) {
+  body .dg-header-busca-auto::before {
+    margin: 0 60px 0 13px;
+  }
+}
+
+body .dg-header-busca-auto-destaque {
+  display: none;
+}
+
+body .dg-header-busca.dg-ativo .dg-header-busca-label {
+  border-radius: 12px 12px 0 0;
+}
+
+body .dg-header-busca-auto-lista-item {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  margin: 0;
+}
+
+body .dg-header-busca-auto-lista-item .dg-conteudo {
+  padding-right: 5px;
+  overflow: hidden;
+}
+
+body .dg-header-busca-auto-lista-item .dg-img {
+  width: 76px;
+  height: 76px;
+  margin-right: 5px;
+}
+
+body .dg-header-busca-auto-lista-item .dg-conteudo {
+  width: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+body .dg-header-busca-auto-lista-item .dg-titulo {
+  font-size: 12px;
+  color: #0B1841;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 14px;
+}
+
+body .dg-header-busca-auto-lista-item .dg-preco {
+  margin-top: 6px;
+  line-height: 14px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #0B1841;
+}
+
+body .dg-header-busca-auto-lista-item .dg-preco span {
+  display: block;
+  line-height: 14px;
+  font-size: 10px;
+  font-weight: 400;
+  color: #0B1841;
+}
+
+body .dg-header-busca-auto-lista-vertodos {
+  position: static;
+  display: block;
+  line-height: 17px;
+  padding: 0;
+  text-align: left;
+  font-size: 11px;
+  text-decoration: underline;
+  font-weight: 400;
+  color: #002399;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+body .dg-header-busca-auto-lista-vertodos:hover, body .dg-header-busca-auto-lista-vertodos:focus {
+  color: #002399;
+  background-color: rgba(0, 0, 0, 0);
+}
 /*# sourceMappingURL=app.css.map */
