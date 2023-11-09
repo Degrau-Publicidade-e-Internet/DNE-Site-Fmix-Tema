@@ -4865,8 +4865,8 @@ body .dg-header-busca-sem-pesquisa__titulo {
 }
 
 body .dg-header-busca-sem-pesquisa__lista {
-  list-style: auto;
-  padding-left: 12px;
+  list-style: inside;
+  list-style-type: auto;
 }
 
 @media (min-width: 991px) {
@@ -4888,6 +4888,11 @@ body .dg-header-busca-sem-pesquisa__lista li {
   line-height: 18px;
   color: #0B1841;
   margin-bottom: 7px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 50%;
+  padding-right: 6px;
   cursor: pointer;
 }
 
@@ -5353,5 +5358,11 @@ body .dg-home-sintomas {
 
 body .dg-home-destaques2-wrapper {
   padding-top: 0;
+}
+
+@media (max-width: 991px) {
+  body .dg-header-busca.dg-ativo + .dg-header-busca-overlay {
+    top: 137px;
+  }
 }
 /*# sourceMappingURL=app.css.map */

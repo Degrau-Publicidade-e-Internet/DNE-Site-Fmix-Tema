@@ -4051,8 +4051,8 @@ body {
             color: $corSecundaria;
         }
         &__lista {
-            list-style: auto;
-            padding-left: 12px;
+            list-style: inside;
+            list-style-type: auto;
             @media (min-width: 991px) {
                 display: flex;
                 flex-flow: column wrap;
@@ -4064,6 +4064,11 @@ body {
                 line-height: 18px;
                 color: $corPrimaria;
                 margin-bottom: 7px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                max-width: 50%;
+                padding-right: 6px;
                 cursor: pointer;
                 &:hover {
                     color: $corSecundaria;
@@ -4428,5 +4433,10 @@ body {
 
     .dg-home-destaques2-wrapper {
         padding-top: 0;
+    }
+    @media (max-width: 991px) {
+        .dg-header-busca.dg-ativo+.dg-header-busca-overlay {
+            top: 137px;
+        }
     }
 }
