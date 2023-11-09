@@ -4201,6 +4201,9 @@ body {
     .dg-header-busca.dg-ativo {
         .dg-header-busca-label {
             border-radius: 12px 12px 0 0;
+            @media (max-width: 991px) {
+                border-radius: 12px;
+            }
         }
     }
     .dg-header-busca-auto-lista-item {
