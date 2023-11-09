@@ -5176,6 +5176,12 @@ body .dg-home-descontos-lista2__wrapper > div {
   margin-right: 19px;
 }
 
+@media (max-width: 991px) {
+  body .dg-home-descontos-lista2__wrapper > div {
+    margin-right: 14px;
+  }
+}
+
 body .dg-home-descontos-lista2__wrapper > div:last-child {
   margin-right: 0;
 }

@@ -4294,6 +4294,9 @@ body {
             > div {
                 position: relative;
                 margin-right: 19px;
+                @media (max-width: 991px) {
+                    margin-right: 14px;
+                }
                 &:last-child {
                     margin-right: 0;
                 }
