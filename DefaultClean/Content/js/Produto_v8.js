@@ -266,7 +266,10 @@ $(document).ready(function () {
             window.open('https://static.drogarianovaesperanca.com.br/pdf/' + bula, '_blank').focus()
         }
     });
-
+	
+	$('body').on('click', '.jsFreteModal', function() {
+		$('#templateFreteProduto').empty();
+	});
 
     $('.jsReceitaFile').on('change', function() {
         var btn = $('.jsReceitaBtn');
@@ -347,8 +350,12 @@ function GetFreteProduto(CEP) {
 			var Resultado = TrimPath.processDOMTemplate("#templateFreteProdutoConteudo", { RetornoFrete: ResultadoJsonFrete });
 			$("#templateFreteProduto").html(Resultado);
 			abrirModal({titulo:'Cálculo <span>Frete</span> e <span>Prazo</span>', id:'templateFreteProduto'});
-			ga('send', 'event', 'Button', 'Click', 'Frete calculado página de produto');  
-			gtag('event', 'Frete calculado página de produto');  
+			if (typeof ga !== 'undefined') {
+				ga('send', 'event', 'Button', 'Click', 'Frete calculado página de produto');  
+			}
+			if (typeof gtag !== 'undefined') {
+				gtag('event', 'Frete calculado página de produto');  
+			}
 		},
 		failure: function (msg) {
 			$.alertpadrao({ type: 'html', text: msg, addClass: "dg-negativo" });

@@ -821,7 +821,14 @@
                                     </label>
                                     }
                                     <script id="templateFreteProdutoConteudo" type="text/x-jquery-tmpl">
-                                        <div class="dg-subtitulo">CEP: <span>${RetornoFrete.CEP}</span></div>
+                                        @* <div class="dg-subtitulo">CEP: <span>${RetornoFrete.CEP}</span></div> *@
+                                        <button type="button" class="dg-fechar-frete-modal jsFreteModal">
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="9" cy="9" r="9" fill="#E00D4C"/>
+                                                <line x1="4.64645" y1="13.6464" x2="13.6464" y2="4.64645" stroke="white"/>
+                                                <line y1="-0.5" x2="12.7279" y2="-0.5" transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 14 14)" stroke="white"/>
+                                            </svg>
+                                        </button>
                                         <ul class="dg-checkout-main-fretes">
                                             {if RetornoFrete.Itens != null}
                                             {for LItens in RetornoFrete.Itens}
@@ -832,7 +839,7 @@
                                                         {if LItens.ValorFrete == '0.00'}
                                                         Grátis
                                                         {else}
-                                                        -&nbsp;<span>R$</span>${LItens.ValorFrete.FormatCurrency()}
+                                                        <span>R$${LItens.ValorFrete.FormatCurrency()}</span>
                                                         {/if}
                                                     </strong>
                                                     <p>
@@ -1863,5 +1870,5 @@
     @* Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Produto.js", false); *@
     Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Assinatura.js", false);
     Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Epharma.js", false);
-    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/Produto_v4.js", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/Produto_v8.js", false);
 }
