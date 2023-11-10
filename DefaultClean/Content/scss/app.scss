@@ -1673,15 +1673,15 @@ body {
         .dg-minicarrinho-sidebar {
             width: 100%;
             margin: 0;
-            padding-left: 34px;
-            padding-right: 34px;
+            padding-left: 0;
+            padding-right: 0;
             background-color: #F5F9FD;
         }
         .dg-minicarrinho-item-qtd {
             width: 68px;
         }
         .dg-minicarrinho-item {
-            padding: 16px 0;
+            padding: 16px 34px;
             border-bottom: 1px solid #DFE6ED;
             background-color: rgba(0,0,0,0);
             &:last-child {
@@ -3114,33 +3114,56 @@ body {
     }
 }
 
-.dg-checkout-main-fretes li {
-    color: darken(#8B9EB7, 15%);
-}
+body {
+    .dg-checkout-main-fretes li {
+        color: darken(#8B9EB7, 15%);
+    }
+    
+    .dg-modal-overlay {
+        background-color: rgba(11, 24, 65, 0.8) !important;
+    }
+    
+    .dg-produto-acoes-btns-frete.dg-loading:before {
+        border-color: $corSecundaria;
+        border-top-color: transparent;
+    }
 
-.dg-modal-overlay {
-    background-color: rgba(11, 24, 65, 0.8) !important;
-}
-
-.dg-produto-acoes-btns-frete.dg-loading:before {
-    border-color: $corSecundaria;
-    border-top-color: transparent;
-}
-
-.dg-modal-fechar {
-    top: 16px;
-    right: 22px;
-    width: 34px;
-    height: 34px;
-    border-radius: 0;
-    font-size: 0;
-    background-color: rgba(0,0,0,0) !important;
-    background-image: url(../img/icones/produto/autorizar-fechar.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    &:hover, &:focus {
+    .dg-modal-fechar {
+        top: 16px;
+        right: 22px;
+        width: 34px;
+        height: 34px;
+        border-radius: 0;
+        font-size: 0;
         background-color: rgba(0,0,0,0) !important;
-        background-image: url(../img/icones/produto/autorizar-fechar-hover.svg);
+        background-image: url(../img/icones/produto/autorizar-fechar.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+        &:hover, &:focus {
+            background-color: rgba(0,0,0,0) !important;
+            background-image: url(../img/icones/produto/autorizar-fechar-hover.svg);
+        }
+    }
+
+    .dg-modal-id-templateCompraParcelada {
+        .dg-modal-fechar {
+            top: 16px;
+            right: 22px;
+            width: 34px;
+            height: 34px;
+            border-radius: 0;
+            font-size: 0;
+            background-color: rgba(0, 0, 0, 0) !important;
+            background-image: url(../img/icones/produto/autorizar-fechar.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: auto;
+            &:hover, &:focus {
+                background-color: rgba(0,0,0,0) !important;
+                background-image: url(../img/icones/produto/autorizar-fechar-hover.svg);
+            }
+        }
     }
 }
 

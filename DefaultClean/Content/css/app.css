@@ -1991,8 +1991,8 @@ body .dg-minicarrinho .dg-minicarrinho-btn {
 body .dg-minicarrinho .dg-minicarrinho-sidebar {
   width: 100%;
   margin: 0;
-  padding-left: 34px;
-  padding-right: 34px;
+  padding-left: 0;
+  padding-right: 0;
   background-color: #F5F9FD;
 }
 
@@ -2001,7 +2001,7 @@ body .dg-minicarrinho .dg-minicarrinho-item-qtd {
 }
 
 body .dg-minicarrinho .dg-minicarrinho-item {
-  padding: 16px 0;
+  padding: 16px 34px;
   border-bottom: 1px solid #DFE6ED;
   background-color: rgba(0, 0, 0, 0);
 }
@@ -3735,20 +3735,20 @@ body .dg-produto-anvisa .dg-produto-aba-descricao-medicamento {
   border-radius: 11px;
 }
 
-.dg-checkout-main-fretes li {
+body .dg-checkout-main-fretes li {
   color: #5e7797;
 }
 
-.dg-modal-overlay {
+body .dg-modal-overlay {
   background-color: rgba(11, 24, 65, 0.8) !important;
 }
 
-.dg-produto-acoes-btns-frete.dg-loading:before {
+body .dg-produto-acoes-btns-frete.dg-loading:before {
   border-color: #002399;
   border-top-color: transparent;
 }
 
-.dg-modal-fechar {
+body .dg-modal-fechar {
   top: 16px;
   right: 22px;
   width: 34px;
@@ -3759,9 +3759,29 @@ body .dg-produto-anvisa .dg-produto-aba-descricao-medicamento {
   background-image: url(../img/icones/produto/autorizar-fechar.svg);
   background-repeat: no-repeat;
   background-position: center;
+  background-size: auto;
 }
 
-.dg-modal-fechar:hover, .dg-modal-fechar:focus {
+body .dg-modal-fechar:hover, body .dg-modal-fechar:focus {
+  background-color: rgba(0, 0, 0, 0) !important;
+  background-image: url(../img/icones/produto/autorizar-fechar-hover.svg);
+}
+
+body .dg-modal-id-templateCompraParcelada .dg-modal-fechar {
+  top: 16px;
+  right: 22px;
+  width: 34px;
+  height: 34px;
+  border-radius: 0;
+  font-size: 0;
+  background-color: rgba(0, 0, 0, 0) !important;
+  background-image: url(../img/icones/produto/autorizar-fechar.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+}
+
+body .dg-modal-id-templateCompraParcelada .dg-modal-fechar:hover, body .dg-modal-id-templateCompraParcelada .dg-modal-fechar:focus {
   background-color: rgba(0, 0, 0, 0) !important;
   background-image: url(../img/icones/produto/autorizar-fechar-hover.svg);
 }
