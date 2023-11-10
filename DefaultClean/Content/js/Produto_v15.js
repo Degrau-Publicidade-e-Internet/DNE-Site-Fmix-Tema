@@ -270,6 +270,27 @@ $(document).ready(function () {
 	$('body').on('click', '.jsFreteModal', function() {
 		$('#templateFreteProduto').empty();
 	});
+	
+	$('body').on('click', '.jsMostraShare', function() {
+		$('.jsShareBlock').fadeToggle(100);
+		$(this).toggleClass('dg-ativo');
+	});
+
+	$('body').on('click', function(e) {
+		var el = $(e.target);
+		if (
+			el.hasClass('jsMostraShare') ||
+		 	el.closest('.jsMostraShare').length > 0
+		) {
+		}  else if (
+			el.hasClass('jsShareBlack') ||
+			el.closest('.jsShareBlock').length > 0
+		) {
+		} else {
+			$('.jsShareBlock').fadeOut(100);
+			$('.jsMostraShare').removeClass('dg-ativo');
+		}
+	});
 
     $('.jsReceitaFile').on('change', function() {
         var btn = $('.jsReceitaBtn');

@@ -4537,4 +4537,50 @@ body {
         min-height: auto;
         background-color: rgba(245, 249, 253, .75);
     }
+    .dg-show-share-menu {
+        &.dg-ativo {
+            opacity: .5;
+        }
+        &:focus {
+            .dg-tooltip-bottom {
+                display: none
+            }
+        }
+    }
+    .dg-share-block {
+        position: absolute;
+        display: none;
+        padding: 12px;
+        box-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.5);
+        border-radius: 12px;
+        background-color: #fff;
+        width: 141px;
+        right: 0;
+        top: 30px;
+        &__title {
+            padding-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 600;
+            color: $corPrimaria;
+        }
+    }
+    .dg-produto .dg-produto-img-subacoes a {
+        &.dg-share-button {
+            display: flex;
+            align-items: center;
+            margin-right: 0;
+            margin-bottom: 8px;
+            color: #969696;
+            &:hover {
+                color: darken(#969696, 15%);
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
+            img {
+                margin-right: 5px;
+            }
+        }
+    }
 }

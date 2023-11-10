@@ -31,6 +31,7 @@
     string UrlBreadCrumbsC = "";
     string UrlBreadCrumbsSC = "";
     string URLProduto = "";
+    string URLProduto2 = "";
     int MostraBtnPromocao = 0;
     int MostraBtnPromocao2 = 0;
     int MostraDetalhesCompraTrue = 1;
@@ -101,7 +102,10 @@
         UrlBreadCrumbsC = FnProject.TiraAcento(SP.Categoria) + "/";
         UrlBreadCrumbsSC = FnProject.TiraAcento(SP.Categoria) + "/" + compSub;
 
-        URLProduto = FnProject.Dominio() + "/" + FnProject.TiraAcento(SP.Categoria.Trim()) + "/" + compSub + "comprar-" + FnProject.TiraAcento(SP.NomeProduto.Trim()) + "-" + SP.ID_SubProduto + "/";
+        URLProduto2 = FnProject.Dominio() + "/" + FnProject.TiraAcento(SP.Categoria.Trim()) + "/" + compSub + "comprar-" + FnProject.TiraAcento(SP.NomeProduto.Trim()) + "-" + SP.ID_SubProduto;
+
+        URLProduto = URLProduto2 + "/";
+
 
         if (PromocaoMedicamento != null)
         {
@@ -249,6 +253,8 @@
 @Html.Raw(@Model.SEORootPJson)
 
 @* Conteúdo *@
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v18.0" nonce="BtvW2kzr"></script>
 <section>
     <div class="container">
         <ul class="dg-produto-breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
@@ -406,13 +412,34 @@
                                 Visualizar semelhantes
                             </div>
                         </a>
-                        
-                        <a href="@Html.Domain()/@Model.ProdutoSemelhante" class="dg-produto-img-familia dg-tooltip-hover" aria-label="Visualizar similares">
-                            <span class="dg-icon dg-icon-share"></span>
-                            <div class="dg-tooltip-bottom">
-                                Compartilhar
+                        <div style="position: relative;width: 22px;display: inline-block;">
+                            <a href="javascript:void(0)" class="dg-produto-img-familia dg-show-share-menu jsMostraShare dg-tooltip-hover" aria-label="Compartilhar">
+                                <span class="dg-icon dg-icon-share"></span>
+                                <div class="dg-tooltip-bottom">
+                                    Compartilhar
+                                </div>
+                            </a>
+                            <div class="dg-share-block jsShareBlock">
+                                <div class="dg-share-block__title">Compartilhar em:</div>
+
+                                <a class="dg-share-button" href="http://twitter.com/share?text=Im Sharing on Twitter&url=@URLProduto" rel="noreferrer" target="_blank">
+                                    <img width="18" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAAAAABWESUoAAAA3ElEQVR4Ac2SGQDFMBBE1ylOcYpTner0neK0TnGpU53iFKc6xWl+p+f25D7InZ295Cv0mGjFUOzWDVVVa/WykaBiaBBFfsiyory3JASRjs8mInqxUGRw47CIBIy7Ew0Sh0nED4OXCwkNh8h7GrrgCkVK9a7w6Q2BjoVa6Oo9EZEDVJ7I1M4UeMDXzIEhvoukFxNMaP8o4gpon1l9qnqc7DcPIgpd7Ce0t/fJVO0q0qIsVeuY1XwNYK1gwm8J2GAqvHRF5mD7BcG0Rl6yegjw0BqdakE8Bni0RyjyDf4Y1Y0n0wNT4wAAAABJRU5ErkJggg==" alt="Logo Twitter">
+                                    Twitter
+                                </a>
+                                <a class="dg-share-button" href="https://www.facebook.com/share.php?u=@URLProduto2&quote123" rel="noreferrer" target="_blank">
+                                    <img width="18" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAgVBMVEUAAAAQcP8IZf8IZ/8JZv8HZf8IZv8IZv8IaP8JZ/8HZv8IZv8FZf8YcP9FjP+TvP/g7P/////R4/9Vlf8QYP+Es/9kn/8IZv8nef8JZf8AYP/v9f/Q4v/B2P9GjP8HZv+yz//Q4/83g/8HZv/g6/+Dsv8HZf/n7//////////e6//ZLyHjAAAAK3RSTlMAEGCfz+//XyCQj98w/////////xD//6D/kBD/////7////8///5Cgz+/vONkvXQAAAPJJREFUeAF9kkUCwzAMBGVSGMrM3P//rxBaB+e6s0YREFJpw2y0cgS1cT3DQLmNWPjcwK/XA24RWIuEdg4j7OtHUX0NYedxko5+jCeZMc0En8FsVDDHSd1WDoFdIlogX46awopozWA+ythsd7s9ZxymJBkcs3wcMZC0YHDKhDNbKLowuGYC21zINIWUbQ7EwwJT7YogqgTTKaTY4tIp7HDIRadwwzVlKVyv11HG9cekFBxam8FbTInuQ4LCd3cL2Uzd+4UV/VkHfUIgMLRdQuBi7JsCxh5rQEAfrO9NYSWojruwBOOhDoR8PF+j0fuipNX+AmbCIviMIiwCAAAAAElFTkSuQmCC" alt="Logo Facebook">
+                                    Facebook
+                                </a>
+                                <a class="dg-share-button" href="http://www.linkedin.com/shareArticle?mini=true&url=@URLProduto2&title=@SP.NomeProduto @if (SP.Generico) { @SP.Marca } @SP.ComplementoBrindes&summary=123&source=FMIX" rel="noreferrer" target="_blank">
+                                    <img width="18" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABDUlEQVR4AWP4////gOLB44D6nTcsGIo33QHi/zTGd0B2YTiAPpYjHIHNAf/piQk6wGPW8f/rLz8HYRCbXg5AWI4GQGJ0cwDY12gAJDbcHUA4CkZAIqQUK7Ts/m/SfxBMs5RupswBaACr+P47b/5zlG/5DyzZ/r/+8hNF7vuvP//nn3r0X6JhJ+0ccPrR+/+H7735jw9cf/n5v0D1Nuo5gBxQve06zR0AjoL7b7/+//zjN4bc+ScfaOeA33///k9Yfg4mDw7u/Xdeo6uhnQP6D93FMNxlxjF0ZbRzgMXEQ9iyI90cALIMJoccDXRzAK6CZog6YNQBow6gIx54Bwx4x2RAu2bAysoEZu9o7xgAQrvkxt3WZi0AAAAASUVORK5CYII=" alt="Logo Linkedin">
+                                    Linkedin
+                                </a>
+                                <a class="dg-share-button" href="https://api.whatsapp.com/send?text=@URLProduto2" rel="noreferrer" target="_blank">
+                                    <img width="18" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAmVBMVEVHcEwg32Al1WUl02cl1GYl02Ul02Ym02Yl0mUg12Ao12Al1Gcm02Yl02Yl1GUl1GUl02Yk02Ygz2goz2gl1Gcl1GYk1GYl1WUl02cgz3Am1WYl1GYm02Ygz2Ak02Ql0mYk0WYj0mYl02Uo02Ql0mYn0WYn1GYm0mYm0mUq1Wom0WYj02Um0mYl02Yl0mYlz2Un0WQq1WUj02cilIlXAAAAM3RSTlMAEGCQz+//r2AgIJ9/78+/0IAgIN/fcDDQEH+PgBBAoIBQv0DvcHBQsDCAkKDPjzBwMJAU6DEhAAABZElEQVR4AWTTBbajUBBF0YsdiBAixN1d5z+4/vBYb0Gzo8DFqgrJclzPDyDww6ihuqYXYNGqRdr55rgThklMPdLsAnGvr9wgSoFhKdEcQjxSSRaJx+Xtk74qBmEp0YXJVP/rwdBRZgbpVHUhzPMTBMT97HcRqWKZwkrSGjbFhaxUsYWdpCGpTA5PVQk42kNLfw5A7KjiCCctiiOTOatiAC1dwNGfIZD2VXVgqA5DZRbAVarqEGtYBJYHuKl+lTagCBjXA/lRjLvtYMMGiPUAR8YT4kjSi3Cv3IGdjuDKWD6BTjQD2DmSxuBlXztb/TuWY6p7NvUsD4qRynbhWNS6PG6mZDNoFQVwVPL+LPLiN4ucDviqMf3P5tS2s76d0PTUNNFRxX5oBzEBZ//ZBeUnpbnGDvoS4oDc7rN3JOf72QH8pnbwcjEVqZ3PNdDxtlNFCVYSyUo8dypjul20kqT1byABBAAASawYPAmTfuIAAAAASUVORK5CYII=" alt="Logo WhatsApp">
+                                    WhatsApp
+                                </a>
                             </div>
-                        </a>
+                        </div>
                     </div>
 
                 </div>
@@ -1870,5 +1897,5 @@
     @* Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Produto.js", false); *@
     Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Assinatura.js", false);
     Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Epharma.js", false);
-    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/Produto_v8.js", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/Produto_v15.js", false);
 }
