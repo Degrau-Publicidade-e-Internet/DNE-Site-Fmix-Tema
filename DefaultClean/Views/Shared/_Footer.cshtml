@@ -68,7 +68,7 @@
                 <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/call-calling.svg" />Televendas
             </div>
             <p>
-                (11) 3990-7720<br>
+                (11) 3990-7450<br>
                 <span class="small">
                     Segunda a Sexta, das 8h as 18h.<br>
                     Sábado das 8h as 12h.
@@ -246,7 +246,7 @@
                 <div class="dg-icon dg-icon-televendas"></div>
 
                 <div class="dg-txt">
-                    <strong>Televendas: (11) 3990-7720</strong>
+                    <strong>Televendas: (11) 3990-7450</strong>
 
                     Segunda a Sexta, das 8h às 18h.<br>
                     Sábado das 8h às 12h.
@@ -488,11 +488,62 @@
             })
         }, 1);
         
-        @* if ($('.jsIsDesktop').is(':visible')) {
-            $('body').append('<script id="monitoramento_gvp_chat_flutuante" type="text/javascript" lang="javascript" src="https://webapp.ideacrm.com.br/monitoramento.js.aspx?idc=7554&floatingchat=1" />');
+        if ($('.jsIsDesktop').is(':visible')) {
+            @* $('body').append('<script id="monitoramento_gvp_chat_flutuante" type="text/javascript" lang="javascript" src="https://webapp.ideacrm.com.br/monitoramento.js.aspx?idc=7554&floatingchat=1" />'); *@
             $('body').append('<script fetchpriority="low" type="text/javascript" src="https://app.dialugo.com/embed/monitoramentoChatHumano.js" />');
-        } *@
+
+            $('.jsAbrirChat').off('click');
+            $('.jsAbrirChat').click(function () {
+                if ($(this).hasClass("dg-loading")) {
+                    console.log("Aguarde o chat abrir");
+                } else {
+                    abreClickChatFlutuanteGVP('iHJO4ElJkkMQ551MIOP9X/AISbxWm9eQ_o1s5/BYPkVE=_ZeBm0mD5x3I=');
+                    $(this).addClass("dg-loading");
+                    setTimeout(function () {
+                        $('.jsAbrirChat').removeClass("dg-loading");
+                    }, 3000);
+                }
+            });
+        }
+
+        $('body').off('click', '.jsModalAviseMe');
+        $('body').on('click', '.jsModalAviseMe', function () {
+            var ID = $(this).attr("rel");
+            $("#ID_SubProduto-Aviso").val(ID);
+            
+            var resultado = TrimPath.processDOMTemplate("#template-avise", { response: ID });
+            
+            abrirModal({
+                titulo: "Avise-me <strong>quando chegar</strong>",
+                id: "templateAvise",
+                txt: resultado
+            });
+
+            insereCaptcha('aviseme');
+
+            $(".dg-modal-id-templateAvise input").each(function(){
+
+                if($(this).attr("type") !== "checkbox" && $(this).attr("type") !== "radio") {
+                    if($(this).val() === "") {
+                        $(this).removeClass("dg-ativo");
+                    } else {
+                        $(this).addClass("dg-ativo");
+                    }
+                }
+
+                $(this).keyup(function(){
+                    if($(this).attr("type") !== "checkbox" && $(this).attr("type") !== "radio") {
+                        if($(this).val() === "") {
+                            $(this).removeClass("dg-ativo");
+                        } else {
+                            $(this).addClass("dg-ativo");
+                        }
+                    }
+                });
+            });
+        });
     }
+
 </script>
 
 @* <noscript>

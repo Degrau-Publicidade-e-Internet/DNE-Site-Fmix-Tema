@@ -178,3 +178,30 @@ function GetAutoCompleteBusca(e, Pagina) {
         $('.dg-header-busca-sem-pesquisa').show();
     }
 }
+
+function inserirNoCarrinho(el, e) {
+    $(el).addClass('dg-adicionado-carrinho');
+    var inserirNoCarrinhoHtml = '<div class="dg-boxproduto-concluido-wrapper">';
+    inserirNoCarrinhoHtml += '<div class="dg-boxproduto-concluido"><div>';
+    inserirNoCarrinhoHtml += '<h4 class="dg-boxproduto-concluido-titulo" role="alert">Produto adicionado no carrinho</h4>';
+    inserirNoCarrinhoHtml += '<a href="/checkout/" class="dg-boxproduto-concluido-finalizar">Concluir pedido</a>';
+
+    inserirNoCarrinhoHtml += '</div>';
+    inserirNoCarrinhoHtml += '<a href="javascript:void(0)" class="dg-boxproduto-concluido-fechar" onclick="fecharBoxprodutoOk(this)" aria-label="Fechar Janela de conclusão">x</a>';
+    inserirNoCarrinhoHtml += '</div>';
+    inserirNoCarrinhoHtml += '<div class="dg-boxproduto-concluido-overlay"></div></div>';
+
+    $(el).css('overflow', 'hidden');
+    $(el).append(inserirNoCarrinhoHtml);
+
+    var alvoInserirNoCarrinho = $(el).find(".dg-boxproduto-concluido");
+
+    ativarContadoresInput(alvoInserirNoCarrinho);
+
+    $(alvoInserirNoCarrinho).find(".dg-boxproduto-qtd-input").change(function () {
+        var qtdDoProdAlterado = parseInt($(this).val());
+        var valorDoProdAlterado = parseFloat($(this).parents(".dg-boxproduto-concluido").find("[boxprodutovalor]").attr("boxprodutovalor"));
+
+        $(this).parents(".dg-boxproduto-concluido").find("[boxprodutovalor]").text(strParaReais(valorDoProdAlterado * qtdDoProdAlterado));
+    });
+}

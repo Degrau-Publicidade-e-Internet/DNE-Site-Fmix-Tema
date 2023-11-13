@@ -1,6 +1,7 @@
 $corPrimaria: #0B1841;
 $corSecundaria: #002399;
 $corComplementar: #00D19D;
+$corVermelho: #E00D4C;
 
 body {
     color: $corPrimaria;
@@ -301,6 +302,8 @@ body {
     .dg-boxproduto-compra {
         height: 32px;
         z-index: 22;
+        overflow: hidden;
+        
         .dg-boxproduto-qtd {
             top: 3px;
             transition: 300ms ease left;
@@ -325,9 +328,6 @@ body {
         background-color: $corComplementar;
         color: #fff;
     }
-    .dg-boxproduto-compra {
-        bottom: 22px;
-    }
     .dg-boxproduto-compra-btn {
         width: 32px;
         height: 32px;
@@ -341,19 +341,49 @@ body {
         }
     }
     .dg-boxproduto-compra {
+        position: relative;
+        bottom: unset;
         padding: 0 15px;
         width: 100%;
+        height: 32px;
+        top: 5px;
         &-bg {
             position: absolute;
             left: auto;
             top: 0;
             right: 0;
-            width: 32px;
-            height: 32px;
+            width: 100%;
+            height: 100%;
             border-radius: 12px;
             background-color: $corComplementar;
             transition: 300ms ease width;
             overflow: hidden;
+        }
+        &-bg {
+            left: 0;
+            transition: .75s left cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        > .dg-relative {
+            position: absolute;
+            right: 0;
+            width: 32px;
+            height: 100%;
+            background-color: $corComplementar;
+            border-radius: 12px;
+            transition: 1s background-color cubic-bezier(0.4, 0.0, 0.2, 1), 300ms width cubic-bezier(0.4, 0.0, 0.2, 1);;
+            overflow: hidden;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 12px;
+                left: 50%;
+                margin-left: -5px;
+                width: 10px;
+                height: 8px;
+                background-image: url(../img/icones/correct.svg);
+                transition: 1s opacity cubic-bezier(0.4, 0.0, 0.2, 1);
+                opacity: 0;
+            }
         }
         .dg-boxproduto-compra-btn {
             left: 0;
@@ -361,7 +391,7 @@ body {
         }
     }
     &.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) .dg-boxproduto-compra {
-        &-bg {
+        .dg-relative {
             width: 100%;
         }
         .dg-boxproduto-compra-btn {
@@ -443,12 +473,12 @@ body {
     }
 
     &.dg-boxproduto--indisponivel  {
-        .dg-boxproduto-compra-bg, .dg-boxproduto-qtd, .dg-boxproduto-compra-btn  {
-            background-color: #E00D4C;
+        .dg-boxproduto-compra-bg, .dg-boxproduto-qtd, .dg-boxproduto-compra-btn, .dg-boxproduto-compra .dg-relative  {
+            background-color: $corVermelho;
         }
     }
     &.dg-boxproduto--controlado  {
-        .dg-boxproduto-compra-bg, .dg-boxproduto-qtd, .dg-boxproduto-compra-btn  {
+        .dg-boxproduto-compra-bg, .dg-boxproduto-qtd, .dg-boxproduto-compra-btn, .dg-boxproduto-compra .dg-relative  {
             background-color: $corPrimaria;
         }
     }
@@ -623,10 +653,10 @@ body {
                 line-height: 14px;
             }
             .dg-boxproduto-img {
-                height: 215px;
+                height: 195px;
                 img {
-                    max-width: 215px;
-                    max-height: 215px;
+                    max-width: 195px;
+                    max-height: 195px;
                 }
             }
             .dg-boxproduto-preco-por {
@@ -645,6 +675,15 @@ body {
                 height: 39px;
             }
             .dg-boxproduto-compra {
+                top: 17px;
+                height: 39px;
+                > .dg-relative {
+                    width: 39px;
+                    height: 39px;
+                    &::before {
+                        top: 16px;
+                    }
+                }
                 .dg-icon {
                     width: 24px;
                     height: 24px;
@@ -1521,13 +1560,20 @@ body {
         z-index: 21;
     }
     .dg-boxproduto-compra-bg {
-        position: static;
         display: flex;
+        left: 0;
         flex-direction: row-reverse;
         align-items: center;
         width: 100%;
+        align-items: center;
+        justify-content: center;
+        transition: .75s left cubic-bezier(0.4, 0.0, 0.2, 1);
     }
     .dg-boxproduto-compra {
+        position: relative;
+        top: unset;
+        bottom: unset;
+        left: unset;
         display: flex;
         width: 100%;
         flex-direction: row-reverse;
@@ -1535,10 +1581,27 @@ body {
         height: 33px;
         max-width: 140px;
         align-items: center;
-        padding: 8px 27px;
+        padding: 0;
         margin-top: 12px;
         border-radius: 8px;
-        background-color: $corComplementar;
+        > .dg-relative {
+            width: 100%;
+            height: 100%;
+            background-color: $corComplementar;
+            transition: 1s background-color cubic-bezier(0.4, 0.0, 0.2, 1);
+            &::before {
+                content: '';
+                position: absolute;
+                top: 12px;
+                left: 50%;
+                margin-left: -5px;
+                width: 10px;
+                height: 8px;
+                background-image: url(../img/icones/correct.svg);
+                transition: 1s opacity cubic-bezier(0.4, 0.0, 0.2, 1);
+                opacity: 0;
+            }
+        }
         .dg-boxproduto-compra-btn {
             position: static;
             width: auto;
@@ -1551,11 +1614,12 @@ body {
         .dg-boxproduto-qtd {
             position: relative;
             width: 50px;
-            margin-left: auto !important;
             opacity: 1;
             visibility: visible;
             top: unset;
             bottom: unset;
+            margin-left: 0 !important;
+            left: 0 !important;
         }
         .dg-boxproduto-qtd-menos, .dg-boxproduto-qtd-mais {
             top: 5px;
@@ -1571,6 +1635,20 @@ body {
             border-radius: 0;
             background-color: $corComplementar;
             color: #fff;
+        }
+    }
+    &.dg-boxproduto--indisponivel {
+        .dg-boxproduto-compra {
+            padding: 0;
+            justify-content: center;
+            .dg-relative {
+                background-color: $corVermelho;
+            }
+            .dg-boxproduto-qtd {
+                position: static;
+                width: auto;
+                height: auto;
+            }
         }
     }
     &.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) .dg-boxproduto-compra .dg-boxproduto-qtd, &.dg-estoque-open .dg-boxproduto-compra .dg-boxproduto-qtd {
@@ -1777,6 +1855,18 @@ body {
 }
 
 body {
+    .dg-boxproduto-tag {
+        min-width: auto;
+        border-radius: 4px;
+    }
+    .dg-boxproduto-tag-generico {
+        width: 17px;
+        height: 17px;
+        line-height: 16px;
+        .dg-icon {
+            font-size: 10px;
+        }
+    }
     .dg-header-minhaconta-flex {
         .dg-titulo p {
             margin-top: 12px;
@@ -2377,16 +2467,30 @@ body {
             flex: 0;
             flex-wrap: nowrap;
             flex-direction: row-reverse;
+            align-items: flex-start;
             .dg-produto-tag-wrapper {
-                margin: 0 24px 0 0;
+                margin: 0 7px 0 0;
+                > * {
+                    border-radius: 4px;
+                }
+                .dg-produto-tag-generico {
+                    width: 17px;
+                    height: 17px;
+                    line-height: 17px;
+                }
             }
         }
         .dg-produto-img-box .dg-produto-tags .dg-produto-desconto {
             border-radius: 3px;
+            padding: 1px 4px 0px;
             font-weight: 600;
-            font-size: 11px;
+            font-size: 10px;
+            text-align: center;
+            .dg-icon {
+                vertical-align: -1px;
+            }
             &.dg-azul-verde {
-                background: #E00D4C;
+                background: $corVermelho;
             }
         }
         .dg-produto-acoes-proibido-tel {
@@ -2405,7 +2509,7 @@ body {
             padding: 12px;
             border-radius: 11px;
             font-size: 12px;
-            background-color: #E00D4C;
+            background-color: $corVermelho;
             img {
                 margin-left: 10px;
             }
@@ -2450,6 +2554,7 @@ body {
             font-size: 16.75px;
             font-weight: 500;
             line-height: 30px;
+            text-decoration: line-through;
             color: $corPrimaria;
         }
         .dg-produto-info-preco-por {
@@ -2680,9 +2785,9 @@ body {
             }
         }
         .dg-produto-tags {
-            top: 15px;
+            top: 21px;
             right: unset;
-            left: 26px;
+            left: 19px;
             .dg-produto-desconto{
                 margin-left: 0;
             }
@@ -2703,7 +2808,7 @@ body {
             }
         }
         .dg-produto-img-subacoes a {
-            margin-right: 23px;
+            margin-right: 14px;
             &:last-child {
                 margin-right: 0;
             }
@@ -2743,7 +2848,7 @@ body {
         }
         .dg-produto-img-subacoes {
             left: unset;
-            top: 15px;
+            top: 19px;
             right: 15px;
             padding: 0;
             @media (max-width: 991px) {
@@ -3160,6 +3265,9 @@ body {
             background-color: rgba(0,0,0,0) !important;
             background-image: url(../img/icones/produto/autorizar-fechar-hover.svg);
         }
+        @media (max-width: 991px) {
+            right: 12px;
+        }
     }
 
     .dg-modal-id-templateCompraParcelada {
@@ -3175,6 +3283,9 @@ body {
             background-repeat: no-repeat;
             background-position: center;
             background-size: auto;
+            @media (max-width: 991px) {
+                right: 12px;
+            }
             &:hover, &:focus {
                 background-color: rgba(0,0,0,0) !important;
                 background-image: url(../img/icones/produto/autorizar-fechar-hover.svg);
@@ -3552,7 +3663,6 @@ body {
             }
         }
         .dg-produto-img-box .dg-produto-tags {
-            left: 19px;
             flex-wrap: nowrap;
             flex-direction: row-reverse;
             flex: 0;
@@ -3564,7 +3674,7 @@ body {
             font-size: 10px;
         }
         .dg-ProdutoisEsgotado .dg-produto-acoes-aviseme .dg-produto-acoes-btns-aviseme-btn, .dg-ProdutoisEsgotado2 .dg-produto-acoes-aviseme .dg-produto-acoes-btns-aviseme-btn {
-            background: #E00D4C;
+            background: $corVermelho;
         }
         .dg-ProdutoisEsgotado .dg-produto-acoes-aviseme, .dg-ProdutoisEsgotado2 .dg-produto-acoes-aviseme {
             justify-content: flex-start;
@@ -3835,6 +3945,8 @@ body {
                 padding: 26px 62px 52px;
                 @media (max-width: 991px) {
                     padding: 16px;
+                    font-size: 17px;
+                    padding-right: 32px;
                 }
                 &__recaptcha-submit {
                     display: flex;
@@ -3960,7 +4072,7 @@ body {
         color: $corSecundaria;
     }
     .dg-cadastro-conteudo-permissoes .dg-titulo strong, .dg-cadastro-conteudo-permissoes-btn strong, .dg-cadastro-conteudo-permissoes-btn:hover .dg-icon, .dg-cadastro-conteudo-permissoes-btn:focus .dg-icon {
-        color: #E00D4C;
+        color: $corVermelho;
     }
     .dg-modal-id-dgmodalsimilares .dg-subtitulo {
         font-size: 14px;
@@ -4582,5 +4694,41 @@ body {
                 margin-right: 5px;
             }
         }
+    }
+}
+
+body {
+    .dg-modal-conteudo .dg-titulo strong {
+        color: $corComplementar;
+    }
+}
+
+body {
+    input.dg-loading {
+        background-image: url(../img/icones/loading.svg)
+    }
+}
+
+.dg-boxproduto-concluido-wrapper {
+    display: none;
+}
+
+
+body {
+    .dg-boxproduto {
+        &.dg-adicionado-carrinho {
+            .dg-relative {
+                &::before {
+                    opacity: 1;
+                }
+                background-color: #01D06D;
+            }
+            .dg-boxproduto-compra-bg {
+                left: 100%;
+            }
+        }
+    }
+    .dg-boxproduto .dg-boxproduto-titulo {
+        white-space: initial;
     }
 }
