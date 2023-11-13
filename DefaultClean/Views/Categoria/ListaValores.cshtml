@@ -1,0 +1,41 @@
+﻿@model DNE.Site.Models.ListaDeProdutosModel
+
+@{
+
+    if(ViewBag.filtroPreco == "OK")
+    {  
+        <input type="hidden" id="ViewBagfiltroPreco" value="OK">        
+    }
+    else
+    {
+        string Url = Model.ListaValores.URL;
+
+        string Link = Model.ListaValores.Link;
+
+        decimal? minPrice = Model.ListaValores.retValorMin;
+        decimal? priceMax = Model.ListaValores.retValor;
+    
+        var isNotRangePreco = Model.IsNotRangePreco;
+
+        if (priceMax > 0 && isNotRangePreco == false)
+        {
+    
+            <h4 class="dg-titulo">
+                Filtre por faixa de <strong>preço</strong>:
+            </h4>  
+            <div class="dg-categoria-sidebar-preco-range">
+                <div class="dg-categoria-sidebar-preco-range-valor jsProductPriceRangeSliderLow"></div>
+                <div class="jsProductPriceRangeSlider" data-base-url="@Html.Domain()/@Url/?fv={valoresAtuais}@Link" data-min-price="@minPrice" data-max-price="@priceMax" ></div>
+                <div class="dg-categoria-sidebar-preco-range-valor jsProductPriceRangeSliderMax"></div>
+            </div>
+    
+        }
+
+    }
+    
+}
+
+@{
+    Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Categoria.css", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Categorias.js", false);
+}

@@ -1,0 +1,167 @@
+﻿@model DNE.Site.Models.ListaDeProdutosModel
+@using System.Text.RegularExpressions;
+@{
+    var _letra = Model.ListaLetras.Letras;
+    string URL = Model.ListaLetras.URL;
+
+    string Link = "";
+    string disabled = "";
+}
+@if(_letra != null){
+
+    @if (_letra.Count() > 0)
+    {
+        if (_letra.Count() == 1)
+        {
+            disabled = "disabled=disabled";
+        }
+
+
+        if (Model.Tipo.Equals("PrincipioAtivo"))
+        {
+
+            <h4 class="dg-titulo">
+                Filtre por <strong>letra</strong>:
+                @if (Model.request.idletra != null && Model.request.idletra != "")
+                {
+                    <a href="@Html.Domain()@Model.ListaLetras.URLNot" aria-label="Limpar Filtro" class="dg-categoria-sidebar-limpar dg-tooltip-hover">
+
+                        <span class="dg-icon dg-icon-x"></span>
+                        <span class="dg-tooltip">
+                            Limpar Filtro
+                        </span>
+                    </a>
+                }
+            </h4>
+
+            <ul class="dg-categoria-sidebar-letras">
+
+                @foreach (var word in _letra)
+                {
+                    if (word.Letra != "")
+                    {
+                        if (Regex.IsMatch(word.Letra, @"^[a-zA-Z]+$"))
+                        {
+                            Link = URL + "?l=" + word.Letra + Model.ListaLetras.Link;
+                            <li>
+                                <a href="@Html.Domain()@Link" id="@word.Letra" @disabled>@word.Letra</a>
+                            </li>
+                        }
+                    }
+                }
+            </ul>
+        }
+
+        if (Model.Tipo.Equals("Busca"))
+        {
+
+            <h4 class="dg-titulo">
+                Filtre por <strong>letra</strong>:
+                @if (Model.request.idletra != null && Model.request.idletra != "")
+                {
+                    <a href="@Html.Domain()/@Model.ListaLetras.URLNot" aria-label="Limpar Filtro" class="dg-categoria-sidebar-limpar dg-tooltip-hover">
+                        <span class="dg-icon dg-icon-x"></span>
+                        <span class="dg-tooltip">
+                            Limpar Filtro
+                        </span>
+                    </a>
+                }
+            </h4>
+
+            <ul class="dg-categoria-sidebar-letras">
+
+                @foreach (var word in _letra)
+                {
+                    if (word.Letra != "")
+                    {
+                        if (Regex.IsMatch(word.Letra, @"^[a-zA-Z]+$"))
+                        {
+                            var _url = "&l=" + word.Letra;
+                            <li>
+                                <a href="@Model.UrlFiltros@_url" id="@word.Letra" @disabled>@word.Letra</a>
+                            </li>
+
+
+                        }
+                    }
+                }
+            </ul>
+        }
+
+        if (Model.Tipo.Equals("LandingPages"))
+        {
+
+            <h4 class="dg-titulo">
+                Filtre por <strong>letra</strong>:
+                @if (Model.request.idletra != null && Model.request.idletra != "")
+                {
+                    <a href="@Html.Domain()@Model.ListaLetras.URLNot" aria-label="Limpar Filtro" class="dg-categoria-sidebar-limpar dg-tooltip-hover">
+
+                        <span class="dg-icon dg-icon-x"></span>
+                        <span class="dg-tooltip">
+                            Limpar Filtro
+                        </span>
+                    </a>
+                }
+            </h4>
+
+            <ul class="dg-categoria-sidebar-letras">
+
+                @foreach (var word in _letra)
+                {
+                    if (word.Letra != "")
+                    {
+                        if (Regex.IsMatch(word.Letra, @"^[a-zA-Z]+$"))
+                        {
+                            Link = URL + "?l=" + word.Letra + Model.ListaLetras.Link;
+                            <li>
+                                <a href="@Html.Domain()@Link" id="@word.Letra" @disabled>@word.Letra</a>
+                            </li>
+                        }
+                    }
+                }
+            </ul>
+        }
+
+        else if (!Model.Tipo.Equals("Busca") && !Model.Tipo.Equals("PrincipioAtivo"))
+        {
+            <h4 class="dg-titulo">
+                Filtre por <strong>letra</strong>:
+                @if (Model.request.idletra != null && Model.request.idletra != "")
+                {
+                    <a href="@Html.Domain()/@Model.ListaLetras.URLNot" aria-label="Limpar Filtro" class="dg-categoria-sidebar-limpar dg-tooltip-hover">
+
+                        <span class="dg-icon dg-icon-x"></span>
+                        <span class="dg-tooltip">
+                            Limpar Filtro
+                        </span>
+                    </a>
+                }
+            </h4>
+
+
+            <ul class="dg-categoria-sidebar-letras">
+
+                @foreach (var word in _letra)
+                {
+                    if (word.Letra != "")
+                    {
+                        if (Regex.IsMatch(word.Letra, @"^[a-zA-Z]+$"))
+                        {
+                            Link = URL + "/?l=" + word.Letra + Model.ListaLetras.Link;
+
+                            <li><a href="@Html.Domain()/@Link" id="@word.Letra" @disabled>@word.Letra</a></li>
+                        }
+                    }
+
+                }
+            </ul>
+        }
+    }
+}
+
+
+@{
+    Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Categoria.css", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Categorias.js", false);
+}
