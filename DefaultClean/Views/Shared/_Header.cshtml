@@ -56,7 +56,7 @@
             <div class="jsHeaderEventTimer dg-countdown-wrapper" style="display:none"></div>
             <form class="dg-header-busca" action="/busca/" name="formBusca" id="formBuscaTopo">
                 <input autocorrect="off" autocapitalize="off" spellcheck="false" name="q" id="qPrincipal" required autocomplete="off" maxlength="60" type="text" class="dg-header-busca-input">
-                <label for="qPrincipal" class="dg-header-busca-label">O que você está procurando hoje?</label>
+                <label for="qPrincipal" class="dg-header-busca-label">O que você procura hoje?</label>
                 @* <div id="ResultadoAutoCompleteBusca"></div> *@
                 <!-- Usei button por semântica, mas pode trocar por "a" se preferir -->
                 <button aria-label="Buscar" class="dg-header-busca-btn" type="submit">
@@ -919,7 +919,13 @@
         preco="${RowCartItem.ValorUnitario}" 
         categoria="${RowCartItem.Categoria}"
         marca="${RowCartItem.Marca}"
-        onclick="SetCarrinho(this, 'Remove')" class="dg-minicarrinho-item-apagar dg-tooltip-hover" aria-label="apagar produto" ID_SubProduto="${RowCartItem.ID_SubProduto}"><span class="dg-icon dg-icon-lixo"></span> <span class="dg-tooltip">Apagar produto</span></a>
+        onclick="SetCarrinho(this, 'Remove')" class="dg-minicarrinho-item-apagar dg-tooltip-hover" aria-label="apagar produto" ID_SubProduto="${RowCartItem.ID_SubProduto}">        
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 6H6V20C6 20.5523 6.44772 21 7 21H17C17.5523 21 18 20.5523 18 20V6Z" stroke="#CFCFCF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 6H20" stroke="#CFCFCF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 3H9C8.44772 3 8 3.44772 8 4V6H16V4C16 3.44772 15.5523 3 15 3Z" stroke="#CFCFCF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="dg-tooltip">Apagar produto</span></a>
     </li>
     {forelse}
     <li class="dg-checkout-main-carrinho-item">

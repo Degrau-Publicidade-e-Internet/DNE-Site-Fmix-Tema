@@ -8,6 +8,17 @@ $(document).ready(function () {
         $('#qPrincipal').trigger('change');
         GetAutoCompleteBusca($('#qPrincipal')[0], 1)
     });
+
+    $("body").off('mouseleave', '.dg-boxproduto-compra');
+
+    $('body').on('mouseenter','.jsBoxproduto', function() {
+        $(this).addClass('dg-boxproduto-hover');
+    });
+
+
+    $('body').on('mouseleave','.jsBoxproduto', function() {
+        $(this).removeClass('dg-boxproduto-hover');
+    });
 });
 
 Header.busca = function() {
@@ -204,4 +215,8 @@ function inserirNoCarrinho(el, e) {
 
         $(this).parents(".dg-boxproduto-concluido").find("[boxprodutovalor]").text(strParaReais(valorDoProdAlterado * qtdDoProdAlterado));
     });
+
+    setTimeout(function() {
+        $(el).removeClass('dg-adicionado-carrinho');
+    }, 1750);
 }

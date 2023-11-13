@@ -1844,11 +1844,20 @@ body {
             padding: 0;
             border: 1px solid #CFCFCF;
             border-radius: 10px;
-            background-image: url(../img/icones/Trash_Empty2.svg);
-            background-repeat: no-repeat;
-            background-position: center;
             .dg-icon {
                 display: none
+            }
+            svg {
+                vertical-align: -14px;
+            }
+            &:hover {
+                background-color: $corVermelho;
+                svg {
+                    // fill: #fff;
+                    path {
+                        stroke: #fff
+                    }
+                }
             }
         }
     }
@@ -3939,14 +3948,14 @@ body {
                 border-bottom: 1px solid rgba(0,0,0,0.15);
                 @media (max-width: 991px) {
                     padding: 16px;
+                    font-size: 17px;
+                    padding-right: 32px;
                 }
             }
             .template-avise {
                 padding: 26px 62px 52px;
                 @media (max-width: 991px) {
                     padding: 16px;
-                    font-size: 17px;
-                    padding-right: 32px;
                 }
                 &__recaptcha-submit {
                     display: flex;
@@ -4727,8 +4736,27 @@ body {
                 left: 100%;
             }
         }
+        .dg-boxproduto-tooltip {
+            display: none !important;
+        }
+        .dg-boxproduto-titulo {
+            opacity: 1;
+            transition: 300ms opacity linear;
+        }
+        .dg-boxproduto-main:hover {
+        z-index: 21;
+        }
+
+        &.dg-boxproduto-hover {
+         .dg-boxproduto-titulo {
+            opacity: 0;
+            }
+        }
     }
     .dg-boxproduto .dg-boxproduto-titulo {
         white-space: initial;
+    }
+    .dg-header-busca-label {
+        font-weight: 400;
     }
 }
