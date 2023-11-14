@@ -1523,7 +1523,6 @@ body {
         font-size: 14px;
         font-weight: 600;
         line-height: 18px;
-        color: #EB7B08;
     }
     .dg-boxproduto .dg-boxproduto-subacoes, .dg-boxproduto .dg-boxproduto-tags {
         top: 14px;
@@ -1659,6 +1658,11 @@ body {
     &.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) .dg-boxproduto-preco {
         background: none;
         box-shadow: none;
+    }
+    &.dg-boxproduto-hover {
+        .dg-boxproduto-titulo {
+            opacity: 1 !important;
+        }
     }
 }
 

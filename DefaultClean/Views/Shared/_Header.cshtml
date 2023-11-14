@@ -1010,35 +1010,45 @@
 
 <script id="template-AutoCompleteBuscaProdutos" type="text/x-jquery-tmpl">
     <div>
-        <div class="dg-header-busca-sugestao-pesquisa">
-            <div class="dg-header-busca-sugestao-pesquisa__titulo">Sugestões de pesquisa</div>
-            <ol class="dg-header-busca-sugestao-pesquisa__lista">
-                <li class="jsTermoParaPesquisa" tabindex="0"
-                    data-termo="${buscaInfo.Termo} Lorem"
-                    ><b>${buscaInfo.Termo}</b> Lorem
-                </li>
-                <li class="jsTermoParaPesquisa" tabindex="0"
-                    data-termo="${buscaInfo.Termo} ipsum"
-                    ><b>${buscaInfo.Termo}</b> ipsum
-                </li>
-                <li class="jsTermoParaPesquisa" tabindex="0"
-                    data-termo="${buscaInfo.Termo} dolor"
-                    ><b>${buscaInfo.Termo}</b> dolor
-                </li>
-                <li class="jsTermoParaPesquisa" tabindex="0"
-                    data-termo="${buscaInfo.Termo} sit"
-                    ><b>${buscaInfo.Termo}</b> sit
-                </li>
-                <li class="jsTermoParaPesquisa" tabindex="0"
-                    data-termo="${buscaInfo.Termo} amet"
-                    ><b>${buscaInfo.Termo}</b> amet
-                </li>
-                <li class="jsTermoParaPesquisa" tabindex="0"
-                    data-termo="${buscaInfo.Termo} Lorem"
-                    ><b>${buscaInfo.Termo}</b> Lorem
-                </li>
-            </ol>
-        </div>
+        {if buscaInfo.Sugestoes.length > 0}
+            <div class="dg-header-busca-sugestao-pesquisa">
+                <div class="dg-header-busca-sugestao-pesquisa__titulo">Sugestões de pesquisa</div>
+                <ol class="dg-header-busca-sugestao-pesquisa__lista">
+                    {for Sugestao in buscaInfo.Sugestoes}
+                     <li class="jsTermoParaPesquisa" tabindex="0"
+                        data-termo="${Sugestao.busca}"
+                        >
+                        @* <b>${buscaInfo.Termo}</b> Lorem *@
+                        ${Sugestao.buscaBold}
+                    </li>
+                    {/for}
+                    @* <li class="jsTermoParaPesquisa" tabindex="0"
+                        data-termo="${buscaInfo.Termo} Lorem"
+                        ><b>${buscaInfo.Termo}</b> Lorem
+                    </li>
+                    <li class="jsTermoParaPesquisa" tabindex="0"
+                        data-termo="${buscaInfo.Termo} ipsum"
+                        ><b>${buscaInfo.Termo}</b> ipsum
+                    </li>
+                    <li class="jsTermoParaPesquisa" tabindex="0"
+                        data-termo="${buscaInfo.Termo} dolor"
+                        ><b>${buscaInfo.Termo}</b> dolor
+                    </li>
+                    <li class="jsTermoParaPesquisa" tabindex="0"
+                        data-termo="${buscaInfo.Termo} sit"
+                        ><b>${buscaInfo.Termo}</b> sit
+                    </li>
+                    <li class="jsTermoParaPesquisa" tabindex="0"
+                        data-termo="${buscaInfo.Termo} amet"
+                        ><b>${buscaInfo.Termo}</b> amet
+                    </li>
+                    <li class="jsTermoParaPesquisa" tabindex="0"
+                        data-termo="${buscaInfo.Termo} Lorem"
+                        ><b>${buscaInfo.Termo}</b> Lorem
+                    </li> *@
+                </ol>
+            </div>
+        {/if}
         <div class="dg-header-busca-termo">Resultados para "${buscaInfo.Termo}”</div>
         {if buscaInfo.Produtos.length > 0}
             <ul class="dg-header-busca-produtos-lista">

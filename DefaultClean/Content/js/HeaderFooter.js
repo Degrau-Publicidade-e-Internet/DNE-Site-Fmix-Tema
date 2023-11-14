@@ -141,13 +141,23 @@ function GetAutoCompleteBusca(e, Pagina) {
                 var urlFamilia = '';
 
                 var buscaInfo = {
-                    Termo: item.Busca
+                    Termo: item.Busca,
+                }
+                // Sugestoes: response.Lista.Sugestoes
+                
+                if (response.Lista.Sugestoes.length > 0) {
+                    buscaInfo.Sugestoes = response.Lista.Sugestoes.map(function(e, i) {
+                        var valueUppercase = item.Busca.toUpperCase();
+                        return { busca: e, buscaBold: e.replace(valueUppercase, "<b>" + valueUppercase + "</b>" ) }
+                    });
+                } else {
+                    buscaInfo.Sugestoes = response.Lista.Sugestoes;
                 }
 
                 $('.dg-header-busca-auto').removeClass("dg-loading");
 
-                if (response.Lista.length > 0) {
-                    response.Lista.map(function (e, i) {
+                if (response.Lista.Produtos.length > 0) {
+                    response.Lista.Produtos.map(function (e, i) {
 
                         if (i == 0) {
                             urlFamilia = DominioAjax + "/busca/?q=" + String(verAll).split(" ")[0].toLowerCase() + "";
