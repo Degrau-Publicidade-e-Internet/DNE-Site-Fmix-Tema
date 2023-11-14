@@ -68,60 +68,19 @@
                     <div class="dg-header-busca-sem-pesquisa dg-hide">
                         <div class="dg-header-busca-sem-pesquisa__titulo">Mais Buscados</div>
                         <ol class="dg-header-busca-sem-pesquisa__lista">
-                            <li class="jsTermoParaPesquisa" tabindex="0"
-                                data-termo="Vitaminas Neo Quimica">
-                                Vitaminas Neo Quimica
-                            </li>
-                            <li class="jsTermoParaPesquisa" tabindex="0"
-                                data-termo="Vitaminas Neo Quimica">
-                                Vitaminas Neo Quimica
-                            </li>
-                            <li class="jsTermoParaPesquisa" tabindex="0"
-                                data-termo="Vitaminas Neo Quimica">
-                                Vitaminas Neo Quimica
-                            </li>
-                            <li class="jsTermoParaPesquisa" tabindex="0"
-                                data-termo="Vitaminas Neo Quimica">
-                                Vitaminas Neo Quimica
-                            </li>
-                            <li class="jsTermoParaPesquisa" tabindex="0"
-                                data-termo="Vitaminas Neo Quimica">
-                                Vitaminas Neo Quimica
-                            </li>
-                            <li class="jsTermoParaPesquisa" tabindex="0"
-                                data-termo="Vitaminas Neo Quimica">
-                                Vitaminas Neo Quimica
-                            </li>
-                            <li class="jsTermoParaPesquisa" tabindex="0"
-                                data-termo="Vitaminas Neo Quimica">
-                                Vitaminas Neo Quimica
-                            </li>
-                            <li class="jsTermoParaPesquisa" tabindex="0"
-                                data-termo="Vitaminas Neo Quimica">
-                                Vitaminas Neo Quimica
-                            </li>
-                            <li class="jsTermoParaPesquisa" tabindex="0"
-                                data-termo="Vitaminas Neo Quimica">
-                                Vitaminas Neo Quimica
-                            </li>
-                            <li class="jsTermoParaPesquisa" tabindex="0"
-                                data-termo="Vitaminas Neo Quimica">
-                                Vitaminas Neo Quimica
-                            </li>
-                            <li class="jsTermoParaPesquisa" tabindex="0"
-                                data-termo="Vitaminas Neo Quimica">
-                                Vitaminas Neo Quimica
-                            </li>
-                            <li class="jsTermoParaPesquisa" tabindex="0"
-                                data-termo="Vitaminas Neo Quimica">
-                                Vitaminas Neo Quimica
-                            </li>
+
+                            @if (OHeader.MaisBuscados.Count() > 0)
+                            {
+                                foreach (var item in OHeader.MaisBuscados)
+                                {
+                                    <li class="jsTermoParaPesquisa" tabindex="0" data-termo="@item"> @item</li>
+                                }
+                            }
+
                         </ol>
                     </div>
                     <div class="dg-header-busca-auto-lista"></div>
-                    <div class="dg-header-busca-bdestaque">
-                        <img src="@Html.Domain()/Themes/DefaultClean/Content/img/header-banner.png" width="100%">
-                    </div>
+                    @await Component.InvokeAsync("BannersAutoCompleteBusca") 
                 </div>
             </form>
             <div class="dg-header-busca-overlay"></div>
