@@ -525,7 +525,7 @@
 
         <div class="dg-home-descontos-destaques">@await Component.InvokeAsync("BannersDestaqueExtra")</div>
 
-        <!-- Bebber tem como mudar pra dg-home-produtos-destaque-extra -->
+        
         <div class="dg-home-produtos-estruturados">
             @{
                 ViewData["boxProduto"] = "DestaqueExtra";
@@ -535,6 +535,24 @@
 
             @await Html.PartialAsync("_TemplateBoxProduto", Model.DestaqueExtra, new ViewDataDictionary(ViewData){{"DestaqueExtra", ViewData["dasda"]}})
         </div>
+
+
+@if (areaEstruturada.ItemEstrutura.Count() > 0){
+
+    foreach (var item in areaEstruturada.ItemEstrutura){
+
+<p>Descricao: @Html.Raw(@item.Descricao)</p>
+<p>Target: @item.Target</p>
+<p>Url: @item.Url</p>
+<p>ImagemHover: @item.ImagemHover</p>
+<p>Imagem: @item.Imagem</p>
+            
+
+
+    }
+
+}
+
     </div>
 
     <section class="dg-home-produtos-aproveite">
