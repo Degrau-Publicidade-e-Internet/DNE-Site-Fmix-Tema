@@ -5861,6 +5861,10 @@ body .dg-categoria-desc-vermais {
   }
 }
 
+body .dg-boxproduto-hover .dg-boxproduto-preco, body .dg-estoque-open .dg-boxproduto-preco {
+  background: none;
+}
+
 @media (max-width: 991px) {
   body .dg-boxproduto-qtd {
     white-space: nowrap;

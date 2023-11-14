@@ -1228,7 +1228,7 @@
     @if (!string.IsNullOrEmpty(SP.SeoDescricaoProduto) || !string.IsNullOrEmpty(Descricao) || !string.IsNullOrEmpty(SP.PdfBula.Trim()) || !string.IsNullOrEmpty(SP.Bula.Trim()) || !string.IsNullOrEmpty(SP.AvisoLegal.Trim()))
     {
         <h3 class="dg-produto-abas__titulo">
-            <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/bag-2.svg" alt="">Características <b class="dg-desktop-regular">do produto</b><b class="dg-mobile-hide">@SP.NomeProduto @if (SP.Generico) { @SP.Marca } @SP.ComplementoBrindes</b></h3>
+            <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/bag-2.svg" alt="">Características <b class="dg-desktop-regular">do produto</b> <b class="dg-mobile-hide">@SP.NomeProduto @if (SP.Generico) { @SP.Marca } @SP.ComplementoBrindes</b></h3>
 
         <section class="dg-produto-abas">
             @* <h3 class="dg-titulo">
@@ -1897,5 +1897,5 @@
     @* Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Produto.js", false); *@
     Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Assinatura.js", false);
     Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Epharma.js", false);
-    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/Produto_v15.js", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/Produto_v18.js", false);
 }

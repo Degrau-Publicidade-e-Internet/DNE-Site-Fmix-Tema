@@ -326,7 +326,11 @@ $(document).ready(function () {
 
 	var target_offset = $('.jsCaracteristicas').offset().top;
 	$('.jsIrParaCaracteristicas').on('click', function() {
-		$('html, body').animate({ scrollTop: target_offset }, 300);
+		if ($('.dg-mobile-hide').is(':visible')) {
+			$('html, body').animate({ scrollTop: target_offset - 184 }, 300);
+		} else {
+			$('html, body').animate({ scrollTop: target_offset - 159 }, 300);
+		}
 	});
 });
 

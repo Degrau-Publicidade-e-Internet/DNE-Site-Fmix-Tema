@@ -4854,6 +4854,12 @@ body {
     }
 }
 
+body {
+    .dg-boxproduto-hover .dg-boxproduto-preco, .dg-estoque-open .dg-boxproduto-preco  {
+        background: none;
+    }
+}
+
 @media (max-width: 991px) {
     body {
         .dg-boxproduto-qtd {
