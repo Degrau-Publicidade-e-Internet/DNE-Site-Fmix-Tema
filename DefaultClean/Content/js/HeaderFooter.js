@@ -142,6 +142,7 @@ function GetAutoCompleteBusca(e, Pagina) {
 
                 var buscaInfo = {
                     Termo: item.Busca,
+                    Banner: response.Lista.Banner
                 }
                 // Sugestoes: response.Lista.Sugestoes
                 

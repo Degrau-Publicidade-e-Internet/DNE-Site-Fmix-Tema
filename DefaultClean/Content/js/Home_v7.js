@@ -231,7 +231,7 @@ $(document).ready(function(){
               
               responsive: {
                 625: {
-                    items: 2,
+                    items: 3,
                     controls: true,
                 },
                 992: {
