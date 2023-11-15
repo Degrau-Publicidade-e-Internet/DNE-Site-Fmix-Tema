@@ -20,7 +20,7 @@
         if (Model.Tipo.Equals("PrincipioAtivo"))
         {
 
-            <h4 class="dg-titulo">
+            <h4 class="dg-titulo" data-tipo-titulo="letra">
                 Filtre por <strong>letra</strong>:
                 @if (Model.request.idletra != null && Model.request.idletra != "")
                 {
@@ -55,7 +55,7 @@
         if (Model.Tipo.Equals("Busca"))
         {
 
-            <h4 class="dg-titulo">
+            <h4 class="dg-titulo" data-tipo-titulo="letra">
                 Filtre por <strong>letra</strong>:
                 @if (Model.request.idletra != null && Model.request.idletra != "")
                 {
@@ -91,7 +91,7 @@
         if (Model.Tipo.Equals("LandingPages"))
         {
 
-            <h4 class="dg-titulo">
+            <h4 class="dg-titulo" data-tipo-titulo="letra">
                 Filtre por <strong>letra</strong>:
                 @if (Model.request.idletra != null && Model.request.idletra != "")
                 {
@@ -125,7 +125,7 @@
 
         else if (!Model.Tipo.Equals("Busca") && !Model.Tipo.Equals("PrincipioAtivo"))
         {
-            <h4 class="dg-titulo">
+            <h4 class="dg-titulo" data-tipo-titulo="letra">
                 Filtre por <strong>letra</strong>:
                 @if (Model.request.idletra != null && Model.request.idletra != "")
                 {

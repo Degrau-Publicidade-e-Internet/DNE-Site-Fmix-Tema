@@ -77,8 +77,9 @@
 else if (@Model.QTDResultTotal == 0 && tipoPg == "Busca" && Model.IsBuscaNotFound == false)
 {
 
-    <section class="dg-categoria-topo dg-categoria-topo-txtClaro" nome-categoria="" nome-tipo="Busca">
-        <div class="dg-categoria-topo-wrapper" style="background-image: url(/assets/img/categoria/busca-fundo.png), linear-gradient(@Model.HederCategoria.CorFaixaSemResultado, @Model.HederCategoria.CorFaixaSemResultado)">
+    <section class="dg-categoria-topo dg-categoria-topo-categorias dg-categoria-topo-txtClaro" nome-categoria="" nome-tipo="Busca">
+        @* <div class="dg-categoria-topo-wrapper" style="background-image: url(/assets/img/categoria/busca-fundo.png), linear-gradient(@Model.HederCategoria.CorFaixaSemResultado, @Model.HederCategoria.CorFaixaSemResultado)"> *@
+        <div class="dg-categoria-topo-wrapper">
             <div class="container">
                 <ul class="dg-categoria-breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
                     <li>
@@ -94,13 +95,18 @@ else if (@Model.QTDResultTotal == 0 && tipoPg == "Busca" && Model.IsBuscaNotFoun
                 </ul>
 
 
-                <div class="dg-categoria-intro">
+                <div class="dg-categoria-intro dg-busca" style="background-color: #f5f9fd;border-bottom: 4px solid @corFaixa;background-image:url(@Html.Domain()/assets/img/categoria/@Model.HederCategoria.ImagemCategoria)">
                     @* Resultado busca *@
                     <div class="dg-categoria-titulo">
-                        <div class="dg-categoria-titulo-img">
+
+                            <svg width="13" height="18" viewBox="0 0 13 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4.15011 18C3.04194 18 2 17.56 1.21634 16.763C0.432671 15.9661 0 14.9065 0 13.7795C0 12.6525 0.430464 11.5929 1.21634 10.796L2.98455 9L1.21634 7.20404C-0.401766 5.55849 -0.401766 2.88027 1.21634 1.23697C2 0.437765 3.03973 0 4.15011 0C5.26049 0 6.30022 0.437765 7.08389 1.23697L11.7837 6.01646C12.5673 6.81342 13 7.87304 13 9C13 10.127 12.5695 11.1866 11.7837 11.9835L7.08389 16.763C6.30022 17.56 5.25828 18 4.15011 18ZM4.15011 1.98678C3.56512 1.98678 3.01325 2.21801 2.59823 2.64006C1.74172 3.50886 1.74172 4.92542 2.59823 5.79646L5.74834 9L2.59823 12.2035C2.18322 12.6256 1.95585 13.1846 1.95585 13.7817C1.95585 14.3789 2.18322 14.9379 2.59823 15.3599C3.01325 15.782 3.56291 16.0132 4.15011 16.0132C4.73731 16.0132 5.28698 15.782 5.70199 15.3599L10.4018 10.5804C10.8168 10.1584 11.0442 9.5994 11.0442 9.00224C11.0442 8.40509 10.8168 7.8461 10.4018 7.42405L5.69978 2.6423C5.28477 2.22025 4.7351 1.98902 4.1479 1.98902L4.15011 1.98678Z" fill="@corFaixa"/>
+                        </svg>
+
+                        @* <div class="dg-categoria-titulo-img">
                             <!--TODO imagem-->
-                            <img src="@Html.Domain()/assets/img/categoria/@Model.HederCategoria.ImagemCategoria" alt="@Model.HederCategoria.Alt_Imagem" title="@Model.HederCategoria.Alt_Imagem" loading="lazy">
-                        </div>
+                            <img src="" alt="@Model.HederCategoria.Alt_Imagem" title="@Model.HederCategoria.Alt_Imagem" loading="lazy">
+                        </div> *@
 
                     </div>
                     <h1 class="dg-categoria-desc">
@@ -118,8 +124,9 @@ else if (@Model.QTDResultTotal == 0 && tipoPg == "Busca" && Model.IsBuscaNotFoun
 }
 else
 {
-    <section class="dg-categoria-topo @textoEscuro" nome-categoria="@Html.Raw(@ViewBag.Breadcrumbs_Name0)" nome-tipo="@tipoPg">
-        <div class="dg-categoria-topo-wrapper" style="background-image: url(/assets/img/categoria/busca-fundo.png), linear-gradient(@corFaixa, @corFaixa)">
+    <section class="dg-categoria-topo dg-categoria-topo-categorias @textoEscuro" nome-categoria="@Html.Raw(@ViewBag.Breadcrumbs_Name0)" nome-tipo="@tipoPg">
+        @* <div class="dg-categoria-topo-wrapper" style="background-image: url(/assets/img/categoria/busca-fundo.png), linear-gradient(@corFaixa, @corFaixa)"> *@
+        <div class="dg-categoria-topo-wrapper">
             <div class="container">
                 @* BreadCrumb *@
                 <ul class="dg-categoria-breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
@@ -209,15 +216,19 @@ else
                 @if (@tipoPg == "Busca")
                 {
 
-                    <div class="dg-categoria-intro">
+                    <div class="dg-categoria-intro @classTipo" style="background-color: #f5f9fd;border-bottom: 4px solid @corFaixa;background-image:url(https://static.drogarianovaesperanca.com.br/marcas/@Model.HederCategoria.ImagemCategoria)">
 
                         @* Resultado busca *@
 
                         <div class="dg-categoria-titulo">
-                            <div class="dg-categoria-titulo-img">
+                            <svg width="13" height="18" viewBox="0 0 13 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.15011 18C3.04194 18 2 17.56 1.21634 16.763C0.432671 15.9661 0 14.9065 0 13.7795C0 12.6525 0.430464 11.5929 1.21634 10.796L2.98455 9L1.21634 7.20404C-0.401766 5.55849 -0.401766 2.88027 1.21634 1.23697C2 0.437765 3.03973 0 4.15011 0C5.26049 0 6.30022 0.437765 7.08389 1.23697L11.7837 6.01646C12.5673 6.81342 13 7.87304 13 9C13 10.127 12.5695 11.1866 11.7837 11.9835L7.08389 16.763C6.30022 17.56 5.25828 18 4.15011 18ZM4.15011 1.98678C3.56512 1.98678 3.01325 2.21801 2.59823 2.64006C1.74172 3.50886 1.74172 4.92542 2.59823 5.79646L5.74834 9L2.59823 12.2035C2.18322 12.6256 1.95585 13.1846 1.95585 13.7817C1.95585 14.3789 2.18322 14.9379 2.59823 15.3599C3.01325 15.782 3.56291 16.0132 4.15011 16.0132C4.73731 16.0132 5.28698 15.782 5.70199 15.3599L10.4018 10.5804C10.8168 10.1584 11.0442 9.5994 11.0442 9.00224C11.0442 8.40509 10.8168 7.8461 10.4018 7.42405L5.69978 2.6423C5.28477 2.22025 4.7351 1.98902 4.1479 1.98902L4.15011 1.98678Z" fill="@corFaixa"/>
+                                </svg>
+
+                            @* <div class="dg-categoria-titulo-img">
                                 <!--TODO imagem-->
                                 <img src="https://static.drogarianovaesperanca.com.br/marcas/@Model.HederCategoria.ImagemCategoria" alt="@Model.HederCategoria.Alt_Imagem Resultado da busca" title="@Model.HederCategoria.Alt_Imagem Resultado da busca" loading="lazy">
-                            </div>
+                            </div> *@
                         </div>
 
                         @if (Model.QTDResultTotal > 0)
@@ -245,38 +256,28 @@ else
                 else
                 {
 
-                    <div class="dg-categoria-intro @classTipo">
+                    <div class="dg-categoria-intro @classTipo" style="background-color: #f5f9fd;border-bottom: 4px solid @corFaixa;">
+                        <img class="dg-categoria-banner-img" src="https://static.drogarianovaesperanca.com.br/marcas/@Model.HederCategoria.ImagemCategoria" alt="Imagem: @Html.Raw(oModel.CategoriaTitle)" title="@Model.HederCategoria.Alt_Imagem" loading="lazy">
                         @* Resultado Categoria *@
                         <div class="dg-categoria-titulo">
-                            <div class="dg-categoria-titulo-img">
-                                <!--TODO imagem-->
-                                <img src="https://static.drogarianovaesperanca.com.br/marcas/@Model.HederCategoria.ImagemCategoria" alt="Imagem: @Html.Raw(oModel.CategoriaTitle)" title="@Model.HederCategoria.Alt_Imagem" loading="lazy">
-                            </div>
+                                <svg width="13" height="18" viewBox="0 0 13 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.15011 18C3.04194 18 2 17.56 1.21634 16.763C0.432671 15.9661 0 14.9065 0 13.7795C0 12.6525 0.430464 11.5929 1.21634 10.796L2.98455 9L1.21634 7.20404C-0.401766 5.55849 -0.401766 2.88027 1.21634 1.23697C2 0.437765 3.03973 0 4.15011 0C5.26049 0 6.30022 0.437765 7.08389 1.23697L11.7837 6.01646C12.5673 6.81342 13 7.87304 13 9C13 10.127 12.5695 11.1866 11.7837 11.9835L7.08389 16.763C6.30022 17.56 5.25828 18 4.15011 18ZM4.15011 1.98678C3.56512 1.98678 3.01325 2.21801 2.59823 2.64006C1.74172 3.50886 1.74172 4.92542 2.59823 5.79646L5.74834 9L2.59823 12.2035C2.18322 12.6256 1.95585 13.1846 1.95585 13.7817C1.95585 14.3789 2.18322 14.9379 2.59823 15.3599C3.01325 15.782 3.56291 16.0132 4.15011 16.0132C4.73731 16.0132 5.28698 15.782 5.70199 15.3599L10.4018 10.5804C10.8168 10.1584 11.0442 9.5994 11.0442 9.00224C11.0442 8.40509 10.8168 7.8461 10.4018 7.42405L5.69978 2.6423C5.28477 2.22025 4.7351 1.98902 4.1479 1.98902L4.15011 1.98678Z" fill="@corFaixa"/>
+                            </svg>
+                            @if (!string.IsNullOrWhiteSpace(oModel.MetaTagsSeo.Seo_H1))
+                            {
+                                @Html.Raw(oModel.MetaTagsSeo.Seo_H1)
+                            }
 
-                            <div class="dg-categoria-titulo-txt">
-                                <h1 class="dg-titulo">
-
-
-                                    @if (!string.IsNullOrWhiteSpace(oModel.MetaTagsSeo.Seo_H1))
-                                    {
-                                        @Html.Raw(oModel.MetaTagsSeo.Seo_H1)
-                                    }
-
-                                </h1>
-
-
-
-                                <div class="dg-categoria-titulo-desconto">
-                                    @Html.Raw(Model.HederCategoria.TextoDesconto)
-                                </div>
-                            </div>
                         </div>
 
+                        @* <div class="dg-categoria-titulo-txt">
+                            <div class="dg-categoria-titulo-desconto">
+                                @Html.Raw(Model.HederCategoria.TextoDesconto)
+                            </div>
+                        </div> *@
                         <div class="dg-categoria-desc">
 
-
-
-                            @if (tipoPg != "Familia")
+                            @* @if (tipoPg != "Familia")
                             {
 
                                 <h2 class="dg-categoria-desc-titulo">@Html.Raw(oModel.HederCategoria.TitleTextoFaixa)</h2>
@@ -285,7 +286,7 @@ else
                             {
                                 <h2 class="dg-categoria-desc-titulo dg-isFamilia">Veja as apresentações e o valor do @oModel.PalavraBusca</h2>
 
-                            }
+                            } *@
                             <div class="dg-categoria-desc-wrapper">
                                 @Html.Raw(Model.HederCategoria.TextoFaixa)
                             </div>
@@ -360,7 +361,7 @@ else
                     </a>
 
                     <div class="dg-categoria-sidebar-titulo">
-                        Ajuste os filtros:
+                        Ajuste os <strong>filtros:</strong>
                     </div>
 
                     @await Html.PartialAsync("ListaSubcategorias")
@@ -373,7 +374,7 @@ else
 
                     @if (Model.mostraControlado || Model.mostraGenerico || Model.mostraRefrigerado)
                     {
-                        <div class="dg-titulo">
+                        <div class="dg-titulo" data-tipo-titulo="tipo">
                             Filtre por <strong>tipo</strong>:
 
                         </div>
@@ -551,40 +552,55 @@ else
                             Ordenar:
                         </span>
 
-                        <a href="@Html.Domain()/@Model.request.URLCategoria/?Ob=6@{
-                                                                                                                @Model.request.URLOb
- }" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaisVendidos">
-                            <span class="dg-icon dg-icon-mais-vendidos"></span>
-                            <span>Mais <br>vendidos</span>
+                        <a href="@Html.Domain()/@Model.request.URLCategoria/?Ob=6@{@Model.request.URLOb}" class=" dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaisVendidos">                            
+                            <svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 7L12.6154 14.5L9.53846 11.375L4 17" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 13V7H14" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                            <span><span>Mais <br>vendidos</span></span>
                         </a>
 
-                        <a href="@Html.Domain()/@Model.request.URLCategoria/?Ob=5@{
-                                                                                                                @Model.request.URLOb
- }" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaisRelevantes">
-                            <span class="dg-icon dg-icon-estrela"></span>
-                            <span>Mais <br>relevantes</span>
+                        <a href="@Html.Domain()/@Model.request.URLCategoria/?Ob=5@{@Model.request.URLOb}" class=" dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaisRelevantes">
+                            
+                            <svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 20C12 20 3 14.9875 3 8.97234C3 2.95722 10 2.45597 12 7.16221C14 2.45597 21 2.95722 21 8.97234C21 14.9875 12 20 12 20Z" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                            <span><span>Mais <br>relevantes</span></span>
                         </a>
 
-                        <a href="@Html.Domain()/@Model.request.URLCategoria/?Ob=4@{
-                                                                                                                @Model.request.URLOb
- }" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MenorPreco">
-                            <span class="dg-icon dg-icon-arrow01-down"></span>
-                            <span>Menor <br>preço</span>
+                        <a href="@Html.Domain()/@Model.request.URLCategoria/?Ob=4@{@Model.request.URLOb}" class=" dg-categoria-ordenacao-item @Model.FiltrosCategoria.MenorPreco">
+                            
+<svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 5L12 19" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6 13L12 19L18 13" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+                            <span><span>Menor <br>preço</span></span>
                         </a>
 
-                        <a href="@Html.Domain()/@Model.request.URLCategoria/?Ob=3@{
-                                                                                                                @Model.request.URLOb
- }" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaiorPreco">
-                            <span class="dg-icon dg-icon-arrow01-up"></span>
-                            <span>Maior <br>preço</span>
+                        <a href="@Html.Domain()/@Model.request.URLCategoria/?Ob=3@{@Model.request.URLOb}" class=" dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaiorPreco">
+                            
+<svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 19L12 5" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6 11L12 5L18 11" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+                            <span><span>Maior <br>preço</span></span>
                         </a>
 
 
-                        <a href="@Html.Domain()/@Model.request.URLCategoria/?Ob=7@{
-                                                                                                                @Model.request.URLOb
- }" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaiorDesconto">
-                            <span class="dg-icon dg-icon-percent"></span>
-                            <span>Maior <br>desconto</span>
+                        <a href="@Html.Domain()/@Model.request.URLCategoria/?Ob=7@{@Model.request.URLOb}" class=" dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaiorDesconto">
+                            
+<svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22.7498C11.37 22.7498 10.78 22.5099 10.34 22.0599L8.82001 20.5399C8.70001 20.4199 8.38 20.2899 8.22 20.2899H6.06C4.76 20.2899 3.70999 19.2398 3.70999 17.9398V15.7799C3.70999 15.6199 3.57999 15.2999 3.45999 15.1799L1.94 13.6599C1.5 13.2199 1.25 12.6298 1.25 11.9998C1.25 11.3698 1.49 10.7798 1.94 10.3398L3.45999 8.81979C3.57999 8.69979 3.70999 8.37981 3.70999 8.21981V6.0599C3.70999 4.7599 4.76 3.7098 6.06 3.7098H8.22C8.38 3.7098 8.70001 3.5798 8.82001 3.4598L10.34 1.93979C11.22 1.05979 12.78 1.05979 13.66 1.93979L15.18 3.4598C15.3 3.5798 15.62 3.7098 15.78 3.7098H17.94C19.24 3.7098 20.29 4.7599 20.29 6.0599V8.21981C20.29 8.37981 20.42 8.69979 20.54 8.81979L22.06 10.3398C22.5 10.7798 22.75 11.3698 22.75 11.9998C22.75 12.6298 22.51 13.2199 22.06 13.6599L20.54 15.1799C20.42 15.2999 20.29 15.6199 20.29 15.7799V17.9398C20.29 19.2398 19.24 20.2899 17.94 20.2899H15.78C15.62 20.2899 15.3 20.4199 15.18 20.5399L13.66 22.0599C13.22 22.5099 12.63 22.7498 12 22.7498ZM4.51999 14.1198C4.91999 14.5198 5.20999 15.2199 5.20999 15.7799V17.9398C5.20999 18.4098 5.59 18.7899 6.06 18.7899H8.22C8.78 18.7899 9.48001 19.0798 9.88 19.4798L11.4 20.9998C11.72 21.3198 12.28 21.3198 12.6 20.9998L14.12 19.4798C14.52 19.0798 15.22 18.7899 15.78 18.7899H17.94C18.41 18.7899 18.79 18.4098 18.79 17.9398V15.7799C18.79 15.2199 19.08 14.5198 19.48 14.1198L21 12.5998C21.16 12.4398 21.25 12.2298 21.25 11.9998C21.25 11.7698 21.16 11.5599 21 11.3999L19.48 9.87985C19.08 9.47985 18.79 8.77981 18.79 8.21981V6.0599C18.79 5.5899 18.41 5.2098 17.94 5.2098H15.78C15.22 5.2098 14.52 4.91986 14.12 4.51986L12.6 2.99984C12.28 2.67984 11.72 2.67984 11.4 2.99984L9.88 4.51986C9.48001 4.91986 8.78 5.2098 8.22 5.2098H6.06C5.59 5.2098 5.20999 5.5899 5.20999 6.0599V8.21981C5.20999 8.77981 4.91999 9.47985 4.51999 9.87985L3 11.3999C2.84 11.5599 2.75 11.7698 2.75 11.9998C2.75 12.2298 2.84 12.4398 3 12.5998L4.51999 14.1198Z" fill="#CFCFCF"/>
+<path d="M15.0002 16C14.4402 16 13.9902 15.55 13.9902 15C13.9902 14.45 14.4402 14 14.9902 14C15.5402 14 15.9902 14.45 15.9902 15C15.9902 15.55 15.5502 16 15.0002 16Z" fill="#CFCFCF"/>
+<path d="M9.01001 10C8.45001 10 8 9.55 8 9C8 8.45 8.45 8 9 8C9.55 8 10 8.45 10 9C10 9.55 9.56001 10 9.01001 10Z" fill="#CFCFCF"/>
+<path d="M8.99994 15.75C8.80994 15.75 8.61994 15.68 8.46994 15.53C8.17994 15.24 8.17994 14.7599 8.46994 14.4699L14.4699 8.46994C14.7599 8.17994 15.2399 8.17994 15.5299 8.46994C15.8199 8.75994 15.8199 9.24 15.5299 9.53L9.52994 15.53C9.37994 15.68 9.18994 15.75 8.99994 15.75Z" fill="#CFCFCF"/>
+</svg>
+
+                            <span><span>Maior <br>desconto</span></span>
                         </a>
 
                         <div class="dg-categoria-paginacao">
@@ -674,40 +690,55 @@ else
                             Ordenar:
                         </span>
 
-                        <a href="@Html.Domain()/@Model.request.URLCategoria&Ob=6@{
-                                                                                                                @Model.request.URLOb
- }" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaisVendidos">
-                            <span class="dg-icon dg-icon-mais-vendidos"></span>
-                            <span>Mais <br>vendidos</span>
+                        <a href="@Html.Domain()/@Model.request.URLCategoria&Ob=6@{@Model.request.URLOb}" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaisVendidos">                            
+                            <svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 7L12.6154 14.5L9.53846 11.375L4 17" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 13V7H14" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                            <span><span>Mais <br>vendidos</span></span>
                         </a>
 
-                        <a href="@Html.Domain()/@Model.request.URLCategoria&Ob=5@{
-                                                                                                                @Model.request.URLOb
- }" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaisRelevantes">
-                            <span class="dg-icon dg-icon-estrela"></span>
-                            <span>Mais <br>relevantes</span>
+                        <a href="@Html.Domain()/@Model.request.URLCategoria&Ob=5@{@Model.request.URLOb}" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaisRelevantes">
+                            
+                            <svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 20C12 20 3 14.9875 3 8.97234C3 2.95722 10 2.45597 12 7.16221C14 2.45597 21 2.95722 21 8.97234C21 14.9875 12 20 12 20Z" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                            <span><span>Mais <br>relevantes</span></span>
                         </a>
 
-                        <a href="@Html.Domain()/@Model.request.URLCategoria&Ob=4@{
-                                                                                                                @Model.request.URLOb
- }" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MenorPreco">
-                            <span class="dg-icon dg-icon-arrow01-down"></span>
-                            <span>Menor <br>preço</span>
+                        <a href="@Html.Domain()/@Model.request.URLCategoria&Ob=4@{@Model.request.URLOb}" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MenorPreco">
+                            
+<svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 5L12 19" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6 13L12 19L18 13" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+                            <span><span>Menor <br>preço</span></span>
                         </a>
 
-                        <a href="@Html.Domain()/@Model.request.URLCategoria&Ob=3@{
-                                                                                                                @Model.request.URLOb
- }" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaiorPreco">
-                            <span class="dg-icon dg-icon-arrow01-up"></span>
-                            <span>Maior <br>preço</span>
+                        <a href="@Html.Domain()/@Model.request.URLCategoria&Ob=3@{@Model.request.URLOb}" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaiorPreco">
+                            
+<svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 19L12 5" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6 11L12 5L18 11" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+                            <span><span>Maior <br>preço</span></span>
                         </a>
 
 
-                        <a href="@Html.Domain()/@Model.request.URLCategoria&Ob=7@{
-                                                                                                                @Model.request.URLOb
- }" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaiorDesconto">
-                            <span class="dg-icon dg-icon-percent"></span>
-                            <span>Maior <br>desconto</span>
+                        <a href="@Html.Domain()/@Model.request.URLCategoria&Ob=7@{@Model.request.URLOb}" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaiorDesconto">
+                            
+<svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22.7498C11.37 22.7498 10.78 22.5099 10.34 22.0599L8.82001 20.5399C8.70001 20.4199 8.38 20.2899 8.22 20.2899H6.06C4.76 20.2899 3.70999 19.2398 3.70999 17.9398V15.7799C3.70999 15.6199 3.57999 15.2999 3.45999 15.1799L1.94 13.6599C1.5 13.2199 1.25 12.6298 1.25 11.9998C1.25 11.3698 1.49 10.7798 1.94 10.3398L3.45999 8.81979C3.57999 8.69979 3.70999 8.37981 3.70999 8.21981V6.0599C3.70999 4.7599 4.76 3.7098 6.06 3.7098H8.22C8.38 3.7098 8.70001 3.5798 8.82001 3.4598L10.34 1.93979C11.22 1.05979 12.78 1.05979 13.66 1.93979L15.18 3.4598C15.3 3.5798 15.62 3.7098 15.78 3.7098H17.94C19.24 3.7098 20.29 4.7599 20.29 6.0599V8.21981C20.29 8.37981 20.42 8.69979 20.54 8.81979L22.06 10.3398C22.5 10.7798 22.75 11.3698 22.75 11.9998C22.75 12.6298 22.51 13.2199 22.06 13.6599L20.54 15.1799C20.42 15.2999 20.29 15.6199 20.29 15.7799V17.9398C20.29 19.2398 19.24 20.2899 17.94 20.2899H15.78C15.62 20.2899 15.3 20.4199 15.18 20.5399L13.66 22.0599C13.22 22.5099 12.63 22.7498 12 22.7498ZM4.51999 14.1198C4.91999 14.5198 5.20999 15.2199 5.20999 15.7799V17.9398C5.20999 18.4098 5.59 18.7899 6.06 18.7899H8.22C8.78 18.7899 9.48001 19.0798 9.88 19.4798L11.4 20.9998C11.72 21.3198 12.28 21.3198 12.6 20.9998L14.12 19.4798C14.52 19.0798 15.22 18.7899 15.78 18.7899H17.94C18.41 18.7899 18.79 18.4098 18.79 17.9398V15.7799C18.79 15.2199 19.08 14.5198 19.48 14.1198L21 12.5998C21.16 12.4398 21.25 12.2298 21.25 11.9998C21.25 11.7698 21.16 11.5599 21 11.3999L19.48 9.87985C19.08 9.47985 18.79 8.77981 18.79 8.21981V6.0599C18.79 5.5899 18.41 5.2098 17.94 5.2098H15.78C15.22 5.2098 14.52 4.91986 14.12 4.51986L12.6 2.99984C12.28 2.67984 11.72 2.67984 11.4 2.99984L9.88 4.51986C9.48001 4.91986 8.78 5.2098 8.22 5.2098H6.06C5.59 5.2098 5.20999 5.5899 5.20999 6.0599V8.21981C5.20999 8.77981 4.91999 9.47985 4.51999 9.87985L3 11.3999C2.84 11.5599 2.75 11.7698 2.75 11.9998C2.75 12.2298 2.84 12.4398 3 12.5998L4.51999 14.1198Z" fill="#CFCFCF"/>
+<path d="M15.0002 16C14.4402 16 13.9902 15.55 13.9902 15C13.9902 14.45 14.4402 14 14.9902 14C15.5402 14 15.9902 14.45 15.9902 15C15.9902 15.55 15.5502 16 15.0002 16Z" fill="#CFCFCF"/>
+<path d="M9.01001 10C8.45001 10 8 9.55 8 9C8 8.45 8.45 8 9 8C9.55 8 10 8.45 10 9C10 9.55 9.56001 10 9.01001 10Z" fill="#CFCFCF"/>
+<path d="M8.99994 15.75C8.80994 15.75 8.61994 15.68 8.46994 15.53C8.17994 15.24 8.17994 14.7599 8.46994 14.4699L14.4699 8.46994C14.7599 8.17994 15.2399 8.17994 15.5299 8.46994C15.8199 8.75994 15.8199 9.24 15.5299 9.53L9.52994 15.53C9.37994 15.68 9.18994 15.75 8.99994 15.75Z" fill="#CFCFCF"/>
+</svg>
+
+                            <span><span>Maior <br>desconto</span></span>
                         </a>
 
                         <div class="dg-categoria-paginacao">
@@ -797,40 +828,55 @@ else
                             Ordenar:
                         </span>
 
-                        <a href="@Model.UrlBreadcrumb?Ob=6@{
-                                    @Model.request.URLOb
-}" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaisVendidos">
-                            <span class="dg-icon dg-icon-mais-vendidos"></span>
-                            <span>Mais <br>vendidos</span>
+                        <a href="@Model.UrlBreadcrumb?Ob=6@{@Model.request.URLOb}" class=" dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaisVendidos">                            
+                            <svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 7L12.6154 14.5L9.53846 11.375L4 17" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 13V7H14" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                            <span><span>Mais <br>vendidos</span></span>
                         </a>
 
-                        <a href="@Model.UrlBreadcrumb?Ob=5@{
-                                    @Model.request.URLOb
-}" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaisRelevantes">
-                            <span class="dg-icon dg-icon-estrela"></span>
-                            <span>Mais <br>relevantes</span>
+                        <a href="@Model.UrlBreadcrumb?Ob=5@{@Model.request.URLOb}" class=" dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaisRelevantes">
+                            
+                            <svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 20C12 20 3 14.9875 3 8.97234C3 2.95722 10 2.45597 12 7.16221C14 2.45597 21 2.95722 21 8.97234C21 14.9875 12 20 12 20Z" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                            <span><span>Mais <br>relevantes</span></span>
                         </a>
 
-                        <a href="@Model.UrlBreadcrumb?Ob=4@{
-                                    @Model.request.URLOb
-}" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MenorPreco">
-                            <span class="dg-icon dg-icon-arrow01-down"></span>
-                            <span>Menor <br>preço</span>
+                        <a href="@Model.UrlBreadcrumb?Ob=4@{@Model.request.URLOb}" class=" dg-categoria-ordenacao-item @Model.FiltrosCategoria.MenorPreco">
+                            
+<svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 5L12 19" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6 13L12 19L18 13" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+                            <span><span>Menor <br>preço</span></span>
                         </a>
 
-                        <a href="@Model.UrlBreadcrumb?Ob=3@{
-                                    @Model.request.URLOb
-}" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaiorPreco">
-                            <span class="dg-icon dg-icon-arrow01-up"></span>
-                            <span>Maior <br>preço</span>
+                        <a href="@Model.UrlBreadcrumb?Ob=3@{@Model.request.URLOb}" class=" dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaiorPreco">
+                            
+<svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 19L12 5" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6 11L12 5L18 11" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+                            <span><span>Maior <br>preço</span></span>
                         </a>
 
 
-                        <a href="@Model.UrlBreadcrumb?Ob=7@{
-                                    @Model.request.URLOb
-}" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaiorDesconto">
-                            <span class="dg-icon dg-icon-percent"></span>
-                            <span>Maior <br>desconto</span>
+                        <a href="@Model.UrlBreadcrumb?Ob=7@{@Model.request.URLOb}" class=" dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaiorDesconto">
+                            
+<svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22.7498C11.37 22.7498 10.78 22.5099 10.34 22.0599L8.82001 20.5399C8.70001 20.4199 8.38 20.2899 8.22 20.2899H6.06C4.76 20.2899 3.70999 19.2398 3.70999 17.9398V15.7799C3.70999 15.6199 3.57999 15.2999 3.45999 15.1799L1.94 13.6599C1.5 13.2199 1.25 12.6298 1.25 11.9998C1.25 11.3698 1.49 10.7798 1.94 10.3398L3.45999 8.81979C3.57999 8.69979 3.70999 8.37981 3.70999 8.21981V6.0599C3.70999 4.7599 4.76 3.7098 6.06 3.7098H8.22C8.38 3.7098 8.70001 3.5798 8.82001 3.4598L10.34 1.93979C11.22 1.05979 12.78 1.05979 13.66 1.93979L15.18 3.4598C15.3 3.5798 15.62 3.7098 15.78 3.7098H17.94C19.24 3.7098 20.29 4.7599 20.29 6.0599V8.21981C20.29 8.37981 20.42 8.69979 20.54 8.81979L22.06 10.3398C22.5 10.7798 22.75 11.3698 22.75 11.9998C22.75 12.6298 22.51 13.2199 22.06 13.6599L20.54 15.1799C20.42 15.2999 20.29 15.6199 20.29 15.7799V17.9398C20.29 19.2398 19.24 20.2899 17.94 20.2899H15.78C15.62 20.2899 15.3 20.4199 15.18 20.5399L13.66 22.0599C13.22 22.5099 12.63 22.7498 12 22.7498ZM4.51999 14.1198C4.91999 14.5198 5.20999 15.2199 5.20999 15.7799V17.9398C5.20999 18.4098 5.59 18.7899 6.06 18.7899H8.22C8.78 18.7899 9.48001 19.0798 9.88 19.4798L11.4 20.9998C11.72 21.3198 12.28 21.3198 12.6 20.9998L14.12 19.4798C14.52 19.0798 15.22 18.7899 15.78 18.7899H17.94C18.41 18.7899 18.79 18.4098 18.79 17.9398V15.7799C18.79 15.2199 19.08 14.5198 19.48 14.1198L21 12.5998C21.16 12.4398 21.25 12.2298 21.25 11.9998C21.25 11.7698 21.16 11.5599 21 11.3999L19.48 9.87985C19.08 9.47985 18.79 8.77981 18.79 8.21981V6.0599C18.79 5.5899 18.41 5.2098 17.94 5.2098H15.78C15.22 5.2098 14.52 4.91986 14.12 4.51986L12.6 2.99984C12.28 2.67984 11.72 2.67984 11.4 2.99984L9.88 4.51986C9.48001 4.91986 8.78 5.2098 8.22 5.2098H6.06C5.59 5.2098 5.20999 5.5899 5.20999 6.0599V8.21981C5.20999 8.77981 4.91999 9.47985 4.51999 9.87985L3 11.3999C2.84 11.5599 2.75 11.7698 2.75 11.9998C2.75 12.2298 2.84 12.4398 3 12.5998L4.51999 14.1198Z" fill="#CFCFCF"/>
+<path d="M15.0002 16C14.4402 16 13.9902 15.55 13.9902 15C13.9902 14.45 14.4402 14 14.9902 14C15.5402 14 15.9902 14.45 15.9902 15C15.9902 15.55 15.5502 16 15.0002 16Z" fill="#CFCFCF"/>
+<path d="M9.01001 10C8.45001 10 8 9.55 8 9C8 8.45 8.45 8 9 8C9.55 8 10 8.45 10 9C10 9.55 9.56001 10 9.01001 10Z" fill="#CFCFCF"/>
+<path d="M8.99994 15.75C8.80994 15.75 8.61994 15.68 8.46994 15.53C8.17994 15.24 8.17994 14.7599 8.46994 14.4699L14.4699 8.46994C14.7599 8.17994 15.2399 8.17994 15.5299 8.46994C15.8199 8.75994 15.8199 9.24 15.5299 9.53L9.52994 15.53C9.37994 15.68 9.18994 15.75 8.99994 15.75Z" fill="#CFCFCF"/>
+</svg>
+
+                            <span><span>Maior <br>desconto</span></span>
                         </a>
 
                         <div class="dg-categoria-paginacao">

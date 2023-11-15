@@ -4780,62 +4780,63 @@ body {
             transform: scale(1.1);
         }
     }
-    
-    .dg-categoria-intro {
-        align-items: center;
-        padding: 32px 55px;
-        border-radius: 15px;
-        @media (max-width: 991px) {
-            display: block;
-            padding: 16px;
-        }
-        .dg-categoria-titulo {
+    .pagfavoritos {
+        .dg-categoria-intro {
             align-items: center;
-            justify-content: space-between;
-            max-width: 320px;
-            width: 100%;
-            padding: 0;
-            margin-right: 20px;
+            padding: 32px 55px;
+            border-radius: 15px;
             @media (max-width: 991px) {
-                justify-content: flex-start;
-                margin-right: 0;
-                margin-bottom: 0;
-                svg {
-                    max-width: 40px;
-                    max-height: 40px;
-                    margin-right: 8px;
-                }
+                display: block;
+                padding: 16px;
             }
-            &::before {
-                display: none;
-            }
-            .dg-categoria-titulo-txt {
-                padding-top: 0;
-            }
-            .dg-titulo {
-                font-size: 24px;
-                margin-bottom: 0;
-                color: $corPrimaria;
+            .dg-categoria-titulo {
+                align-items: center;
+                justify-content: space-between;
+                max-width: 320px;
+                width: 100%;
+                padding: 0;
+                margin-right: 20px;
                 @media (max-width: 991px) {
-                    font-size: 18px;
+                    justify-content: flex-start;
+                    margin-right: 0;
+                    margin-bottom: 0;
+                    svg {
+                        max-width: 40px;
+                        max-height: 40px;
+                        margin-right: 8px;
+                    }
+                }
+                &::before {
+                    display: none;
+                }
+                .dg-categoria-titulo-txt {
+                    padding-top: 0;
+                }
+                .dg-titulo {
+                    font-size: 24px;
+                    margin-bottom: 0;
+                    color: $corPrimaria;
+                    @media (max-width: 991px) {
+                        font-size: 18px;
+                    }
                 }
             }
         }
-    }
-    @media (max-width: 991px) {
-        .dg-categoria-desc-titulo {
-            margin-top: 12px;
+        @media (max-width: 991px) {
+            .dg-categoria-desc-titulo {
+                margin-top: 12px;
+            }
         }
-    }
-    .dg-categoria-desc {
-        max-width: 711px;
-        margin-left: auto;
-        flex: 1;
-        font-size: 12px;
-        line-height: 14px;
-        color: $corPrimaria;
-        max-height: none;
-        width: 100%;
+        .dg-categoria-desc {
+            max-width: 711px;
+            margin-left: auto;
+            flex: 1;
+            font-size: 12px;
+            line-height: 14px;
+            color: $corPrimaria;
+            max-height: none;
+            width: 100%;
+        }
     }
     .dg-categoria-desc-wrapper {
         max-height: none;
@@ -4843,6 +4844,60 @@ body {
     }
     .dg-categoria-desc-vermais {
         display: none;
+    }
+    .dg-categoria-breadcrumb {
+        margin-bottom: 18px;
+    }
+    .dg-categoria-topo {
+        margin-bottom: 27px;
+    }
+    .dg-categoria-desc-divider {
+        display: none;
+    }
+    .dg-categoria-intro {
+        display: block;
+        padding: 24px 0 24px 104px;
+        height: 141px;
+        border-radius: 15px;
+        position: relative;
+        @media (max-width: 991px) {
+            display: block;
+            padding: 16px;
+            height: auto;
+        }
+        .dg-categoria-banner-img {
+            position: absolute;
+            bottom: -4px;
+            right: 0;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            @media (max-width: 991px) {
+                display: none;
+            }
+        }
+        .dg-categoria-titulo {
+            margin-bottom: 11px;
+            font-size: 24px;
+            font-weight: 600;
+            align-items: center;
+            padding-right: 0;
+            max-width: 491px;
+            svg {
+                flex-shrink: 0;
+                margin-right: 18px;
+            }
+            @media (max-width: 991px) {
+                font-size: 18px;
+                svg {
+                    margin-right: 12px;
+                }
+            }
+        }
+        .dg-categoria-desc-wrapper {
+            max-width: 491px;
+            font-size: 11px;
+            line-height: 14px;
+        }
     }
     .dg-boxproduto-lista.dg-4 .dg-boxproduto {
         @media (min-width: 992px) {
@@ -4852,11 +4907,129 @@ body {
             width: 14.668%;
         }
     }
-}
+    .dg-categoria-sidebar {
+        background-color: #F5F9FD;
+        border-radius: 25px;
+    }
+    .dg-categoria-sidebar-listagem a {
+        color: $corPrimaria;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        position: relative;
+        line-height: 14px;
+        font-size: 12px;
+    }
+    .dg-categoria-sidebar-contagem {
+        border-radius: 5px;
+        color: $corPrimaria;
+    }
+    .dg-categoria-sidebar {
+        .dg-titulo {
+            padding: 15px;
+            font-size: 14px;
+            line-height: 14px;
+            border-radius: 10px;
+            font-weight: 400;
+            strong {
+                font-weight: bold;
+            }
+            color: #fff;
+            &[data-tipo-titulo="categoria"] {
+                background-color: #1E3DA4;
+            }
+            &[data-tipo-titulo="marca"] {
+                background-color: $corPrimaria;
+            }
+            &[data-tipo-titulo="preco"] {
+                background-color: $corComplementar;
+            }
+            &[data-tipo-titulo="letra"] {
+                background-color: #1E3DA4;
+            }
+            &[data-tipo-titulo="tipo"] {
+                background-color: $corPrimaria;
+            }
+        }
+        .dg-categoria-sidebar-listagem {
+            padding: 13px 16px;
+        }
+    }
 
-body {
     .dg-boxproduto-hover .dg-boxproduto-preco, .dg-estoque-open .dg-boxproduto-preco  {
         background: none;
+    }
+
+    .dg-categoria-sidebar-limpar-filtros {  
+        padding-top: 0;
+        a {
+            display: block;
+            width: 100%;
+            height: 32px;
+            max-width: 132px;
+            margin: 0 auto;
+            padding: 0;
+            border-radius: 8px;
+            text-transform: uppercase;
+            text-decoration: none;
+            line-height: 32px;
+            text-align: center;
+            font-size: 12px;
+            color: #fff;
+            background-color: $corVermelho;
+        }
+    }
+
+    .dg-categoria-sidebar-titulo {
+        padding: 29px 16px 29px 51px;
+        font-size: 15px;
+        line-height: 14px;
+        color: $corPrimaria;
+        background-image: url(../img/filter-search.png);
+        background-repeat: no-repeat;
+        background-position: 16px 24px;
+        font-weight: 400;
+        strong {
+            font-weight: bold;
+        }
+        // &::before {
+        //     content:'';
+        // }
+    }
+
+    .dg-categoria-sidebar-listagem::-webkit-scrollbar-track {
+        background: #DCE1E7;
+        &:hover {
+            background: darken(#DCE1E7, 5%);
+        }
+    }
+    .dg-categoria-sidebar-listagem::-webkit-scrollbar-thumb {
+        background-color: #1E3DA4;
+        &:hover {
+            background-color: darken(#1E3DA4, 5%);
+        }
+    }
+    .dg-categoria-sidebar-letras a, .dg-categoria-sidebar-preco-range-valor {
+        color: $corPrimaria;
+    }
+    .dg-categoria-sidebar-preco-range .ui-slider-horizontal .ui-slider-range, .dg-categoria-sidebar-preco-range .ui-slider-handle {
+        background: $corComplementar
+    }
+    .dg-categoria-sidebar-preco-range .ui-widget-content {
+        background-color: #D3DCE6;
+        border-color: #D3DCE6;
+    }
+    .dg-categoria-sidebar-letras {
+        text-align: left;
+    }
+    .dg-categoria-sidebar-letras a {
+        width: 33px;
+        height: 33px;
+        text-align: center;
+    }
+    .dg-categoria-sidebar-listagem-contrgenerico {
+        a {
+            background-color: rgba(0,0,0,0);
+        }
     }
 }
 
@@ -4920,5 +5093,75 @@ body {
         .dg-categoria .dg-boxproduto-img {
             height: 108px;
         }
+    }
+}
+
+body {
+    .dg-categoria-ordenacao-titulo {
+        padding: 0;
+        font-size: 15px;
+        font-weight: bold;
+        color: $corPrimaria;
+        margin-right: 20px;
+    }
+    .dg-categoria-paginacao {
+        display: none;
+    }
+    @media (min-width: 992px) {
+        .dg-categoria-ordenacao {
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    .dg-categoria-ordenacao-item {
+        padding-left: 0;
+    }
+    .dg-categoria-ordenacao-item  {
+        max-width: 44px;
+        height: 44px;
+        display: block;
+        border-radius: 10px;
+        border: 1px solid #CFCFCF;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        overflow: hidden;
+        white-space: nowrap;
+        margin-left: 20px;
+        transition: .6s max-width cubic-bezier(0.4, 0.0, 0.2, 1);
+        br {
+            display: none;
+        }
+        &:hover {
+            max-width: 300px;
+            background-color: $corComplementar;
+            border-color: $corComplementar;
+            color: #fff;
+            svg path {
+                stroke: #fff;
+            }
+        }
+        span {
+            display: block;
+            padding-right: 10px;
+        }
+        svg {
+            flex-shrink: 0;
+            min-width: 44px;
+        }
+    }
+    @media (min-width: 992px) {
+        .dg-boxproduto-lista.dg-3 .dg-boxproduto {
+            width: 23%;
+        }
+    }
+    .dg-categoria-listagem .dg-boxproduto:nth-child(9) {
+        order: 11;
+    }
+    .dg-categoria-ordenacao-item .dg-icon {
+        position: static;
+        // text-align: center;
+        // margin: 0 10px;
+
     }
 }
