@@ -5665,6 +5665,15 @@ body {
         margin-top: 10px;
         margin-bottom: 10px;
     }
+    .dg-header-minhaconta-modal.dg-logado {
+        min-height: auto;
+    }
+    .dg-header-minhaconta-modal.dg-logado .dg-header-minhaconta-modal-login ul li:last-child a {
+        background-color: $corPrimaria;
+    }
+    .dg-header-minhaconta-modal.dg-logado .dg-header-minhaconta-modal-login ul li:not(:last-child) a:hover, .dg-header-minhaconta-modal.dg-logado .dg-header-minhaconta-modal-login ul li:not(:last-child) a:focus {
+        background-color: $corVermelho;
+    }
     .dg-cadastro-form select, .dg-institucional-atendimento-row .dg-select {
         background: transparent url(../img/icones/select-vermelho.png) no-repeat top right 0;
     }
@@ -5673,5 +5682,208 @@ body {
     }
     .dg-radio input:checked+label:after {
         background: $corVermelho;
+    }
+    .dg-usuario-main>.dg-titulo {
+        border-radius: 15px 15px 0 0;
+    }
+    .dg-usuario-main, .dg-usuario-sidebar-lista, .dg-usuario-footer, .dg-usuario-main>.dg-titulo, .dg-usuario-conteudo-pedidos-legendas, .dg-usuario-conteudo-pedidos .dg-subtitulo, .dg-usuario-conteudo-assinatura .dg-subtitulo, .dg-usuario-conteudo, .dg-usuario-sidebar-lista a {
+        background: #F5F9FD;
+        color: $corPrimaria;
+
+    }
+    .dg-usuario-main {
+        padding: 18px 72px;
+    }
+    .dg-usuario-sidebar-lista a {
+        border: 0;
+        font-size: 12px;
+        font-weight: 600 !important;
+        &:hover, &:focus, &.dg-ativo {
+            background: darken(#F5F9FD, 2.5%);
+        }
+    }
+
+    .dg-usuario-conteudo-cartoes-titulo {
+        padding: 0;
+        font-size: 12px;
+    }
+    .dg-usuario-sidebar>.dg-titulo {
+        font-size: 17px;
+        text-transform: uppercase;
+        color: $corPrimaria;
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 11px;
+            vertical-align: middle;
+            background-image: url(../img/icones/central/setting-2.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        strong {
+            color: $corPrimaria;
+        }
+    }
+    .dg-usuario-conteudo {
+        border: 0;
+    }
+    .dg-usuario-main > .dg-titulo, .dg-usuario-conteudo-pedidos .dg-subtitulo, .dg-usuario-conteudo-assinatura .dg-subtitulo, .dg-usuario-conteudo-pedidos-legendas {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .dg-usuario-sidebar-lista {
+        border-radius: 15px;
+        overflow: hidden;
+        padding: 7px 0;
+    }
+
+    .dg-usuario-sidebar-lista [usuario-aba="cartoesCadastrados"] .dg-usuario-sidebar-icon {
+        background-image: url(../img/icones/central/card.svg)
+    }
+
+    .dg-usuario-sidebar-lista a {
+        padding-left: 24px;
+    }
+    
+    .dg-usuario-sidebar-lista [usuario-aba="cartoesCadastrados"].dg-ativo .dg-usuario-sidebar-icon,.dg-usuario-sidebar-lista [usuario-aba="cartoesCadastrados"]:hover .dg-usuario-sidebar-icon,.dg-usuario-sidebar-lista [usuario-aba="cartoesCadastrados"]:focus .dg-usuario-sidebar-icon {
+        background-image: url(../img/icones/central/card.svg)
+    }
+    
+    .dg-usuario-sidebar-lista [usuario-aba="gerenciarAssinaturas"] .dg-usuario-sidebar-icon {
+        background-image: url(../img/icones/central/edit.svg)
+    }
+    
+    .dg-usuario-sidebar-lista [usuario-aba="gerenciarAssinaturas"].dg-ativo .dg-usuario-sidebar-icon,.dg-usuario-sidebar-lista [usuario-aba="gerenciarAssinaturas"]:hover .dg-usuario-sidebar-icon,.dg-usuario-sidebar-lista [usuario-aba="gerenciarAssinaturas"]:focus .dg-usuario-sidebar-icon {
+        background-image: url(../img/icones/central/edit.svg)
+    }
+    
+    .dg-usuario-sidebar-lista [usuario-aba="meusPedidos"] .dg-usuario-sidebar-icon {
+        background-image: url(../img/icones/central/box.svg)
+    }
+    
+    .dg-usuario-sidebar-lista [usuario-aba="meusPedidos"].dg-ativo .dg-usuario-sidebar-icon,.dg-usuario-sidebar-lista [usuario-aba="meusPedidos"]:hover .dg-usuario-sidebar-icon,.dg-usuario-sidebar-lista [usuario-aba="meusPedidos"]:focus .dg-usuario-sidebar-icon {
+        background-image: url(../img/icones/central/box.svg)
+    }
+    
+    .dg-usuario-sidebar-lista [usuario-aba="editarDados"] .dg-usuario-sidebar-icon {
+        background-image: url(../img/icones/central/edit.svg)
+    }
+    
+    .dg-usuario-sidebar-lista [usuario-aba="editarDados"].dg-ativo .dg-usuario-sidebar-icon,.dg-usuario-sidebar-lista [usuario-aba="editarDados"]:hover .dg-usuario-sidebar-icon,.dg-usuario-sidebar-lista [usuario-aba="editarDados"]:focus .dg-usuario-sidebar-icon {
+        background-image: url(../img/icones/central/edit.svg)
+    }
+    
+    .dg-usuario-sidebar-lista [usuario-aba="editarEnderecos"] .dg-usuario-sidebar-icon {
+        background-image: url(../img/icones/central/location.svg)
+    }
+    
+    .dg-usuario-sidebar-lista [usuario-aba="editarEnderecos"].dg-ativo .dg-usuario-sidebar-icon,.dg-usuario-sidebar-lista [usuario-aba="editarEnderecos"]:hover .dg-usuario-sidebar-icon,.dg-usuario-sidebar-lista [usuario-aba="editarEnderecos"]:focus .dg-usuario-sidebar-icon {
+        background-image: url(../img/icones/central/location.svg)
+    }
+    
+    .dg-usuario-sidebar-lista [usuario-aba="produtosFavoritos"] .dg-usuario-sidebar-icon {
+        background-image: url(../img/icones/central/heart.svg)
+    }
+    
+    .dg-usuario-sidebar-lista [usuario-aba="produtosFavoritos"].dg-ativo .dg-usuario-sidebar-icon,.dg-usuario-sidebar-lista [usuario-aba="produtosFavoritos"]:hover .dg-usuario-sidebar-icon,.dg-usuario-sidebar-lista [usuario-aba="produtosFavoritos"]:focus .dg-usuario-sidebar-icon {
+        background-image: url(../img/icones/central/heart.svg)
+    }
+    
+    .dg-usuario-sidebar-lista [usuario-aba="editarConsentimentos"] .dg-usuario-sidebar-icon {
+        background-image: url(../img/icones/central/edit.svg)
+    }
+    
+    .dg-usuario-sidebar-lista [usuario-aba="editarConsentimentos"].dg-ativo .dg-usuario-sidebar-icon,.dg-usuario-sidebar-lista [usuario-aba="editarConsentimentos"]:hover .dg-usuario-sidebar-icon,.dg-usuario-sidebar-lista [usuario-aba="editarConsentimentos"]:focus .dg-usuario-sidebar-icon {
+        background-image: url(../img/icones/central/edit.svg)
+    }
+    
+    .dg-usuario-sidebar-lista [usuario-aba="alterarSenha"] .dg-usuario-sidebar-icon {
+        background-image: url(../img/icones/central/key.svg)
+    }
+    
+    .dg-usuario-sidebar-lista [usuario-aba="alterarSenha"].dg-ativo .dg-usuario-sidebar-icon,.dg-usuario-sidebar-lista [usuario-aba="alterarSenha"]:hover .dg-usuario-sidebar-icon,.dg-usuario-sidebar-lista [usuario-aba="alterarSenha"]:focus .dg-usuario-sidebar-icon {
+        background-image: url(../img/icones/central/key.svg)
+    }
+    
+    .dg-usuario-main .dg-titulo .dg-usuario-sidebar-icon[icon-aba="cartoesCadastrados"] {
+        background-image: url(../img/icones/central/card.svg)
+    }
+    
+    .dg-usuario-main .dg-titulo .dg-usuario-sidebar-icon[icon-aba="gerenciarAssinaturas"] {
+        background-image: url(../img/icones/central/edit.svg)
+    }
+    
+    .dg-usuario-main .dg-titulo .dg-usuario-sidebar-icon[icon-aba="meusPedidos"] {
+        background-image: url(../img/icones/central/box.svg);
+        background-position: center left
+    }
+    
+    .dg-usuario-main .dg-titulo .dg-usuario-sidebar-icon[icon-aba="editarDados"] {
+        background-image: url(../img/icones/central/edit.svg)
+    }
+    
+    .dg-usuario-main .dg-titulo .dg-usuario-sidebar-icon[icon-aba="editarEnderecos"] {
+        background-image: url(../img/icones/central/location.svg)
+    }
+    
+    .dg-usuario-main .dg-titulo .dg-usuario-sidebar-icon[icon-aba="produtosFavoritos"] {
+        background-image: url(../img/icones/central/heart.svg)
+    }
+    
+    .dg-usuario-main .dg-titulo .dg-usuario-sidebar-icon[icon-aba="editarConsentimentos"] {
+        background-image: url(../img/icones/central/edit.svg)
+    }
+    
+    .dg-usuario-main .dg-titulo .dg-usuario-sidebar-icon[icon-aba="alterarSenha"] {
+        background-image: url(../img/icones/central/key.svg)
+    }
+    .dg-usuario-main .dg-titulo .dg-usuario-sidebar-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 20px;
+    }
+    .dg-usuario-main>.dg-titulo {
+        margin-bottom: 28px;
+        padding-bottom: 0;
+        font-size: 13px;
+        font-weight: 600;
+        color: $corPrimaria;
+        .dg-only-visible-inside {
+            display: none !important;
+        }
+        strong {
+            font-weight: 600;
+            color: $corPrimaria;
+        }
+    }
+    
+    .dg-usuario-sidebar-lista .dg-usuario-sidebar-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 20px;
+    }
+    .dg-usuario-conteudo-pedidos .dg-subtitulo, .dg-usuario-conteudo-assinatura .dg-subtitulo {
+        border-bottom: 0;
+        padding-top: 0;
+        font-size: 12px;
+    }
+    .btn-logOut-Cliente {
+        .dg-icon {
+            position: static;
+            display: inline-block;
+            width: 21px;
+            height: 21px;
+            margin-right: 20px;
+            background-repeat: no-repeat;
+            background-position: center left;
+            background-size: contain;
+            vertical-align: middle;
+            background-image: url(../img/icones/central/login.svg);
+            &::before {
+                display: none;
+            }
+        }
     }
 }
