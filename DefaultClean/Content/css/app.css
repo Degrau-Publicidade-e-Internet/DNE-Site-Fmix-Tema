@@ -6826,4 +6826,16 @@ body .dg-modal-farmaceutico .dg-label-comum {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+body .dg-cadastro-form select, body .dg-institucional-atendimento-row .dg-select {
+  background: transparent url(../img/icones/select-vermelho.png) no-repeat top right 0;
+}
+
+body .dg-radio input:checked + label:before {
+  border-color: #E00D4C;
+}
+
+body .dg-radio input:checked + label:after {
+  background: #E00D4C;
+}
 /*# sourceMappingURL=app.css.map */

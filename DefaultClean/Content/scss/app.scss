@@ -5665,4 +5665,13 @@ body {
         margin-top: 10px;
         margin-bottom: 10px;
     }
+    .dg-cadastro-form select, .dg-institucional-atendimento-row .dg-select {
+        background: transparent url(../img/icones/select-vermelho.png) no-repeat top right 0;
+    }
+    .dg-radio input:checked+label:before {
+        border-color: $corVermelho;
+    }
+    .dg-radio input:checked+label:after {
+        background: $corVermelho;
+    }
 }
