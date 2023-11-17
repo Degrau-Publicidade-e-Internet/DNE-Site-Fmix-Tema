@@ -2142,6 +2142,7 @@ body {
         }
         .dg-header-fix {
             height: 138px;
+            margin-bottom: 6px;
         }
         .dg-header {
             border-top: 0;
@@ -4068,10 +4069,15 @@ body {
     }
     .dg-cadastro-topo>.dg-titulo {
         padding-top: 0;
-        padding-left: 75px;
         color: $corPrimaria;
         strong {
             color: $corPrimaria;
+        }
+        @media (max-width: 991px) {
+            padding: 0;
+        }
+        @media (min-width: 992px) {
+            padding-left: 75px;
         }
     }
     .dg-cadastro-rodape {
@@ -4080,8 +4086,10 @@ body {
         background-color: rgba(0,0,0,0);
     }
     .dg-cadastro-conteudo {
-        padding-right: 60px;
-        padding-left: 60px;
+        @media (min-width: 992px) {
+            padding-right: 60px;
+            padding-left: 60px;
+        }
     }
     .dg-cadastro-conteudo-txt a {
         color: $corSecundaria;
@@ -4783,7 +4791,10 @@ body {
     .dg-categoria-desc-titulo:empty {
         display: none;
     }
-    .pagfavoritos {
+    .dg-categoria-desc-titulo {
+        margin-bottom: 12px;
+    }
+    .pagfavoritos, .dg-categoria-topo[nome-tipo="Familia"] {
         .dg-categoria-intro {
             display: flex;
             align-items: center;
@@ -4846,12 +4857,35 @@ body {
             width: 100%;
             .dg-categoria-desc-wrapper {
                 max-width: 100%;
+                max-height: none;
+                min-height: auto;
             }
         }
+    }
+    .dg-categoria-topo[nome-tipo="Busca"] {
+        display: none;
     }
     .dg-categoria-desc-wrapper {
         max-height: none;
         font-weight: 400;
+    }
+    .dg-categoria-ordenacao {
+        padding: 0;
+        .dg-categoria-desc {
+            text-align: right;
+            font-size: 15px;
+            font-weight: 400;
+            color: $corPrimaria;
+            // &--minor {
+            //     font-size: 12px;
+            // }
+            @media (min-width: 992px) {
+                width: auto;
+                // max-width: 300px;
+                padding-left: 10px;
+                margin-left: auto;
+            }
+        }
     }
     .dg-categoria-desc-vermais {
         display: none;
@@ -4860,7 +4894,10 @@ body {
         margin-bottom: 18px;
     }
     .dg-categoria-topo {
-        margin-bottom: 27px;
+        margin-bottom: 0;
+        ~ .container {
+            margin-top: 27px;
+        }
     }
     .dg-categoria-desc-divider {
         display: none;
@@ -4893,6 +4930,7 @@ body {
             align-items: center;
             padding-right: 0;
             max-width: 491px;
+            width: 100%;
             svg {
                 flex-shrink: 0;
                 margin-right: 18px;
@@ -4906,6 +4944,7 @@ body {
         }
         .dg-categoria-desc-wrapper {
             max-width: 491px;
+            width: 100%;
             font-size: 11px;
             line-height: 14px;
         }
@@ -5132,7 +5171,7 @@ body {
         }
         .dg-categoria-intro {
             min-height: 156px;
-            padding: 20px 20px 36px;
+            padding: 20px;
             .dg-categoria-titulo {
                 margin-bottom: 14px;
             }
@@ -5300,6 +5339,7 @@ body {
         max-width: 44px;
         height: 44px;
         display: block;
+        flex-shrink: 0;
         border-radius: 10px;
         border: 1px solid #CFCFCF;
         display: flex;
@@ -5355,6 +5395,101 @@ body {
     @media (max-width: 375px) {
         .dg-categoria-menumobile > ul > li > a.dg-categoria-ordenacao-item {
             margin-right: 8px
+        }
+    }
+    @media (max-width: 991px) {
+        .dg-categoria-topo {
+            margin-top: 0;
+            padding-top: 0;
+        }
+        .dg-categoria-breadcrumb {
+            margin-top: 0;
+            margin-bottom: 9px;
+        }
+    }
+    .dg-categoria-topo[nome-tipo="Marcas"] {
+        .dg-categoria-intro  {
+            padding-left: 172px;
+            @media (max-width: 991px) {
+                padding-left: 141px;
+            }
+            .dg-categoria-banner-img {
+                top: 23px;
+                left: 23px;
+                right: unset;
+                max-width: 95px;
+                max-height: 95px;
+                @media (max-width: 991px) {
+                    top: 31px;
+                    left: 20px;
+                    display: block;
+                }
+            }
+            .dg-categoria-desc, .dg-categoria-titulo, .dg-categoria-desc-wrapper {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+    }
+    @media (max-width: 991px) {
+        .dg-categoria-menumobile {
+            .dg-categoria-desc {
+                margin-bottom: 24px;
+                font-size: 15px;
+                text-align: center;
+                line-height: 1.5;
+                color: $corPrimaria;
+                // &--minor {
+                //     font-size: 12px;
+                // }
+            }
+        }
+    }
+}
+
+body {
+    .dg-cadastro-permissoes-wrapper {
+        width: 100%;
+        @media (min-width: 992px) {
+            max-width: 307px;
+        }
+    }
+    .dg-cadastro-conteudo-txt {
+        width: 100%;
+        padding: 0 10px;
+        margin: 16px 0 12px;
+        @media (min-width: 992px) {
+            margin: 0;
+            max-width: 397px;
+        }
+    }
+
+    .dg-cadastro-rodape-btn {
+        width: 100%;
+        height: 74px;
+        @media (min-width: 992px) {
+            max-width: 275px;
+        }
+    }
+    .dg-cadastro-conteudo-footer {
+        @media (min-width: 992px) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+    .dg-cadastro-topo .dg-titulo {
+        // display: flex;
+        // align-items: center;
+        // flex-wrap: wrap;
+        svg {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 22px;
+            @media (max-width: 991px) {
+                margin-right: 11px;
+            }
         }
     }
 }

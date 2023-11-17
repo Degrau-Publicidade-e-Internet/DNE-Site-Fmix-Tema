@@ -8,7 +8,14 @@
 <div class="container">
     <main id="main" class="dg-cadastro">
         <div class="dg-cadastro-topo">
-            <h1 class="dg-titulo">
+            <h1 class="dg-titulo">                
+                <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.0002 12.9998C15.9917 12.9998 18.4168 10.5747 18.4168 7.58317C18.4168 4.59163 15.9917 2.1665 13.0002 2.1665C10.0086 2.1665 7.5835 4.59163 7.5835 7.58317C7.5835 10.5747 10.0086 12.9998 13.0002 12.9998Z" stroke="#00D19D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3.69434 23.8333C3.69434 19.6408 7.86517 16.25 13.0002 16.25C14.0402 16.25 15.0477 16.3908 15.9902 16.6508" stroke="#00D19D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M23.8332 19.4998C23.8332 19.8465 23.7898 20.1823 23.7032 20.5073C23.6057 20.9407 23.4324 21.3632 23.2049 21.7315C22.4574 22.9882 21.0815 23.8332 19.4998 23.8332C18.384 23.8332 17.3765 23.4106 16.6182 22.7173C16.2932 22.4356 16.0115 22.0998 15.7948 21.7315C15.394 21.0815 15.1665 20.3123 15.1665 19.4998C15.1665 18.3298 15.6323 17.2574 16.3907 16.4774C17.1815 15.6649 18.2865 15.1665 19.4998 15.1665C20.7782 15.1665 21.9373 15.719 22.7173 16.6074C23.4107 17.3765 23.8332 18.3948 23.8332 19.4998Z" stroke="#00D19D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21.1141 19.478H17.8857" stroke="#00D19D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19.5 17.8965V21.1356" stroke="#00D19D" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
                 Insira seus dados para <strong>criar um novo cadastro:</strong>
             </h1>
         </div>
@@ -101,43 +108,41 @@
                     </label>
                     <a href="javascript:void(0)" class="dg-cadastro-conteudo-versenha" aria-label="Deixa campo de senha visível"><span class="dg-icon dg-icon-eye"></span></a>
                 </div>
-
-                <div class="dg-cadastro-conteudo-33 dg-cadastro-separador">
-                    <a href="javascript:void(0)" class="dg-cadastro-conteudo-permissoes-btn">
-                        <strong>Permissões</strong>
-                        <span>Edite aqui as suas permissões</span>
-                        <span class="dg-icon dg-icon-editar"></span>
-                    </a>
-                    @* zzz *@
-                    <div class="dg-cadastro-conteudo-permissoes">
-                        <h3 class="dg-titulo">
-                            Receba <strong>novidades</strong>, <strong>promoções</strong> e <strong>ofertas</strong> personalizadas!
-                        </h3>
-                        <div>
-                            <input type="checkbox" name="News" id="News" checked>
-                            <label for="News">E-mail</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="SMS" id="SMS" checked>
-                            <label for="SMS">SMS</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="LGPD_Redes_sociais" id="LGPD_Redes_sociais" checked>
-                            <label for="LGPD_Redes_sociais">Redes Sociais</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="WhatsApp" id="WhatsApp" checked>
-                            <label for="WhatsApp">WhatsApp</label>
+                <div class="dg-cadastro-conteudo-100 dg-cadastro-conteudo-footer">
+                    <div class="dg-cadastro-permissoes-wrapper">
+                        <a href="javascript:void(0)" class="dg-cadastro-conteudo-permissoes-btn">
+                            <strong>Permissões</strong>
+                            <span>Edite aqui as suas permissões</span>
+                            <span class="dg-icon dg-icon-editar"></span>
+                        </a>
+                        @* zzz *@
+                        <div class="dg-cadastro-conteudo-permissoes">
+                            <h3 class="dg-titulo">
+                                Receba <strong>novidades</strong>, <strong>promoções</strong> e <strong>ofertas</strong> personalizadas!
+                            </h3>
+                            <div>
+                                <input type="checkbox" name="News" id="News" checked>
+                                <label for="News">E-mail</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="SMS" id="SMS" checked>
+                                <label for="SMS">SMS</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="LGPD_Redes_sociais" id="LGPD_Redes_sociais" checked>
+                                <label for="LGPD_Redes_sociais">Redes Sociais</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="WhatsApp" id="WhatsApp" checked>
+                                <label for="WhatsApp">WhatsApp</label>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="dg-cadastro-conteudo-33" style="flex: 1;">
+                    
                     <p class="dg-cadastro-conteudo-txt">
                         As informações aqui solicitadas são utilizadas conforme demonstrado em nossa <a href="@Html.Domain()/politica-de-privacidade/" target="_blank">Política de Privacidade</a> e <a href="@Html.Domain()/termo-de-uso/" target="_blank">Termos de Uso</a>
                     </p>
-                </div>
-                <div class="dg-cadastro-conteudo-25">
+
                     <button type="submit" class="dg-cadastro-rodape-btn">
                         Gravar Cadastro
                     </button>

@@ -248,7 +248,7 @@ else
                         {
 
                             <h1 class="dg-categoria-desc">
-                                Sua busca por <strong>"@Html.Display("Busca")"</strong> não encontrou nenhum resultado. Faça uma nova busca ou navegue pelas categorias.
+                                Sua busca por <strong>"@Html.Display("Busca")"</strong> não encontrou nenhum resultado.
                             </h1>
                         }
                     </div>
@@ -257,9 +257,23 @@ else
                 {
 
                     <div class="dg-categoria-intro @classTipo" style="background-color: #f5f9fd;border-bottom: 4px solid @corFaixa;">
-                        <img class="dg-categoria-banner-img" src="https://static.drogarianovaesperanca.com.br/marcas/@Model.HederCategoria.ImagemCategoria" alt="Imagem: @Html.Raw(oModel.CategoriaTitle)" title="@Model.HederCategoria.Alt_Imagem" loading="lazy">
+                        @if (tipoPg != "Familia")
+                            {
+                            <img class="dg-categoria-banner-img" src="https://static.drogarianovaesperanca.com.br/marcas/@Model.HederCategoria.ImagemCategoria" alt="Imagem: @Html.Raw(oModel.CategoriaTitle)" title="@Model.HederCategoria.Alt_Imagem" loading="lazy">
+
+                            }
                         @* Resultado Categoria *@
                         <div class="dg-categoria-titulo">
+                                @if (tipoPg == "Familia")
+                                {
+                                <svg width="73" height="73" viewBox="0 0 73 73" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M33.8233 55.5103C33.2454 55.5103 32.6675 55.2974 32.2112 54.8411L27.6487 50.2786C26.7667 49.3965 26.7667 47.9365 27.6487 47.0544C28.5308 46.1724 29.9908 46.1724 30.8729 47.0544L33.8842 50.0657L42.1575 42.4311C43.07 41.5794 44.53 41.6403 45.3817 42.5528C46.2333 43.4653 46.1725 44.9253 45.26 45.7769L35.3746 54.9019C34.9487 55.2974 34.4012 55.5103 33.8233 55.5103Z" fill="@corFaixa"/>
+                                <path d="M15.7862 19.4057C15.2083 19.4057 14.6 19.1624 14.1741 18.7365C13.2921 17.8545 13.2921 16.3945 14.1741 15.5124L25.2154 4.47113C26.0975 3.58905 27.5575 3.58905 28.4396 4.47113C29.3216 5.35322 29.3216 6.81322 28.4396 7.6953L17.3983 18.7365C16.9421 19.1624 16.3641 19.4057 15.7862 19.4057Z" fill="@corFaixa"/>
+                                <path d="M57.2137 19.4057C56.6358 19.4057 56.0579 19.1928 55.6016 18.7365L44.5604 7.6953C43.6783 6.81322 43.6783 5.35322 44.5604 4.47113C45.4424 3.58905 46.9025 3.58905 47.7845 4.47113L58.8258 15.5124C59.7079 16.3945 59.7079 17.8545 58.8258 18.7365C58.4 19.1624 57.7916 19.4057 57.2137 19.4057Z" fill="@corFaixa"/>
+                                <path d="M61.4721 32.2419C61.2592 32.2419 61.0463 32.2419 60.8334 32.2419H60.1338H12.1667C10.0375 32.2723 7.60421 32.2723 5.84004 30.5081C4.44087 29.1394 3.80212 27.0102 3.80212 23.8773C3.80212 15.5127 9.91587 15.5127 12.8359 15.5127H60.1642C63.0842 15.5127 69.198 15.5127 69.198 23.8773C69.198 27.0406 68.5592 29.1394 67.16 30.5081C65.5784 32.0898 63.4492 32.2419 61.4721 32.2419ZM12.8359 27.6794H60.8638C62.2325 27.7098 63.51 27.7098 63.9359 27.2839C64.1488 27.071 64.605 26.341 64.605 23.8773C64.605 20.4402 63.7534 20.0752 60.1338 20.0752H12.8359C9.21629 20.0752 8.36462 20.4402 8.36462 23.8773C8.36462 26.341 8.85129 27.071 9.03379 27.2839C9.45962 27.6794 10.7675 27.6794 12.1059 27.6794H12.8359Z" fill="@corFaixa"/>
+                                <path d="M45.2904 69.198H26.9491C16.0599 69.198 13.6266 62.7193 12.6837 57.0922L8.39495 30.7818C8.18203 29.5347 9.0337 28.3789 10.2808 28.1659C11.4974 27.953 12.6837 28.8047 12.8966 30.0518L17.1854 56.3318C18.0674 61.7155 19.8924 64.6355 26.9491 64.6355H45.2904C53.1074 64.6355 53.9895 61.898 54.9933 56.6055L60.1033 29.9909C60.3466 28.7439 61.5329 27.9226 62.7799 28.1964C64.027 28.4397 64.8179 29.6259 64.5745 30.873L59.4645 57.4876C58.2783 63.6622 56.3012 69.198 45.2904 69.198Z" fill="@corFaixa"/>
+                                </svg>
+                                }
                                 <svg width="13" height="18" viewBox="0 0 13 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4.15011 18C3.04194 18 2 17.56 1.21634 16.763C0.432671 15.9661 0 14.9065 0 13.7795C0 12.6525 0.430464 11.5929 1.21634 10.796L2.98455 9L1.21634 7.20404C-0.401766 5.55849 -0.401766 2.88027 1.21634 1.23697C2 0.437765 3.03973 0 4.15011 0C5.26049 0 6.30022 0.437765 7.08389 1.23697L11.7837 6.01646C12.5673 6.81342 13 7.87304 13 9C13 10.127 12.5695 11.1866 11.7837 11.9835L7.08389 16.763C6.30022 17.56 5.25828 18 4.15011 18ZM4.15011 1.98678C3.56512 1.98678 3.01325 2.21801 2.59823 2.64006C1.74172 3.50886 1.74172 4.92542 2.59823 5.79646L5.74834 9L2.59823 12.2035C2.18322 12.6256 1.95585 13.1846 1.95585 13.7817C1.95585 14.3789 2.18322 14.9379 2.59823 15.3599C3.01325 15.782 3.56291 16.0132 4.15011 16.0132C4.73731 16.0132 5.28698 15.782 5.70199 15.3599L10.4018 10.5804C10.8168 10.1584 11.0442 9.5994 11.0442 9.00224C11.0442 8.40509 10.8168 7.8461 10.4018 7.42405L5.69978 2.6423C5.28477 2.22025 4.7351 1.98902 4.1479 1.98902L4.15011 1.98678Z" fill="@corFaixa"/>
                             </svg>
@@ -279,6 +293,7 @@ else
 
                             @* @if (tipoPg != "Familia")
                             {
+                                
 
                                 <h2 class="dg-categoria-desc-titulo">@Html.Raw(oModel.HederCategoria.TitleTextoFaixa)</h2>
                             }
@@ -288,6 +303,11 @@ else
 
                             } *@
                             <div class="dg-categoria-desc-wrapper">
+                                @if (tipoPg == "Familia")
+                                {
+                                    <h2 class="dg-categoria-desc-titulo dg-isFamilia" style="color:@corFaixa">Veja as apresentações e o valor do @oModel.PalavraBusca</h2>
+
+                                }
                                 @Html.Raw(Model.HederCategoria.TextoFaixa)
                             </div>
 
@@ -332,6 +352,14 @@ else
 
         @* Menu mobile *@
         <nav class="dg-categoria-menumobile">
+            @if (@tipoPg == "Busca")
+            {
+                if (@Model.QTDResultTotal == 0) {
+                    <h1 class="dg-categoria-desc dg-categoria-desc--minor">Sua busca por <strong>"@Html.Display("Busca")"</strong> não encontrou nenhum resultado.</h1>
+                } else {
+                    <h1 class="dg-categoria-desc">Sua busca por "<strong>@Html.Display("Busca")</strong>" encontrou @Model.QTDResultTotal resultados:</h1>
+                }
+            }
             <ul>
                 <li>
                     @* <a href="javascript:void(0)" class="jsAbrirOrdenar">
@@ -869,6 +897,11 @@ else
 
                             </ul>
                         </div>
+                        @if (@Model.QTDResultTotal == 0) {
+                        <h1 class="dg-categoria-desc dg-categoria-desc--minor">Sua busca por <strong>"@Html.Display("Busca")"</strong> não encontrou nenhum resultado.</h1>
+                        } else {
+                        <h1 class="dg-categoria-desc">Sua busca por "<strong>@Html.Display("Busca")</strong>" encontrou @Model.QTDResultTotal resultados:</h1>
+                        }
                     </section>
                     @* /Ordenação *@
                 }
