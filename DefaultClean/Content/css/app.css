@@ -2899,21 +2899,21 @@ body .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-form-senha-step[dat
   }
 }
 
-body .dg-produto-breadcrumb, body .dg-categoria-breadcrumb {
+body .dg-produto-breadcrumb, body .dg-categoria-breadcrumb, body .dg-institucional-breadcrumb {
   font-style: normal;
   font-size: 9px;
   color: #0B1841;
 }
 
-body .dg-produto-breadcrumb a, body .dg-categoria-breadcrumb a {
+body .dg-produto-breadcrumb a, body .dg-categoria-breadcrumb a, body .dg-institucional-breadcrumb a {
   color: #0B1841;
 }
 
-body .dg-produto-breadcrumb li, body .dg-categoria-breadcrumb li {
+body .dg-produto-breadcrumb li, body .dg-categoria-breadcrumb li, body .dg-institucional-breadcrumb li {
   padding-right: 12px;
 }
 
-body .dg-produto-breadcrumb li::after, body .dg-categoria-breadcrumb li::after {
+body .dg-produto-breadcrumb li::after, body .dg-categoria-breadcrumb li::after, body .dg-institucional-breadcrumb li::after {
   content: '';
   display: inline-block;
   margin-left: 12px;
@@ -5913,7 +5913,7 @@ body .dg-categoria-desc-vermais {
   display: none;
 }
 
-body .dg-categoria-breadcrumb {
+body .dg-categoria-breadcrumb, body .dg-institucional-breadcrumb {
   margin-bottom: 18px;
 }
 
@@ -6595,5 +6595,235 @@ body .dg-cadastro-topo .dg-titulo svg {
   body .dg-cadastro-topo .dg-titulo svg {
     margin-right: 11px;
   }
+}
+
+body .dg-institucional {
+  position: relative;
+  padding: 16px 24px 24px;
+  border-radius: 15px;
+  color: #0B1841;
+  background-color: #F5F9FD;
+}
+
+@media (max-width: 991px) {
+  body .dg-institucional {
+    padding: 16px;
+  }
+}
+
+body .dg-institucional h1,
+body .dg-institucional h2,
+body .dg-institucional h3,
+body .dg-institucional h4,
+body .dg-institucional h5,
+body .dg-institucional h6 {
+  color: #00D19D;
+}
+
+body .dg-institucional .dg-institucional-titulo {
+  margin-top: 0;
+  color: #0B1841;
+}
+
+body .dg-institucional a {
+  color: #E00D4C;
+}
+
+body .dg-institucional table th {
+  background-color: #0B1841;
+}
+
+body .dg-institucional-nossahistoria {
+  padding: 47px 0 31px 45px;
+}
+
+@media (max-width: 991px) {
+  body .dg-institucional-nossahistoria {
+    padding: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  body .dg-institucional-nossahistoria-wrapper {
+    padding: 32px 0;
+    margin: 0 -20px;
+    width: auto;
+    border-radius: 0;
+  }
+}
+
+body .dg-institucional-nossahistoria .dg-txt {
+  padding: 0;
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  body .dg-institucional-nossahistoria .dg-txt {
+    padding-right: 530px;
+  }
+}
+
+@media (max-width: 991px) {
+  body .dg-institucional-nossahistoria .dg-txt {
+    padding: 0 20px;
+  }
+}
+
+body .dg-institucional-nossahistoria .dg-img {
+  mix-blend-mode: normal;
+  z-index: 1;
+  width: auto;
+}
+
+@media (max-width: 991px) {
+  body .dg-institucional-nossahistoria .dg-img {
+    width: 100%;
+  }
+  body .dg-institucional-nossahistoria .dg-img img {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  body .dg-institucional-nossahistoria .dg-img {
+    position: absolute;
+    top: -56px;
+    right: 0;
+  }
+}
+
+body .dg-institucional-nossahistoria h2 {
+  margin-top: 0;
+  margin-bottom: 32px;
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: bold;
+  color: #0B1841;
+}
+
+@media (max-width: 991px) {
+  body .dg-institucional-nossahistoria h2 {
+    margin-bottom: 16px;
+    font-size: 20px;
+  }
+  body .dg-institucional-nossahistoria h2 br {
+    display: none;
+  }
+}
+
+body .dg-institucional-nossahistoria p {
+  margin-bottom: 25px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+body .dg-institucional-nossahistoria p:last-child {
+  margin-bottom: 0;
+  font-weight: bold;
+  color: #00D19D;
+}
+
+@media (max-width: 991px) {
+  body .dg-institucional-nossahistoria p:last-child {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  body .dg-institucional-nossahistoria p {
+    margin-bottom: 16px;
+  }
+}
+
+body .dg-institucional-titulo-nossahistoria {
+  margin-bottom: 40px;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #0B1841;
+  margin-top: 30px;
+}
+
+@media (max-width: 991px) {
+  body .dg-institucional-titulo-nossahistoria {
+    margin-bottom: 17px;
+    margin-top: 36px;
+  }
+}
+
+body .dg-institucional-titulo-nossahistoria svg {
+  display: inline-block;
+  margin-right: 13px;
+  vertical-align: middle;
+}
+
+body .dg-institucional-titulo-nossahistoria b {
+  font-weight: bold;
+}
+
+body .dg-institucional-comocomprar-aba a {
+  color: #999;
+}
+
+body a.dg-institucional-comocomprar-btntrocar {
+  color: #fff;
+}
+
+body .dg-institucional-comocomprar-aba a strong {
+  color: #002399;
+}
+
+body .dg-institucional-trabalheconosco .dg-form-wrapper .dg-common-label {
+  color: #0B1841;
+}
+
+body a.dg-institucional-comocomprar-btntrocar {
+  background-color: #00D19D;
+}
+
+body a.dg-institucional-comocomprar-btntrocar:hover, body a.dg-institucional-comocomprar-btntrocar:focus {
+  background-color: #00b88a;
+}
+
+body a.dg-institucional-comocomprar-btntrocar.dg-jsComoComprarAbaAnterior {
+  background-color: #0B1841;
+}
+
+body a.dg-institucional-comocomprar-btntrocar.dg-jsComoComprarAbaAnterior:hover, body a.dg-institucional-comocomprar-btntrocar.dg-jsComoComprarAbaAnterior:focus {
+  background-color: #07102b;
+}
+
+body .dg-institucional-atendimento-row h2 {
+  color: #0B1841 !important;
+}
+
+body .dg-institucional-atendimento-row h2 a {
+  color: #0B1841 !important;
+}
+
+body .dg-institucional-atendimento-row h3 ~ p b {
+  color: #002399 !important;
+}
+
+body .dg-modal-farmaceutico-wrapper a {
+  color: #00D19D;
+}
+
+body .dg-modal-farmaceutico .dg-label, body .dg-modal-farmaceutico .dg-label-comum {
+  color: #0B1841;
+}
+
+body .dg-modal-farmaceutico button {
+  background-color: #002399;
+}
+
+body .dg-modal-farmaceutico button:hover, body .dg-modal-farmaceutico button:focus {
+  background-color: #001d80;
+}
+
+body .dg-modal-farmaceutico .dg-label-comum {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 /*# sourceMappingURL=app.css.map */

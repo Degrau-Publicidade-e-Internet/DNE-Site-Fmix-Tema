@@ -2452,7 +2452,7 @@ body {
         }
     }
 
-    .dg-produto-breadcrumb, .dg-categoria-breadcrumb {
+    .dg-produto-breadcrumb, .dg-categoria-breadcrumb, .dg-institucional-breadcrumb {
         font-style: normal;
         font-size: 9px;
         color: $corPrimaria;
@@ -4890,7 +4890,7 @@ body {
     .dg-categoria-desc-vermais {
         display: none;
     }
-    .dg-categoria-breadcrumb {
+    .dg-categoria-breadcrumb, .dg-institucional-breadcrumb {
         margin-bottom: 18px;
     }
     .dg-categoria-topo {
@@ -5491,5 +5491,178 @@ body {
                 margin-right: 11px;
             }
         }
+    }
+    .dg-institucional {
+        position: relative;
+
+        padding: 16px 24px 24px;
+        border-radius: 15px;
+        color: $corPrimaria;
+        background-color: #F5F9FD;
+        @media (max-width: 991px) {
+            padding: 16px;
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: $corComplementar;
+        }
+        .dg-institucional-titulo {
+            margin-top: 0;
+            color: $corPrimaria;
+        }
+        a {
+            color: $corVermelho;
+        }
+        table th {
+            background-color: $corPrimaria;
+        }
+    }
+    .dg-institucional-nossahistoria {
+        padding: 47px 0 31px 45px;
+        @media (max-width: 991px) {
+            padding: 0;
+        }
+        &-wrapper {
+            @media (max-width: 991px) {
+                padding: 32px 0;
+                margin: 0 -20px;
+                width: auto;
+                border-radius: 0;
+            }
+        }
+        .dg-txt {
+            padding: 0;
+            width: 100%;
+            @media (min-width: 992px) {
+                padding-right: 530px;
+            }
+            @media (max-width: 991px) {
+                padding: 0 20px;
+            }
+        }
+        .dg-img {
+            mix-blend-mode: normal;
+            z-index: 1;
+            width: auto;
+            @media (max-width: 991px) {
+                width: 100%;
+                img {
+                    max-width: 100%;
+                }
+            }
+            @media (min-width: 992px) {
+                position: absolute;
+                top: -56px;
+                right: 0;
+            }
+        }
+        h2 {
+            margin-top: 0;
+            margin-bottom: 32px;
+            font-size: 22px;
+            line-height: 24px;
+            font-weight: bold;
+            color: $corPrimaria;
+            @media (max-width: 991px) {
+                margin-bottom: 16px;
+                font-size: 20px;
+                br {
+                    display: none;
+                }
+            }
+        }
+        p {
+            margin-bottom: 25px;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 18px;
+            &:last-child {
+                margin-bottom: 0;
+                font-weight: bold;
+                color: $corComplementar;
+                @media (max-width: 991px) {
+                    margin-bottom: 20px;
+                }
+            }
+            @media (max-width: 991px) {
+                margin-bottom: 16px;
+            }
+        }
+    }
+    .dg-institucional-titulo-nossahistoria {
+        margin-bottom: 40px;
+        font-size: 17px;
+        text-transform: uppercase;
+        font-weight: 400;
+        color: $corPrimaria;
+        margin-top: 30px;
+        @media (max-width: 991px) {
+            margin-bottom: 17px;
+            margin-top: 36px;
+        }
+        svg {
+            display: inline-block;
+            margin-right: 13px;
+            vertical-align: middle;
+        }
+        b {
+            font-weight: bold;
+        }
+    }
+    .dg-institucional-comocomprar-aba a {
+        color: #999;
+    }
+    a.dg-institucional-comocomprar-btntrocar {
+        color: #fff;
+    }
+    .dg-institucional-comocomprar-aba a strong {
+        color: $corSecundaria;
+    }
+    .dg-institucional-trabalheconosco .dg-form-wrapper .dg-common-label {
+        color: $corPrimaria;
+    }
+    a.dg-institucional-comocomprar-btntrocar {
+        background-color: $corComplementar;
+        &:hover, &:focus {
+            background-color: darken($corComplementar, 5%);
+        }
+    }
+    a.dg-institucional-comocomprar-btntrocar.dg-jsComoComprarAbaAnterior{
+        background-color: $corPrimaria;
+        &:hover, &:focus {
+            background-color: darken($corPrimaria, 5%);
+        }
+    }
+    .dg-institucional-atendimento-row {
+        h2 {
+            color: $corPrimaria !important;
+            a {
+                color: $corPrimaria !important;
+            }
+        }
+        h3 ~ p b {
+            color: $corSecundaria !important;
+        }
+    }
+    .dg-modal-farmaceutico-wrapper a {
+        color: $corComplementar;
+    }
+
+    .dg-modal-farmaceutico .dg-label, .dg-modal-farmaceutico .dg-label-comum {
+        color: $corPrimaria;
+    }
+    .dg-modal-farmaceutico button {
+        background-color: $corSecundaria;
+        &:hover, &:focus {
+            background-color: darken($corSecundaria, 5%);
+        }
+    }
+    .dg-modal-farmaceutico .dg-label-comum {
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 }
