@@ -7509,6 +7509,43 @@ body .dg-favoritos-boxproduto-lista .dg-boxproduto {
   width: 23%;
 }
 
+body h1.dg-institucional-titulo {
+  margin-bottom: 40px;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #0B1841;
+  margin-top: 30px;
+}
+
+@media (max-width: 991px) {
+  body h1.dg-institucional-titulo {
+    margin-bottom: 17px;
+    margin-top: 36px;
+  }
+}
+
+body h1.dg-institucional-titulo b, body h1.dg-institucional-titulo strong {
+  font-weight: bold;
+}
+
+body h1.dg-institucional-titulo::before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 22px;
+  height: 20px;
+  background-image: url(../img/icones/icone-institucional.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 13px;
+}
+
+body .dg-institucional > *:first-child {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
 @media (max-width: 991px) {
   body .dg-usuario-sidebar-lista ul {
     display: -webkit-box;

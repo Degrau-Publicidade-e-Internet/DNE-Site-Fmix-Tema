@@ -1,0 +1,127 @@
+﻿@{
+    ViewData["BodyID"] = "institucional-como-comprar-pg";
+}
+
+<!--Conteudo-->
+<div class="container"> 
+    @* BreadCrumb *@
+    <ul class="dg-institucional-breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
+
+
+        <li property="itemListElement" typeof="ListItem" itemscope itemtype="https://schema.org/ListItem">
+            <a href="@Html.Domain()/" property="item" typeof="WebPage">
+                <span property="name">Home</span>
+            </a>
+            <meta property="position" content="1">
+            <meta property="name" content="Home">
+        </li>
+
+
+        <li property="itemListElement" typeof="ListItem" itemscope itemtype="https://schema.org/ListItem">
+            <a href="@ViewBag.UrlBreadcrumb" property="item" typeof="WebPage">
+                <span property="name">Como Comprar</span>
+            </a>
+            <meta property="position" content="2">
+            <meta property="name" content="Como Comprar">
+        </li>
+
+
+      
+
+
+    </ul>
+    @* /BreadCrumb *@
+
+
+    <h1 class="dg-institucional-titulo">Como <strong>Comprar</strong></h1>
+    <main id="main" class="dg-institucional">
+        
+        <div class="dg-institucional-comocomprar">
+            <ol class="dg-institucional-comocomprar-abas">
+                <li class="dg-institucional-comocomprar-aba">
+                    <a href="javascript:void(0)" data-comocomprar-aba="1" class="dg-jsComoComprarAba dg-ativo"><strong>1.</strong> Encontre o Produto</a>
+                </li>
+                <li class="dg-institucional-comocomprar-aba">
+                    <a href="javascript:void(0)" data-comocomprar-aba="2" class="dg-jsComoComprarAba"><strong>2.</strong> Adicione ao Carrinho</a>
+                </li>
+                <li class="dg-institucional-comocomprar-aba">
+                    <a href="javascript:void(0)" data-comocomprar-aba="3" class="dg-jsComoComprarAba"><strong>3.</strong> Carrinho de Compras</a>
+                </li>
+                <li class="dg-institucional-comocomprar-aba">
+                    <a href="javascript:void(0)" data-comocomprar-aba="4" class="dg-jsComoComprarAba"><strong>4.</strong> Identificação</a>
+                </li>
+                <li class="dg-institucional-comocomprar-aba">
+                    <a href="javascript:void(0)" data-comocomprar-aba="5" class="dg-jsComoComprarAba"><strong>5.</strong> Endereço e Frete</a>
+                </li>
+                <li class="dg-institucional-comocomprar-aba">
+                    <a href="javascript:void(0)" data-comocomprar-aba="6" class="dg-jsComoComprarAba"><strong>6.</strong> Pagamento</a>
+                </li>
+            </ol>
+            <div class="dg-institucional-comocomprar-textos-wrapper">
+                <div class="dg-institucional-comocomprar-textos dg-jsComoComprarController" style="left: 0">
+                    <div class="dg-institucional-comocomprar-texto" data-comocomprar-texto="1">
+                        <div>
+                            <h3>1. Encontre o produto desejado</h3>
+                            <p>Você pode encontrar o produto que deseja navegando em nossas categorias no menu principal ou, se preferir, utilizando o campo de busca. Por ela é possível pesquisar o nome, marca, princípio ativo ou, se preferir, termos específicos.</p>
+                            <a href="javascript:void(0)" title="Trocar para próximo passo" class="dg-institucional-comocomprar-btntrocar dg-jsComoComprarAbaProximo">Próximo</a>
+                        </div>
+                        <img src="/assets/img/institucional/como-comprar/01.png" />
+                    </div>
+                    <div class="dg-institucional-comocomprar-texto" data-comocomprar-texto="2">
+                        <div>
+                            <h3>2. Adicione o produto ao seu Carrinho de Compras</h3>
+                            <p>Após encontrar que procura, basta selecionar a quantidade (volume) que deseja comprar e adicionar ao Carrinho de Compras. Na listagem, através do botão "Adicionar". Na página com os detalhes do produto, no botão "Comprar".</p>
+                            <a href="javascript:void(0)" title="Trocar para passo anterior" class="dg-institucional-comocomprar-btntrocar dg-jsComoComprarAbaAnterior">Anterior</a>
+                            <a href="javascript:void(0)" title="Trocar para próximo passo" class="dg-institucional-comocomprar-btntrocar dg-jsComoComprarAbaProximo">Próximo</a>
+                        </div>
+                        <img src="/assets/img/institucional/como-comprar/02.png" />
+                    </div>
+                    <div class="dg-institucional-comocomprar-texto" data-comocomprar-texto="3">
+                        <div>
+                            <h3>3. Carrinho de Compras</h3>
+                            <p>Na página de Carrinho de Compras, você poderá alterar a quantidade dos produtos, excluir o que desistiu de comprar, simular o valor e prazo das opções de entrega e inserir seu cupom de desconto (caso possua). Após fazer todas as alterações desejadas, clique no botão "Finalizar Compra" localizado no canto inferior direito da página.</p>
+                            <a href="javascript:void(0)" title="Trocar para passo anterior" class="dg-institucional-comocomprar-btntrocar dg-jsComoComprarAbaAnterior">Anterior</a>
+                            <a href="javascript:void(0)" title="Trocar para próximo passo" class="dg-institucional-comocomprar-btntrocar dg-jsComoComprarAbaProximo">Próximo</a>
+                        </div>
+                        <img src="/assets/img/institucional/como-comprar/03.png" />
+                    </div>
+                    <div class="dg-institucional-comocomprar-texto" data-comocomprar-texto="4">
+                        <div>
+                            <h3>4. Identificação</h3>
+                            <p>Para comprar na Farmácia Mix você precisa ter um cadastro. Se você já possui, basta preencher os campos de login e senha na página de identificação. Se você ainda não é cadastrado, preencha seu CPF no campo indicado.</p>
+                            <a href="javascript:void(0)" title="Trocar para passo anterior" class="dg-institucional-comocomprar-btntrocar dg-jsComoComprarAbaAnterior">Anterior</a>
+                            <a href="javascript:void(0)" title="Trocar para próximo passo" class="dg-institucional-comocomprar-btntrocar dg-jsComoComprarAbaProximo">Próximo</a>
+                        </div>
+                        <img src="/assets/img/institucional/como-comprar/04.png" />
+                    </div>
+                    <div class="dg-institucional-comocomprar-texto" data-comocomprar-texto="5">
+                        <div>
+                            <h3>5. Endereço e Frete</h3>
+                            <p>Agora que já realizou seu login, você deverá prosseguir com a compra, informando o endereço em que deseja receber o seu pedido. Preencha ou selecione um e prossiga para escolher a opção da entrega desejada.</p>
+                            <a href="javascript:void(0)" title="Trocar para passo anterior" class="dg-institucional-comocomprar-btntrocar dg-jsComoComprarAbaAnterior">Anterior</a>
+                            <a href="javascript:void(0)" title="Trocar para próximo passo" class="dg-institucional-comocomprar-btntrocar dg-jsComoComprarAbaProximo">Próximo</a>
+                        </div>
+                        <img src="/assets/img/institucional/como-comprar/05.png" />
+                    </div>
+                    <div class="dg-institucional-comocomprar-texto" data-comocomprar-texto="6">
+                        <div>
+                            <h3>6. Pagamento</h3>
+                            <p>Agora é só selecionar a aba do pagamento escolhido e preencher os dados, caso seja via cartão de crédito, ou avançar conforme a opção desejada. Assim que o recibo aparecer em sua tela, o seu pedido já estará registrado em nossa loja. Viu como é fácil?!</p>
+                            <a href="javascript:void(0)" title="Trocar para passo anterior" class="dg-institucional-comocomprar-btntrocar dg-jsComoComprarAbaAnterior">Anterior</a>
+                        </div>
+                        <img src="/assets/img/institucional/como-comprar/06a.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+@Html.Raw(@ViewBag.SEOOrganization)
+<!--Conteudo--> 
+@{
+    Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Institucional.css", false);
+}
+
+@{
+    Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/ComoComprar.js", false);
+}

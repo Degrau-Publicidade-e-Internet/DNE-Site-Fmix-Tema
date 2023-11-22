@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["BodyID"] = "institucional-politica-de-seguranca-pg";
+}
+
+<!--Conteudo-->
+<div class="container">
+    @* BreadCrumb *@
+    <ul class="dg-institucional-breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
+
+        <li property="itemListElement" typeof="ListItem" itemscope itemtype="https://schema.org/ListItem">
+            <a href="@Html.Domain()/" property="item" typeof="WebPage">
+                <span property="name">Home</span>
+            </a>
+            <meta property="position" content="1">
+            <meta property="name" content="Home">
+        </li>
+
+
+        <li property="itemListElement" typeof="ListItem" itemscope itemtype="https://schema.org/ListItem">
+            <a href="@ViewBag.UrlBreadcrumb" property="item" typeof="WebPage">
+                <span property="name">Política de Segurança</span>
+            </a>
+            <meta property="position" content="2">
+            <meta property="name" content="Política de Segurança">
+        </li>
+
+        
+
+    </ul>
+    @* /BreadCrumb *@
+
+
+    <h1 class="dg-institucional-titulo">Política de <strong>Segurança</strong></h1>
+    <main id="main" class="dg-institucional">
+        <p>O centro de distribuição da Farmácia Mix Ltda está localizado na Rua Major Paladino, 128 - Vila Leopoldina, São Paulo - SP - CEP: 05307-000. É deste ponto que são realizadas a Logística e Administração dos pedidos feitos pelo nosso site.</p>
+        <p>Todas as informações de compra são armazenadas com a maior segurança possível, como mostrado abaixo:</p>
+
+        <h2>Criptografia de Dados</h2>
+        <p>Tudo que é transmitido durante a compra é codificado por um sistema, onde a forma de pagamento, local de entrega e nome do comprador, recebem uma codificação antes de serem emitidas. O ícone "cadeado fechado" na parte inferior do seu monitor durante o seu pedido é um símbolo da criptografia dos dados, o equivale à segurança.</p>
+
+        <h2>Ambiente Seguro</h2>
+        <p>O site é totalmente seguro e possui certificação digital, o que garante um ambiente 100% protegido, também chamado de (SSL).</p>
+
+        <h2>Dados do Cartão de Crédito</h2>
+        <p>A Farmácia Mix não possui acesso aos informes das compras efetuadas em cartão de crédito. Todos os dados são fornecidos pelo cliente diretamente à plataforma da operadora do cartão.</p>
+        <p>O espaço para esta transação é próprio da operadora, o que aumenta ainda mais a segurança das transações. Por isso, não existe possibilidade de roubo de tais</p>
+        <p>Já o nosso site também possui selos de segurança que reconhecem a confiabilidade do sistema.</p>
+
+        <h2>Identificação e Senha</h2>
+        <p>Para facilitar as futuras compras, a página reconhece o cadastro. Assim, você não precisa preenchê-lo novamente. Em suma, a ideia do modelo é agilizar ainda mais o processo de compra.</p>
+        <p>Se o cliente vier a esquecer a senha, o mesmo poderá solicitar uma nova, onde ela será enviada automaticamente para o e-mail cadastrado em nosso sistema.</p>
+        <p>Em caso de dúvidas, entre em contato com o nosso SAC - Serviço de Atendimento ao Cliente, através do telefone @ViewBag.TelSac ou do e-mail sac@farmaciamix.com.br</p>
+    </main>
+</div>
+@Html.Raw(@ViewBag.SEOOrganization)
+<!--Conteudo--> 
+@{
+    Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Institucional.css", false);
+}
