@@ -1072,7 +1072,7 @@ body .dg-menuA-submenu-destaques-box .dg-boxproduto.dg-boxproduto-hover:not(.dg-
   }
 }
 
-.dg-home-sintomas .dg-icon.dg-icon-dor-febre::before {
+body .dg-home-sintomas .dg-icon.dg-icon-dor-febre::before {
   content: '';
   width: 47px;
   height: 47px;
@@ -1081,7 +1081,7 @@ body .dg-menuA-submenu-destaques-box .dg-boxproduto.dg-boxproduto-hover:not(.dg-
   background-repeat: no-repeat;
 }
 
-.dg-home-sintomas .dg-icon.dg-icon-gripe::before {
+body .dg-home-sintomas .dg-icon.dg-icon-gripe::before {
   content: '';
   width: 47px;
   height: 47px;
@@ -1090,7 +1090,7 @@ body .dg-menuA-submenu-destaques-box .dg-boxproduto.dg-boxproduto-hover:not(.dg-
   background-repeat: no-repeat;
 }
 
-.dg-home-sintomas .dg-icon.dg-icon-gastro::before {
+body .dg-home-sintomas .dg-icon.dg-icon-gastro::before {
   content: '';
   width: 47px;
   height: 47px;
@@ -1099,7 +1099,7 @@ body .dg-menuA-submenu-destaques-box .dg-boxproduto.dg-boxproduto-hover:not(.dg-
   background-repeat: no-repeat;
 }
 
-.dg-home-sintomas .dg-icon.dg-icon-calm::before {
+body .dg-home-sintomas .dg-icon.dg-icon-calm::before {
   content: '';
   width: 47px;
   height: 47px;
@@ -1108,7 +1108,7 @@ body .dg-menuA-submenu-destaques-box .dg-boxproduto.dg-boxproduto-hover:not(.dg-
   background-repeat: no-repeat;
 }
 
-.dg-home-sintomas .dg-icon.dg-icon-allergy::before {
+body .dg-home-sintomas .dg-icon.dg-icon-allergy::before {
   content: '';
   width: 47px;
   height: 47px;
@@ -1117,7 +1117,7 @@ body .dg-menuA-submenu-destaques-box .dg-boxproduto.dg-boxproduto-hover:not(.dg-
   background-repeat: no-repeat;
 }
 
-.dg-home-sintomas .dg-icon.dg-icon-vitamina::before {
+body .dg-home-sintomas .dg-icon.dg-icon-vitamina::before {
   content: '';
   width: 47px;
   height: 47px;
@@ -1126,7 +1126,7 @@ body .dg-menuA-submenu-destaques-box .dg-boxproduto.dg-boxproduto-hover:not(.dg-
   background-repeat: no-repeat;
 }
 
-.dg-home-sintomas .dg-icon.dg-icon-diabetes::before {
+body .dg-home-sintomas .dg-icon.dg-icon-diabetes::before {
   content: '';
   width: 47px;
   height: 47px;
@@ -1135,7 +1135,7 @@ body .dg-menuA-submenu-destaques-box .dg-boxproduto.dg-boxproduto-hover:not(.dg-
   background-repeat: no-repeat;
 }
 
-.dg-home-sintomas .dg-icon.dg-icon-dor-musc::before {
+body .dg-home-sintomas .dg-icon.dg-icon-dor-musc::before {
   content: '';
   width: 47px;
   height: 47px;
@@ -1144,7 +1144,7 @@ body .dg-menuA-submenu-destaques-box .dg-boxproduto.dg-boxproduto-hover:not(.dg-
   background-repeat: no-repeat;
 }
 
-.dg-home-sintomas .dg-icon-suplementos::before {
+body .dg-home-sintomas .dg-icon-suplementos::before {
   content: '';
   width: 47px;
   height: 47px;
@@ -1153,23 +1153,23 @@ body .dg-menuA-submenu-destaques-box .dg-boxproduto.dg-boxproduto-hover:not(.dg-
   background-repeat: no-repeat;
 }
 
-.dg-home-sintomas .dg-home-sintomas-lista {
+body .dg-home-sintomas .dg-home-sintomas-lista {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-bottom: 0;
 }
 
-.dg-home-sintomas .dg-home-sintomas-lista a {
+body .dg-home-sintomas .dg-home-sintomas-lista a {
   width: auto;
   padding: 0;
 }
 
-.dg-home-sintomas .dg-home-sintomas-lista a:hover .dg-home-sintomas-lista-txt {
+body .dg-home-sintomas .dg-home-sintomas-lista a:hover .dg-home-sintomas-lista-txt {
   color: #0e9e7a;
 }
 
-.dg-home-sintomas .dg-home-sintomas-lista a .dg-icon {
+body .dg-home-sintomas .dg-home-sintomas-lista a .dg-icon {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1187,7 +1187,7 @@ body .dg-menuA-submenu-destaques-box .dg-boxproduto.dg-boxproduto-hover:not(.dg-
   background-color: #012399;
 }
 
-.dg-home-sintomas .dg-home-sintomas-lista-txt {
+body .dg-home-sintomas .dg-home-sintomas-lista-txt {
   font-size: 11px;
   color: #012399;
 }
@@ -7583,6 +7583,26 @@ body .dg-institucional > *:first-child {
   body .dg-usuario-sidebar {
     padding-left: 9px;
     margin-bottom: 30px;
+  }
+}
+
+body .dg-cadastro-conteudo-permissoes {
+  color: #626669;
+}
+
+body .dg-cadastro-conteudo-permissoes .dg-titulo {
+  font-weight: 400;
+  color: #626669;
+}
+
+body .dg-cadastro-conteudo-permissoes label {
+  font-size: 12px;
+}
+
+@media (min-width: 992px) {
+  body .dg-cadastro-conteudo-permissoes > div {
+    margin-right: 0;
+    width: 50%;
   }
 }
 /*# sourceMappingURL=app.css.map */

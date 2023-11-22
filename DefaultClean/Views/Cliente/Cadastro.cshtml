@@ -6,6 +6,31 @@
 
 <!-- ####  PAGINA #### -->
 <div class="container">
+     @* BreadCrumb *@
+    <ul class="dg-institucional-breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
+
+        <li property="itemListElement" typeof="ListItem" itemscope itemtype="https://schema.org/ListItem">
+            <a href="@Html.Domain()/" property="item" typeof="WebPage">
+                <span property="name">Home</span>
+            </a>
+            <meta property="position" content="1">
+            <meta property="name" content="Home">
+        </li>
+
+
+
+        <li property="itemListElement" typeof="ListItem" itemscope itemtype="https://schema.org/ListItem">
+            <a href="@ViewBag.UrlBreadcrumb" property="item" typeof="WebPage">
+                <span property="name">Cadastro</span>
+            </a>
+            <meta property="position" content="2">
+            <meta property="name" content="Cadastro">
+        </li>
+
+
+
+    </ul>
+    @* /BreadCrumb *@
     <main id="main" class="dg-cadastro">
         <div class="dg-cadastro-topo">
             <h1 class="dg-titulo">                

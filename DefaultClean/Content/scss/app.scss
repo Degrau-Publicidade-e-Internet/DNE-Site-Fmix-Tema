@@ -942,125 +942,127 @@ body {
     }
 }
 
-.dg-home-sintomas {
-    .dg-icon.dg-icon-dor-febre {
-        &::before {
-            content: '';
-            width: 47px;
-            height: 47px;
-            background-image: url(../img/icones/navegue/dorefebre.svg);
-            background-position: center;
-            background-repeat: no-repeat;
+body {
+    .dg-home-sintomas {
+        .dg-icon.dg-icon-dor-febre {
+            &::before {
+                content: '';
+                width: 47px;
+                height: 47px;
+                background-image: url(../img/icones/navegue/dorefebre.svg);
+                background-position: center;
+                background-repeat: no-repeat;
+            }
         }
-    }
-    .dg-icon.dg-icon-gripe {
-        &::before {
-            content: '';
-            width: 47px;
-            height: 47px;
-            background-image: url(../img/icones/navegue/gripeeresfriado.svg);
-            background-position: center;
-            background-repeat: no-repeat;
+        .dg-icon.dg-icon-gripe {
+            &::before {
+                content: '';
+                width: 47px;
+                height: 47px;
+                background-image: url(../img/icones/navegue/gripeeresfriado.svg);
+                background-position: center;
+                background-repeat: no-repeat;
+            }
         }
-    }
-    .dg-icon.dg-icon-gastro {
-        &::before {
-            content: '';
-            width: 47px;
-            height: 47px;
-            background-image: url(../img/icones/navegue/gastrointestinal.svg);
-            background-position: center;
-            background-repeat: no-repeat;
+        .dg-icon.dg-icon-gastro {
+            &::before {
+                content: '';
+                width: 47px;
+                height: 47px;
+                background-image: url(../img/icones/navegue/gastrointestinal.svg);
+                background-position: center;
+                background-repeat: no-repeat;
+            }
         }
-    }
-    .dg-icon.dg-icon-calm {
-        &::before {
-            content: '';
-            width: 47px;
-            height: 47px;
-            background-image: url(../img/icones/navegue/calmante.svg);
-            background-position: center;
-            background-repeat: no-repeat;
+        .dg-icon.dg-icon-calm {
+            &::before {
+                content: '';
+                width: 47px;
+                height: 47px;
+                background-image: url(../img/icones/navegue/calmante.svg);
+                background-position: center;
+                background-repeat: no-repeat;
+            }
         }
-    }
-    .dg-icon.dg-icon-allergy {
-        &::before {
-            content: '';
-            width: 47px;
-            height: 47px;
-            background-image: url(../img/icones/navegue/alergia.svg);
-            background-position: center;
-            background-repeat: no-repeat;
+        .dg-icon.dg-icon-allergy {
+            &::before {
+                content: '';
+                width: 47px;
+                height: 47px;
+                background-image: url(../img/icones/navegue/alergia.svg);
+                background-position: center;
+                background-repeat: no-repeat;
+            }
         }
-    }
-    .dg-icon.dg-icon-vitamina {
-        &::before {
-            content: '';
-            width: 47px;
-            height: 47px;
-            background-image: url(../img/icones/navegue/vitaminas.svg);
-            background-position: center;
-            background-repeat: no-repeat;
+        .dg-icon.dg-icon-vitamina {
+            &::before {
+                content: '';
+                width: 47px;
+                height: 47px;
+                background-image: url(../img/icones/navegue/vitaminas.svg);
+                background-position: center;
+                background-repeat: no-repeat;
+            }
         }
-    }
-    .dg-icon.dg-icon-diabetes {
-        &::before {
-            content: '';
-            width: 47px;
-            height: 47px;
-            background-image: url(../img/icones/navegue/diabetes.svg);
-            background-position: center;
-            background-repeat: no-repeat;
+        .dg-icon.dg-icon-diabetes {
+            &::before {
+                content: '';
+                width: 47px;
+                height: 47px;
+                background-image: url(../img/icones/navegue/diabetes.svg);
+                background-position: center;
+                background-repeat: no-repeat;
+            }
         }
-    }
-    .dg-icon.dg-icon-dor-musc{
-        &::before {
-            content: '';
-            width: 47px;
-            height: 47px;
-            background-image: url(../img/icones/navegue/dormuscular.svg);
-            background-position: center;
-            background-repeat: no-repeat;
+        .dg-icon.dg-icon-dor-musc{
+            &::before {
+                content: '';
+                width: 47px;
+                height: 47px;
+                background-image: url(../img/icones/navegue/dormuscular.svg);
+                background-position: center;
+                background-repeat: no-repeat;
+            }
         }
-    }
-    .dg-icon-suplementos {
-        &::before {
-            content: '';
-            width: 47px;
-            height: 47px;
-            background-image: url(../img/icones/navegue/suplementos.svg);
-            background-position: center;
-            background-repeat: no-repeat;
+        .dg-icon-suplementos {
+            &::before {
+                content: '';
+                width: 47px;
+                height: 47px;
+                background-image: url(../img/icones/navegue/suplementos.svg);
+                background-position: center;
+                background-repeat: no-repeat;
+            }
         }
-    }
-    .dg-home-sintomas-lista {
-        justify-content: space-between;
-        margin-bottom: 0;
-    }
-    .dg-home-sintomas-lista a {
-        width: auto;
-        padding: 0;
-        &:hover {
-            .dg-home-sintomas-lista-txt {
-                color: #0e9e7a;
-            } 
+        .dg-home-sintomas-lista {
+            justify-content: space-between;
+            margin-bottom: 0;
         }
-        .dg-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 87px;
-            height: 87px;
-            border-radius: 19px;
+        .dg-home-sintomas-lista a {
+            width: auto;
             padding: 0;
-            line-height: 1;
-            background-color: #012399;
+            &:hover {
+                .dg-home-sintomas-lista-txt {
+                    color: #0e9e7a;
+                } 
+            }
+            .dg-icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 87px;
+                height: 87px;
+                border-radius: 19px;
+                padding: 0;
+                line-height: 1;
+                background-color: #012399;
+            }
         }
-    }
-
-    .dg-home-sintomas-lista-txt {
-        font-size: 11px;
-        color: #012399;
+    
+        .dg-home-sintomas-lista-txt {
+            font-size: 11px;
+            color: #012399;
+        }
     }
 }
 
@@ -6312,6 +6314,25 @@ body {
         .dg-usuario-sidebar {
             padding-left: 9px;
             margin-bottom: 30px;
+        }
+    }
+}
+
+body {
+    .dg-cadastro-conteudo-permissoes {
+        color: #626669;
+        .dg-titulo {
+            font-weight: 400;
+            color: #626669;
+        }
+        label {
+            font-size: 12px;
+        }
+        > div {
+            @media (min-width: 992px) {
+                margin-right: 0;
+                width: 50%;
+            }
         }
     }
 }
