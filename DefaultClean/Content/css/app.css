@@ -5885,8 +5885,12 @@ body .pagfavoritos .dg-categoria-desc .dg-categoria-desc-wrapper, body .dg-categ
   min-height: auto;
 }
 
-body .dg-categoria-topo[nome-tipo="Busca"] {
+body .dg-categoria-topo[nome-tipo="Busca"] .dg-categoria-intro {
   display: none;
+}
+
+body .dg-categoria-topo[nome-tipo="Busca"] .dg-categoria-breadcrumb {
+  margin-bottom: 0;
 }
 
 body .dg-categoria-desc-wrapper {

@@ -4866,7 +4866,12 @@ body {
         }
     }
     .dg-categoria-topo[nome-tipo="Busca"] {
-        display: none;
+        .dg-categoria-intro {
+            display: none;
+        }
+        .dg-categoria-breadcrumb {
+            margin-bottom: 0;
+        }
     }
     .dg-categoria-desc-wrapper {
         max-height: none;
