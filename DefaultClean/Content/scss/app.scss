@@ -2436,6 +2436,7 @@ body {
     background-color: rgba(0, 0, 0, 0);
     @media (max-width: 991px) {
         background-color: rgba(0, 35, 153, .9);
+        backdrop-filter: blur(3px);
     }
 }
 
@@ -5857,7 +5858,7 @@ body {
     .dg-usuario-main .dg-titulo .dg-usuario-sidebar-icon {
         width: 24px;
         height: 24px;
-        margin-right: 20px;
+        margin-right: 10px;
     }
     .dg-usuario-main>.dg-titulo {
         margin-bottom: 28px;
@@ -6333,6 +6334,54 @@ body {
                 margin-right: 0;
                 width: 50%;
             }
+        }
+    }
+    .dg-usuario-conteudo-pedidos ul li, .dg-usuario-conteudo-assinatura ul li {
+        border-bottom: 0;
+        font-weight: 500;
+        color: #45494D;
+        padding: 10px 0;
+    }
+    .dg-usuario-conteudo-pedidos-numero {
+        width: 14%;
+    }
+    .dg-usuario-conteudo-pedidos-data {
+        width: 12%;
+    }
+    .dg-usuario-conteudo-pedidos-nota {
+        width: 13%
+    }
+    .dg-usuario-conteudo-pedidos-pagamento {
+        width: 22%;
+    }
+    .dg-usuario-conteudo-pedidos-legendas {
+        color: #45494D;
+    }
+    .dg-usuario-conteudo-pedidos-ver, .dg-usuario-conteudo-pedidos-lista .dg-usuario-conteudo-pedidos-ver {
+        text-align: center;
+    }
+    @media (max-width: 991px) {
+        .ui-slider-horizontal {
+            height: 4px;
+        }
+        .ui-slider-horizontal .ui-slider-handle {
+            top: -5px;
+            width: 14px;
+            height: 14px;
+        }
+        .dg-categoria-sidebar-preco-range .ui-slider-handle::before {
+            top: 4px;
+            left: 4px;
+            width: 6px;
+            height: 6px;
+        }
+        .dg-categoria-sidebar.dg-ativo+.dg-categoria-produtos main:after {
+            backdrop-filter: blur(3px);
+        }
+        .dg-categoria-sidebar-listagem a img {
+            background-color: #fff;
+            min-width: 32px;
+            max-width: 32px;
         }
     }
 }
