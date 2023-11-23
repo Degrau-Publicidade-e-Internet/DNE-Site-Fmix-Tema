@@ -106,29 +106,61 @@
         Consulte e exclua os <strong>cartões cadastrados:</strong>
     </div>
     <div class="dg-usuario-conteudo dg-usuario-conteudo--cartoes">
-        <table class="dg-usuario-conteudo-cartoes">
+        <table class="dg-usuario-conteudo-cartoes-table">
             <thead>
                 <tr>
                     <th>Nº do cartão</th>
                     <th>Bandeira</th>
-                    <th></th>
+                    <th>Cartão principal</th>
                     <th></th>
                 </tr>
             </thead>
-            <tbody
+            <tbody>
             {for card in Cartoes }
                 <!-- item cartão -->
-                <tr>
+                <tr class="dg-usuario-conteudo-cartoes-simulacao" id="cartao_${card.ID_ClientesCartaoToken}" bandeira="${imgBandeiraCartaoUsuario(card.CardNumber)}">
                     <td>${FormatarNumeroCartao(card.CardNumber)}</td>
                     <td>
                          <div class="dg-usuario-conteudo-cartoes-simulacao-frente-img" style="background-image: url(@Html.Domain()/assets/img/lazy.png)"></div
                     </td>
-                    <td></td>
                     <td>
-                        <a href="javascript:void(0)" aria-label="Excluir cartão" class="dg-mobile-hide dg-usuario-conteudo-cartoes-simulacao-apagar jsApagarCartao" onclick="ClienteCentral.apagarCartao(${card.ID_ClientesCartaoToken})">
+                        {if card.IsPrincipal == true}
+                            <span class="dg-usuario-conteudo-cartoes-btn-marcar is-marcado"><span class="dg-icon dg-icon-cheeck"></span>Principal</span>
+                        {else}
+                            <a href="javascript:void(0)" aria-label="Marcar como principal" class="jsCartaoPrincipal dg-usuario-conteudo-cartoes-btn-marcar" onclick="ClienteCentral.tornarCartaoPrincipal(${card.ID_ClientesCartaoToken})">
+                                Marcar
+                            </a>
+                        {/if}
+                    </td>
+                    <td>
+                        <a href="javascript:void(0)" aria-label="Excluir cartão" class="dg-usuario-conteudo-cartoes-btn-deletar jsApagarCartao" onclick="ClienteCentral.apagarCartao(${card.ID_ClientesCartaoToken})">
                             Excluir
                         </a>
                     </td>
+                </tr>
+                @* <tr class="dg-usuario-conteudo-cartoes-simulacao" id="cartao_${card.ID_ClientesCartaoToken}" bandeira="${imgBandeiraCartaoUsuario(card.CardNumber)}">
+                    <td>${FormatarNumeroCartao(card.CardNumber)}</td>
+                    <td>
+                         <div class="dg-usuario-conteudo-cartoes-simulacao-frente-img" style="background-image: url(@Html.Domain()/assets/img/lazy.png)"></div
+                    </td>
+                    <td>
+                        {if card.IsPrincipal == true}
+                             <a href="javascript:void(0)" aria-label="Marcar como principal" class="jsCartaoPrincipal dg-usuario-conteudo-cartoes-btn-marcar" onclick="ClienteCentral.tornarCartaoPrincipal(${card.ID_ClientesCartaoToken})">
+                                Marcar
+                            </a>
+                        {else}
+                            <a href="javascript:void(0)" aria-label="Marcar como principal" class="jsCartaoPrincipal dg-usuario-conteudo-cartoes-btn-marcar" onclick="ClienteCentral.tornarCartaoPrincipal(${card.ID_ClientesCartaoToken})">
+                                Marcar
+                            </a>
+                        {/if}
+                    </td>
+                    <td>
+                        <a href="javascript:void(0)" aria-label="Excluir cartão" class="jsApagarCartao dg-usuario-conteudo-cartoes-btn-deletar" onclick="ClienteCentral.apagarCartao(${card.ID_ClientesCartaoToken})">
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+                 *@
     @* Aqui precisaremos adicionar nas classes uma condição se é o cartão principal ou nao 'dg-isCartaoPrincipal' *@
 
                 @* {if card.IsPrincipal == true}
@@ -173,7 +205,6 @@
                         </div>
                     </div>
                 </div>*@
-                </tr>
                 <!-- item cartão -->
             {/for}
             </tbody>
