@@ -7741,6 +7741,28 @@ body [aba="produtosFavoritos"] .tns-controls {
   top: -49px;
 }
 
+body [aba="produtosFavoritos"] .tns-controls button {
+  font-size: 0;
+  width: 9px;
+  height: 16px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+body [aba="produtosFavoritos"] .tns-controls button[disabled] {
+  opacity: .5;
+}
+
+body [aba="produtosFavoritos"] .tns-controls button[data-controls="prev"] {
+  margin-right: 24px;
+  background-image: url(../img/icones/central/arrow-left.svg);
+}
+
+body [aba="produtosFavoritos"] .tns-controls button[data-controls="next"] {
+  background-image: url(../img/icones/central/arrow-right.svg);
+}
+
 body [aba="produtosFavoritos"] #tns1 > .tns-item {
   padding-right: 30px;
 }

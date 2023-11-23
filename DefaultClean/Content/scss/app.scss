@@ -6445,6 +6445,24 @@ body {
             position: absolute;
             right: 52px;
             top: -49px;
+            button {
+                font-size: 0;
+                width: 9px;
+                height: 16px;
+                display: inline-block;
+                background-repeat: no-repeat;
+                background-position: center;
+                &[disabled] {
+                    opacity: .5;
+                }
+                &[data-controls="prev"] {
+                    margin-right: 24px;
+                    background-image: url(../img/icones/central/arrow-left.svg);
+                }
+                &[data-controls="next"] {
+                    background-image: url(../img/icones/central/arrow-right.svg);
+                }
+            }
         }
         #tns1 > .tns-item {
             padding-right: 30px;
