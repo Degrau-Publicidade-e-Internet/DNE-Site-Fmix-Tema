@@ -6382,6 +6382,8 @@ body {
             background-color: #fff;
             min-width: 32px;
             max-width: 32px;
+            border-radius: 7px;
+            padding: 2px 2px;
         }
     }
     @media (min-width: 992px) {
@@ -6594,5 +6596,8 @@ body {
                 left: 0;
             }
         }
+    }
+    .dg-usuario-conteudo-cartoes-simulacao-frente-img {
+        position: static !important;
     }
 }

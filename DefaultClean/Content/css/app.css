@@ -7662,6 +7662,8 @@ body .dg-usuario-conteudo-pedidos-ver, body .dg-usuario-conteudo-pedidos-lista .
     background-color: #fff;
     min-width: 32px;
     max-width: 32px;
+    border-radius: 7px;
+    padding: 2px 2px;
   }
 }
 
@@ -7906,5 +7908,9 @@ body [aba="produtosFavoritos"] #tns1 > .tns-item {
     top: 188px;
     left: 0;
   }
+}
+
+body .dg-usuario-conteudo-cartoes-simulacao-frente-img {
+  position: static !important;
 }
 /*# sourceMappingURL=app.css.map */

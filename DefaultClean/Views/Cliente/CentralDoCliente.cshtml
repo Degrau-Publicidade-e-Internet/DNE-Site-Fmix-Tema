@@ -106,19 +106,39 @@
         Consulte e exclua os <strong>cartões cadastrados:</strong>
     </div>
     <div class="dg-usuario-conteudo dg-usuario-conteudo--cartoes">
-        <div class="dg-usuario-conteudo-cartoes">
+        <table class="dg-usuario-conteudo-cartoes">
+            <thead>
+                <tr>
+                    <th>Nº do cartão</th>
+                    <th>Bandeira</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody
             {for card in Cartoes }
                 <!-- item cartão -->
+                <tr>
+                    <td>${FormatarNumeroCartao(card.CardNumber)}</td>
+                    <td>
+                         <div class="dg-usuario-conteudo-cartoes-simulacao-frente-img" style="background-image: url(@Html.Domain()/assets/img/lazy.png)"></div
+                    </td>
+                    <td></td>
+                    <td>
+                        <a href="javascript:void(0)" aria-label="Excluir cartão" class="dg-mobile-hide dg-usuario-conteudo-cartoes-simulacao-apagar jsApagarCartao" onclick="ClienteCentral.apagarCartao(${card.ID_ClientesCartaoToken})">
+                            Excluir
+                        </a>
+                    </td>
     @* Aqui precisaremos adicionar nas classes uma condição se é o cartão principal ou nao 'dg-isCartaoPrincipal' *@
 
-                {if card.IsPrincipal == true}
+                @* {if card.IsPrincipal == true}
                     <div class="dg-usuario-conteudo-cartoes-simulacao dg-isCartaoPrincipal" id="cartao_${card.ID_ClientesCartaoToken}" bandeira="${imgBandeiraCartaoUsuario(card.CardNumber)}">
                 {else}
                     <div class="dg-usuario-conteudo-cartoes-simulacao" id="cartao_${card.ID_ClientesCartaoToken}" bandeira="${imgBandeiraCartaoUsuario(card.CardNumber)}">
-                {/if}
+                {/if} *@
 
 
-
+@* 
                     <div class="dg-usuario-conteudo-cartoes-simulacao-card">
                         <div class="dg-usuario-conteudo-cartoes-simulacao-frente-img" style="background-image: url(@Html.Domain()/assets/img/lazy.png)"></div>
                         <div class="dg-usuario-conteudo-cartoes-simulacao-frente-numero">${FormatarNumeroCartao(card.CardNumber)}</div>
@@ -152,11 +172,13 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div>*@
+                </tr>
                 <!-- item cartão -->
             {/for}
+            </tbody>
         </div>
-    </div>
+    </table>
 </script>
 
 <div id="divCartoesCadastrados"></div>
