@@ -78,6 +78,8 @@
 
                 @if (Model.SubProduto.Count() > 0)
                 {
+                    ViewData["fromSlider"] = "fromSlider";
+
                     @await Html.PartialAsync("_TemplateBoxProduto")
 
                 } else
@@ -405,8 +407,8 @@
                         <div class="dg-usuario-conteudo-pedido-tabela-flex">
                             <div>
                                 <div class="dg-produto-nome">${itens.Produto} ${itens.ComplementoBrindes}</div>
+                                <div class="dg-produto-marca">Fabricado por: <b>${itens.Marca}<b></div>
                                 <div class="dg-produto-codigo">Cód. do produto: ${itens.ID_SubProduto}</div>
-                                <div class="dg-produto-marca">Marca: ${itens.Marca}</div>
                                 <div class="dg-desktop-hide dg-usuario-conteudo-pedido-tabela-valores">
                                     <div>
                                         <b>Valor Und.</b>
@@ -967,5 +969,7 @@
 
 @{
     Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/CentralCliente.css", false);
-    Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/CentralCliente.js", false);
+    Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/tiny-slider.css", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/slick.js", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/CentralClienteV2.js", false);
 }

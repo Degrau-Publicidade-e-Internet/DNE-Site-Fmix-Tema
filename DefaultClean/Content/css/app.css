@@ -7512,7 +7512,7 @@ body .dg-usuario-editar-enderecos-item a, body .dg-usuario-editar-enderecos-item
 }
 
 body .dg-favoritos-boxproduto-lista .dg-boxproduto {
-  width: 23%;
+  width: 100%;
 }
 
 body h1.dg-institucional-titulo {
@@ -7663,5 +7663,85 @@ body .dg-usuario-conteudo-pedidos-ver, body .dg-usuario-conteudo-pedidos-lista .
     min-width: 32px;
     max-width: 32px;
   }
+}
+
+@media (min-width: 992px) {
+  body .dg-usuario-conteudo.dg-usuario-conteudo-pedido {
+    padding: 0;
+    margin-bottom: 16px;
+  }
+}
+
+body .dg-usuario-conteudo-pedido-status-barra-progresso {
+  background-color: #E00D4C;
+}
+
+body .dg-usuario-conteudo-pedido-tabela-alerta b, body .dg-usuario-conteudo-pedido-status_item.dg-ativo {
+  color: #E00D4C;
+}
+
+body .dg-usuario-main .dg-titulo .dg-icon.dg-icon-eye {
+  width: 24px;
+  height: 24px;
+  background-image: url(../img/icones/central/box.svg);
+}
+
+body .dg-usuario-conteudo-pedido-tabela th {
+  color: #0B1841;
+}
+
+body .dg-usuario-conteudo-pedido-tabela {
+  border: 1px solid #ddeaf8;
+  color: #45494D;
+}
+
+body .dg-usuario-conteudo-pedido-tabela .dg-produto-nome {
+  font-size: 12px;
+  font-weight: bold;
+  color: #0B1841;
+}
+
+body .dg-usuario-conteudo-pedido-tabela .dg-produto-codigo {
+  font-size: 9px;
+  color: #E00D4C;
+  font-weight: 400;
+}
+
+body .dg-usuario-conteudo-pedido-tabela .dg-produto-marca {
+  font-size: 9px;
+  color: #969696;
+}
+
+body .dg-usuario-conteudo-pedido-tabela .dg-produto-marca b {
+  color: #00D19D;
+}
+
+body .dg-usuario-conteudo-pedido-tabela td {
+  vertical-align: middle;
+}
+
+body .dg-usuario-conteudo-pedido-tabela td:nth-last-child(2), body .dg-usuario-conteudo-pedido-tabela th:nth-last-child(2), body .dg-usuario-conteudo-pedido-tabela td.dg-valor-total, body .dg-usuario-conteudo-pedido-tabela td.dg-valor-und {
+  font-size: 14px;
+  color: #1E1E1E;
+}
+
+body .dg-favoritos-boxproduto-lista {
+  display: block;
+  margin: 0;
+}
+
+body [aba="produtosFavoritos"] .dg-usuario-main {
+  padding-right: 0;
+}
+
+body [aba="produtosFavoritos"] .tns-controls {
+  text-align: right;
+  position: absolute;
+  right: 52px;
+  top: -49px;
+}
+
+body [aba="produtosFavoritos"] #tns1 > .tns-item {
+  padding-right: 30px;
 }
 /*# sourceMappingURL=app.css.map */

@@ -6247,7 +6247,7 @@ body {
         
     }
     .dg-favoritos-boxproduto-lista .dg-boxproduto {
-        width: 23%;
+        width: 100%;
     }
 
     h1.dg-institucional-titulo {
@@ -6382,6 +6382,72 @@ body {
             background-color: #fff;
             min-width: 32px;
             max-width: 32px;
+        }
+    }
+    @media (min-width: 992px) {
+        .dg-usuario-conteudo.dg-usuario-conteudo-pedido {
+            padding: 0;
+            margin-bottom: 16px;
+        }
+    }
+    .dg-usuario-conteudo-pedido-status-barra-progresso {
+        background-color: $corVermelho;
+    }
+    .dg-usuario-conteudo-pedido-tabela-alerta b, .dg-usuario-conteudo-pedido-status_item.dg-ativo {
+        color: $corVermelho;
+    }
+    .dg-usuario-main .dg-titulo .dg-icon.dg-icon-eye {
+        width: 24px;
+        height: 24px;
+        background-image: url(../img/icones/central/box.svg);
+    }
+    .dg-usuario-conteudo-pedido-tabela th{
+        color: $corPrimaria
+    }
+    .dg-usuario-conteudo-pedido-tabela {
+        border: 1px solid #ddeaf8;
+        color: #45494D;
+        .dg-produto-nome {
+            font-size: 12px;
+            font-weight: bold;
+            color: $corPrimaria;
+        }
+        .dg-produto-codigo {
+            font-size: 9px;
+            color: $corVermelho;
+            font-weight: 400;
+        }
+        .dg-produto-marca {
+            font-size: 9px;
+            color: #969696;
+            b {
+                color: $corComplementar;
+            }
+        }
+        td {
+            vertical-align: middle;
+        }
+    }
+    .dg-usuario-conteudo-pedido-tabela td:nth-last-child(2), .dg-usuario-conteudo-pedido-tabela th:nth-last-child(2), .dg-usuario-conteudo-pedido-tabela td.dg-valor-total, .dg-usuario-conteudo-pedido-tabela td.dg-valor-und{
+        font-size: 14px;
+        color: #1E1E1E;
+    }
+    .dg-favoritos-boxproduto-lista {
+        display: block;
+        margin: 0;
+    }
+    [aba="produtosFavoritos"] {
+        .dg-usuario-main {
+            padding-right: 0;
+        }
+        .tns-controls {
+            text-align: right;
+            position: absolute;
+            right: 52px;
+            top: -49px;
+        }
+        #tns1 > .tns-item {
+            padding-right: 30px;
         }
     }
 }
