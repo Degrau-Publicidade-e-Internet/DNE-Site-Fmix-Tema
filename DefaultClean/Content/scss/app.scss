@@ -6468,4 +6468,131 @@ body {
             padding-right: 30px;
         }
     }
+    @media (max-width: 991px) {
+        .dg-header-menu-login .dg-menu-login-mobile strong {
+            color: $corComplementar;
+        }
+        .dg-categoria-sidebar {
+            overflow: hidden;
+
+            .dg-header-minhaconta-modal {
+                position: fixed;
+                top: 0;
+                right: 0;
+                transform: translateX(100%);
+                transition: 0.33s transform cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+                height: 100%;
+                background-color: #EFF2F5;
+                box-sizing: border-box;
+                width: 94%;
+                z-index: 50;
+                display: block;
+                padding: 0 28px;
+                .dg-header-minhaconta-flex form {
+                    .dg-titulo {
+                        line-height: 1.42857143;
+                    }
+                }
+            }
+            .dg-header-minhaconta-modal.dg-ativo {
+                transform: translateX(0);
+            }
+
+            .dg-categoria-sidebar-voltar {
+                position: static;
+                width: 38px;
+                height: 38px;
+                border-radius: 12px;
+                margin-left: 16px;
+                padding: 0;
+            }
+            .dg-categoria-filtro-wrapper {
+                overflow: auto;
+            }
+            .templateLogadoLogadoCont {
+                margin: auto 0;
+            }
+            .dg-menu-login-mobile img {
+                width: 35px;
+                height: 35px;
+                margin-right: 10px;
+                border-radius: 50%;
+            }
+            .dg-menu-login-mobile {
+                display: flex;
+                align-items: center;
+                .dg-menu-login-mobile img {
+                    width: 35px;
+                    height: 35px;
+                    margin-right: 10px;
+                    border-radius: 50%;
+                }
+                .dg-menu-login-mobile-top {
+                    font-size: 20px;
+                    font-weight: 500;
+                    color: $corComplementar;
+                    strong {
+                        font-weight: 500;
+                    }
+                }
+                .dg-menu-login-mobile-bottom {
+                    color: #fff;
+                    margin-top: 4px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    a {
+                        display: inline-block;
+                        padding: 4px 8px;
+                        border-radius: 7px;
+                        background-color: #E5E5E5;
+                        font-size: 12px;
+                        font-weight: 500;
+                        color: #3A4855;
+                        &:first-child {
+                            margin-right: 2px;
+                        }
+                        &:last-child {
+                            margin-left: 2px;
+                        }
+                        &:hover, &:focus {
+                            color: #3A4855;
+                            text-decoration: none;
+                            background-color: #d8d8d8;
+                        }
+                    }
+                }
+            }
+            .dg-categoria-header-wrapper {
+                position: absolute;
+                left: 0;
+                top: 0;
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                width: 100%;
+                height: 188px;
+                padding: 22px 20px 0 !important;
+                background-color: rgba(0, 0, 0, 0);
+                top: -188px;
+                z-index: 3;
+            }
+            .dg-categoria-sidebar-titulo {
+                border-top: 1px solid #294BBB;
+            }
+            .dg-titulo, .dg-categoria-sidebar-titulo ~ *, .dg-categoria-sidebar-listagem-wrapper, .dg-categoria-sidebar-titulo {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .dg-categoria-sidebar-wrapper {
+                max-height: calc(100% - 188px);
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 188px;
+                left: 0;
+            }
+        }
+    }
 }

@@ -18,27 +18,27 @@
 
             ativarMascaras(".templateLogadoLogadoCont");
 
-            $(".dg-menuA #modalLogin").submit(function () {
+            $(".templateLogadoLogadoCont #modalLogin").submit(function () {
                 Cliente.efetuarLogin($(this));
             });
 
-            $(".dg-header #modalLogin").submit(function () {
-                Cliente.efetuarLogin($(this));
-            });
+            // $(".dg-header #modalLogin").submit(function () {
+            //     Cliente.efetuarLogin($(this));
+            // });
 
-            $(".dg-menuA #modalCadastro").submit(function () {
+            $(".templateLogadoLogadoCont #modalCadastro").submit(function () {
                 if (validacaoBasica('.dg-menuA #modalCadastro')) {
                     Cliente.validaCPF($(this).find('#VeryCPF'));
                 }
             });
 
-            $(".dg-header #modalCadastro").submit(function () {
-                if (validacaoBasica('.dg-header #modalCadastro')) {
-                    Cliente.validaCPF($(this).find('#VeryCPF'));
-                }
-            });
+            // $(".dg-header #modalCadastro").submit(function () {
+            //     if (validacaoBasica('.dg-header #modalCadastro')) {
+            //         Cliente.validaCPF($(this).find('#VeryCPF'));
+            //     }
+            // });
 
-            $('.dg-menuA #form-senha').submit(function() {
+            $('.templateLogadoLogadoCont #form-senha').submit(function() {
                 var field = $(this).find('#EsqueciSenhaEmail');
                 if (field.val().length > 4) {
                     Cliente.esqueciSenha.ajax($(this).find('#EsqueciSenhaEmail'));
@@ -51,18 +51,18 @@
                 }
             });
 
-            $('.dg-header #form-senha').submit(function() {
-                var field = $(this).find('#EsqueciSenhaEmail');
-                if (field.val().length > 4) {
-                    Cliente.esqueciSenha.ajax($(this).find('#EsqueciSenhaEmail'));
-                } else {
-                        $.alertpadrao({
-                        type: 'html',
-                        text: "Por favor, preencha um e-mail ou CPF válido.",
-                        addClass: "dg-negativo"
-                    });
-                }
-            });
+            // $('.dg-header #form-senha').submit(function() {
+            //     var field = $(this).find('#EsqueciSenhaEmail');
+            //     if (field.val().length > 4) {
+            //         Cliente.esqueciSenha.ajax($(this).find('#EsqueciSenhaEmail'));
+            //     } else {
+            //             $.alertpadrao({
+            //             type: 'html',
+            //             text: "Por favor, preencha um e-mail ou CPF válido.",
+            //             addClass: "dg-negativo"
+            //         });
+            //     }
+            // });
 
             $(".logOutCliente").click(function () {
                 Cliente.logOutCliente();

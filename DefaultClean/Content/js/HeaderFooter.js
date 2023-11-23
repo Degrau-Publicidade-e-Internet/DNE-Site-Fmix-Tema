@@ -19,6 +19,59 @@ $(document).ready(function () {
     $('body').on('mouseleave','.jsBoxproduto', function() {
         $(this).removeClass('dg-boxproduto-hover');
     });
+
+
+    var menuLoginMobileWrapper = $('.dg-categoria-sidebar');
+
+    $('body').on('click', '.dg-categoria-sidebar .jsMobileAbrirEntrar', function() {
+        startMenuLoginMobile();
+        menuLoginMobileWrapper.find('.dg-header-minhaconta-modal-login').addClass('dg-ativo');
+    });
+
+    $('body').on('click', '.dg-categoria-sidebar .jsMobileAbrirCriarConta', function() {
+        startMenuLoginMobile();
+        menuLoginMobileWrapper.find('.dg-header-minhaconta-modal-cadastro').addClass('dg-ativo');
+    });
+
+    function startMenuLoginMobile() {
+        menuLoginMobileWrapper.find('.dg-ativo').removeClass('dg-ativo');
+        menuLoginMobileWrapper.find('.templateLogadoLogadoCont').addClass('dg-ativo');
+        menuLoginMobileWrapper.addClass('dg-ativo');
+        menuLoginMobileWrapper.find('.dg-header-minhaconta-modal').addClass('dg-ativo');
+
+        setTimeout(function () {
+            $(".dg-header-minhaconta-modal .dg-header-minhaconta-flex input:not([type='submit']):not([type='hidden']):not(.dg-ativo):-webkit-autofill").each(function(){
+                $(this).addClass('dg-ativo');
+            });
+            $(".dg-header-minhaconta-modal .dg-header-minhaconta-flex input:not([type='submit']):not([type='hidden'])").each(function() {
+                if ($(this).val() !== '') {
+                    $(this).addClass('dg-ativo');
+                }
+            });
+        }, 100);
+    }
+
+    $('body').on('click', '.dg-categoria-sidebar .jsMobileFecharMenuLogin', function() {
+        menuLoginMobileWrapper.find('.templateLogadoLogadoCont').removeClass('dg-ativo');
+        menuLoginMobileWrapper.find('.dg-header-minhaconta-modal').removeClass('dg-ativo');
+        // setTimeout(function() {
+        //     menuLoginMobileWrapper.removeClass('dg-ativo');
+        // }, 500);
+    });
+
+    $('body').on('click', '.dg-header-minhaconta-modal-cadastro .dg-header-minhaconta-modal-footer-voltar-btn', function() {
+        menuLoginMobileWrapper.find('.dg-ativo').removeClass('dg-ativo');
+    });
+    
+    $('body').on('click', '.dg-header-minhaconta-modal-esquecisenha .dg-header-minhaconta-modal-footer-voltar-btn', function () {
+        menuLoginMobileWrapper.find('.dg-header-minhaconta-modal-esquecisenha.dg-ativo').removeClass('dg-ativo');
+        menuLoginMobileWrapper.find('.dg-header-minhaconta-modal-login').addClass('dg-ativo');
+    });
+
+    $('body').on('click', '.dg-header-minhaconta-modal-esqueci-url > a', function () {
+        startMenuLoginMobile();
+        menuLoginMobileWrapper.find('.dg-header-minhaconta-modal-esquecisenha').addClass('dg-ativo');
+    });
 });
 
 Header.busca = function() {
