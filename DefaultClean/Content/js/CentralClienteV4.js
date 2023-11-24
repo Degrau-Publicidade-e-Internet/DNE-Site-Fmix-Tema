@@ -35,9 +35,9 @@ $(document).ready(function () {
 		}
 	} else {
 		var abaPorParametro = pegarParametro("url");
-		if (abaPorParametro === "meusPedidos") {
-			$("[usuario-aba='" + abaPorParametro + "']").click();
-		}
+        $("[usuario-aba='" + abaPorParametro + "']").click();
+		// if (abaPorParametro === "meusPedidos") {
+		// }
 	}
 
     if ($('#HtmlUsuarioFavLista').length > 0) {
@@ -339,12 +339,12 @@ var ClienteCentral = {
                     nav: false,
                     items: 2.2,
                     loop: false,
-                    controls: false,
+                    controls: true,
                     gutter: 20,
                 
                     responsive: {
                         625: {
-                            items: 3,
+                            items: 2.5,
                             controls: true,
                         },
                         992: {

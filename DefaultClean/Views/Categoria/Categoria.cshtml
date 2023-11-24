@@ -257,7 +257,7 @@ else
                 {
 
                     <div class="dg-categoria-intro @classTipo" style="background-color: #f5f9fd;border-bottom: 4px solid @corFaixa;">
-                        @if (tipoPg != "Familia")
+                        @if (tipoPg != "Familia" && Model.HederCategoria.ImagemCategoria.Count() > 0)
                             {
                             <img class="dg-categoria-banner-img" src="https://static.drogarianovaesperanca.com.br/marcas/@Model.HederCategoria.ImagemCategoria" alt="Imagem: @Html.Raw(oModel.CategoriaTitle)" title="@Model.HederCategoria.Alt_Imagem" loading="lazy">
 
