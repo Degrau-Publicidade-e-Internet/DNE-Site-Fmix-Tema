@@ -1,0 +1,95 @@
+$corPrimaria: #0B1841;
+$corSecundaria: #002399;
+$corComplementar: #00D19D;
+$corVermelho: #E00D4C;
+
+body {
+    background-color: #fff;
+    .dg-checkout-footer, .dg-checkout-header {
+        background-color: $corPrimaria;
+    }
+    
+    .dg-checkout-main-bloco-conteudo, .dg-checkout-main-side-bloco, .dg-checkout-main-side-resumo, .dg-checkout-main-side-footer {
+        background-color: #F5F9FD;
+        background: #F5F9FD;
+    }
+    
+    @media (max-width: 991px) {
+        .dg-checkout-main-side-footer {
+            background-color: $corPrimaria;
+        }
+    }
+    
+    .dg-checkout-header {
+        border-bottom: 4px solid $corComplementar;
+    }
+    
+    .dg-checkout-main-carrinho-item-total, .dg-checkout-main-bloco-topo>.dg-titulo strong {
+        color: $corComplementar;
+    }
+
+    .dg-checkout-main-carrinho-item-total {
+        font-size: 18px;
+        font-weight: 600;
+    }
+    
+    .dg-checkout-main-side .dg-titulo strong {
+        color: $corSecundaria;
+    }
+    
+    .dg-checkout-main-side-prosseguir{
+        background-color: $corComplementar;
+        &:hover, &:focus {
+            background-color: darken($corComplementar, 15%);
+        }
+    }
+    
+    .dg-checkout-main-carrinho-item, .dg-checkout-main-side-resumo ul li {
+        color: #626669;
+    }
+    
+    .dg-checkout-main-carrinho-item {
+        border-color: #DFE6ED;
+    }
+    
+    .dg-checkout-main-carrinho-titulos, .dg-checkout-main-carrinho-item-produto strong {
+        color: $corPrimaria;
+    }
+
+    .dg-checkout-main-carrinho-item-valor{
+        font-size: 16px;
+        font-weight: 400;
+        color: #1e1e1e;
+    }
+
+    .dg-checkout-main-carrinho-titulos {
+        font-weight: 400;
+        font-size: 12px;
+    }
+    
+    .dg-checkout-main-bloco-barra {
+        display: none;
+    }
+    
+    .dg-checkout-main-bloco-btn-outline {
+        background-color: $corVermelho;
+        color: #fff;
+        border:  0;
+        &:hover, &:focus {
+            background-color: darken($corVermelho, 15%);
+            color: #fff;
+            border:  0;
+        }
+    }
+    .dg-checkout-main-bloco-footer {
+        padding: 0;
+        background-color: rgba(0,0,0,0);
+    }
+
+    .dg-checkout-main-bloco-topo>.dg-titulo {
+        text-transform: uppercase;
+        font-size: 17px;
+        font-weight: 400;
+        color: $corPrimaria;
+    }
+}

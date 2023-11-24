@@ -1,0 +1,95 @@
+body {
+  background-color: #fff;
+}
+
+body .dg-checkout-footer, body .dg-checkout-header {
+  background-color: #0B1841;
+}
+
+body .dg-checkout-main-bloco-conteudo, body .dg-checkout-main-side-bloco, body .dg-checkout-main-side-resumo, body .dg-checkout-main-side-footer {
+  background-color: #F5F9FD;
+  background: #F5F9FD;
+}
+
+@media (max-width: 991px) {
+  body .dg-checkout-main-side-footer {
+    background-color: #0B1841;
+  }
+}
+
+body .dg-checkout-header {
+  border-bottom: 4px solid #00D19D;
+}
+
+body .dg-checkout-main-carrinho-item-total, body .dg-checkout-main-bloco-topo > .dg-titulo strong {
+  color: #00D19D;
+}
+
+body .dg-checkout-main-carrinho-item-total {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+body .dg-checkout-main-side .dg-titulo strong {
+  color: #002399;
+}
+
+body .dg-checkout-main-side-prosseguir {
+  background-color: #00D19D;
+}
+
+body .dg-checkout-main-side-prosseguir:hover, body .dg-checkout-main-side-prosseguir:focus {
+  background-color: #008564;
+}
+
+body .dg-checkout-main-carrinho-item, body .dg-checkout-main-side-resumo ul li {
+  color: #626669;
+}
+
+body .dg-checkout-main-carrinho-item {
+  border-color: #DFE6ED;
+}
+
+body .dg-checkout-main-carrinho-titulos, body .dg-checkout-main-carrinho-item-produto strong {
+  color: #0B1841;
+}
+
+body .dg-checkout-main-carrinho-item-valor {
+  font-size: 16px;
+  font-weight: 400;
+  color: #1e1e1e;
+}
+
+body .dg-checkout-main-carrinho-titulos {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+body .dg-checkout-main-bloco-barra {
+  display: none;
+}
+
+body .dg-checkout-main-bloco-btn-outline {
+  background-color: #E00D4C;
+  color: #fff;
+  border: 0;
+}
+
+body .dg-checkout-main-bloco-btn-outline:hover, body .dg-checkout-main-bloco-btn-outline:focus {
+  background-color: #980933;
+  color: #fff;
+  border: 0;
+}
+
+body .dg-checkout-main-bloco-footer {
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+body .dg-checkout-main-bloco-topo > .dg-titulo {
+  text-transform: uppercase;
+  font-size: 17px;
+  font-weight: 400;
+  color: #0B1841;
+}
+/*# sourceMappingURL=checkout.css.map */
