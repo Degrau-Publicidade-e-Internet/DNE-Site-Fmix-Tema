@@ -628,8 +628,8 @@
             <span style="font-weight: 600;">Entre em contato com o nosso SAC para a validação de seu cadastro e atualização de suas informações:</span>
             <br><br>
             SAC: ${Data.NumeroSac} ou<br>
-            <a style="color:#333333" href="mailto:sac@drogarianovaesperanca.com.br">
-                <u>sac@drogarianovaesperanca.com.br</u>
+            <a style="color:#333333" href="mailto:sac@farmaciamix.com.br">
+                <u>sac@farmaciamix.com.br</u>
             </a><br><br>
             Segunda a Sexta, das 8h às 18h<br>
             Sábado das 8h às 12h
@@ -1135,275 +1135,267 @@
                 </p>
             </div>
         </div>
-            <div class="dg-checkout-main-bloco-conteudo jsCheckoutConteudo InitRecibo">
-                {if RetornoRecibo.ID_OpcaoPagamento == 512}
-                    <h2 class="dg-subtitulo dg-recibo-subitulo">Escaneie este código <strong>para pagar:</strong></h2>
-                {elseif RetornoRecibo.ID_OpcaoPagamento == 9}
-                    <h2 class="dg-subtitulo dg-recibo-subitulo">Pagamento via <strong>Depósito Bancário:</strong></h2>
-                {elseif RetornoRecibo.ID_OpcaoPagamento == 421}
-                    <h2 class="dg-subtitulo dg-recibo-subitulo">Pagamento via <strong>Boleto Bancário:</strong></h2>
-                {elseif RetornoRecibo.Pagamento.TipoPagamento == 'cartao'}
-                    <h2 class="dg-subtitulo dg-recibo-subitulo">Pagamento via <strong>Cartão de Crédito:</strong></h2>
-                {/if}
-                <div class="dg-checkout-main-recibo-container">
-                    <div class="dg-checkout-main-recibo-wrapper">
-                        <div class="dg-checkout-main-recibo-bloco-1">
-                            {if RetornoRecibo.ID_OpcaoPagamento == 512}
-                            <div class="dg-checkout-main-recibo-flex">
-                                <img class="dg-img-qrcode" src="https://pix.drogarianovaesperanca.com.br/api/qrcode/${RetornoRecibo.ID_Pedido}/${RetornoRecibo.ChavePixService}.png" />
-                                <ol>
-                                    <li class="dg-checkout-main-recibo-flex">
-                                        <strong>1.</strong>
-                                        <p>Acesse seu Internet Banking ou app de pagamentos.</p>
-                                    </li>
-                                    <li class="dg-checkout-main-recibo-flex">
-                                        <strong>2.</strong>
-                                        <p>Escolha pagar via Pix.</p>
-                                    </li>
-                                    <li class="dg-checkout-main-recibo-flex">
-                                        <strong>3.</strong>
-                                        <p>Escaneie o código ao lado:</p>
-                                    </li>
-                                    <li class="dg-verde">
-                                        Pague e será creditado na hora
-                                    </li>
-                                </ol>
+        <div class="dg-checkout-main-bloco-conteudo jsCheckoutConteudo InitRecibo">
+            {if RetornoRecibo.ID_OpcaoPagamento == 758}
+            <h2 class="dg-subtitulo dg-recibo-subitulo">Escaneie este código <strong>para pagar:</strong></h2>
+            {elseif RetornoRecibo.ID_OpcaoPagamento == 52}
+            <h2 class="dg-subtitulo dg-recibo-subitulo">Pagamento via <strong>Depósito Bancário:</strong></h2>
+            {elseif RetornoRecibo.ID_OpcaoPagamento == 35}
+            <h2 class="dg-subtitulo dg-recibo-subitulo">Pagamento via <strong>Boleto Bancário:</strong></h2>
+            {elseif RetornoRecibo.Pagamento.TipoPagamento == 'cartao'}
+            <h2 class="dg-subtitulo dg-recibo-subitulo">Pagamento via <strong>Cartão de Crédito:</strong></h2>
+            {/if}
+            <div class="dg-checkout-main-recibo-container">
+                <div class="dg-checkout-main-recibo-wrapper">
+                    <div class="dg-checkout-main-recibo-bloco-1">
+                        {if RetornoRecibo.ID_OpcaoPagamento == 758}
+                        <div class="dg-checkout-main-recibo-flex">
+                            <img class="dg-img-qrcode" src="https://pix.farmaciamix.com.br/api/qrcode/${RetornoRecibo.ID_Pedido}/${RetornoRecibo.ChavePixService}.png" />
+                            <ol>
+                                <li class="dg-checkout-main-recibo-flex">
+                                    <strong>1.</strong>
+                                    <p>Acesse seu Internet Banking ou app de pagamentos.</p>
+                                </li>
+                                <li class="dg-checkout-main-recibo-flex">
+                                    <strong>2.</strong>
+                                    <p>Escolha pagar via Pix.</p>
+                                </li>
+                                <li class="dg-checkout-main-recibo-flex">
+                                    <strong>3.</strong>
+                                    <p>Escaneie o código ao lado:</p>
+                                </li>
+                                <li class="dg-verde">
+                                    Pague e será creditado na hora
+                                </li>
+                            </ol>
+                        </div>
+                        <form class="dg-checkout-main-recibo-codigo-copiar dg-is-small">
+                            <button class="dg-btn-imprimir dg-btn-copiar dg-pulse-delay" type="button">Copiar linha digitável</button>
+                            <button type="button" class="dg-checkout-main-recibo-codigo jsCodigoPixTexto">Visualizar chave PIX</button>
+                            <input type="hidden" value="${RetornoRecibo.QRCodePIX}" id="copiarcodpix" />
+                            <div>
+                                <textarea>${RetornoRecibo.QRCodePIX}</textarea>
                             </div>
-                            <form class="dg-checkout-main-recibo-codigo-copiar dg-is-small">
-                                <button class="dg-btn-imprimir dg-btn-copiar dg-pulse-delay" type="button">Copiar linha digitável</button>
-                                <button type="button" class="dg-checkout-main-recibo-codigo jsCodigoPixTexto">Visualizar chave PIX</button>
-                                <input type="hidden" value="${RetornoRecibo.QRCodePIX}" id="copiarcodpix" />
-                                <div>
-                                    <textarea>${RetornoRecibo.QRCodePIX}</textarea>
-                                </div>
-                            </form>
-                            {elseif RetornoRecibo.ID_OpcaoPagamento == 9}
-                            <div class="dg-checkout-main-recibo-flex">
-                                <img src="/ckeckout/assets/img/checkout/recibo/bradesco-2x.png" />
-                                <div>
-                                    ${RetornoRecibo.Pagamento.HtmlDinamicoOP}
-                                </div>
+                        </form>
+                        {elseif RetornoRecibo.ID_OpcaoPagamento == 52}
+                        <div class="dg-checkout-main-recibo-flex">
+                            <img src="/ckeckout/assets/img/checkout/recibo/bradesco-2x.png" />
+                            <div>
+                                ${RetornoRecibo.Pagamento.HtmlDinamicoOP}
                             </div>
-                            <div class="dg-checkout-main-recibo-codigo-copiar">
-                                <p class="dg-checkout-main-recibo-codigo">
-                                    ${RetornoRecibo.Pagamento.HtmlDinamicoFP}
-                                </p>
-                            </div>
-                            {elseif RetornoRecibo.ID_OpcaoPagamento == 421}
-                            <div class="dg-checkout-main-recibo-flex">
-                                <img src="/ckeckout/assets/img/checkout/recibo/boleto-2x.png" />
-                            </div>
+                        </div>
+                        <div class="dg-checkout-main-recibo-codigo-copiar">
                             <p class="dg-checkout-main-recibo-codigo">
                                 ${RetornoRecibo.Pagamento.HtmlDinamicoFP}
                             </p>
-                            <div class="dg-checkout-main-recibo-codigo-copiar">
-                                <a href="javascript:void(0)" class="dg-btn-imprimir gerarBoleto" rel="${RetornoRecibo.ID_Pedido}">
-                                    Imprimir Boleto
-                                </a>
-                            </div>
-                            {elseif RetornoRecibo.Pagamento.TipoPagamento == 'cartao'}
-                            <div class="dg-checkout-main-recibo-flex">
-                                <!-- A bandeira tem q vir no minusculo -->
-                                {if RetornoRecibo.Pagamento.DadosCartao != null}
-                                <div class="dg-checkout-main-pagamentos-cartao" bandeira="${RetornoRecibo.Pagamento.FormaPagamentoLowerCase}">
-                                    <div class="dg-checkout-main-pagamentos-simulacao">
-                                        <div class="dg-checkout-main-pagamentos-simulacao-card" role="presentation">
-                                            <div class="dg-checkout-main-pagamentos-simulacao-frente">
-                                                <div class="dg-checkout-main-pagamentos-simulacao-frente-img" style="background-image: url(/ckeckout/assets/img/lazy.png)"></div>
-                                                <div class="dg-checkout-main-pagamentos-simulacao-frente-numero">${RetornoRecibo.Pagamento.DadosCartao.CardNumber}</div>
-                                                <div class="dg-checkout-main-pagamentos-simulacao-frente-titular">${RetornoRecibo.Pagamento.DadosCartao.Nome}</div>
-                                                <div class="dg-checkout-main-pagamentos-simulacao-frente-vencimento">${RetornoRecibo.Pagamento.DadosCartao.ExpirationDate}</div>
-                                            </div>
-                                            <div class="dg-checkout-main-pagamentos-simulacao-verso">
-                                                <div class="dg-checkout-main-pagamentos-simulacao-verso-faixa"></div>
-                                                <div class="dg-checkout-main-pagamentos-simulacao-verso-cvv">***</div>
-                                                <div class="dg-checkout-main-pagamentos-simulacao-verso-txt">
-                                                    drogaria nova esperança drogaria nova esperança drogaria nova esperança drogaria nova esperança drogaria nova esperança drogaria nova esperança drogaria nova esperança
-                                                </div>
+                        </div>
+                        {elseif RetornoRecibo.ID_OpcaoPagamento == 35}
+                        <div class="dg-checkout-main-recibo-flex">
+                            <img src="/ckeckout/assets/img/checkout/recibo/boleto-2x.png" />
+                        </div>
+                        <p class="dg-checkout-main-recibo-codigo">
+                            ${RetornoRecibo.Pagamento.HtmlDinamicoFP}
+                        </p>
+                        <div class="dg-checkout-main-recibo-codigo-copiar">
+                            <a href="javascript:void(0)" class="dg-btn-imprimir gerarBoleto" rel="${RetornoRecibo.ID_Pedido}">
+                                Imprimir Boleto
+                            </a>
+                        </div>
+                        {elseif RetornoRecibo.Pagamento.TipoPagamento == 'cartao'}
+                        <div class="dg-checkout-main-recibo-flex">
+                            <!-- A bandeira tem q vir no minusculo -->
+                            {if RetornoRecibo.Pagamento.DadosCartao != null}
+                            <div class="dg-checkout-main-pagamentos-cartao" bandeira="${RetornoRecibo.Pagamento.FormaPagamentoLowerCase}">
+                                <div class="dg-checkout-main-pagamentos-simulacao">
+                                    <div class="dg-checkout-main-pagamentos-simulacao-card" role="presentation">
+                                        <div class="dg-checkout-main-pagamentos-simulacao-frente">
+                                            <div class="dg-checkout-main-pagamentos-simulacao-frente-img" style="background-image: url(/ckeckout/assets/img/lazy.png)"></div>
+                                            <div class="dg-checkout-main-pagamentos-simulacao-frente-numero">${RetornoRecibo.Pagamento.DadosCartao.CardNumber}</div>
+                                            <div class="dg-checkout-main-pagamentos-simulacao-frente-titular">${RetornoRecibo.Pagamento.DadosCartao.Nome}</div>
+                                            <div class="dg-checkout-main-pagamentos-simulacao-frente-vencimento">${RetornoRecibo.Pagamento.DadosCartao.ExpirationDate}</div>
+                                        </div>
+                                        <div class="dg-checkout-main-pagamentos-simulacao-verso">
+                                            <div class="dg-checkout-main-pagamentos-simulacao-verso-faixa"></div>
+                                            <div class="dg-checkout-main-pagamentos-simulacao-verso-cvv">***</div>
+                                            <div class="dg-checkout-main-pagamentos-simulacao-verso-txt">
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                {/if}
                             </div>
-                            <p class="dg-checkout-main-recibo-codigo">
-                                <strong class="dg-verde">Pagamento via cartão {if RetornoRecibo.ID_SubStatus == '2'}aprovado{else}reprovado{/if}</strong><br>
-                            </p>
                             {/if}
                         </div>
-                        <div class="dg-checkout-main-recibo-bloco-2 dg-mobile-hide">
-                            <ul class="dg-checkout-main-recibo-dados">
-                                <li>
-                                    <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados do Frete</div>
-                                    <ul>
-                                        <li><span>Forma de envio:</span>
-                                            <span>
-                                                ${RetornoRecibo.Frete.Frete}
-                                                {if RetornoRecibo.CodRastreamento != ''}
-                                                     (${RetornoRecibo.CodRastreamento})
-                                                {/if}
-                                            </span>
-                                        </li>
-                                        <li><span>Tempo de Entrega:</span>
+                        <p class="dg-checkout-main-recibo-codigo">
+                            <strong class="dg-verde">Pagamento via cartão {if RetornoRecibo.ID_SubStatus == '2'}aprovado{else}reprovado{/if}</strong><br>
+                        </p>
+                        {/if}
+                    </div>
+                    <div class="dg-checkout-main-recibo-bloco-2 dg-mobile-hide">
+                        <ul class="dg-checkout-main-recibo-dados">
+                            <li>
+                                <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados do Frete</div>
+                                <ul>
+                                    <li>
+                                        <span>Forma de envio:</span>
+                                        <span>
+                                            ${RetornoRecibo.Frete.Frete}
+                                            {if RetornoRecibo.CodRastreamento != ''}
+                                            (${RetornoRecibo.CodRastreamento})
+                                            {/if}
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>Tempo de Entrega:</span>
                                         <span>
                                             {var valorFrete = 0}
                                             {if RetornoRecibo.Frete.IsRetiradaLoja == false}
 
-                                                {if RetornoRecibo.Frete.ID_Frete == 49}
-                                                    Entrega no mesmo dia
-                                                {else}
-                                                    {if RetornoRecibo.Frete.PrazoEntrega <= 0}
-                                                    ${RetornoRecibo.Frete.PrazoEntregaHora}
-                                                    {else}
-                                                    ${RetornoRecibo.Frete.PrazoEntrega} {if RetornoRecibo.Frete.PrazoEntrega <= 1}dia útil{else}dias úteis{/if}
-                                                    {/if}
-                                                {/if}
+                                            {if RetornoRecibo.Frete.ID_Frete == 49}
+                                            Entrega no mesmo dia
+                                            {else}
+                                            {if RetornoRecibo.Frete.PrazoEntrega <= 0}
+                                            ${RetornoRecibo.Frete.PrazoEntregaHora}
+                                            {else}
+                                            ${RetornoRecibo.Frete.PrazoEntrega} {if RetornoRecibo.Frete.PrazoEntrega <= 1}dia útil{else}dias úteis{/if}
+                                            {/if}
+                                            {/if}
                                             {else}
                                             Tempo estimado para retirada em 1 hora
                                             {/if}
                                         </span>
-                                        </li>
-                                        <li><span>Valor:</span>
-                                            <span>
-                                                {if RetornoRecibo.Frete.Valor == '0'}
-                                                {var valorFrete = 'Grátis'}
-                                                ${valorFrete}
-                                                {else}
-                                                {var valorFrete = RetornoRecibo.Frete.Valor.FormatCurrency()}
-                                                R$ ${valorFrete}
-                                                {/if}
-                                            </span>
-                                         </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados da Entrega</div>
-                                    <ul>
-                                        <li class="no-margin">
-                                            Tipo de endereço: ${RetornoRecibo.NomeEndereco}
-                                        </li>
-                                        <li class="no-margin">
-                                            CEP: ${RetornoRecibo.CEP}
-                                        </li>
-                                        <li class="no-margin">
-                                            Endereço: ${RetornoRecibo.Endereco} , ${RetornoRecibo.Numero} ${RetornoRecibo.Compl} - ${RetornoRecibo.Bairro} - ${RetornoRecibo.Cidade}/${RetornoRecibo.Estado}
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados do Pagamento</div>
-                                    <ul>
-                                        <li>
-                                            <span>
-                                                Pagamento escolhido:
-                                            </span>
-                                            <span>
-                                                ${RetornoRecibo.Pagamento.FormaPagamento}
-                                                {if RetornoRecibo.ID_OpcaoPagamento == 421}
-                                                <img src="/ckeckout/assets/img/checkout/recibo/boleto.png">
-                                                {elseif RetornoRecibo.ID_OpcaoPagamento == 9}
-                                                <img src="/ckeckout/assets/img/checkout/recibo/deposito.png">
-                                                {elseif RetornoRecibo.Pagamento.TipoPagamento == 'cartao'}
-                                                <img src="/ckeckout/assets/img/checkout/recibo/cartao.png">
-                                                {elseif RetornoRecibo.ID_OpcaoPagamento == 512}
-                                                <img src="/ckeckout/assets/img/checkout/recibo/pix.png">
-                                                {/if}
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span>Forma de Pagamento:</span>
-                                            <span>
-                                                ${RetornoRecibo.Pagamento.nparcela}x
-                                                R$ ${RetornoRecibo.ValorParcela.FormatCurrency()}
-                                            </span>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados do Pedido</div>
-                                    <ul>
-                                        <li class="no-margin">Data:  ${RetornoRecibo.Data} - Hora: ${Cliente.FormataHora(RetornoRecibo.Hora)}</li>
-                                        {if RetornoRecibo.Pagamento.Desconto > 0}
-                                        <li class="no-margin">
-                                            Desconto por Forma de Pagamento:
-                                            R$ ${RetornoRecibo.Pagamento.FormatCurrency()}
-                                        </li>
-                                        {/if}
-                                        {if RetornoRecibo.ValorTotalDesconto > 0}
-                                        <li class="no-margin">
-                                            Desconto:
-                                            R$ ${RetornoRecibo.ValorTotalDesconto.FormatCurrency()}
-                                        </li>
-                                        {/if}
-                                        <li class="no-margin">Valor dos Produtos: R$ ${RetornoRecibo.SubTotal.FormatCurrency()}</li>
-                                        <li>Valor do Frete: R$ ${valorFrete}</li>
-                                        <li><strong>Total do Pedido: R$ ${RetornoRecibo.TotalGeralJuros.FormatCurrency()}</strong></li>
-                                    </ul>
-                                </li>
-                            </ul>
+                                    </li>
+                                    <li>
+                                        <span>Valor:</span>
+                                        <span>
+                                            {if RetornoRecibo.Frete.Valor == '0'}
+                                            {var valorFrete = 'Grátis'}
+                                            ${valorFrete}
+                                            {else}
+                                            {var valorFrete = RetornoRecibo.Frete.Valor.FormatCurrency()}
+                                            R$ ${valorFrete}
+                                            {/if}
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados da Entrega</div>
+                                <ul>
+                                    <li class="no-margin">
+                                        Tipo de endereço: ${RetornoRecibo.NomeEndereco}
+                                    </li>
+                                    <li class="no-margin">
+                                        CEP: ${RetornoRecibo.CEP}
+                                    </li>
+                                    <li class="no-margin">
+                                        Endereço: ${RetornoRecibo.Endereco} , ${RetornoRecibo.Numero} ${RetornoRecibo.Compl} - ${RetornoRecibo.Bairro} - ${RetornoRecibo.Cidade}/${RetornoRecibo.Estado}
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados do Pagamento</div>
+                                <ul>
+                                    <li>
+                                        <span>
+                                            Pagamento escolhido:
+                                        </span>
+                                        <span>
+                                            ${RetornoRecibo.Pagamento.FormaPagamento}
+                                            {if RetornoRecibo.ID_OpcaoPagamento == 35}
+                                            <img src="/ckeckout/assets/img/checkout/recibo/boleto.png">
+                                            {elseif RetornoRecibo.ID_OpcaoPagamento == 52}
+                                            <img src="/ckeckout/assets/img/checkout/recibo/deposito.png">
+                                            {elseif RetornoRecibo.Pagamento.TipoPagamento == 'cartao'}
+                                            <img src="/ckeckout/assets/img/checkout/recibo/cartao.png">
+                                            {elseif RetornoRecibo.ID_OpcaoPagamento == 758}
+                                            <img src="/ckeckout/assets/img/checkout/recibo/pix.png">
+                                            {/if}
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>Forma de Pagamento:</span>
+                                        <span>
+                                            ${RetornoRecibo.Pagamento.nparcela}x
+                                            R$ ${RetornoRecibo.ValorParcela.FormatCurrency()}
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados do Pedido</div>
+                                <ul>
+                                    <li class="no-margin">Data:  ${RetornoRecibo.Data} - Hora: ${Cliente.FormataHora(RetornoRecibo.Hora)}</li>
+                                    {if RetornoRecibo.Pagamento.Desconto > 0}
+                                    <li class="no-margin">
+                                        Desconto por Forma de Pagamento:
+                                        R$ ${RetornoRecibo.Pagamento.FormatCurrency()}
+                                    </li>
+                                    {/if}
+                                    {if RetornoRecibo.ValorTotalDesconto > 0}
+                                    <li class="no-margin">
+                                        Desconto:
+                                        R$ ${RetornoRecibo.ValorTotalDesconto.FormatCurrency()}
+                                    </li>
+                                    {/if}
+                                    <li class="no-margin">Valor dos Produtos: R$ ${RetornoRecibo.SubTotal.FormatCurrency()}</li>
+                                    <li>Valor do Frete: R$ ${valorFrete}</li>
+                                    <li><strong>Total do Pedido: R$ ${RetornoRecibo.TotalGeralJuros.FormatCurrency()}</strong></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="dg-checkout-main-recibo-alerta">
+                    {if RetornoRecibo.Frete.ID_Frete == 49}
+                    <div data-tipo="SUPER EXPRESSO">
+                        <b class="jsAbrirInfoAlerta">Informações sobre Super Expresso:</b>
+                        <div>
+                            <p>
+                                O prazo de envio começa a contar 30 minutos após a confirmação de pagamento e o código de rastreio ficará disponível assim que o pedido for coletado pela transportadora. Lembre-se: podem ocorrer atrasos devido ao sistema da transportadora ou condições adversas que interfiram na entrega do pedido.
+                            </p><p><strong>Essa modalidade de frete funciona apenas para pagamentos feitos com cartão de crédito ou PIX.</strong></p>
                         </div>
                     </div>
-                    <div class="dg-checkout-main-recibo-alerta">
-                        {if RetornoRecibo.Frete.ID_Frete == 49}
-                            <div data-tipo="SUPER EXPRESSO">
-                                <b class="jsAbrirInfoAlerta">Informações sobre Super Expresso:</b>
-                                <div>
-                                    <p>O prazo de envio começa a contar 30 minutos após a confirmação de pagamento e o código de rastreio ficará disponível assim que o pedido for coletado pela transportadora. Lembre-se: podem ocorrer atrasos devido ao sistema da transportadora ou condições adversas que interfiram na entrega do pedido.
-                                    </p><p><strong>Essa modalidade de frete funciona apenas para pagamentos feitos com cartão de crédito ou PIX.</strong></p>
-                                </div>
-                            </div>
-                        {elseif RetornoRecibo.Frete.ID_Frete == 8 || RetornoRecibo.Frete.ID_Frete == 56 || RetornoRecibo.Frete.ID_Frete == 50}
-                            <div data-tipo="TRANSPORTADORA">
-                                <b class="jsAbrirInfoAlerta">Informações sobre Transportadora:</b>
-                                <div><p>Em até 1 dia útil após a confirmação do pagamento, nós realizaremos a postagem do seu pedido.</p><p>O código de rastreio ficará disponível após a postagem. Lembre-se: podem ocorrer atrasos devido ao sistema da transportadora.</p></div>
-                            </div>
-                        {elseif RetornoRecibo.Frete.ID_Frete == 3 || RetornoRecibo.Frete.ID_Frete == 5}
-                            <div data-tipo="SEDEX e PAC">
-                                <b class="jsAbrirInfoAlerta">Informações sobre SEDEX e PAC:</b>
-                                <div><p>Em até 1 dia útil após a confirmação do pagamento, nós realizaremos a postagem do seu pedido.</p><p>O código de rastreio ficará disponível após a postagem. Lembre-se: podem ocorrer atrasos devido ao sistema da transportadora.</p></div>
-                            </div>
-                        {elseif RetornoRecibo.Frete.ID_Frete == 1}
-                            <div data-tipo="RETIRADA PACAEMBU">
-                                <b class="jsAbrirInfoAlerta">Informações sobre Retirada na loja de Pacaembu:</b>
-                                <div>
-                                    <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p>
-                                    <p>É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados. </p>
-                                    <p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p>
-    @* <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p><p>
-                                    É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados.
-                                    </p><p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p><p>
-                                    <strong>Essa modalidade de frete funciona apenas para pagamentos feitos com cartão de crédito ou PIX.</strong></p><p>
-                                    Endereço: Av. Pacaembu, 1202 – Pacaembu – São Paulo/SP – CEP: 01234-000</p> *@
-                                </div>
-                            </div>
-                        {elseif RetornoRecibo.Frete.ID_Frete == 2}
-                            <div data-tipo="RETIRADA PIRITUBA">
-                                <b class="jsAbrirInfoAlerta">Informações sobre Retirada na loja de Pirituba:</b>
-                                    <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p>
-                                    <p>É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados. </p>
-                                    <p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p>
-    @* <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p><p>
-                                    É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados.
-                                    </p><p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p><p>
-                                    <strong>Essa modalidade de frete funciona apenas para pagamentos feitos com cartão de crédito ou PIX.</strong></p><p>
-                                    Endereço: Av. Cabo Adão Pereira, 82/88 – Pirituba – São Paulo/SP – CEP: 02936-010</p> *@
-                                </div>
-                            </div>
-                        {elseif RetornoRecibo.Frete.ID_Frete == 6}
-                            <div data-tipo="RETIRADA PLANALTO">
-                                <b class="jsAbrirInfoAlerta">Informações sobre Retirada na loja de Planalto Paulista:</b>
-                                    <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p>
-                                    <p>É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados. </p>
-                                    <p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p>
-    @* <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p><p>
-                                    É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados.
-                                    </p><p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p><p>
-                                    <strong>Essa modalidade de frete funciona apenas para pagamentos feitos com cartão de crédito ou PIX.</strong></p><p>
-                                    Endereço: Av. Cabo Adão Pereira, 82/88 – Pirituba – São Paulo/SP – CEP: 02936-010</p> *@
-                                </div>
-                            </div>
-                        {/if}
+                    {elseif RetornoRecibo.Frete.ID_Frete == 8 || RetornoRecibo.Frete.ID_Frete == 56 || RetornoRecibo.Frete.ID_Frete == 50}
+                    <div data-tipo="TRANSPORTADORA">
+                        <b class="jsAbrirInfoAlerta">Informações sobre Transportadora:</b>
+                        <div><p>Em até 1 dia útil após a confirmação do pagamento, nós realizaremos a postagem do seu pedido.</p><p>O código de rastreio ficará disponível após a postagem. Lembre-se: podem ocorrer atrasos devido ao sistema da transportadora.</p></div>
                     </div>
+                    {elseif RetornoRecibo.Frete.ID_Frete == 3 || RetornoRecibo.Frete.ID_Frete == 5}
+                    <div data-tipo="SEDEX e PAC">
+                        <b class="jsAbrirInfoAlerta">Informações sobre SEDEX e PAC:</b>
+                        <div><p>Em até 1 dia útil após a confirmação do pagamento, nós realizaremos a postagem do seu pedido.</p><p>O código de rastreio ficará disponível após a postagem. Lembre-se: podem ocorrer atrasos devido ao sistema da transportadora.</p></div>
+                    </div>
+                    {elseif RetornoRecibo.Frete.ID_Frete == 1}
+                    <div data-tipo="RETIRADA PACAEMBU">
+                        <b class="jsAbrirInfoAlerta">Informações sobre Retirada na loja de Pacaembu:</b>
+                        <div>
+                            <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p>
+                            <p>É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados. </p>
+                            <p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p>
+                            
+                        </div>
+                    </div>
+                    {elseif RetornoRecibo.Frete.ID_Frete == 2}
+                    <div data-tipo="RETIRADA PIRITUBA">
+                        <b class="jsAbrirInfoAlerta">Informações sobre Retirada na loja de Pirituba:</b>
+                        <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p>
+                        <p>É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados. </p>
+                        <p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p>
+                       
+                    </div>
+                </div>
+                {elseif RetornoRecibo.Frete.ID_Frete == 6}
+                <div data-tipo="RETIRADA PLANALTO">
+                    <b class="jsAbrirInfoAlerta">Informações sobre Retirada na loja de Planalto Paulista:</b>
+                    <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p>
+                    <p>É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados. </p>
+                    <p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p>
+                    
+                </div>
+            </div>
+            {/if}
+        </div>
                     <div class="dg-checkout-main-recibo-timeline-wrapper">
                         <div class="dg-checkout-main-recibo-timeline-title dg-desktop-hide">Evolução do <b>Pedido:</b></div>
                         <div class="dg-checkout-main-recibo-timeline jsMeuPedidoBarra" data-progresso="${RetornoRecibo.NewOrdem}">
@@ -1475,13 +1467,13 @@
                                         </span>
                                         <span>
                                             ${RetornoRecibo.Pagamento.FormaPagamento}
-                                            {if RetornoRecibo.ID_OpcaoPagamento == 421}
+                                            {if RetornoRecibo.ID_OpcaoPagamento == 35}
                                             <img src="/ckeckout/assets/img/checkout/recibo/boleto.png">
-                                            {elseif RetornoRecibo.ID_OpcaoPagamento == 9}
+                                            {elseif RetornoRecibo.ID_OpcaoPagamento == 52}
                                             <img src="/ckeckout/assets/img/checkout/recibo/deposito.png">
                                             {elseif RetornoRecibo.Pagamento.TipoPagamento == 'cartao'}
                                             <img src="/ckeckout/assets/img/checkout/recibo/cartao.png">
-                                            {elseif RetornoRecibo.ID_OpcaoPagamento == 512}
+                                            {elseif RetornoRecibo.ID_OpcaoPagamento == 758}
                                             <img src="/ckeckout/assets/img/checkout/recibo/pix.png">
                                             {/if}
                                         </span>
