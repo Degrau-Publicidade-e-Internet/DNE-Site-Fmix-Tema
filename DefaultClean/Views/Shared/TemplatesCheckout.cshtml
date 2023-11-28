@@ -307,7 +307,7 @@
             {var nomePrincipal = '<span class="dg-endereco-principal"><span style="color:#00D19D">' + end.Nome + '</span><span class="dg-icon-endereco-principal">Endereço Principal</span></span>'}
             @* {var iconePrincial = 'Endereço Principal'} *@
         {/if}
-                <div class="dg-usuario-editar-enderecos-item dg-ativo" id="ID_Endereco_${end.ID_Endereco}">
+                <div class="dg-usuario-editar-enderecos-item dg-checkout-main-enderecos-item {if end.EndPrincipal == true}dg-ativo{/if}" id="ID_Endereco_${end.ID_Endereco}">
 
                 <a href="javascript:void(0)" class="dg-usuario-editar-enderecos-escolha enderecoEscolhido" rel="${end.ID_Endereco}" relCep="${end.CEP}">
                         <strong>${nomePrincipal}</strong>

@@ -100,7 +100,10 @@ body {
         }
     }
     .dg-checkout-main-bloco-footer {
-        padding: 0;
+        padding: 27px 0 0;
+        margin-top: 27px;
+        border-top: 1px solid #DFE6ED;
+        min-height: auto;
         background-color: rgba(0,0,0,0);
     }
 
@@ -657,6 +660,7 @@ body {
         padding: 9px 20px;
         width: auto;
         font-size: 12px;
+        line-height: 14px;
         text-transform: uppercase;
         border-radius: 12px;
         max-width: none;
@@ -735,7 +739,7 @@ body {
                     color: $corPrimaria;
                     line-height: 15px;
                     text-transform: none;
-                    font-weight: 400;
+                    font-weight: 500;
                 }
                 > span {
                     display: block;
@@ -815,14 +819,18 @@ body {
     .dg-usuario-editar-enderecos-escolha {
         display: block;
         padding: 16px !important;
-        margin-bottom: 20px;
+        margin-top: 20px;
         background: #F5F9FD;
+        border-radius: 12px;
         &:hover, &:focus {
             text-decoration: none;
         }
     }
-    .dg-usuario-editar-enderecos-item.dg-ativo {
-        background: #fff;
+    .dg-usuario-editar-enderecos-item {
+        // background: #fff;
+        background: none !important;
+        box-shadow: none;
+        border-radius: 0 !important;
     }
     .dg-usuario-editar-enderecos-item {
         width: 48%;
@@ -834,7 +842,7 @@ body {
         padding: 0;
     }
     .dg-checkout-main-enderecos {
-        margin: 0 -1%;
+        margin: -20px -1% 0;
     }
     .dg-checkout-main-bloco-conteudo>.dg-subtitulo {
         padding: 0;
@@ -842,5 +850,32 @@ body {
         line-height: 14px;
         background-color: rgba(0,0,0,0);
         color: $corPrimaria;
+    }
+    .dg-checkout-main-bloco-voltar{
+        background-color: $corPrimaria;
+        &:hover, &:focus {
+            background-color: darken($corPrimaria, 5%);
+        }
+    }
+    .dg-checkout-main-bloco-btn {
+        background-color: $corComplementar;
+        &:hover, &:focus {
+            background-color: darken($corComplementar, 5%);
+        }
+    }
+    .dg-checkout-main-side-produtos{
+        padding-left: 15px;
+        padding-right: 15px;
+        margin-top: 0;
+        li {
+            font-size: 10px;
+            color: #626669;
+            &:first-child {
+                padding-top: 0;
+            }
+            .dg-checkout-main-side-preco {
+                color: $corPrimaria;
+            }
+        }
     }
 }
