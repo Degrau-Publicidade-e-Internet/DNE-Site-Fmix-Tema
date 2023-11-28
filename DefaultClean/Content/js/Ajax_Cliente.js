@@ -86,7 +86,7 @@ function validacaoBasica(form, validacaoExtra) {
     var validacaoExtraExiste = (typeof validacaoExtra !== "undefined" && typeof validacaoExtra === 'function') ? true : false;
 
     // Campos required
-    var formItens = typeof from === "string" ? $(form + " [validar]") : form.find('[validar]');
+    var formItens = typeof form === "string" ? $(form + " [validar]") : form.find('[validar]');
     formItens.each(function () {
         if (validacaoExtraExiste) {
             if (validacaoExtra($(this))) {

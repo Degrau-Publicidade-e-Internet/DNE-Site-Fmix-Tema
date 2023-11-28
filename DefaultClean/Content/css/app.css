@@ -1495,6 +1495,10 @@ body .dg-home-sintomas .dg-home-sintomas-lista-txt {
   width: 70px;
 }
 
+.dg-footer .dg-checkout-footer-titulo img {
+  margin-right: 15px;
+}
+
 @media (min-width: 992px) {
   .dg-footer .dg-footer-info-extra-1 {
     width: 175px;

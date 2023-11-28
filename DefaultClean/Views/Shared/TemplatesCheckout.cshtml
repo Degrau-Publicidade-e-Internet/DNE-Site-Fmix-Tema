@@ -1,0 +1,1560 @@
+﻿<!-- ### TEMPLATES ### -->
+<!--CÓDIGO ANALYTICS-->
+<script id="templateCadastrarSmsEmail" type="text/x-jquery-tmpl">
+    <p>
+        Para garantir sua segurança, precisamos fazer agora uma verificação dos seus dados.
+    </p>
+    <p>
+        Poderia nos informar como prefere fazer isso? Pode ser via <strong>E-mail</strong> ou <strong>SMS</strong>.
+    </p>
+    <span class="dg-msg-error-envio-conf" style="display:none"></span>
+    <div class="dg-modal-templateCadastrar-btns">
+        <a href="javascript:void(0)" class="dg-modal-templateCadastrar-btn dg-email">E-MAIL</a>
+        <a href="javascript:void(0)" class="dg-modal-templateCadastrar-btn dg-sms">SMS</a>
+    </div>
+    <div class="dg-modal-templateCadastrar-email">
+        <p>
+            Enviamos um e-mail para sua confirmação. Caso não receba o mesmo, <a href="javascript:void(0)" class="problemaenvio-email">clique aqui</a>.
+        </p>
+    </div>
+    <div class="dg-modal-templateCadastrar-sms">
+        <p>
+            Enviamos seu código para o seu telefone, caso você não receba, <a class="dg-reenvio-sms" href="javascript:void(0)">clique aqui</a>.
+        </p>
+        <form class="dg-modal-templateCadastrar-sms-form">
+            <div class="dg-titulo">Validar código:</div>
+            <div class="dg-msg-error-cod" style="display:none"></div>
+            <div class="">
+                <input type="text" name="SMSCode" id="SMSCode" value="" required validar>
+                <label for="SMSCode">
+                    Código para validação
+                </label>
+            </div>
+            <a href="javascript:void(0)" class="dg-modal-templateCadastrar-sms-form-btn btConfirma_enviasms">
+                Confirmar
+            </a>
+        </form>
+    </div>
+</script>
+
+<script id="templateGetTotalizerCart" type="text/x-jquery-tmpl">
+    <ul>
+        <li>
+            <span data-mobile-text-before="Total de " data-mobile-text-after="Produtos:">Sub <strong>total</strong>:</span>
+            <span class="dg-checkout-main-side-resumo-valor">
+                R$ ${SubTotal.FormatCurrency()}
+            </span>
+        </li>
+        <li>
+            <span>Valor do <strong>Frete</strong>:</span>
+            <span class="dg-checkout-main-side-resumo-valor">
+                R$ ${ValorFrete.FormatCurrency()}
+            </span>
+        </li>
+        <li>
+            <span><strong>Desconto:</strong></span>
+            <span class="dg-checkout-main-side-resumo-valor">
+                <strong>-R$ ${Desconto.FormatCurrency()}</strong>
+            </span>
+        </li>
+        <li class="dg-checkout-main-side-resumo-total">
+            <span data-mobile-text-before="Valor " data-mobile-text-after="Total de Compra:">Total:</span>
+            <span class="dg-checkout-main-side-resumo-valor">
+                <a href="javascript:void(0)" class="dg-checkout-main-bloco-aviso-fora-estado--mostrar jsMostrarEstadoForaMobile dg-desktop-hide" arial-label="Informações sobre valor de emenda para compras fora de São Paulo"><span class="dg-icon dg-icon-tooltip"></span></a>
+                R$ ${ValorTotalCarrinho.FormatCurrency()}
+            </span>
+        </li>
+    </ul>
+</script>
+<script id="templateCarrinhoItens" type="text/x-jquery-tmpl">
+    <li class="dg-checkout-main-carrinho-titulos dg-desktop-only" role="presentation">
+        <span class="dg-checkout-main-carrinho-titulos-produto">Descrição do produto</span>
+        <span class="dg-checkout-main-carrinho-titulos-valor">Valor unitário</span>
+        <span class="dg-checkout-main-carrinho-titulos-qtd">Qtde</span>
+        <span class="dg-checkout-main-carrinho-titulos-total">Valor Total</span>
+    </li>
+
+    {for RowCartItem in Carrinho.ItensCart}
+    <li class="dg-checkout-main-carrinho-item ItemCart_${RowCartItem.ID_SubProduto}" data-validadecurta="${RowCartItem.IsValidadeCurta}" data-validade="${RowCartItem.DataValidadeFormatada}" data-produto="${RowCartItem.NomeProduto}">
+        <div class="dg-checkout-main-carrinho-item-img">
+            <img class="dg-mobile-hide" src="/imagens/74x74/${RowCartItem.Foto}" alt="Nome do Produto">
+            <img class="dg-desktop-hide" src="/imagens/74x74/${RowCartItem.Foto}" alt="Nome do Produto">
+        </div>
+        <div class="dg-checkout-main-carrinho-item-produto">
+            <strong>${RowCartItem.NomeProduto} ${RowCartItem.ComplementoBrindes}</strong>
+                <div>
+                    <span class="dg-checkout-main-carrinho-item-crm dg-mobile-hide">
+                    <input type="text" placeholder="CRM" class="inputEditCrm_${RowCartItem.ID_SubProduto} dg-mobile-hide" value="${RowCartItem.CRM}" maxlength="8" />
+                    <span class="dg-checkout-main-carrinho-item-marca">
+                        <span>Marca:</span> <span>${RowCartItem.Marca}</span>
+                    </span>
+                    {if RowCartItem.IsValidadeCurta == true}
+                        <span class="dg-checkout-main-carrinho-item-val">Val. <span>${RowCartItem.DataValidadeFormatada}</span></span>
+                    {/if}
+                </div>
+            </span>
+        </div>
+        {var ValorView = RowCartItem.ValorUnitario}
+        {if RowCartItem.ValorComDescontoUnitario > 0 && RowCartItem.ValorUnitario > RowCartItem.ValorComDescontoUnitario}
+            {var ValorView = RowCartItem.ValorComDescontoUnitario}
+        {/if}
+        <span class="dg-checkout-main-carrinho-item-valor"><span class="dg-mobile-only">Valor unitário.</span>
+            {if RowCartItem.ValorUnitario !== RowCartItem.ValorComDescontoUnitario}
+                <s>De: R$${RowCartItem.ValorUnitario.FormatCurrency()}</s>
+            {/if}
+            R$${ValorView.FormatCurrency()}
+        </span>
+        <span class="dg-checkout-main-carrinho-item-qtd">
+            <div class="dg-checkoug-main-carrinho-item-qtd">
+                <input type="number" value="${RowCartItem.Qtd}" class="dg-checkoug-main-carrinho-item-qtd-input" id="Qtd_${RowCartItem.ID_SubProduto}" name="Qtd_${RowCartItem.ID_SubProduto}" ID_SubProduto="${RowCartItem.ID_SubProduto}" onKeyPress="if(this.value.length==4) return false;" onkeydown="InputItemCart(this, event);">
+                <a href="javascript:void(0)" onclick="SetCarrinhoDelay(this, 'Menos')" class="dg-checkoug-main-carrinho-item-qtd-menos" ID_SubProduto="${RowCartItem.ID_SubProduto}">-</a>
+                <a href="javascript:void(0)" onclick="SetCarrinhoDelay(this, 'Mais')" class="dg-checkoug-main-carrinho-item-qtd-mais" ID_SubProduto="${RowCartItem.ID_SubProduto}">+</a>
+            </div>
+        </span>
+        <span class="dg-checkout-main-carrinho-item-total"><span class="dg-mobile-only">Valor Total</span>R$${RowCartItem.ValorTotal.FormatCurrency()}</span>
+        <a href="javascript:void(0)" 
+         nome="${RowCartItem.NomeProduto}" 
+        preco="${RowCartItem.ValorUnitario}" 
+        categoria="${RowCartItem.Categoria}"
+        marca="${RowCartItem.Marca}"
+        onclick="SetCarrinho(this, 'Remove')" class="dg-checkout-main-carrinho-item-apagar dg-tooltip-hover" aria-label="apagar produto" ID_SubProduto="${RowCartItem.ID_SubProduto}">
+
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6H6V20C6 20.5523 6.44772 21 7 21H17C17.5523 21 18 20.5523 18 20V6Z" stroke="#CFCFCF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 6H20" stroke="#CFCFCF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15 3H9C8.44772 3 8 3.44772 8 4V6H16V4C16 3.44772 15.5523 3 15 3Z" stroke="#CFCFCF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="dg-tooltip">Apagar produto</span>
+        </a>
+    </li>
+    {forelse}
+    <li class="dg-checkout-main-carrinho-item">
+        <p class="dg-minicarrinho-vazio">Você ainda não adicionou nenhum produto.</p>
+    </li>
+    {/for}
+</script>
+
+<script id="templateCarrinho" type="text/x-jquery-tmpl">
+    <ul class="dg-checkout-main-carrinho ReultCarrinhoItens"></ul>
+    <div class="dg-checkout-main-carrinho-compre">
+    </div>
+</script>
+
+<div class="compretambem" style="display:none">
+    <h2 class="dg-titulo">Aproveite e <strong>Compre também</strong>:</h2>
+    <div class="dg-checkout-main-carrinho-compre-lista">
+        <!-- esse cara usa o mesmo box padrão do site -->
+        @await Component.InvokeAsync("ProdutosMaisVendidos")
+        
+    </div>
+    <div class="dg-checkout-main-bloco-footer">
+        <div class="dg-hide Aviso4PorcentoForaEstado dg-checkout-main-bloco-aviso-fora-estado"><span class="dg-icon dg-icon-percent"></span>Os produtos desse carrinho tiverem seus preços acrescidos em <percent id="valorEmenda87"></percent>%, devido a Emenda Constitucional 87.</div>
+        <a href="@Html.Domain()/" class="dg-checkout-main-bloco-btn-outline">
+            Adicionar mais produtos
+        </a>
+    </div>
+    <div class="dg-hide Aviso4PorcentoForaEstado dg-checkout-main-bloco-aviso-fora-estado dg-checkout-main-bloco-aviso-fora-estado--fixed jsEstadoForaMobile dg-desktop-hide"><span class="dg-icon dg-icon-percent"></span>Os produtos desse carrinho tiverem seus preços acrescidos em 4%, devido a Emenda Constitucional 87.</div>
+</div>
+
+<script id="templateInsereEditaEndereco" type="text/x-jquery-tmpl">
+</script>
+
+<script id="templateInsereEditaEnderecoConteudo" type="text/x-jquery-tmpl">
+    <form action="" class="dg-checkout-main-fretes-form" onsubmit="return false;">
+        <input type="hidden" name="ident" id="ident" value="c">
+        <div class="dg-checkout-main-fretes-form-25">
+            <div>
+                <input validar type="tel" name="CEPendereco" id="CEPendereco" required value="${RetornoEndereco.CEP}" mascara="cep">
+                <label for="CEPendereco">
+                    CEP:
+                </label>
+                <a href="javascript:void(0)" class="dg-finalizar-buscarendereco dg-tooltip-hover buscaEndereco" ordem-enter="2" aria-label="Buscar Endereço através do CEP">
+                    <span class="dg-tooltip">Buscar Endereço</span> <span class="dg-icon dg-icon-search"></span>
+                </a>
+            </div>
+        </div>
+        <div class="dg-checkout-main-fretes-form-75">
+            <div>
+                <input validar type="text" id="Endereco" name="Endereco" required value="${RetornoEndereco.Endereco}">
+                <label for="Endereco">
+                    Endereço:
+                </label>
+            </div>
+        </div>
+        <div class="dg-checkout-main-fretes-form-25">
+            <div>
+                <input validar type="tel" mascara="numero" id="Numero" name="Numero" required value="${RetornoEndereco.Numero}">
+                <label for="Numero">
+                    Número:
+                </label>
+            </div>
+        </div>
+        <div class="dg-checkout-main-fretes-form-25">
+            <div>
+                <input type="text" id="Complemento" name="Complemento" value="${RetornoEndereco.Compl}">
+                <label for="Complemento">
+                    Complemento:
+                </label>
+            </div>
+        </div>
+        <div class="dg-checkout-main-fretes-form-50">
+            <div>
+    @* <select validar name="Cidade" id="Cidade" required>
+                    <option value="${RetornoEndereco.Cidade}" selected>${RetornoEndereco.Cidade}</option>
+                </select> *@
+                <input type="text" id="Cidade" name="Cidade" validar required value="${RetornoEndereco.Cidade}">
+                <label for="Cidade">
+                    Cidade:
+                </label>
+            </div>
+        </div>
+        <div class="dg-checkout-main-fretes-form-25">
+            <div>
+    @* <select validar name="Estado" id="Estado" required>
+                    <option value="">Estado</option>
+                    <option value="AC" {if RetornoEndereco.Estado=='AC'}selected{/if}>AC</option>
+                    <option value="AL" {if RetornoEndereco.Estado=='AL'}selected{/if}>AL</option>
+                    <option value="AP" {if RetornoEndereco.Estado=='AP'}selected{/if}>AP</option>
+                    <option value="AM" {if RetornoEndereco.Estado=='AM'}selected{/if}>AM</option>
+                    <option value="BA" {if RetornoEndereco.Estado=='BA'}selected{/if}>BA</option>
+                    <option value="CE" {if RetornoEndereco.Estado=='CE'}selected{/if}>CE</option>
+                    <option value="DF" {if RetornoEndereco.Estado=='DF'}selected{/if}>DF</option>
+                    <option value="ES" {if RetornoEndereco.Estado=='ES'}selected{/if}>ES</option>
+                    <option value="GO" {if RetornoEndereco.Estado=='GO'}selected{/if}>GO</option>
+                    <option value="MA" {if RetornoEndereco.Estado=='MA'}selected{/if}>MA</option>
+                    <option value="MT" {if RetornoEndereco.Estado=='MT'}selected{/if}>MT</option>
+                    <option value="MS" {if RetornoEndereco.Estado=='MS'}selected{/if}>MS</option>
+                    <option value="MG" {if RetornoEndereco.Estado=='MG'}selected{/if}>MG</option>
+                    <option value="PA" {if RetornoEndereco.Estado=='PA'}selected{/if}>PA</option>
+                    <option value="PB" {if RetornoEndereco.Estado=='PB'}selected{/if}>PB</option>
+                    <option value="PR" {if RetornoEndereco.Estado=='PR'}selected{/if}>PR</option>
+                    <option value="PE" {if RetornoEndereco.Estado=='PE'}selected{/if}>PE</option>
+                    <option value="PI" {if RetornoEndereco.Estado=='PI'}selected{/if}>PI</option>
+                    <option value="RJ" {if RetornoEndereco.Estado=='RJ'}selected{/if}>RJ</option>
+                    <option value="RN" {if RetornoEndereco.Estado=='RN'}selected{/if}>RN</option>
+                    <option value="RS" {if RetornoEndereco.Estado=='RS'}selected{/if}>RS</option>
+                    <option value="RO" {if RetornoEndereco.Estado=='RO'}selected{/if}>RO</option>
+                    <option value="RR" {if RetornoEndereco.Estado=='RR'}selected{/if}>RR</option>
+                    <option value="SC" {if RetornoEndereco.Estado=='SC'}selected{/if}>SC</option>
+                    <option value="SP" {if RetornoEndereco.Estado=='SP'}selected{/if}>SP</option>
+                    <option value="SE" {if RetornoEndereco.Estado=='SE'}selected{/if}>SE</option>
+                    <option value="TO" {if RetornoEndereco.Estado=='TO'}selected{/if}>TO</option>
+                </select> *@
+                <input type="text" id="Estado" name="Estado" validar required value="${RetornoEndereco.Estado}">
+                <label for="Estado">
+                    Estado:
+                </label>
+            </div>
+        </div>
+        <div class="dg-checkout-main-fretes-form-25">
+            <div>
+                <input validar type="text" id="Bairro" required name="Bairro" value="${RetornoEndereco.Bairro}">
+                <label for="Bairro">
+                    Bairro:
+                </label>
+            </div>
+        </div>
+        <div class="dg-checkout-main-fretes-form-50">
+            <div>
+                <input type="text" id="Identificacao" name="Identificacao" value="${RetornoEndereco.Nome}" validar maxlength="12">
+                <label for="Identificacao">
+                    Identificação: Ex: Casa, trabalho, etc..
+                </label>
+            </div>
+        </div>
+        <div class="dg-checkout-main-fretes-form-checkbox">
+            <div>
+                <div class="dg-checkbox">
+                    <input type="checkbox" id="EndPrincipal" name="EndPrincipal"
+                        {if RetornoEndereco.EndPrincipal==true}checked{/if}{if RetornoEndereco.Endereco==null}checked{/if} />
+                    <label for="EndPrincipal">Endereço Principal?</label>
+                </div>
+            </div>
+        </div>
+        <div class="dg-checkout-main-bloco-footer">
+            <a href="javascript:void(0)" class="dg-checkout-main-bloco-btn editarCadastrarEndereco">
+                {if RetornoEndereco.ID_Endereco > 0}Salvar{else}Cadastrar{/if}
+            </a>
+            {if RetornoEndereco.ID_Endereco <= 0}
+            <a href="javascript:void(0)" class="dg-checkout-main-bloco-voltar dg-checkout-main-bloco-voltar-endcad voltarEndCadastrados">
+                <span class="dg-icon dg-icon-arrow01-left" role="presentation"></span>
+                <span id="labelbtnCadastroEndereco">Endereços cadastrados</span>
+            </a>
+            {else}
+            <a href="javascript:void(0)" class="dg-checkout-main-bloco-voltar voltarEditarCadEnd">
+                <span class="dg-icon dg-icon-arrow01-left" role="presentation"></span>
+                Voltar
+            </a>
+            {/if}
+        </div>
+    </form>
+</script>
+<script id="templateEndereco" type="text/x-jquery-tmpl">
+</script>
+<script id="templateEnderecoConteudo" type="text/x-jquery-tmpl">
+    <h2 class="dg-subtitulo dg-mobile-center">
+        Selecione o endereço onde deseja <strong>receber o seu pedido</strong>:
+    </h2>
+    <div class="dg-checkout-main-enderecos {if RetornoEnderecos.length === 0}dg-vazio{/if}">
+        <a href="javascript:void(0)" class="dg-checkout-main-bloco-btn addnovoEndereco dg-desktop-hide">
+            Adicionar novo endereço
+        </a>
+        {for end in RetornoEnderecos}
+        {var principal = ""}
+        {if end.EndPrincipal == true}
+        {var principal = "dg-principal"}
+        {/if}
+        {var ativo = ""}
+        {if end.EndAtivo == true}
+        {var ativo = "dg-ativo"}
+        {/if}
+        <div class="dg-checkout-main-enderecos-item ${principal} ${ativo}" rel="${end.ID_Endereco}">
+            {if principal != ""}
+            <div class="dg-checkout-main-enderecos-check" aria-label="Endereço selecionado:">
+                Endereço Principal <span class="dg-icon dg-icon-cheeck" role="presentation"></span>
+            </div>
+            {/if}
+            <a href="javascript:void(0)" class="dg-checkout-main-enderecos-escolha enderecoEscolhido" rel="${end.ID_Endereco}" relCep="${end.CEP}">
+                <strong>
+                    {if principal != ""}
+                    <span class="dg-icon dg-icon-star" aria-label="Endereço Principal"></span>
+                    {/if}
+                    ${end.Nome}
+                </strong>
+                <strong>${end.Endereco}, ${end.Numero}</strong>
+                {if end.Compl != ""}${end.Compl} - {/if}
+                ${end.Bairro}, ${end.Cidade} ${end.Estado}
+            </a>
+            <a href="javascript:void(0)" class="dg-checkout-main-enderecos-editar dg-tooltip-hover editarEndereco" rel="${end.ID_Endereco}" aria-label="Editar Endereço">
+                <span class="dg-icon dg-icon-editar" role="presentation"></span>
+                <span class="dg-tooltip">Editar Endereço</span>
+            </a>
+            <a href="javascript:void(0)" class="dg-checkout-main-enderecos-apagar dg-tooltip-hover excluirEndereco" rel="${end.ID_Endereco}" aria-label="Apagar Endereço">
+                <span class="dg-icon dg-icon-lixo" role="presentation"></span>
+                <span class="dg-tooltip">Apagar Endereço</span>
+            </a>
+            <a href="javascript:void(0)" class="dg-checkout-main-enderecos-opcoes dg-tooltip-hover mostraItens dg-desktop-hide" rel="${end.ID_Endereco}" aria-label="Opções">
+                <span class="dg-icon dg-icon-dots-edit" role="presentation"></span>
+                <span class="dg-tooltip">Opções</span>
+            </a>
+            <div class="dg-checkout-main-enderecos-opcoes-menu">
+                <a href="javascript:void(0)" class="dg-checkout-main-enderecos-editar dg-tooltip-hover editarEndereco" rel="${end.ID_Endereco}" aria-label="Editar Endereço">
+                    <span class="dg-icon dg-icon-editar" role="presentation"></span>
+                    <span class="dg-tooltip">Editar Endereço</span>
+                </a>
+                <a href="javascript:void(0)" class="dg-checkout-main-enderecos-apagar dg-tooltip-hover excluirEndereco" rel="${end.ID_Endereco}" aria-label="Apagar Endereço">
+                    <span class="dg-icon dg-icon-lixo" role="presentation"></span>
+                    <span class="dg-tooltip">Apagar Endereço</span>
+                </a>
+            </div>
+        </div>
+        {/for}
+    {if RetornoEnderecos.length === 0}
+        Nenhum endereço cadastrado.
+    {/if}
+    </div>
+    <div class="dg-checkout-main-bloco-footer">
+        <a href="javascript:void(0)" class="dg-checkout-main-bloco-btn addnovoEndereco dg-mobile-hide">
+            Adicionar novo endereço
+        </a>
+        <a href="/checkout/" class="dg-checkout-main-bloco-voltar">
+            <span class="dg-icon dg-icon-arrow01-left" role="presentation"></span>
+            Voltar
+        </a>
+    </div>
+</script>
+<script id="templateLogin" type="text/x-jquery-tmpl">
+    <div class="dg-checkout-main-login">
+    @* Conteúdo similar ao popup de login no header *@
+        <div class="dg-checkout-login-modal">
+    @* <div class="dg-checkout-login-modal-topo">
+                <h3 class="dg-titulo">Entre com seus <strong>dados:</strong></h3>
+                <a href="javascript:void(0)" class="dg-checkout-login-modal-criarconta-btn">
+                    <span class="dg-icon dg-icon-user"></span>
+                    <span class="dg-txt">
+                        Não é cliente?
+                        <strong>Crie sua conta!</strong>
+                    </span>
+                </a>
+            </div> *@
+            <div class="dg-header-minhaconta-flex">
+                <div class="dg-header-minhaconta-title-mobile">
+                    Se ainda não tem perfil <span>cadastre-se</span> ou <span>faça login</span> em sua conta.
+                </div>
+                <div class="dg-header-minhaconta-title-mobile dg-style-cookie">
+                    <span>Faça login</span> em sua conta ou <span>cadastre-se</span>, se ainda não tem conta.
+                </div>
+                <form class="dg-checkout-login-modal-cadastro jsCheckoutFormCadastro jsHeaderMinhacontaModalCadastro">
+    @* <div class="dg-titulo dg-desktop-hide">Fazer <strong>cadastro:</strong></div> *@
+                    <div class="dg-titulo">
+                        Novo usuário?
+                        <p>
+                            Seus dados serão cadastrados em um servidor seguro com total segurança.
+                        </p>
+                    </div>
+                    <div class="dg-titulo dg-style-cookie">
+                        Ainda não tem conta?
+                        <p>
+                            Seus dados serão cadastrados em um servidor seguro com total segurança.
+                        </p>
+                    </div>
+                    <div class="dg-checkout-login-modal-conteudo">
+                        <div>
+                            <input type="tel" id="VeryCPF" mascara="cpf">
+                            <label for="VeryCPF">Digite seu CPF:</label>
+                        </div>
+                    </div>
+                    <div class="dg-checkout-login-modal-footer">
+    <a href="javascript:void(0)" class="dg-checkout-login-modal-footer-google-btn" onclick="Cliente.EfetuarLoginGoogle()">
+                            <img src="@Html.Domain()/assets/img/header/google.png" alt="Google Logo">
+                        </a>
+                        <a href="javascript:void(0)" class="dg-checkout-login-modal-footer-fb-btn" onclick="Cliente.EfetuarLoginFaceBook()">
+                            <img src="@Html.Domain()/assets/img/header/facebook.png" alt="facebook Logo">
+                        </a>
+                        <button type="submit" href="javascript:void(0)" class="dg-checkout-login-modal-footer-btn dg-header-minhaconta-modal-cadastrar-footer-btn">
+                            Me cadastrar agora
+                        </button>
+                        @{
+                            var Fw = "/cadastro";
+
+                            if (ViewBag.FW != null)
+                            {
+                                if (ViewBag.FW.Length > 0) Fw = "/cadastro?pg=" + ViewBag.FW;
+
+
+                            }
+
+                        }
+                         <a href="@Fw" class="dg-checkout-login-modal-footer-btn dg-style-cookie">
+                            Me cadastrar agora
+                        </a>
+                    </div>
+                </form>
+                <div>
+                    <form class="dg-checkout-login-modal-login jsHeaderMinhacontaModalLogin" onsubmit="return false" id="formLoginCheckout">
+    @* <div class="dg-titulo dg-desktop-hide">Efetue seu <strong>login:</strong></div> *@
+                        <div class="dg-titulo">
+                            Fazer Login
+                            <p>
+                                Efetue o login para comprar e ter acesso aos detalhes do seu pedido.
+                            </p>
+                        </div>
+                        <div class="dg-titulo dg-style-cookie">
+                            Olá, novamente!
+                            <p>
+                                Efetue o login para comprar e ter acesso aos detalhes do seu pedido.
+                            </p>
+                        </div>
+                        <div class="dg-checkout-login-modal-conteudo">
+    @* <div class="dg-header-minhaconta-modal-esqueci-url">
+                                <a href="javascript:void(0)">Esqueceu sua senha?</a>
+                            </div> *@
+                            <div>
+                                <input type="text" id="LoginUsuario" mascara="lowercase" name="LoginUsuario" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAWVJREFUOBGVVL2Kg0AQHuXAxDKdcAeprI1NXiCN4HOc4EvEvISQa6xSW+bAJwg26hMEEkQstDU23s7qrnp4FzOw7vx88+3uzKBwOByMpmmOZH3ADBEE4UZgn47jfCNcfCUZE7qDvlBHQYJZJ7fw9jvMEYeBZ7osy6Cq6gj2EsF6vYbdbjdNsFgseECSJCDF4vYwxp2d8oa7aZqg6zqcTicoigJs24Y0TcHzvFHsdzLaLz1hikDY7/cNBvCaVVVRDD7h8XhM4bmPPPFODIvfgCUj4lkyYkgr38l2pDVAx39Cpm4UjuMYfN+nJLMIzuczJVAUBTRNowVmjGI328ye3C+XC+DCOtV1DVEUcRwSWHNIVqsVncIkSUY16qeFc7YK6w5zG4YB2+0WXNeFPM+Ze94c4NU3mw1cr9dRMrL8WUTsc9cqWC6XEAQB3G74K+gFMXwOejfXsDZ3tMqyhDAMIcsyHuxi1g985oWXD2O18QAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+                                <label for="LoginUsuario">Digite seu e-mail ou CPF:</label>
+                            </div>
+                            <div>
+                                <input type="password" id="LoginSenha" name="LoginSenha" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAWVJREFUOBGVVL2Kg0AQHuXAxDKdcAeprI1NXiCN4HOc4EvEvISQa6xSW+bAJwg26hMEEkQstDU23s7qrnp4FzOw7vx88+3uzKBwOByMpmmOZH3ADBEE4UZgn47jfCNcfCUZE7qDvlBHQYJZJ7fw9jvMEYeBZ7osy6Cq6gj2EsF6vYbdbjdNsFgseECSJCDF4vYwxp2d8oa7aZqg6zqcTicoigJs24Y0TcHzvFHsdzLaLz1hikDY7/cNBvCaVVVRDD7h8XhM4bmPPPFODIvfgCUj4lkyYkgr38l2pDVAx39Cpm4UjuMYfN+nJLMIzuczJVAUBTRNowVmjGI328ye3C+XC+DCOtV1DVEUcRwSWHNIVqsVncIkSUY16qeFc7YK6w5zG4YB2+0WXNeFPM+Ze94c4NU3mw1cr9dRMrL8WUTsc9cqWC6XEAQB3G74K+gFMXwOejfXsDZ3tMqyhDAMIcsyHuxi1g985oWXD2O18QAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+                                <label for="LoginSenha">Digite sua Senha</label>
+                            </div>
+                        </div>
+                        <div class="dg-checkout-login-modal-footer">
+                            <div class="dg-header-minhaconta-modal-topo dg-header-minhaconta-modal-esqueci-url">
+                                <a href="javascript:void(0)">
+                                    <svg xmlns="https://www.w3.org/2000/svg" width="10.356" height="12.083" viewBox="0 0 10.356 12.083">
+                                        <path id="locked" d="M5.1,14.333h9.148a.6.6,0,0,0,.6-.6V8.022a.6.6,0,0,0-.6-.593H13.67V6.595a4.757,4.757,0,0,0-1.149-3.112A3.921,3.921,0,0,0,9.681,2.25h0a3.931,3.931,0,0,0-2.84,1.23A4.745,4.745,0,0,0,5.687,6.592v.836H5.1a.6.6,0,0,0-.6.593v5.715A.6.6,0,0,0,5.1,14.333ZM7.116,6.595a3.376,3.376,0,0,1,.758-2.166V4.421a2.5,2.5,0,0,1,1.8-.8h.005a2.5,2.5,0,0,1,1.8.8v.005l0,0a3.362,3.362,0,0,1,.758,2.166v.834H7.116Z" transform="translate(-4.5 -2.25)" fill="#fc3141"/>
+                                    </svg>
+                                    <span class="dg-txt">
+                                        Esqueceu
+                                        <strong>sua senha?</strong>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="dg-header-minhaconta-modal-topo dg-header-minhaconta-modal-esqueci-url dg-style-cookie">
+                                <a href="javascript:void(0)">
+                                    <svg xmlns="https://www.w3.org/2000/svg" width="10.356" height="12.083" viewBox="0 0 10.356 12.083">
+                                        <path id="locked" d="M5.1,14.333h9.148a.6.6,0,0,0,.6-.6V8.022a.6.6,0,0,0-.6-.593H13.67V6.595a4.757,4.757,0,0,0-1.149-3.112A3.921,3.921,0,0,0,9.681,2.25h0a3.931,3.931,0,0,0-2.84,1.23A4.745,4.745,0,0,0,5.687,6.592v.836H5.1a.6.6,0,0,0-.6.593v5.715A.6.6,0,0,0,5.1,14.333ZM7.116,6.595a3.376,3.376,0,0,1,.758-2.166V4.421a2.5,2.5,0,0,1,1.8-.8h.005a2.5,2.5,0,0,1,1.8.8v.005l0,0a3.362,3.362,0,0,1,.758,2.166v.834H7.116Z" transform="translate(-4.5 -2.25)" fill="#fc3141"/>
+                                    </svg>
+                                    <span class="dg-txt">
+                                        Esqueceu sua senha?
+                                        <strong>Clique aqui para redefinir!</strong>
+                                    </span>
+                                </a>
+                            </div>
+                            <button type="submit" class="dg-checkout-login-modal-footer-btn btn-login-modal">
+                                Entrar
+                            </button>
+                            @*/
+                            <div class="dg-header-minhaconta-modal-footer-social">
+     <a href="javascript:void(0)" class="dg-checkout-login-modal-footer-google-btn" onclick="Cliente.EfetuarLoginGoogle()">
+                                    <img src="@Html.Domain()/assets/img/header/google.png" alt="Google Logo">
+                                </a>
+                                <a href="javascript:void(0)" onclick="Cliente.EfetuarLoginFaceBook()" class="dg-checkout-login-modal-footer-fb-btn">
+                                    <img src="@Html.Domain()/assets/img/header/facebook.png" alt="facebook Logo">
+                                </a>
+                            </div>
+                            *@
+                        </div>
+                    </form>
+                    <form class="dg-header-minhaconta-modal-esquecisenha jsHeaderMinhacontaModalEsqueciSenha" name="form-senha" id="form-senha" autocomplete="off">
+                        <div class="dg-form-senha-step dg-step-ativo" data-form-senha-step="1">
+                            <div class="dg-titulo">
+                                Esqueceu sua senha?
+                                <p>
+                                    Preencha seu e-mail ou CPF abaixo para receber uma solicitação de mudança.
+                                </p>
+                            </div>
+                            <div class="dg-titulo dg-style-cookie">
+                                Esqueceu sua senha?
+                                <p>
+                                    Preencha seu e-mail ou CPF abaixo para receber uma solicitação de mudança.
+                                </p>
+                            </div>
+                            <div class="dg-checkout-login-modal-conteudo">
+                                <div>
+                                    <input id="EsqueciSenhaEmail" required validar type="text" mascara="lowercase">
+                                    <label for="EsqueciSenhaEmail">Informe seu e-mail ou CPF:</label>
+                                </div>
+                            </div>
+                            <div class="dg-checkout-login-modal-footer">
+                                <button type="submit" class="dg-checkout-login-modal-footer-btn btn-EsqueciSenha-Checkout">
+                                    Prosseguir
+                                </button>
+                                <a href="javascript:void(0)" class="dg-header-minhaconta-modal-footer-voltar-btn">
+                                    Voltar ao login
+                                </a>
+                            </div>
+                        </div>
+                        <div class="dg-form-senha-step" data-form-senha-step="2"></div>
+                        <div class="dg-form-senha-step" data-form-senha-step="3"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="templateEsqueciSenhaResultado" type="text/x-jquery-tmpl">
+    {if Data.tipo == "1"}
+    <div class="dg-form-senha-email" style="text-align:center">
+        <div class="dg-titulo">
+            <div class="dg-icon dg-icon-avise-me" style="font-size: 40px;color: #f03443;"></div>
+            Agora, crie sua nova senha
+            <p>
+                Para isso, siga o link que enviamos para <b>${Data.EMail}</b>.<br>
+                Se não encontrar, verifique a caixa de spam.
+            </p>
+        </div>
+        <div class="dg-header-minhaconta-modal-conteudo">
+            <button type="button" class="jsVoltarParaLoginSenha dg-header-minhaconta-modal-footer-voltar-style">Voltar para o login</button>
+            <div style="text-align:center">
+                <button type="button" class="jsReenviarEmail dg-header-minhaconta-modal-footer-reenviar">Reenviar e-mail <span class="jsReenviarEmailTimer"></span></button>
+            </div>
+        </div>
+    </div>
+    {elseif Data.tipo == "2"}
+    <div class="dg-form-senha-celular" style="text-align:center">
+        <div class="dg-titulo">
+            Insira o código de verificação
+            <p>
+                Um código de 6 digitos foi enviado por SMS
+            </p>
+            <div class="dg-input-wrapper">
+                <input type="text" maxlength="1" class="jsCodigoSmsInputEsqueciSenha" name="smsCodigo[]" />
+                <input type="text" maxlength="1" class="jsCodigoSmsInputEsqueciSenha" name="smsCodigo[]" />
+                <input type="text" maxlength="1" class="jsCodigoSmsInputEsqueciSenha" name="smsCodigo[]" />
+                <input type="text" maxlength="1" class="jsCodigoSmsInputEsqueciSenha" name="smsCodigo[]" />
+                <input type="text" maxlength="1" class="jsCodigoSmsInputEsqueciSenha" name="smsCodigo[]" />
+                <input type="text" maxlength="1" class="jsCodigoSmsInputEsqueciSenha" name="smsCodigo[]" />
+            </div>
+            <div class="dg-wrapper-btns">
+                <button type="button" class="jsVoltarParaLoginSenha dg-header-minhaconta-modal-footer-voltar-style">Voltar para o login</button>
+                <button type="submit" class="dg-header-minhaconta-modal-footer-btn">Continuar</button>
+            </div>
+            <div style="text-align:center">
+                <button type="button" class="jsReenviarCodigo dg-header-minhaconta-modal-footer-reenviar">Reenviar código <span class="jsReenviarCodigoTimer"></span></button>
+            </div>
+        </div>
+    </div>
+    {elseif Data.tipo == "3"}
+    <div class="dg-form-senha-suporte dg-header-minhaconta-modal-conteudo">
+        <p style="max-width:340px;text-align:center;margin: 0 auto;padding-top: 20px;">
+            <span class="dg-icon dg-icon-televendas" style="display:block;font-size: 40px;color: #f03443;"></span>
+            <span style="font-weight: 600;">Entre em contato com o nosso SAC para a validação de seu cadastro e atualização de suas informações:</span>
+            <br><br>
+            SAC: ${Data.NumeroSac} ou<br>
+            <a style="color:#333333" href="mailto:sac@drogarianovaesperanca.com.br">
+                <u>sac@drogarianovaesperanca.com.br</u>
+            </a><br><br>
+            Segunda a Sexta, das 8h às 18h<br>
+            Sábado das 8h às 12h
+        </p>
+        <button type="button" class="jsVoltarParaLoginSenha dg-header-minhaconta-modal-footer-voltar-style">Voltar para o login</button>
+    </div>
+    {/if}
+</script>
+<script id="templateEsqueciSenha2" type="text/x-jquery-tmpl">
+    <div class="dg-titulo">
+        Criar nova senha
+        <p>Para continuar escolha</p>
+    </div>
+    <div class="dg-header-minhaconta-modal-conteudo">
+        <label>
+            <input type="radio" name="escolhaAlteracaoSenha" value="1" />
+            <div>
+                <p>
+                    <b>Receber por e-mail</b>
+                    <br>${Data.EMail}
+                </p>
+            </div>
+        </label>
+        <label>
+            <input type="radio" name="escolhaAlteracaoSenha" value="2" />
+            <div>
+                <p>
+                    <b>Receber por código SMS</b>
+                    <br>${Data.TelCel}
+                </p>
+            </div>
+        </label>
+        <label>
+            <input type="radio" name="escolhaAlteracaoSenha" value="3" />
+            <div>
+                <p>
+                    <b>Entrar em contato com o suporte técnico.</b>
+                </p>
+            </div>
+        </label>
+        <div class="dg-header-minhaconta-modal-footer">
+            <button type="button" class="jsVoltaStep1Senha dg-header-minhaconta-modal-footer-voltar-style">Voltar</button>
+            <button type="submit" class="dg-header-minhaconta-modal-footer-btn dg-header-minhaconta-modal-footer-esqueci-btn">Continuar</button>
+        </div>
+    </div>
+</script>
+<script id="templateLoginEsqueciSenha" type="text/x-jquery-tmpl">
+</script>
+<!-- Sidebar Carrinho -->
+<script id="templateSideCarrinho" type="text/x-jquery-tmpl">
+    <h3 class="dg-titulo order-1">
+        Calcular <strong>Frete e Prazo de Entrega:</strong>
+    </h3>
+    <div class="dg-checkout-main-side-bloco dg-checkout-main-side-buscacep order-2">
+        <h3 class="dg-subtitulo">
+            <span class="dg-mobile-hide">Digitar CEP:</span>
+            <span class="dg-desktop-hide">Calcular <strong>Frete e Prazo de Entrega:</strong></span>
+            <a href="javascript:void(0)" class="dg-checkout-main-side-toggle" role="presentation">
+                <span class="dg-icon dg-icon-linha1"></span>
+                <span class="dg-icon dg-icon-linha2"></span>
+            </a>
+        </h3>
+    @* dg-checkout-main-side-carrinho-scroll *@
+        <div class="dg-checkout-main-side-carrinho-form">
+            <form onsubmit="return false;" class="formBuscarFrete">
+                <input id="checkoutCEPCarrinho" type="tel" mascara="cep">
+                <label for="checkoutCEPCarrinho">
+                    Digite seu CEP:
+                </label>
+                <button class="dg-checkout-main-side-carrinho-form-buscar buscarFrete" type="submit">
+                    Buscar
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="ResultFrete dg-checkout-sidebar dg-checkout-main-side-resulfrete order-2"></div>
+    <div class="dg-checkout-main-side-bloco dg-checkout-main-side-cupom order-3">
+        <h4 class="dg-subtitulo">
+            <span class="dg-mobile-hide">Cupom:</span>
+            <span class="dg-desktop-hide">Cupom de <strong>Descontos:</strong></span>
+            <a href="javascript:void(0)" class="dg-checkout-main-side-toggle jsCupomForm" role="presentation">
+                Adicionar
+            </a>
+            <a href="javascript:void(0)" class="jsCupomValue" style="display:none;cursor:default;width: auto;padding-right: 20px;"></a>
+        </h4>
+        <div class="dg-checkout-main-side-carrinho-form">
+            <form action="#" onsubmit="return false;">
+                <div class="dg-relative">
+                    <input id="checkoutCupomCarrinho" type="text">
+                    <label for="checkoutCupomCarrinho">
+                        Digite seu Cupom:
+                    </label>
+                </div>
+                <button type="button" class="insereGift">
+                    Validar
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="dg-checkout-main-side-bloco dg-checkout-main-side-observacao order-3">
+        <h4 class="dg-subtitulo">
+            <span class="dg-mobile-hide">Observação:</span>
+            <span class="dg-desktop-hide"><strong>Observação</strong></span>
+            <a href="javascript:void(0)" class="dg-checkout-main-side-toggle" role="presentation">
+                Adicionar
+    @* <span class="dg-icon dg-icon-linha1"></span>
+                <span class="dg-icon dg-icon-linha2"></span> *@
+            </a>
+        </h4>
+        <div class="dg-checkout-main-side-carrinho-form">
+            <form action="#" onsubmit="return false;">
+                <textarea id="checkoutObservacoesCarrinho" placeholder="Alguma observação?"></textarea>
+                <button type="button" onclick="Checkout.GravarObsCliente();" id="gravar">Gravar</button>
+            </form>
+        </div>
+    </div>
+    <div class="dg-checkout-main-side-resumo dg-checkout-main-side-resumo-custom dg-desktop-hide order-5 ResultGetTotalizerCart"></div>
+    <div class="dg-checkout-main-side-resumo order-6 ResultGetTotalizerCart"></div>
+    <div class="dg-checkout-main-side-footer order-7">
+        <a class="dg-checkout-main-side-continuar-comprando dg-desktop-hide" href="/"><span class="dg-icon dg-icon-arrow01-left"></span>Seguir comprando</a>
+        <a id="pagamentoContinuarCheckout" href="javascript:void(0)" class="dg-checkout-main-side-prosseguir">
+            Continuar
+        </a>
+    </div>
+</script>
+<div id="ResultGetTotalizerCart-resumo" style="display:none">
+</div>
+<!-- Sidebar Geral -->
+<script id="templateSideGeral" type="text/x-jquery-tmpl">
+</script>
+<script id="templateSideGeralConteudo" type="text/x-jquery-tmpl">
+    <h3 class="dg-titulo">
+        Resumo <strong>do pedido:</strong>
+    </h3>
+    <div class="dg-checkout-main-side-bloco">
+        <h4 class="dg-subtitulo">
+            Produtos:
+            <a href="javascript:void(0)" class="dg-checkout-main-editar dg-tooltip-hover voltarCarrinho" aria-label="Editar Produtos">
+                <span class="dg-icon dg-icon-editar"></span>
+                <span class="dg-tooltip">Editar</span>
+            </a>
+            <a href="javascript:void(0)" class="dg-checkout-main-side-toggle" role="presentation">
+                <span class="dg-icon dg-icon-linha1"></span>
+                <span class="dg-icon dg-icon-linha2"></span>
+            </a>
+        </h4>
+        <ul class="dg-checkout-main-side-produtos dg-checkout-sidebar">
+            {for itens in RetornoCarrinho.ItensCart}
+            <li>
+                <span>${itens.NomeProduto} ${itens.ComplementoBrindes}<strong>(${itens.Qtd}x)</strong></span>
+                <span class="dg-checkout-main-side-preco">R$ ${itens.ValorTotal.FormatCurrency()}</span>
+                <span>${itens.Marca}</span>
+            </li>
+            {/for}
+        </ul>
+    </div>
+    {if RetornoCarrinho.End != null}
+    <div class="dg-checkout-main-side-bloco">
+        <h4 class="dg-subtitulo">
+            Entrega: ${RetornoCarrinho.End.Nome}
+            <a href="javascript:void(0)" class="dg-checkout-main-editar dg-tooltip-hover voltarEnderecos" aria-label="Editar entrega">
+                <span class="dg-icon dg-icon-editar"></span>
+                <span class="dg-tooltip">Editar</span>
+            </a>
+            <a href="javascript:void(0)" class="dg-checkout-main-side-toggle" role="presentation">
+                <span class="dg-icon dg-icon-linha1"></span>
+                <span class="dg-icon dg-icon-linha2"></span>
+            </a>
+        </h4>
+        <ul class="dg-checkout-main-side-produtos dg-checkout-sidebar">
+            <li>
+                ${RetornoCarrinho.End.Endereco}, ${RetornoCarrinho.End.Numero}
+            </li>
+            {if RetornoCarrinho.End.Compl != ""}
+            <li>${RetornoCarrinho.End.Compl}</li>
+            {/if}
+            <li>${RetornoCarrinho.End.Bairro}</li>
+            <li>CEP: ${RetornoCarrinho.End.CEP} | ${RetornoCarrinho.End.Cidade}/${RetornoCarrinho.End.Estado}</li>
+        </ul>
+    </div>
+    {/if}
+    {if RetornoCarrinho.JsonFrete != null}
+    {if RetornoCarrinho.JsonFrete.ID_Frete > 0}
+    <div class="dg-checkout-main-side-bloco">
+        <h4 class="dg-subtitulo">
+            Frete: {if RetornoCarrinho.ValorFrete == '0.00'}
+            Grátis
+            {else}
+            R$ ${RetornoCarrinho.ValorFrete.FormatCurrency()}
+            {/if}
+            <a href="javascript:void(0)" class="dg-checkout-main-side-toggle" role="presentation">
+                <span class="dg-icon dg-icon-linha1"></span>
+                <span class="dg-icon dg-icon-linha2"></span>
+            </a>
+        </h4>
+        <ul class="dg-checkout-main-side-produtos dg-checkout-sidebar">
+            <li>
+                ${RetornoCarrinho.JsonFrete.Frete}
+            </li>
+            <li>
+                <strong>
+                    {if RetornoCarrinho.ValorFrete == '0.00'}
+                    Grátis
+                    {else}
+                    R$ ${RetornoCarrinho.ValorFrete.FormatCurrency()}
+                    {/if}
+                </strong>
+            </li>
+            <li>
+                {if RetornoCarrinho.JsonFrete.IsRetiradaLoja == false}
+                    {if RetornoCarrinho.JsonFrete.ID_Frete == 49}
+                        Entrega no mesmo dia
+                    {else}
+                        {if RetornoCarrinho.JsonFrete.PrazoEntrega <= 0}
+                        Tempo estimado de ${RetornoCarrinho.JsonFrete.PrazoEntregaHora}
+                        {else}
+                        Tempo estimado de ${RetornoCarrinho.JsonFrete.PrazoEntrega} {if RetornoCarrinho.JsonFrete.PrazoEntrega <= 1}dia útil{else}dias úteis{/if}
+                        {/if}
+                    {/if}
+                {else}
+                Tempo estimado para retirada em 1 hora
+                {/if}
+            </li>
+        </ul>
+    </div>
+    {/if}
+    {/if}
+    <div class="dg-checkout-main-side-bloco dg-checkout-main-side-cupom">
+        <h4 class="dg-subtitulo">
+            <span class="dg-mobile-hide">Cupom:</span>
+            <span class="dg-desktop-hide">Cupom de <strong>Descontos:</strong></span>
+            <a href="javascript:void(0)" class="dg-checkout-main-side-toggle jsCupomForm" role="presentation">
+                Adicionar
+            </a>
+            <a href="javascript:void(0)" class="jsCupomValue" style="display:none;cursor:default;width: auto;padding-right: 20px;"></a>
+        </h4>
+        <div class="dg-checkout-main-side-carrinho-form">
+            <form action="#" onsubmit="return false;">
+                <div class="dg-relative">
+                    <input id="checkoutCupomCarrinho" type="text" value="${RetornoCarrinho.GiftCard}">
+                    <label for="checkoutCupomCarrinho">
+                        Digite seu Cupom:
+                    </label>
+                </div>
+                <button type="button" class="insereGift">
+                    Validar
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="dg-checkout-main-side-bloco dg-checkout-main-side-observacao">
+        <h4 class="dg-subtitulo">
+            <span class="dg-mobile-hide">Observação:</span>
+            <span class="dg-desktop-hide"><strong>Observação</strong></span>
+            <a href="javascript:void(0)" class="dg-checkout-main-side-toggle" role="presentation">
+                Adicionar
+    @* <span class="dg-icon dg-icon-linha1"></span>
+                <span class="dg-icon dg-icon-linha2"></span> *@
+            </a>
+        </h4>
+        <div class="dg-checkout-main-side-carrinho-form">
+            <form action="#" onsubmit="return false;">
+                <textarea id="checkoutObservacoesCarrinho" placeholder="Alguma observação?">${RetornoCarrinho.ObsCliente}</textarea>
+                <button type="button" onclick="Checkout.GravarObsCliente();" id="gravar">Gravar</button>
+            </form>
+        </div>
+    </div>
+    <div class="dg-checkout-main-side-resumo resumoTemplateSideGeral">
+        <ul>
+            <li>
+                <span>Sub <strong>total</strong>:</span>
+                <span class="dg-checkout-main-side-resumo-valor">
+                    R$ ${RetornoCarrinho.SubTotal.FormatCurrency()}
+                </span>
+            </li>
+            <li>
+                <span>Valor do <strong>Frete</strong>:</span>
+                <span class="dg-checkout-main-side-resumo-valor">
+                    R$ ${RetornoCarrinho.ValorFrete.FormatCurrency()}
+                </span>
+            </li>
+            <li>
+                <span><strong>Desconto:</strong></span>
+                <span class="dg-checkout-main-side-resumo-valor">
+                    <strong>-R$ ${RetornoCarrinho.Desconto.FormatCurrency()}</strong>
+                </span>
+            </li>
+            <li class="dg-checkout-main-side-resumo-total">
+                <span data-mobile-text-before="Valor " data-mobile-text-after="Total de Compra:">Total:</span>
+                <span class="dg-checkout-main-side-resumo-valor">
+                    R$ ${RetornoCarrinho.ValorTotalCarrinho.FormatCurrency()}
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div class="dg-checkout-main-side-footer">
+        <a href="/checkout/" class="dg-checkout-main-side-continuar-comprando dg-desktop-hide">
+            <span class="dg-icon dg-icon-arrow01-left" role="presentation"></span>
+            Voltar
+        </a>
+        <a href="javascript:void(0)" class="dg-checkout-main-side-prosseguir">
+            Continuar
+        </a>
+    </div>
+</script>
+<script id="templateFrete" type="text/x-jquery-tmpl">
+</script>
+<script id="templateFreteConteudo" type="text/x-jquery-tmpl">
+    <h2 class="dg-subtitulo">
+        Selecione a forma <strong>de entrega</strong>:
+    </h2>
+    <ul class="dg-checkout-main-fretes">
+        {var idFreteSelect = 0}
+        {if RetornoFrete.Itens.length > 0}
+        {for LItens in RetornoFrete.Itens}
+        {if LItens.CheckFrete == 'checked'}
+        {var idFreteSelect = LItens.ID_Frete}
+        {/if}
+        <li class="settipoFrete" rel="${LItens.ID_Frete}">
+            <input type="radio" name="tipoFrete" id="tipoFrete${LItens.NomeFrete}${LItens.ID_Frete}" ${LItens.CheckFrete} value="${LItens.ID_Frete}" />
+            <label for="tipoFrete${LItens.NomeFrete}${LItens.ID_Frete}">
+                <strong>
+                    ${LItens.NomeFrete}
+                    {if LItens.ValorFrete == '0.00'}
+                    Grátis
+                    {else}
+                    <span>R$</span>${LItens.ValorFrete.FormatCurrency()}
+                    {/if}
+                </strong>
+                <p>
+                    {if LItens.IsRetiradaLoja == false}
+
+                        {if LItens.ID_Frete == 49}
+                            Entrega no mesmo dia
+                        {else}
+                            {if LItens.PrazoEntrega <= 0}
+                            Estimado em ${LItens.PrazoEntregaHora}
+                            {else}
+                            Estimado em ${LItens.PrazoEntrega} {if LItens.PrazoEntrega <= 1}dia útil{else}dias úteis{/if}
+                            {/if}                            
+                        {/if}
+                        {if LItens.Aviso != ""}
+                            <br />${LItens.Aviso}{else}<span class="preco-frete-finalizar-valido-box"></span>
+                        {/if}
+                    {else}
+                    <span class="tempoRetiraLoja">Tempo estimado para retirada em 1 hora</span>
+                    {/if}
+                </p>
+            </label>
+        </li>
+        {/for}
+        {if RetornoFrete.Msg != "" && RetornoFrete.Msg != null }
+        <li class="nenhum-frete-carrinho">${RetornoFrete.Msg}</li>
+        {/if}
+        {else}
+        <li class="nenhum-frete-carrinho">Nenhum frete disponivel para esse CEP</li>
+        {/if}
+    </ul>
+    <div class="dg-checkout-main-fretes-aviso">
+    @* <p><strong>OBSERVAÇÃO: </strong></strong>
+            O prazo de envio de sua encomenda na loja, se inicia em <strong>01 (um) dia útil</strong> após a <strong>confirmação de pagamento</strong> pela instituição financeira.
+        </p> *@
+        <div class="dg-wrapper">
+            <div class="{if idFreteSelect == 49}dg-ativo{/if}" rel="superExpresso" data-tipo="SUPER EXPRESSO"><strong>OBSERVAÇÃO: </strong>
+               <p>O prazo de envio começa a contar 30 minutos após a confirmação de pagamento e o código de rastreio ficará disponível assim que o pedido for coletado pela transportadora. Lembre-se: podem ocorrer atrasos devido ao sistema da transportadora ou condições adversas que interfiram na entrega do pedido.
+                </p><p><strong>Essa modalidade de frete funciona apenas para pagamentos feitos com cartão de crédito ou PIX.</strong></p>
+            </div>
+            <div class="{if idFreteSelect == 50 || idFreteSelect == 8}dg-ativo{/if}" rel="transportadora" data-tipo="TRANSPORTADORA"><strong>OBSERVAÇÃO: </strong>
+                <p>Em até 1 dia útil após a confirmação do pagamento, nós realizaremos a postagem do seu pedido.</p><p>O código de rastreio ficará disponível após a postagem. Lembre-se: podem ocorrer atrasos devido ao sistema da transportadora.</p>
+            </div>
+            <div class="{if idFreteSelect == 3 || idFreteSelect == 5}dg-ativo{/if}" rel="sedex-pac" data-tipo="SEDEX e PAC"><strong>OBSERVAÇÃO: </strong>
+                <p>Em até 1 dia útil após a confirmação do pagamento, nós realizaremos a postagem do seu pedido.</p><p>O código de rastreio ficará disponível após a postagem. Lembre-se: podem ocorrer atrasos devido ao sistema da transportadora.</p>
+            </div>
+            <div class="{if idFreteSelect == 1}dg-ativo{/if}" data-tipo="RETIRADA PACAEMBU" rel="retirada-pacaembu"><strong>OBSERVAÇÃO: </strong>
+               <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p><p>
+                É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados.
+                </p><p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p><p>
+                <strong>Essa modalidade de frete funciona apenas para pagamentos feitos com cartão de crédito ou PIX.</strong></p><p>
+                Endereço: Av. Pacaembu, 1202 – Pacaembu – São Paulo/SP – CEP: 01234-000</p>
+            </div>
+            <div class="{if idFreteSelect == 2}dg-ativo{/if}" data-tipo="RETIRADA PIRITUBA" rel="retirada-pirituba"><strong>OBSERVAÇÃO: </strong>
+               <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p><p>
+                É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados.
+                </p><p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p><p>
+                <strong>Essa modalidade de frete funciona apenas para pagamentos feitos com cartão de crédito ou PIX.</strong></p><p>
+                Endereço: Av. Cabo Adão Pereira, 82/88 – Pirituba – São Paulo/SP – CEP: 02936-010</p>
+            </div>
+            <div class="{if idFreteSelect == 6}dg-ativo{/if}" data-tipo="RETIRADA PLANALTO" rel="retirada-planalto"><strong>OBSERVAÇÃO: </strong>
+               <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p><p>
+                É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados.
+                </p><p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p><p>
+                <strong>Essa modalidade de frete funciona apenas para pagamentos feitos com cartão de crédito ou PIX.</strong></p><p>
+                Endereço: Av. José Maria Whitaker, 1366 - Planalto Paulista, São Paulo - SP CEP: 04057-000</p>
+            </div>
+            <div data-tipo="INFORMAÇÕES NO RECIBO SOBRE RETIRADA EM LOJA"><strong>OBSERVAÇÃO: </strong>
+                <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p><p>
+                É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados.
+               </p><p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p>
+            </div>
+        </div>
+    </div>
+    <div class="dg-checkout-main-bloco-footer">
+        <a href="/checkout/enderecos/" class="dg-checkout-main-bloco-voltar">
+            <span class="dg-icon dg-icon-arrow01-left" role="presentation"></span>
+            Voltar
+        </a>
+    </div>
+</script>
+<script id="templateFreteCarrinho" type="text/x-jquery-tmpl">
+    <div class="dg-checkout-main-side-fretes">
+        <h2 class="dg-subtitulo">
+            Selecione a forma <strong>de entrega</strong>:
+        </h2>
+        <ul>
+            {if RetornoFrete.Itens != null}
+            {if RetornoFrete.Itens.length > 0}
+            {for LItens in RetornoFrete.Itens}
+            <li>
+                <input type="radio" id="tipoFrete${LItens.NomeFrete}${LItens.ID_Frete}" name="tipoFrete" ${LItens.CheckFrete} value="${LItens.ID_Frete}" />
+                <label for="tipoFrete${LItens.NomeFrete}${LItens.ID_Frete}">
+                    <span>
+                        <strong>
+                            ${LItens.NomeFrete}
+                        </strong>
+                        <p>
+                            {if LItens.IsRetiradaLoja == false}
+                                
+                                {if LItens.ID_Frete == 49}
+                                    Entrega no mesmo dia
+                                {else}
+
+                                    {if LItens.PrazoEntrega <= 0}
+                                    Estimado em ${LItens.PrazoEntregaHora}
+                                    {else}
+                                    Estimado em ${LItens.PrazoEntrega} {if LItens.PrazoEntrega <= 1}dia útil{else}dias úteis{/if}
+                                    {/if}                                
+                                {/if}
+                                {if LItens.Aviso != ""}
+                                <br />${LItens.Aviso}{else}<span class="preco-frete-finalizar-valido-box"></span>
+                                {/if}
+                            {else}
+                            Tempo estimado para retirada em 1 hora
+                            {/if}
+                        </p>
+                    </span>
+                    <span>
+                        {if LItens.ValorFrete == '0.00'}
+                        Grátis
+                        {else}
+                        <span>R$</span>${LItens.ValorFrete.FormatCurrency()}
+                        {/if}
+                    </span>
+                </label>
+            </li>
+            {/for}
+                {if RetornoFrete.Msg != "" && RetornoFrete.Msg != null }
+                <li class="nenhum-frete-carrinho">${RetornoFrete.Msg}</li>
+                {/if}
+            {else}
+                {if RetornoFrete.Msg != "" && RetornoFrete.Msg != null }
+                    <li class="nenhum-frete-carrinho">${RetornoFrete.Msg}</li>
+                {else}
+                    <li class="nenhum-frete-carrinho">Nenhum frete disponivel para esse CEP${RetornoFrete.Msg}</li>
+                {/if}
+            
+            {/if}
+            {else}
+                <li class="nenhum-frete-carrinho">Nenhum frete disponivel para esse CEP${RetornoFrete.Msg}</li>
+            {/if}
+        </ul>
+    </div>
+</script>
+<script id="templateSideReciboConteudo" type="text/x-jquery-tmpl">
+    <section class="dg-checkout-main-bloco dg-checkout-main-bloco--full">
+        <div class="dg-checkout-main-bloco-topo dg-checkout-main-bloco-topo--boleto">
+            <h1 class="dg-titulo">
+                Recibo do pedido <strong>${RetornoRecibo.ID_Pedido}</strong>
+                {if RetornoRecibo.Pagamento.TipoPagamento == 'cartao'}
+                <button type="button" class="dg-checkout-main-bloco-informativo-btn jsReciboInformativoBtn" title="Informações de crédito" aria-label="Informações de crédito">
+                    <svg xmlns="https://www.w3.org/2000/svg" width="6.053" height="9.543" viewBox="0 0 6.053 9.543">
+                        <path id="Caminho_1415" data-name="Caminho 1415" d="M.448-9.1H2.5a.891.891,0,0,1,.968-.968.86.86,0,0,1,.917.93C4.4-8.212,3.569-8,2.372-8H1.607l.064,2.37H3.582l.064-.956C5.315-6.594,6.5-7.486,6.5-9.129c0-1.771-1.236-2.727-3.007-2.727C1.48-11.856.41-10.633.448-9.1ZM3.939-3.485a1.2,1.2,0,0,0-1.287-1.2,1.208,1.208,0,0,0-1.3,1.2,1.2,1.2,0,0,0,1.3,1.172A1.2,1.2,0,0,0,3.939-3.485Z" transform="translate(-0.447 11.856)" fill="#fff"/>
+                    </svg>
+                </button>
+                {/if}
+            </h1>
+            <div class="dg-checkout-main-bloco-passo dg-checkout-main-bloco-passo--recibo" progresso="5">
+                <div class="dg-checkout-main-bloco-progresso"><span>5</span>/5</div>
+                <div class="dg-checkout-main-bloco-proximopasso">
+                    <strong>Recibo</strong>
+                    <div class="dg-checkout-main-bloco-barra">
+                        <div class="dg-checkout-main-bloco-barra-interna"></div>
+                    </div>
+                </div>
+            </div>
+            <img class="dg-checkout-main-bloco-recibo-mascote" src="/ckeckout/assets/img/checkout/recibo/mascote.png" alt="Imagem contendo o mascote da DNE">
+            <div class="dg-checkout-main-bloco-informativo jsReciboInformativoFechar">
+                <p>
+                    <a class="dg-checkout-main-bloco-informativo-fechar jsReciboInformativoFechar" href="javascript:void(0)"></a>
+                    <strong class="dg-red">ATENÇÃO:</strong><br><br>
+                    Nossa equipe de análise de crédito poderá entrar em contato por Whatsapp, e-mail ou telefone para confirmação de alguns dados e atenção:<br><br>
+                    A Drogaria Nova Esperança <span class="dg-red">não envia links para confirmação de pagamento</span> e evite clicar em links desconhecidos, pois seus dados pessoais podem ser capturados.<br><br>
+                    Delete a mensagem imediatamente.
+                </p>
+            </div>
+        </div>
+            <div class="dg-checkout-main-bloco-conteudo jsCheckoutConteudo InitRecibo">
+                {if RetornoRecibo.ID_OpcaoPagamento == 512}
+                    <h2 class="dg-subtitulo dg-recibo-subitulo">Escaneie este código <strong>para pagar:</strong></h2>
+                {elseif RetornoRecibo.ID_OpcaoPagamento == 9}
+                    <h2 class="dg-subtitulo dg-recibo-subitulo">Pagamento via <strong>Depósito Bancário:</strong></h2>
+                {elseif RetornoRecibo.ID_OpcaoPagamento == 421}
+                    <h2 class="dg-subtitulo dg-recibo-subitulo">Pagamento via <strong>Boleto Bancário:</strong></h2>
+                {elseif RetornoRecibo.Pagamento.TipoPagamento == 'cartao'}
+                    <h2 class="dg-subtitulo dg-recibo-subitulo">Pagamento via <strong>Cartão de Crédito:</strong></h2>
+                {/if}
+                <div class="dg-checkout-main-recibo-container">
+                    <div class="dg-checkout-main-recibo-wrapper">
+                        <div class="dg-checkout-main-recibo-bloco-1">
+                            {if RetornoRecibo.ID_OpcaoPagamento == 512}
+                            <div class="dg-checkout-main-recibo-flex">
+                                <img class="dg-img-qrcode" src="https://pix.drogarianovaesperanca.com.br/api/qrcode/${RetornoRecibo.ID_Pedido}/${RetornoRecibo.ChavePixService}.png" />
+                                <ol>
+                                    <li class="dg-checkout-main-recibo-flex">
+                                        <strong>1.</strong>
+                                        <p>Acesse seu Internet Banking ou app de pagamentos.</p>
+                                    </li>
+                                    <li class="dg-checkout-main-recibo-flex">
+                                        <strong>2.</strong>
+                                        <p>Escolha pagar via Pix.</p>
+                                    </li>
+                                    <li class="dg-checkout-main-recibo-flex">
+                                        <strong>3.</strong>
+                                        <p>Escaneie o código ao lado:</p>
+                                    </li>
+                                    <li class="dg-verde">
+                                        Pague e será creditado na hora
+                                    </li>
+                                </ol>
+                            </div>
+                            <form class="dg-checkout-main-recibo-codigo-copiar dg-is-small">
+                                <button class="dg-btn-imprimir dg-btn-copiar dg-pulse-delay" type="button">Copiar linha digitável</button>
+                                <button type="button" class="dg-checkout-main-recibo-codigo jsCodigoPixTexto">Visualizar chave PIX</button>
+                                <input type="hidden" value="${RetornoRecibo.QRCodePIX}" id="copiarcodpix" />
+                                <div>
+                                    <textarea>${RetornoRecibo.QRCodePIX}</textarea>
+                                </div>
+                            </form>
+                            {elseif RetornoRecibo.ID_OpcaoPagamento == 9}
+                            <div class="dg-checkout-main-recibo-flex">
+                                <img src="/ckeckout/assets/img/checkout/recibo/bradesco-2x.png" />
+                                <div>
+                                    ${RetornoRecibo.Pagamento.HtmlDinamicoOP}
+                                </div>
+                            </div>
+                            <div class="dg-checkout-main-recibo-codigo-copiar">
+                                <p class="dg-checkout-main-recibo-codigo">
+                                    ${RetornoRecibo.Pagamento.HtmlDinamicoFP}
+                                </p>
+                            </div>
+                            {elseif RetornoRecibo.ID_OpcaoPagamento == 421}
+                            <div class="dg-checkout-main-recibo-flex">
+                                <img src="/ckeckout/assets/img/checkout/recibo/boleto-2x.png" />
+                            </div>
+                            <p class="dg-checkout-main-recibo-codigo">
+                                ${RetornoRecibo.Pagamento.HtmlDinamicoFP}
+                            </p>
+                            <div class="dg-checkout-main-recibo-codigo-copiar">
+                                <a href="javascript:void(0)" class="dg-btn-imprimir gerarBoleto" rel="${RetornoRecibo.ID_Pedido}">
+                                    Imprimir Boleto
+                                </a>
+                            </div>
+                            {elseif RetornoRecibo.Pagamento.TipoPagamento == 'cartao'}
+                            <div class="dg-checkout-main-recibo-flex">
+                                <!-- A bandeira tem q vir no minusculo -->
+                                {if RetornoRecibo.Pagamento.DadosCartao != null}
+                                <div class="dg-checkout-main-pagamentos-cartao" bandeira="${RetornoRecibo.Pagamento.FormaPagamentoLowerCase}">
+                                    <div class="dg-checkout-main-pagamentos-simulacao">
+                                        <div class="dg-checkout-main-pagamentos-simulacao-card" role="presentation">
+                                            <div class="dg-checkout-main-pagamentos-simulacao-frente">
+                                                <div class="dg-checkout-main-pagamentos-simulacao-frente-img" style="background-image: url(/ckeckout/assets/img/lazy.png)"></div>
+                                                <div class="dg-checkout-main-pagamentos-simulacao-frente-numero">${RetornoRecibo.Pagamento.DadosCartao.CardNumber}</div>
+                                                <div class="dg-checkout-main-pagamentos-simulacao-frente-titular">${RetornoRecibo.Pagamento.DadosCartao.Nome}</div>
+                                                <div class="dg-checkout-main-pagamentos-simulacao-frente-vencimento">${RetornoRecibo.Pagamento.DadosCartao.ExpirationDate}</div>
+                                            </div>
+                                            <div class="dg-checkout-main-pagamentos-simulacao-verso">
+                                                <div class="dg-checkout-main-pagamentos-simulacao-verso-faixa"></div>
+                                                <div class="dg-checkout-main-pagamentos-simulacao-verso-cvv">***</div>
+                                                <div class="dg-checkout-main-pagamentos-simulacao-verso-txt">
+                                                    drogaria nova esperança drogaria nova esperança drogaria nova esperança drogaria nova esperança drogaria nova esperança drogaria nova esperança drogaria nova esperança
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/if}
+                            </div>
+                            <p class="dg-checkout-main-recibo-codigo">
+                                <strong class="dg-verde">Pagamento via cartão {if RetornoRecibo.ID_SubStatus == '2'}aprovado{else}reprovado{/if}</strong><br>
+                            </p>
+                            {/if}
+                        </div>
+                        <div class="dg-checkout-main-recibo-bloco-2 dg-mobile-hide">
+                            <ul class="dg-checkout-main-recibo-dados">
+                                <li>
+                                    <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados do Frete</div>
+                                    <ul>
+                                        <li><span>Forma de envio:</span>
+                                            <span>
+                                                ${RetornoRecibo.Frete.Frete}
+                                                {if RetornoRecibo.CodRastreamento != ''}
+                                                     (${RetornoRecibo.CodRastreamento})
+                                                {/if}
+                                            </span>
+                                        </li>
+                                        <li><span>Tempo de Entrega:</span>
+                                        <span>
+                                            {var valorFrete = 0}
+                                            {if RetornoRecibo.Frete.IsRetiradaLoja == false}
+
+                                                {if RetornoRecibo.Frete.ID_Frete == 49}
+                                                    Entrega no mesmo dia
+                                                {else}
+                                                    {if RetornoRecibo.Frete.PrazoEntrega <= 0}
+                                                    ${RetornoRecibo.Frete.PrazoEntregaHora}
+                                                    {else}
+                                                    ${RetornoRecibo.Frete.PrazoEntrega} {if RetornoRecibo.Frete.PrazoEntrega <= 1}dia útil{else}dias úteis{/if}
+                                                    {/if}
+                                                {/if}
+                                            {else}
+                                            Tempo estimado para retirada em 1 hora
+                                            {/if}
+                                        </span>
+                                        </li>
+                                        <li><span>Valor:</span>
+                                            <span>
+                                                {if RetornoRecibo.Frete.Valor == '0'}
+                                                {var valorFrete = 'Grátis'}
+                                                ${valorFrete}
+                                                {else}
+                                                {var valorFrete = RetornoRecibo.Frete.Valor.FormatCurrency()}
+                                                R$ ${valorFrete}
+                                                {/if}
+                                            </span>
+                                         </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados da Entrega</div>
+                                    <ul>
+                                        <li class="no-margin">
+                                            Tipo de endereço: ${RetornoRecibo.NomeEndereco}
+                                        </li>
+                                        <li class="no-margin">
+                                            CEP: ${RetornoRecibo.CEP}
+                                        </li>
+                                        <li class="no-margin">
+                                            Endereço: ${RetornoRecibo.Endereco} , ${RetornoRecibo.Numero} ${RetornoRecibo.Compl} - ${RetornoRecibo.Bairro} - ${RetornoRecibo.Cidade}/${RetornoRecibo.Estado}
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados do Pagamento</div>
+                                    <ul>
+                                        <li>
+                                            <span>
+                                                Pagamento escolhido:
+                                            </span>
+                                            <span>
+                                                ${RetornoRecibo.Pagamento.FormaPagamento}
+                                                {if RetornoRecibo.ID_OpcaoPagamento == 421}
+                                                <img src="/ckeckout/assets/img/checkout/recibo/boleto.png">
+                                                {elseif RetornoRecibo.ID_OpcaoPagamento == 9}
+                                                <img src="/ckeckout/assets/img/checkout/recibo/deposito.png">
+                                                {elseif RetornoRecibo.Pagamento.TipoPagamento == 'cartao'}
+                                                <img src="/ckeckout/assets/img/checkout/recibo/cartao.png">
+                                                {elseif RetornoRecibo.ID_OpcaoPagamento == 512}
+                                                <img src="/ckeckout/assets/img/checkout/recibo/pix.png">
+                                                {/if}
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>Forma de Pagamento:</span>
+                                            <span>
+                                                ${RetornoRecibo.Pagamento.nparcela}x
+                                                R$ ${RetornoRecibo.ValorParcela.FormatCurrency()}
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados do Pedido</div>
+                                    <ul>
+                                        <li class="no-margin">Data:  ${RetornoRecibo.Data} - Hora: ${Cliente.FormataHora(RetornoRecibo.Hora)}</li>
+                                        {if RetornoRecibo.Pagamento.Desconto > 0}
+                                        <li class="no-margin">
+                                            Desconto por Forma de Pagamento:
+                                            R$ ${RetornoRecibo.Pagamento.FormatCurrency()}
+                                        </li>
+                                        {/if}
+                                        {if RetornoRecibo.ValorTotalDesconto > 0}
+                                        <li class="no-margin">
+                                            Desconto:
+                                            R$ ${RetornoRecibo.ValorTotalDesconto.FormatCurrency()}
+                                        </li>
+                                        {/if}
+                                        <li class="no-margin">Valor dos Produtos: R$ ${RetornoRecibo.SubTotal.FormatCurrency()}</li>
+                                        <li>Valor do Frete: R$ ${valorFrete}</li>
+                                        <li><strong>Total do Pedido: R$ ${RetornoRecibo.TotalGeralJuros.FormatCurrency()}</strong></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="dg-checkout-main-recibo-alerta">
+                        {if RetornoRecibo.Frete.ID_Frete == 49}
+                            <div data-tipo="SUPER EXPRESSO">
+                                <b class="jsAbrirInfoAlerta">Informações sobre Super Expresso:</b>
+                                <div>
+                                    <p>O prazo de envio começa a contar 30 minutos após a confirmação de pagamento e o código de rastreio ficará disponível assim que o pedido for coletado pela transportadora. Lembre-se: podem ocorrer atrasos devido ao sistema da transportadora ou condições adversas que interfiram na entrega do pedido.
+                                    </p><p><strong>Essa modalidade de frete funciona apenas para pagamentos feitos com cartão de crédito ou PIX.</strong></p>
+                                </div>
+                            </div>
+                        {elseif RetornoRecibo.Frete.ID_Frete == 8 || RetornoRecibo.Frete.ID_Frete == 56 || RetornoRecibo.Frete.ID_Frete == 50}
+                            <div data-tipo="TRANSPORTADORA">
+                                <b class="jsAbrirInfoAlerta">Informações sobre Transportadora:</b>
+                                <div><p>Em até 1 dia útil após a confirmação do pagamento, nós realizaremos a postagem do seu pedido.</p><p>O código de rastreio ficará disponível após a postagem. Lembre-se: podem ocorrer atrasos devido ao sistema da transportadora.</p></div>
+                            </div>
+                        {elseif RetornoRecibo.Frete.ID_Frete == 3 || RetornoRecibo.Frete.ID_Frete == 5}
+                            <div data-tipo="SEDEX e PAC">
+                                <b class="jsAbrirInfoAlerta">Informações sobre SEDEX e PAC:</b>
+                                <div><p>Em até 1 dia útil após a confirmação do pagamento, nós realizaremos a postagem do seu pedido.</p><p>O código de rastreio ficará disponível após a postagem. Lembre-se: podem ocorrer atrasos devido ao sistema da transportadora.</p></div>
+                            </div>
+                        {elseif RetornoRecibo.Frete.ID_Frete == 1}
+                            <div data-tipo="RETIRADA PACAEMBU">
+                                <b class="jsAbrirInfoAlerta">Informações sobre Retirada na loja de Pacaembu:</b>
+                                <div>
+                                    <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p>
+                                    <p>É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados. </p>
+                                    <p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p>
+    @* <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p><p>
+                                    É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados.
+                                    </p><p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p><p>
+                                    <strong>Essa modalidade de frete funciona apenas para pagamentos feitos com cartão de crédito ou PIX.</strong></p><p>
+                                    Endereço: Av. Pacaembu, 1202 – Pacaembu – São Paulo/SP – CEP: 01234-000</p> *@
+                                </div>
+                            </div>
+                        {elseif RetornoRecibo.Frete.ID_Frete == 2}
+                            <div data-tipo="RETIRADA PIRITUBA">
+                                <b class="jsAbrirInfoAlerta">Informações sobre Retirada na loja de Pirituba:</b>
+                                    <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p>
+                                    <p>É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados. </p>
+                                    <p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p>
+    @* <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p><p>
+                                    É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados.
+                                    </p><p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p><p>
+                                    <strong>Essa modalidade de frete funciona apenas para pagamentos feitos com cartão de crédito ou PIX.</strong></p><p>
+                                    Endereço: Av. Cabo Adão Pereira, 82/88 – Pirituba – São Paulo/SP – CEP: 02936-010</p> *@
+                                </div>
+                            </div>
+                        {elseif RetornoRecibo.Frete.ID_Frete == 6}
+                            <div data-tipo="RETIRADA PLANALTO">
+                                <b class="jsAbrirInfoAlerta">Informações sobre Retirada na loja de Planalto Paulista:</b>
+                                    <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p>
+                                    <p>É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados. </p>
+                                    <p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p>
+    @* <p>Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.</p><p>
+                                    É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados.
+                                    </p><p>Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.</p><p>
+                                    <strong>Essa modalidade de frete funciona apenas para pagamentos feitos com cartão de crédito ou PIX.</strong></p><p>
+                                    Endereço: Av. Cabo Adão Pereira, 82/88 – Pirituba – São Paulo/SP – CEP: 02936-010</p> *@
+                                </div>
+                            </div>
+                        {/if}
+                    </div>
+                    <div class="dg-checkout-main-recibo-timeline-wrapper">
+                        <div class="dg-checkout-main-recibo-timeline-title dg-desktop-hide">Evolução do <b>Pedido:</b></div>
+                        <div class="dg-checkout-main-recibo-timeline jsMeuPedidoBarra" data-progresso="${RetornoRecibo.NewOrdem}">
+                            <div class="dg-checkout-main-recibo-timeline-barra">
+                                <div class="dg-checkout-main-recibo-timeline-barra-progresso jsMeuPedidoBarraProgresso"></div>
+                            </div>
+                            <ol class="jsMeuPedidoBarraLista" id="MeuPedidoBarraLista">
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="dg-checkout-main-recibo-bloco-2 dg-desktop-hide">
+                        <ul class="dg-checkout-main-recibo-dados">
+                            <li>
+                                <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados do Frete</div>
+                                <ul>
+                                    <li><span>Forma de envio:</span><span>${RetornoRecibo.Frete.Frete}</span></li>
+                                    <li><span>Tempo de Entrega:</span>
+                                    <span>
+                                        {var valorFrete = 0}
+                                        {if RetornoRecibo.Frete.IsRetiradaLoja == false}
+
+                                            {if RetornoRecibo.Frete.ID_Frete == 49}
+                                                Entrega no mesmo dia
+                                            {else}
+                                                {if RetornoRecibo.Frete.PrazoEntrega <= 0}
+                                                ${RetornoRecibo.Frete.PrazoEntregaHora}
+                                                {else}
+                                                ${RetornoRecibo.Frete.PrazoEntrega} {if RetornoRecibo.Frete.PrazoEntrega <= 1}dia útil{else}dias úteis{/if}
+                                                {/if}
+                                            {/if}
+                                        {else}
+                                        Tempo estimado para retirada em 1 hora
+                                        {/if}
+                                    </span>
+                                    </li>
+                                    <li><span>Valor:</span>
+                                        <span>
+                                            {if RetornoRecibo.Frete.Valor == '0'}
+                                            {var valorFrete = 'Grátis'}
+                                            ${valorFrete}
+                                            {else}
+                                            {var valorFrete = RetornoRecibo.Frete.Valor.FormatCurrency()}
+                                            R$ ${valorFrete}
+                                            {/if}
+                                        </span>
+                                        </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados da Entrega</div>
+                                <ul>
+                                    <li class="no-margin">
+                                        Tipo de endereço: ${RetornoRecibo.NomeEndereco}
+                                    </li>
+                                    <li class="no-margin">
+                                        CEP: ${RetornoRecibo.CEP}
+                                    </li>
+                                    <li class="no-margin">
+                                        Endereço: ${RetornoRecibo.Endereco} , ${RetornoRecibo.Numero} - ${RetornoRecibo.Bairro} - ${RetornoRecibo.Cidade}/${RetornoRecibo.Estado}
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados do Pagamento</div>
+                                <ul>
+                                    <li>
+                                        <span>
+                                            Pagamento escolhido:
+                                        </span>
+                                        <span>
+                                            ${RetornoRecibo.Pagamento.FormaPagamento}
+                                            {if RetornoRecibo.ID_OpcaoPagamento == 421}
+                                            <img src="/ckeckout/assets/img/checkout/recibo/boleto.png">
+                                            {elseif RetornoRecibo.ID_OpcaoPagamento == 9}
+                                            <img src="/ckeckout/assets/img/checkout/recibo/deposito.png">
+                                            {elseif RetornoRecibo.Pagamento.TipoPagamento == 'cartao'}
+                                            <img src="/ckeckout/assets/img/checkout/recibo/cartao.png">
+                                            {elseif RetornoRecibo.ID_OpcaoPagamento == 512}
+                                            <img src="/ckeckout/assets/img/checkout/recibo/pix.png">
+                                            {/if}
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span>Forma de Pagamento:</span>
+                                        <span>
+                                            ${RetornoRecibo.Pagamento.nparcela}x
+                                            R$ ${RetornoRecibo.ValorParcela.FormatCurrency()}
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados do Pedido</div>
+                                <ul>
+                                    <li class="no-margin">Data:  ${RetornoRecibo.Data} - Hora: ${RetornoRecibo.Hora}</li>
+                                    {if RetornoRecibo.Pagamento.Desconto > 0}
+                                    <li class="no-margin">
+                                        Desconto por Forma de Pagamento:
+                                        R$ ${RetornoRecibo.Pagamento.FormatCurrency()}
+                                    </li>
+                                    {/if}
+                                    <li class="no-margin">Valor dos Produtos: R$ ${RetornoRecibo.SubTotal.FormatCurrency()}</li>
+                                    <li>Valor do Frete: R$ ${valorFrete}</li>
+                                    <li><strong>Total do Pedido: R$ ${RetornoRecibo.TotalGeralJuros.FormatCurrency()}</strong></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dg-checkout-main-recibo-table-title dg-desktop-hide">Produtos:</div>
+                    <table class="dg-checkout-main-recibo-table">
+                        <thead class="dg-mobile-hide">
+                            <tr>
+                                <th></th>
+                                <th>Produto</th>
+                                <th>Qtd.</th>
+                                <th>Valor Und.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {for itens in RetornoRecibo.Itens}
+                            <tr>
+                                <td class="dg-mobile-hide">
+                                    <img class="dg-produto-img" src="/imagens/51x51/${itens.Foto}" alt="${itens.Produto}">
+                                </td>
+                                <td>
+                                    <div class="dg-checkout-main-recibo-table-flex">
+                                        <div>
+                                            <div class="dg-produto-nome">${itens.Produto} ${itens.ComplementoBrindes}</div>
+                                            <div class="dg-produto-codigo">Cód. do produto: ${itens.ID_SubProduto}</div>
+                                            <div class="dg-produto-marca">Marca: ${itens.Marca}</div>
+                                            <div class="dg-desktop-hide dg-checkout-main-recibo-table-valores">
+                                                <div>
+                                                    <b>Valor Und.</b>
+                                                    <div>${itens.Valor.FormatCurrency()}</div>
+                                                </div>
+                                                <div>
+                                                    <b>Qtd.</b>
+                                                    <div>${itens.Qtd}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img class="dg-produto-img dg-desktop-hide" src="/imagens/75x75/${itens.Foto}" alt="${itens.Produto}">
+                                    </div>
+                                </td>
+                                <td class="dg-mobile-hide dg-qtd">${itens.Qtd}</td>
+                                <td class="dg-mobile-hide dg-valor-und">R$ ${itens.Valor.FormatCurrency()}</td>
+                            </tr>
+                           {/for}
+                        </tbody>
+                    </table>
+                    <div class="dg-checkout-main-recibo-total">
+                        <span>Total do pedido <span>R$ ${RetornoRecibo.TotalGeralJuros.FormatCurrency()}</span></span>
+                    </div>
+    </section>
+    <div class="banner-ebit">
+        <a id="bannerEbit"></a>
+        <param id="ebitParam" value="email=${RetornoRecibo.Cliente.Email}&gender=&birthDay=&zipCode=${RetornoRecibo.CEP}&parcels=${RetornoRecibo.Pagamento.nparcela}&deliveryTax=${RetornoRecibo.eParam.ValorFreteEbit}&deliveryTime=${RetornoRecibo.Frete.PrazoEntrega}&totalSpent=${RetornoRecibo.eParam.TotalGeralEbit}&value=${RetornoRecibo.eParam.ValorProdutoEbit}&quantity=${RetornoRecibo.eParam.QtdProdutoEbit}&productName=${RetornoRecibo.eParam.NomeProdutoEbit}&transactionId=${RetornoRecibo.ID_Pedido}&sku=${RetornoRecibo.eParam.IDProdutoEbit}&buscapeId=1154673&storeId=10758" />
+    </div>
+</script>
+<div id="isGetSeloEbit">
+    <script type="text/javascript" id="getSelo" src="https://imgs.ebit.com.br/ebitBR/selo-ebit/js/getSelo.js?10758&lightbox=true"></script>
+</div>
+<script id="templateBarraMeuPedido" type="text/x-jquery-tmpl">
+     <div class="dg-usuario-conteudo-pedido-status_item" id="pdConfirmado">
+        <div id="pdConfirmadoSt"></div>
+        <div class="dg-claro" id="pdConfirmadoDT"></div>
+    </div>
+    <div class="dg-usuario-conteudo-pedido-status_item" id="pdEmSeparacao">
+        <div>Em separação</div>
+        <div class="dg-claro" id="pdEmSeparacaoDT"></div>
+    </div>
+    <div class="dg-usuario-conteudo-pedido-status_item" id="pdNf">
+        <div>Nota Fiscal Emitida</div>
+        <div class="dg-claro" id="pdNfDT"></div>
+    </div>
+    <div class="dg-usuario-conteudo-pedido-status_item" id="pdDespachado">
+        <div id="pdDespachadoSt"></div>
+        <div class="dg-claro" id="pdDespachadoDT"></div>
+    </div>
+    <div class="dg-usuario-conteudo-pedido-status_item" id="pdEntregue">
+        <div>Entregue</div>
+        <div class="dg-claro" id="pdEntregueDT"></div>
+    </div>
+</script>
+
+<script id="templateModalValidade" type="text/x-jquery-tmpl">
+    <div class="dg-checkout-main-carrinho-alert-item-table-wrapper">
+        <table class="dg-checkout-main-carrinho-alert-item-table">
+            <tr class="dg-checkout-main-carrinho-alert-item-table-header"><td></td><td></td><td>Validade</td></tr>
+            {for Itens in Produtos}
+                <tr>
+                    <td><img src="${Itens.img}" /></td></td>
+                    <td>${Itens.nome}</td>
+                    <td class="dg-bold-red">${Itens.validade}</td>
+                </tr>
+            {/for}
+        </table>
+    </div>
+</script>
