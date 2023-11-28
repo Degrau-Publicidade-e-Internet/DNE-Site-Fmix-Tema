@@ -417,13 +417,13 @@ body {
         }
         &:last-child {
             label {
-                margin-bottom: 10px;
+                margin-bottom: 31px;
             }
         }
     }
-    .dg-checkout-main-side-cupom {
-        padding-top: 21px;
-    }
+    // .dg-checkout-main-side-cupom {
+    //     padding-top: 21px;
+    // }
     .dg-checkout-main-side-resulfrete .dg-checkout-main-side-fretes ul li label:before{
         top: 10px;
         left: 14px;
@@ -476,6 +476,17 @@ body {
         background-color: $corSecundaria;
         &:hover, &:focus {
             background-color: darken($corSecundaria, 5%);
+        }
+        &.dg-loading {
+            &::before {
+                margin-top: 0;
+            }
+            &::after {
+                height: 100%;
+                max-height: 38px;
+                min-height: auto;
+                border-radius: 12px;
+            }
         }
     }
     .dg-checkout-main-side-carrinho-form input, .dg-checkout-main-side-carrinho-form label {
@@ -639,7 +650,7 @@ body {
             }
         }
     }
-    a.dg-checkout-main-bloco-btn-outline {
+    a.dg-checkout-main-bloco-btn-outline, .dg-checkout-main-bloco-btn, .dg-checkout-main-bloco-voltar {
         position: static;
         margin-left: auto;
         margin: 0 0 0 auto;
@@ -648,5 +659,188 @@ body {
         font-size: 12px;
         text-transform: uppercase;
         border-radius: 12px;
+        max-width: none;
+    }
+    .dg-checkout-main-bloco-voltar {
+        margin: 0;
+    }
+    .dg-checkout-main-carrinho {
+        padding-bottom: 0;
+    }
+
+    .dg-usuario-editar-enderecos {
+        margin: 0 -1%;
+        padding: 0;
+        width: auto;
+    }
+
+    .dg-usuario-editar-enderecos-escolha {
+        border-radius: 6.74px;
+        box-shadow: none;
+        border: 0;
+        &:hover {
+            box-shadow: none;
+            border: 0;
+        }
+    }
+    .dg-usuario-editar-enderecos-escolha:hover, .dg-usuario-editar-enderecos-escolha:focus {
+        box-shadow: none;
+        border: 0;
+    }
+    .dg-endereco-principal {
+        display: flex;
+        justify-content: space-between;
+        > span {
+            font-size: 12px;
+            line-height: 15px;
+            + span {
+                font-size: 10px;
+                text-transform: none;
+                font-weight: 400;
+            }
+        }
+    }
+    .dg-usuario-editar-enderecos-escolha {
+        &::before {
+            display: none !important;
+        }
+        padding: 13px 18px;
+        strong:first-child {
+            display: block;
+            margin-bottom: 0;
+            min-height: 17px;
+            font-size: 12px;
+        }
+    }
+    .dg-usuario-editar-enderecos-item {
+        // position: absolute;
+        &__info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 13px;
+            padding-top: 13px;
+            border-top: 1px solid #DFE6ED;
+            > div:first-child {
+                overflow: hidden;
+                flex: 1;
+                padding-right: 8px;
+                > * {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    
+                }
+                > strong {
+                    font-size: 10px;
+                    color: $corPrimaria;
+                    line-height: 15px;
+                    text-transform: none;
+                    font-weight: 400;
+                }
+                > span {
+                    display: block;
+                    font-size: 9px;
+                    color: #969696;
+                    font-weight: 400;
+                    + span {
+                        margin-top: 16px;
+                    }
+                }
+            }
+        }
+        .dg-usuario-editar-enderecos-opcoes-menu {
+            flex-shrink: 0;
+            font-size: 0;
+        }
+        button {
+            position: relative;
+            left: unset;
+            bottom: unset;
+            border: 0;
+            background-color: rgba(0,0,0,0);
+            border-radius: 0;
+            padding: 0;
+            width: 28px;
+            height: 29px;
+            &:hover, &:focus {
+                border: 0;
+                box-shadow: none;
+                background: none;
+            }
+            &.dg-usuario-editar-enderecos-editar {
+                &:hover, &:focus {
+                    svg {
+                        fill: $corPrimaria;
+                        rect {
+                            stroke: $corPrimaria;
+                        }
+                        path {
+                            fill: #fff
+                        }
+                    }
+                }
+            }
+            &.dg-usuario-editar-enderecos-apagar {
+                margin-left: 8px;
+                &:hover, &:focus {
+                    svg {
+                        fill: $corVermelho;
+                        rect {
+                            stroke: $corVermelho;
+                        }
+                        path {
+                            stroke: #fff
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .dg-icon-endereco-principal {
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 12px;
+            height: 13px;
+            background-repeat: no-repeat;
+            background-image: url(../img/icones/central/location-tick.svg);
+            background-position: center;
+            margin-right: 5px;
+            vertical-align: -2px;
+        }
+    }
+    .dg-usuario-editar-enderecos-item a, .dg-usuario-editar-enderecos-item.dg-ativo .dg-usuario-editar-enderecos-escolha strong:first-child {
+        color: $corPrimaria;
+    }
+    .dg-usuario-editar-enderecos-escolha {
+        display: block;
+        padding: 16px !important;
+        margin-bottom: 20px;
+        background: #F5F9FD;
+        &:hover, &:focus {
+            text-decoration: none;
+        }
+    }
+    .dg-usuario-editar-enderecos-item.dg-ativo {
+        background: #fff;
+    }
+    .dg-usuario-editar-enderecos-item {
+        width: 48%;
+        margin: 0 1%;
+        position: relative;
+        border-radius: 20px;
+    }
+    .dg-checkout-main-enderecos {
+        padding: 0;
+    }
+    .dg-checkout-main-enderecos {
+        margin: 0 -1%;
+    }
+    .dg-checkout-main-bloco-conteudo>.dg-subtitulo {
+        padding: 0;
+        font-size: 12px;
+        line-height: 14px;
+        background-color: rgba(0,0,0,0);
+        color: $corPrimaria;
     }
 }
