@@ -502,34 +502,30 @@
                             }
                         </div>
                         <div class="dg-produto-acoes-modais">
-                            <div>
-                                <h2>
-                                    @if (SP.ID_Categoria == 2 || SP.ID_Categoria == 34)
-                                    {
-                                    <a href="javascript:void(0)" class="dg-produto-acoes-modais-btn" onclick="abrirModal({titulo:'Para que <span>serve</span>', id:'templateProdutoParaQueServe'})">
-                                        <strong>Para que serve</strong>
-                                    </a>
-                                    } else {
+                            @if (SP.ID_Categoria != 2 && SP.ID_Categoria != 34)
+                            {
+                                <div>
+                                    <h2>
                                         <a href="javascript:void(0)" class="dg-produto-acoes-modais-btn" onclick="abrirModal({titulo:'Apresentação', id:'templateProdutoParaQueServe'})">
                                             <strong>Apresentação</strong>
                                         </a>
-                                    }
-                                </h2>
+                                    </h2>
+                                    
+                                    <div id="templateProdutoParaQueServe" style="display:none">
+                                        @{
 
-                                <div id="templateProdutoParaQueServe" style="display:none">
-                                    @{
+                                            string PrincipalIndicacao = SP.PrincipalIndicacao;
 
-                                        string PrincipalIndicacao = SP.PrincipalIndicacao;
-
-                                        if (string.IsNullOrEmpty(PrincipalIndicacao))
-                                        {
-                                            PrincipalIndicacao = "Não informado.";
+                                            if (string.IsNullOrEmpty(PrincipalIndicacao))
+                                            {
+                                                PrincipalIndicacao = "Não informado.";
+                                            }
                                         }
-                                    }
 
-                                    @Html.Raw(@PrincipalIndicacao)
+                                        @Html.Raw(@PrincipalIndicacao)
+                                    </div>
                                 </div>
-                            </div>
+                            }
                             
                             @if (MostraProdutoImportado == 1)
                             {
