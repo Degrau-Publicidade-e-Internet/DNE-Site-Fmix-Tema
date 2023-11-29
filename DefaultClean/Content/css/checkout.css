@@ -336,6 +336,10 @@ body .dg-checkout-main-carrinho-titulos + .dg-checkout-main-carrinho-item ~ .dg-
   display: none;
 }
 
+body .dg-checkout-main-side-bloco .dg-subtitulo {
+  background-color: rgba(0, 0, 0, 0);
+}
+
 body .dg-checkout-main-carrinho-item-img {
   width: auto;
   margin-right: 22px;
