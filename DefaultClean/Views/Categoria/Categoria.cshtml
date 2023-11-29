@@ -48,6 +48,8 @@
     if (tipoPg == "Busca")
     {
         ViewData["BodyID"] = "busca-pg";
+        ViewData["Description"] = oModel.MetaTagsSeo.Seo_Description;
+        ViewData["Title"] = oModel.MetaTagsSeo.Seo_Title;
     }
 
     if (tipoPg == "Marcas")
