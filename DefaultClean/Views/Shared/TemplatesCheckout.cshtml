@@ -141,7 +141,7 @@
 </script>
 
 <div class="compretambem" style="display:none">
-    <h2 class="dg-titulo">Aproveite e <strong>Compre também</strong>:</h2>
+    <h2 class="dg-titulo">Aproveite e <strong>leve também</strong></h2>
     <div class="dg-checkout-main-carrinho-compre-lista">
         <!-- esse cara usa o mesmo box padrão do site -->
         @await Component.InvokeAsync("ProdutosMaisVendidos")
@@ -777,7 +777,7 @@
     <h3 class="dg-titulo">
         Resumo do<strong> Pedido</strong>
     </h3>
-    <div class="dg-checkout-main-side-bloco">
+    <div class="dg-checkout-main-side-bloco dg-checkout-main-side-produto {if RetornoCarrinho.End != null}dg-minizado{/if}">
         <h4 class="dg-subtitulo">
             Produtos:
             <a href="javascript:void(0)" class="dg-checkout-main-editar dg-tooltip-hover voltarCarrinho" aria-label="Editar Produtos">
@@ -800,7 +800,7 @@
         </ul>
     </div>
     {if RetornoCarrinho.End != null}
-    <div class="dg-checkout-main-side-bloco">
+    <div class="dg-checkout-main-side-bloco dg-checkout-main-side-endereco">
         <h4 class="dg-subtitulo">
             Entrega: ${RetornoCarrinho.End.Nome}
             <a href="javascript:void(0)" class="dg-checkout-main-editar dg-tooltip-hover voltarEnderecos" aria-label="Editar entrega">
@@ -826,7 +826,7 @@
     {/if}
     {if RetornoCarrinho.JsonFrete != null}
     {if RetornoCarrinho.JsonFrete.ID_Frete > 0}
-    <div class="dg-checkout-main-side-bloco">
+    <div class="dg-checkout-main-side-bloco dg-checkout-main-side-frete">
         <h4 class="dg-subtitulo">
             Frete: {if RetornoCarrinho.ValorFrete == '0.00'}
             Grátis
