@@ -1623,4 +1623,9 @@ body .dg-alert-overlay .dg-alert-container::before {
 body .dg-alert-overlay .dg-btn-alert-ok, body .dg-alert-overlay .dg-btn-alert-cancelar {
   border-radius: 15px;
 }
+
+body .dg-checkout-main-side-carrinho-form textarea {
+  padding-right: 60px;
+  font-size: 12px;
+}
 /*# sourceMappingURL=checkout.css.map */
