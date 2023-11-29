@@ -274,6 +274,7 @@ body {
             border-top-left-radius: 15px;
             &:last-child {
                 padding-bottom: 27px;
+                border-radius: 15px;
                 &::after {
                     display: none;
                 }
@@ -1422,5 +1423,40 @@ body {
     .dg-checkout-main-side-carrinho-form textarea {
         padding-right: 60px;
         font-size: 12px;
+    }
+    .dg-checkout-main-bloco-aviso-fora-estado {
+        margin-top: 14px;
+        background-color: #F5F9FD;
+        color: $corPrimaria;
+    }
+    .dg-checkout-main-bloco-aviso-fora-estado {
+        display: inline-block;
+        width: auto;
+        padding: 8px 8px 8px 40px;
+        border-radius: 10px;
+        font-size: 10px;
+        font-weight: 500;
+        min-height: 31px;
+        line-height: 1.5;
+        > .dg-icon {
+            font-size: 0;
+            background-color: rgba(0,0,0,0);
+            background-image: url(../img/checkout/box.svg);
+            background-repeat: no-repeat;
+            background-position: 13px 8px;
+        }
+        > #valorEmenda87{
+            display: inline;
+            position: static;
+            height: auto;
+            padding: 0;
+            background-color: rgba(0,0,0,0);
+        }
+    }
+    .dg-erro-sem-estoque {
+        background-color: $corVermelho;
+    }
+    .dg-erro-sem-estoque:after {
+        border-color: transparent transparent $corVermelho;
     }
 }

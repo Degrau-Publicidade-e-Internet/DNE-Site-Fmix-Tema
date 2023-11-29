@@ -319,6 +319,7 @@ body .dg-checkout-main-carrinho-titulos + .dg-checkout-main-carrinho-item {
 
 body .dg-checkout-main-carrinho-titulos + .dg-checkout-main-carrinho-item:last-child {
   padding-bottom: 27px;
+  border-radius: 15px;
 }
 
 body .dg-checkout-main-carrinho-titulos + .dg-checkout-main-carrinho-item:last-child::after {
@@ -1639,5 +1640,46 @@ body .dg-alert-overlay .dg-btn-alert-ok, body .dg-alert-overlay .dg-btn-alert-ca
 body .dg-checkout-main-side-carrinho-form textarea {
   padding-right: 60px;
   font-size: 12px;
+}
+
+body .dg-checkout-main-bloco-aviso-fora-estado {
+  margin-top: 14px;
+  background-color: #F5F9FD;
+  color: #0B1841;
+}
+
+body .dg-checkout-main-bloco-aviso-fora-estado {
+  display: inline-block;
+  width: auto;
+  padding: 8px 8px 8px 40px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 500;
+  min-height: 31px;
+  line-height: 1.5;
+}
+
+body .dg-checkout-main-bloco-aviso-fora-estado > .dg-icon {
+  font-size: 0;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url(../img/checkout/box.svg);
+  background-repeat: no-repeat;
+  background-position: 13px 8px;
+}
+
+body .dg-checkout-main-bloco-aviso-fora-estado > #valorEmenda87 {
+  display: inline;
+  position: static;
+  height: auto;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+body .dg-erro-sem-estoque {
+  background-color: #E00D4C;
+}
+
+body .dg-erro-sem-estoque:after {
+  border-color: transparent transparent #E00D4C;
 }
 /*# sourceMappingURL=checkout.css.map */
