@@ -8273,5 +8273,34 @@ body .dg-usuario-conteudo-pedido-tabela-titulo {
   .dg-favoritos-boxproduto-lista .dg-boxproduto .dg-boxproduto-tags {
     right: 8px;
   }
+  .dg-alert-overlay {
+    background-color: rgba(11, 24, 65, 0.8) !important;
+  }
+  .dg-alert-overlay .dg-btn-alert-ok, .dg-alert-overlay .dg-btn-alert-cancelar {
+    background: #0B1841;
+    border: #0B1841;
+  }
+  .dg-alert-overlay .dg-alert-container {
+    max-width: 400px;
+    border: 0;
+    background-color: #F5F9FD;
+    border-radius: 15px;
+  }
+  .dg-alert-overlay .dg-alert-container::before {
+    content: '';
+    display: block;
+    margin: 0 auto 12px;
+    width: 36px;
+    height: 36px;
+    background-image: url(../img/checkout/logo-chat.svg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    margin-top: -34px;
+    border: 1px solid #0B1841;
+    border-radius: 50%;
+  }
+  .dg-alert-overlay .dg-btn-alert-ok, .dg-alert-overlay .dg-btn-alert-cancelar {
+    border-radius: 15px;
+  }
 }
 /*# sourceMappingURL=app.css.map */

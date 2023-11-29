@@ -6913,4 +6913,33 @@ body {
             }
         }
     }
+    .dg-alert-overlay {
+        background-color: rgba(11, 24, 65, 0.8) !important;
+        .dg-btn-alert-ok, .dg-btn-alert-cancelar {
+            background: $corPrimaria;
+            border: $corPrimaria;
+        }
+        .dg-alert-container {
+            max-width: 400px;
+            border: 0;
+            background-color: #F5F9FD;
+            border-radius: 15px;
+            &::before {
+                content: '';
+                display: block;
+                margin: 0 auto 12px;
+                width: 36px;
+                height: 36px;
+                background-image: url(../img/checkout/logo-chat.svg);
+                background-repeat: no-repeat;
+                background-position: top center;
+                margin-top: -34px;
+                border: 1px solid $corPrimaria;
+                border-radius: 50%;
+            }
+        }
+        .dg-btn-alert-ok, .dg-btn-alert-cancelar {
+            border-radius: 15px;
+        }
+    }
 }

@@ -590,6 +590,7 @@ body .dg-checkout-main-side-buscacep .dg-checkout-main-side-carrinho-form .dg-ch
   background-repeat: no-repeat;
   background-position: center;
   background-color: #002399;
+  z-index: 10;
 }
 
 body .dg-checkout-main-side-buscacep .dg-checkout-main-side-carrinho-form .dg-checkout-main-side-carrinho-form-buscar:hover, body .dg-checkout-main-side-buscacep .dg-checkout-main-side-carrinho-form .dg-checkout-main-side-carrinho-form-buscar:focus {
@@ -1337,7 +1338,21 @@ body .dg-checkout-main-fretes li p {
 }
 
 body .dg-checkout-main-fretes-aviso {
-  display: none;
+  border: 0;
+  padding: 0;
+  color: #626669;
+}
+
+body .dg-checkout-main-fretes-aviso > .dg-wrapper > div {
+  padding-top: 27px;
+}
+
+body .dg-checkout-main-fretes-aviso .dg-wrapper div p {
+  margin-top: 4px;
+}
+
+body .dg-checkout-main-fretes-aviso .dg-wrapper div > strong {
+  color: #00D19D;
 }
 
 body .dg-checkout-main-fretes {
@@ -1346,6 +1361,10 @@ body .dg-checkout-main-fretes {
 
 body .dg-checkout-main-fretes {
   margin-top: -22px;
+}
+
+body .dg-checkout-main-carrinho-item-img img {
+  border-radius: 11px;
 }
 
 body .dg-checkout-main-fretes li {
@@ -1569,5 +1588,39 @@ body .dg-boxproduto-titulo {
   min-height: 30px;
   font-size: 13px;
   line-height: 15px;
+}
+
+body .dg-alert-overlay {
+  background-color: rgba(11, 24, 65, 0.8) !important;
+}
+
+body .dg-alert-overlay .dg-btn-alert-ok, body .dg-alert-overlay .dg-btn-alert-cancelar {
+  background: #0B1841;
+  border: #0B1841;
+}
+
+body .dg-alert-overlay .dg-alert-container {
+  max-width: 400px;
+  border: 0;
+  background-color: #F5F9FD;
+  border-radius: 15px;
+}
+
+body .dg-alert-overlay .dg-alert-container::before {
+  content: '';
+  display: block;
+  margin: 0 auto 12px;
+  width: 36px;
+  height: 36px;
+  background-image: url(../img/checkout/logo-chat.svg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  margin-top: -34px;
+  border: 1px solid #0B1841;
+  border-radius: 50%;
+}
+
+body .dg-alert-overlay .dg-btn-alert-ok, body .dg-alert-overlay .dg-btn-alert-cancelar {
+  border-radius: 15px;
 }
 /*# sourceMappingURL=checkout.css.map */

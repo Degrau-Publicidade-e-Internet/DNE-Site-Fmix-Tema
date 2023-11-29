@@ -511,6 +511,7 @@ body {
         background-repeat: no-repeat;
         background-position: center;
         background-color: $corSecundaria;
+        z-index: 10;
         &:hover, &:focus {
             background-color: darken($corSecundaria, 5%);
         }
@@ -1156,13 +1157,32 @@ body {
         }
     }
     .dg-checkout-main-fretes-aviso {
-        display: none;
+        border: 0;
+        padding: 0;
+        color: #626669;
+
+        > .dg-wrapper {
+            > div {
+                padding-top: 27px;
+            }
+        }
+    }
+    .dg-checkout-main-fretes-aviso .dg-wrapper div p {
+        margin-top: 4px;
+    }
+    .dg-checkout-main-fretes-aviso .dg-wrapper div>strong {
+        color: $corComplementar;
     }
     .dg-checkout-main-fretes {
         min-height: auto;
     }
     .dg-checkout-main-fretes {
         margin-top: -22px;
+    }
+    .dg-checkout-main-carrinho-item-img {
+        img {
+            border-radius: 11px;
+        }
     }
     .dg-checkout-main-fretes li {
         padding-bottom: 0;
@@ -1354,5 +1374,34 @@ body {
         min-height: 30px;
         font-size: 13px;
         line-height: 15px;
+    }
+    .dg-alert-overlay {
+        background-color: rgba(11, 24, 65, 0.8) !important;
+        .dg-btn-alert-ok, .dg-btn-alert-cancelar {
+            background: $corPrimaria;
+            border: $corPrimaria;
+        }
+        .dg-alert-container {
+            max-width: 400px;
+            border: 0;
+            background-color: #F5F9FD;
+            border-radius: 15px;
+            &::before {
+                content: '';
+                display: block;
+                margin: 0 auto 12px;
+                width: 36px;
+                height: 36px;
+                background-image: url(../img/checkout/logo-chat.svg);
+                background-repeat: no-repeat;
+                background-position: top center;
+                margin-top: -34px;
+                border: 1px solid $corPrimaria;
+                border-radius: 50%;
+            }
+        }
+        .dg-btn-alert-ok, .dg-btn-alert-cancelar {
+            border-radius: 15px;
+        }
     }
 }
