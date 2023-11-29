@@ -389,6 +389,18 @@ body .dg-checkout-main-bloco-topo[paginaatual="endereco"] .dg-titulo::before, bo
   background-position: center;
 }
 
+body .dg-checkout-main-bloco-topo[paginaatual="frete"] .dg-titulo::before {
+  content: '';
+  display: inline-block;
+  width: 25px;
+  height: 26px;
+  margin-right: 10px;
+  vertical-align: middle;
+  background-image: url(../img/checkout/truck-fast.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 body .dg-checkout-main-bloco-progresso {
   width: auto;
   height: auto;

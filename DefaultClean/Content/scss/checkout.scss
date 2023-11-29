@@ -342,6 +342,21 @@ body {
                 }
             }
         }
+        &[paginaatual="frete"] {
+            .dg-titulo {
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    width: 25px;
+                    height: 26px;
+                    margin-right: 10px;
+                    vertical-align: middle;
+                    background-image: url(../img/checkout/truck-fast.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }
+        }
     }
     .dg-checkout-main-bloco-progresso {
         width: auto;
