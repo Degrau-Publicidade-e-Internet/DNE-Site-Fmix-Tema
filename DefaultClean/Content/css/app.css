@@ -7733,12 +7733,20 @@ body .dg-usuario-conteudo-pedidos-ver, body .dg-usuario-conteudo-pedidos-lista .
   }
 }
 
+body .dg-usuario-conteudo-pedido-status-barra {
+  background-color: #626669;
+}
+
 body .dg-usuario-conteudo-pedido-status-barra-progresso {
-  background-color: #E00D4C;
+  background-color: #00D19D;
 }
 
 body .dg-usuario-conteudo-pedido-tabela-alerta b, body .dg-usuario-conteudo-pedido-status_item.dg-ativo {
-  color: #E00D4C;
+  color: #00D19D;
+}
+
+body .dg-usuario-conteudo-pedido-status_wrapper .dg-usuario-conteudo-pedido-status_item div:first-child {
+  color: #00D19D;
 }
 
 body .dg-usuario-main .dg-titulo .dg-icon.dg-icon-eye {
@@ -7764,7 +7772,7 @@ body .dg-usuario-conteudo-pedido-tabela .dg-produto-nome {
 
 body .dg-usuario-conteudo-pedido-tabela .dg-produto-codigo {
   font-size: 9px;
-  color: #E00D4C;
+  color: #969696;
   font-weight: 400;
 }
 
@@ -7993,7 +8001,7 @@ body .dg-usuario-conteudo-cartoes-btn-deletar:hover, body .dg-usuario-conteudo-c
 
 body .dg-usuario-conteudo-cartoes-btn-marcar {
   background-color: rgba(0, 0, 0, 0);
-  border: 1px solid #d6d6dc;
+  border: 1px solid #cacccd;
   border-radius: 8px;
   width: 90px;
   display: block;
@@ -8011,7 +8019,7 @@ body .dg-usuario-conteudo-cartoes-btn-marcar {
   font-size: 12px;
   padding: 0;
   text-decoration: none;
-  color: #6B6B7B;
+  color: #626669;
 }
 
 body .dg-usuario-conteudo-cartoes-btn-marcar .dg-icon {
