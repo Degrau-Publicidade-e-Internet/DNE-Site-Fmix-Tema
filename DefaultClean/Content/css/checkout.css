@@ -317,6 +317,14 @@ body .dg-checkout-main-carrinho-titulos + .dg-checkout-main-carrinho-item {
   border-top-left-radius: 15px;
 }
 
+body .dg-checkout-main-carrinho-titulos + .dg-checkout-main-carrinho-item:last-child {
+  padding-bottom: 27px;
+}
+
+body .dg-checkout-main-carrinho-titulos + .dg-checkout-main-carrinho-item:last-child::after {
+  display: none;
+}
+
 body .dg-checkout-main-carrinho-titulos + .dg-checkout-main-carrinho-item ~ .dg-checkout-main-carrinho-item:last-child {
   padding-bottom: 27px;
   border-bottom-right-radius: 15px;
@@ -1505,6 +1513,7 @@ body .dg-checkout-main-carrinho-compre .dg-boxproduto-preco-por, body .compretam
   line-height: 14px;
   font-weight: bold;
   color: #00D19D;
+  z-index: 1;
 }
 
 body .dg-checkout-main-carrinho-compre > .dg-titulo strong {
@@ -1539,6 +1548,7 @@ body .dg-checkout-main-carrinho-compre .dg-boxproduto > form, body .dg-checkout-
   -webkit-box-shadow: none;
           box-shadow: none;
   padding-left: 106px;
+  z-index: 0;
 }
 
 body .dg-checkout-main-carrinho-compre .dg-boxproduto-desconto-checkout, body .compretambem .dg-boxproduto-desconto-checkout {

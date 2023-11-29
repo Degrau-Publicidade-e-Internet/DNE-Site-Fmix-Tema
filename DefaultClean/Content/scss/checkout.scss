@@ -267,10 +267,17 @@ body {
             margin-top: 27px;
         }
     }
+    
     .dg-checkout-main-carrinho-titulos {
         + .dg-checkout-main-carrinho-item {
             border-top-right-radius: 15px;
             border-top-left-radius: 15px;
+            &:last-child {
+                padding-bottom: 27px;
+                &::after {
+                    display: none;
+                }
+            }
             ~ .dg-checkout-main-carrinho-item:last-child {
                 padding-bottom: 27px;
                 border-bottom-right-radius: 15px;
@@ -1300,6 +1307,7 @@ body {
         line-height: 14px;
         font-weight: bold;
         color: $corComplementar;
+        z-index: 1;
     }
     .dg-checkout-main-carrinho-compre>.dg-titulo strong {
         color: $corComplementar;
@@ -1328,6 +1336,7 @@ body {
         position: static;
         box-shadow: none;
         padding-left: 106px;
+        z-index: 0;
     }
     .dg-checkout-main-carrinho-compre .dg-boxproduto-desconto-checkout, .compretambem .dg-boxproduto-desconto-checkout {
         position: absolute;
