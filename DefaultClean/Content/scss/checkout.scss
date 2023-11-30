@@ -1570,22 +1570,49 @@ body {
     .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-btn, .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer-voltar-style, .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style, .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer-voltar-style, .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style, .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer-voltar-style, .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style, .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer-voltar-style, .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style, a.dg-header-minhaconta-modal-footer-voltar-btn, .dg-form-senha-step[data-form-senha-step="2"] a.dg-header-minhaconta-modal-footer-voltar-style, .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email a.dg-header-minhaconta-modal-footer-voltar-style, .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular a.dg-header-minhaconta-modal-footer-voltar-style, .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte a.dg-header-minhaconta-modal-footer-voltar-style{
         background: #626669;
     }
-    .dg-checkout-main[paginaatual="carrinho"]>.compretambem {
-        display: none !important;
-    }
-    .dg-checkout-main[paginaatual="carrinho"] ~ .dg-checkout-main[paginaatual="carrinho"]>.compretambem {
-        display: block !important;
-    }
-
+    
     .dg-checkout-main-carrinho-item .dg-checkout-main-carrinho-item-apagar {
         width: 44px !important;
         min-width: 44px;
         line-height: 1.42857143;
     }
-
+    
     @media (max-width: 1056.28px) {
+        .dg-checkout-header-logo {
+            width: 20%;
+        }
+        .dg-checkout-main[paginaatual="carrinho"]>.compretambem {
+            display: none !important;
+        }
+        .dg-checkout-main[paginaatual="carrinho"] ~ .dg-checkout-main[paginaatual="carrinho"]>.compretambem {
+            display: block !important;
+        }
         .dg-checkout-main-bloco-topo > .dg-titulo {
             font-size: 13px;
+        }
+        .dg-checkout-header-info-chat {
+            display: none;
+            + .dg-checkout-header-info {
+                display: none;
+                + .dg-checkout-header-info {
+                    margin-left: auto;
+                }
+            }
+        }
+        .dg-checkout-header-info {
+            padding-top: 4px;
+            font-size: 9px;
+            strong {
+                font-size: 13px;
+            }
+        }
+        .dg-checkout-header-info > img {
+            margin-right: 2px;
+        }
+        .dg-checkout-header{
+            height: 83px;
+            display: flex;
+            align-items: center;
         }
         .dg-checkout-main-carrinho-item {
             background-image: none;
@@ -1647,5 +1674,39 @@ body {
         .dg-checkout-main-carrinho-item .dg-checkoug-main-carrinho-item-qtd-input {
             height: 16px;
         }
+        .dg-checkout-main-bloco-passo {
+            display: block;
+            white-space: nowrap;
+            padding: 0;
+            position: static;
+            transform: none;
+        }
+        .dg-checkout-main-bloco-topo {
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+        .dg-checkout-main-bloco-topo > .dg-titulo, .dg-checkout-main-bloco-passo {
+            margin-bottom: 0;
+        }
+        .dg-checkout-main-bloco-topo > .dg-titulo {
+            width: auto;
+            padding-left: 35px;
+            margin-right: 8px;
+            line-height: 18px;
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                margin-top: -13px;
+            }
+        }
+    }
+}
+
+@media (max-width: 389px) {
+    .dg-checkout-header-logo img {
+        max-width: 140px;
     }
 }
