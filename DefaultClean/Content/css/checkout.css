@@ -590,10 +590,23 @@ body .dg-checkout-main-side .dg-relative {
   position: relative;
 }
 
+@media (max-width: 1056.28px) {
+  body .dg-checkout-main-side {
+    width: 100%;
+  }
+}
+
 body .dg-checkout-main-bloco {
   width: 74.167%;
   margin-right: 2.5%;
   margin-bottom: 27px;
+}
+
+@media (max-width: 1056.28px) {
+  body .dg-checkout-main-bloco {
+    width: 100%;
+    margin-right: 0;
+  }
 }
 
 body .dg-checkout-main-side-buscacep .dg-checkout-main-side-carrinho-form .dg-checkout-main-side-carrinho-form-buscar {
@@ -1618,9 +1631,13 @@ body .dg-alert-overlay .dg-btn-alert-ok, body .dg-alert-overlay .dg-btn-alert-ca
 
 body .dg-alert-overlay .dg-alert-container {
   max-width: 400px;
-  border: 0;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-bottom-width: 3px;
   background-color: #F5F9FD;
   border-radius: 15px;
+  border-color: #0B1841;
 }
 
 body .dg-alert-overlay .dg-alert-container::before {
@@ -1633,12 +1650,21 @@ body .dg-alert-overlay .dg-alert-container::before {
   background-repeat: no-repeat;
   background-position: top center;
   margin-top: -34px;
-  border: 1px solid #0B1841;
   border-radius: 50%;
 }
 
-body .dg-alert-overlay .dg-btn-alert-ok, body .dg-alert-overlay .dg-btn-alert-cancelar {
+body .dg-alert-overlay .dg-alert-container .dg-btn-alert-ok, body .dg-alert-overlay .dg-alert-container .dg-btn-alert-cancelar {
   border-radius: 15px;
+}
+
+body .dg-alert-overlay .dg-alert-container.dg-negativo {
+  color: #0B1841;
+  border-color: #E00D4C;
+}
+
+body .dg-alert-overlay .dg-alert-container.dg-negativo .dg-btn-alert-ok, body .dg-alert-overlay .dg-alert-container.dg-negativo .dg-btn-alert-cancelar {
+  background: #E00D4C;
+  border: #E00D4C;
 }
 
 body .dg-checkout-main-side-carrinho-form textarea {
@@ -1685,5 +1711,212 @@ body .dg-erro-sem-estoque {
 
 body .dg-erro-sem-estoque:after {
   border-color: transparent transparent #E00D4C;
+}
+
+body.dg-checkout-login .dg-checkout-main-bloco {
+  border: 0;
+  background-color: #F5F9FD;
+}
+
+body .dg-header-minhaconta-flex > *, body .dg-header-minhaconta-flex .dg-checkout-login-modal-footer, body .dg-checkout-login-modal-conteudo {
+  background-color: #F5F9FD;
+}
+
+body .dg-header-minhaconta-flex::after {
+  display: none;
+}
+
+body .dg-header-minhaconta-flex::before {
+  height: 80%;
+  bottom: 10%;
+}
+
+body .dg-header-minhaconta-modal-esqueci-url a strong, body .dg-header-minhaconta-title-mobile span {
+  color: #E00D4C;
+}
+
+body .dg-header-minhaconta-flex form .dg-titulo {
+  padding: 24px 24px 12px;
+}
+
+body .dg-header-minhaconta-flex form .dg-checkout-login-modal-conteudo {
+  padding: 0 24px;
+}
+
+body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-input-wrapper input, body .dg-checkout-login-modal-conteudo > div > input:hover + label, body .dg-checkout-login-modal-conteudo > div > input:focus + label, body .dg-checkout-login-modal-conteudo > div > label {
+  background: #E0E3EA;
+  color: #636D87;
+}
+
+body .dg-checkout-login .dg-titulo {
+  color: #0B1841 !important;
+}
+
+body .dg-header-minhaconta-modal-esqueci-url a {
+  font-size: 10px;
+  color: #0B1841;
+  font-weight: 600;
+}
+
+body .dg-header-minhaconta-modal-esqueci-url a strong {
+  color: #0B1841;
+}
+
+body .dg-header-minhaconta-flex .dg-checkout-login-modal-footer {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+body .dg-header-minhaconta-title-mobile {
+  display: none;
+}
+
+body .dg-header-minhaconta-flex {
+  min-height: auto;
+}
+
+body .dg-header-minhaconta-flex form {
+  min-height: auto;
+  padding-bottom: 24px;
+}
+
+body.dg-checkout-login .dg-checkout-main-bloco {
+  min-height: auto;
+  padding-bottom: 0;
+}
+
+body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="3"] button, body .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer-voltar-style, body .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer-voltar-style, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer-voltar-style, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer-voltar-style, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style, body .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-btn, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer-voltar-style, body .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-style, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer-voltar-style, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-style, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer-voltar-style, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-style, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer-voltar-style, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-style, body .dg-checkout-login-modal-footer-btn {
+  border-radius: 12px;
+  height: 44px;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="3"] button.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-btn.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-btn.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-btn.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn, body .dg-checkout-login-modal-footer-btn.dg-header-minhaconta-modal-cadastrar-footer-btn {
+  background-color: #00D19D;
+}
+
+body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="3"] button.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="3"] button.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-btn.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-btn.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-btn.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-btn.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-btn.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-btn.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="1"] .dg-header-minhaconta-modal-footer-voltar-style.dg-header-minhaconta-modal-cadastrar-footer-btn:focus, body .dg-checkout-login-modal-footer-btn.dg-header-minhaconta-modal-cadastrar-footer-btn:hover, body .dg-checkout-login-modal-footer-btn.dg-header-minhaconta-modal-cadastrar-footer-btn:focus {
+  background-color: #00b88a;
+}
+
+body .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-btn {
+  background-color: #00D19D;
+}
+
+body .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-btn:hover, body .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-btn:focus {
+  background-color: #00b88a;
+}
+
+body .dg-form-senha-step .dg-icon.dg-icon-televendas, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="3"] .dg-icon.dg-icon-avise-me {
+  color: #E00D4C !important;
+}
+
+body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email button, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular button, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="3"] button, body .dg-checkout-login-modal-footer-btn.btn-EsqueciSenha-Checkout, body .dg-checkout-login-modal-login .dg-checkout-login-modal-footer-btn {
+  background-color: #002399;
+}
+
+body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email button:hover, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email button:focus, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular button:hover, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular button:focus, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="3"] button:hover, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="3"] button:focus, body .dg-checkout-login-modal-footer-btn.btn-EsqueciSenha-Checkout:hover, body .dg-checkout-login-modal-footer-btn.btn-EsqueciSenha-Checkout:focus, body .dg-checkout-login-modal-login .dg-checkout-login-modal-footer-btn:hover, body .dg-checkout-login-modal-login .dg-checkout-login-modal-footer-btn:focus {
+  background-color: #001d80;
+}
+
+body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-conteudo, body .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="3"] .dg-header-minhaconta-modal-conteudo {
+  padding: 0 24px;
+}
+
+body .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer-voltar-style, body .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer-voltar-style, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer-voltar-style, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style, body .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer-voltar-style, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style, body a.dg-header-minhaconta-modal-footer-voltar-btn, body .dg-form-senha-step[data-form-senha-step="2"] a.dg-header-minhaconta-modal-footer-voltar-style, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email a.dg-header-minhaconta-modal-footer-voltar-style, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular a.dg-header-minhaconta-modal-footer-voltar-style, body .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte a.dg-header-minhaconta-modal-footer-voltar-style {
+  background: #626669;
+}
+
+body .dg-checkout-main[paginaatual="carrinho"] > .compretambem {
+  display: none !important;
+}
+
+body .dg-checkout-main[paginaatual="carrinho"] ~ .dg-checkout-main[paginaatual="carrinho"] > .compretambem {
+  display: block !important;
+}
+
+body .dg-checkout-main-carrinho-item .dg-checkout-main-carrinho-item-apagar {
+  width: 44px !important;
+  min-width: 44px;
+  line-height: 1.42857143;
+}
+
+@media (max-width: 1056.28px) {
+  body .dg-checkout-main-bloco-topo > .dg-titulo {
+    font-size: 13px;
+  }
+  body .dg-checkout-main-carrinho-item {
+    background-image: none;
+    padding: 12px 17px 13px !important;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  body .dg-checkout-main-carrinho-item .dg-checkout-main-carrinho-item-apagar, body .dg-checkout-main-carrinho-item .dg-checkout-main-carrinho-item-valor, body .dg-checkout-main-carrinho-item .dg-checkout-main-carrinho-item-qtd, body .dg-checkout-main-carrinho-item .dg-checkout-main-carrinho-item-total {
+    margin-top: 16px !important;
+  }
+  body .dg-checkout-main-carrinho-item .dg-checkout-main-carrinho-item-apagar {
+    width: 39px !important;
+    min-width: 39px;
+    line-height: 1.42857143;
+    height: 39px;
+  }
+  body .dg-checkout-main-carrinho-item .dg-checkout-main-carrinho-item-apagar svg {
+    vertical-align: -11px;
+  }
+  body .dg-checkout-main-carrinho-item .dg-checkoug-main-carrinho-item-qtd {
+    width: 64px;
+  }
+  body .dg-checkout-main-carrinho-item .dg-checkoug-main-carrinho-item-qtd-input {
+    background: #f5f9fd;
+  }
+  body .dg-checkout-main-carrinho-item .dg-checkout-main-carrinho-item-editarcrm, body .dg-checkout-main-carrinho-item .dg-checkout-main-carrinho-item-valor {
+    display: block;
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  body .dg-checkout-main-carrinho-item .dg-checkout-main-carrinho-item-qtd {
+    -webkit-box-ordinal-group: 5;
+        -ms-flex-order: 4;
+            order: 4;
+  }
+  body .dg-checkout-main-carrinho-item .dg-checkout-main-carrinho-item-apagar {
+    -webkit-box-ordinal-group: 7;
+        -ms-flex-order: 6;
+            order: 6;
+    margin: 0;
+  }
+  body .dg-checkout-main-carrinho-item .dg-mobile-only {
+    font-size: 8px;
+    text-align: center;
+  }
+  body .dg-checkout-main-carrinho-item-qtd, body .dg-checkout-main-carrinho-item-total {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    height: 36px;
+  }
+  body .dg-checkoug-main-carrinho-item-qtd-menos, body .dg-checkoug-main-carrinho-item-qtd-mais {
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    line-height: 15px;
+  }
+  body .dg-checkout-main-carrinho-item .dg-checkoug-main-carrinho-item-qtd-input {
+    height: 16px;
+  }
 }
 /*# sourceMappingURL=checkout.css.map */

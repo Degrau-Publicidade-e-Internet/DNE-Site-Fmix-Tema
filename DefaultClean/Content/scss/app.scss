@@ -6749,6 +6749,9 @@ body .dg-usuario-conteudo-cartoes-table td, body .dg-usuario-conteudo-cartoes-ta
 }
 
 body {
+    .dg-header-minhaconta-modal-conteudo>div>label {
+        background: #E0E3EA;
+    }
     .dg-usuario-conteudo-pedidos-table {
         width: 100%;
         margin-top: 18px;
@@ -6921,9 +6924,13 @@ body {
         }
         .dg-alert-container {
             max-width: 400px;
-            border: 0;
+            border-top: 0;
+            border-right: 0;
+            border-left: 0;
+            border-bottom-width: 3px;
             background-color: #F5F9FD;
             border-radius: 15px;
+            border-color: $corPrimaria;
             &::before {
                 content: '';
                 display: block;
@@ -6934,12 +6941,19 @@ body {
                 background-repeat: no-repeat;
                 background-position: top center;
                 margin-top: -34px;
-                border: 1px solid $corPrimaria;
                 border-radius: 50%;
             }
-        }
-        .dg-btn-alert-ok, .dg-btn-alert-cancelar {
-            border-radius: 15px;
+            .dg-btn-alert-ok, .dg-btn-alert-cancelar {
+                border-radius: 15px;
+            }
+            &.dg-negativo {
+                color: $corPrimaria;
+                border-color: $corVermelho;
+                .dg-btn-alert-ok, .dg-btn-alert-cancelar {
+                    background: $corVermelho;
+                    border: $corVermelho;
+                }
+            }
         }
     }
 }
