@@ -40,13 +40,13 @@
 <script id="templateGetTotalizerCart" type="text/x-jquery-tmpl">
     <ul>
         <li>
-            <span data-mobile-text-before="Total de " data-mobile-text-after="Produtos:">Sub <strong>total</strong>:</span>
+            <span data-mobile-text-before="Total de " data-mobile-text-after="Produtos:">Sub <strong>total</strong></span>
             <span class="dg-checkout-main-side-resumo-valor">
                 R$ ${SubTotal.FormatCurrency()}
             </span>
         </li>
         <li>
-            <span>Valor do <strong>Frete</strong>:</span>
+            <span>Valor do <strong>Frete</strong></span>
             <span class="dg-checkout-main-side-resumo-valor">
                 R$ ${ValorFrete.FormatCurrency()}
             </span>
@@ -58,7 +58,15 @@
             </span>
         </li>
         <li class="dg-checkout-main-side-resumo-total">
-            <span data-mobile-text-before="Valor " data-mobile-text-after="Total de Compra:">Total:</span>
+            <span>
+                <span class="dg-mobile-hide">
+                    Total
+                </span>
+                <span class="dg-desktop-hide">
+                    Total da compra
+                </span>
+                    
+            </span>
             <span class="dg-checkout-main-side-resumo-valor">
                 <a href="javascript:void(0)" class="dg-checkout-main-bloco-aviso-fora-estado--mostrar jsMostrarEstadoForaMobile dg-desktop-hide" arial-label="Informações sobre valor de emenda para compras fora de São Paulo"><span class="dg-icon dg-icon-tooltip"></span></a>
                 R$ ${ValorTotalCarrinho.FormatCurrency()}
@@ -767,7 +775,7 @@
     <div class="dg-checkout-main-side-resumo dg-checkout-main-side-resumo-custom dg-desktop-hide order-5 ResultGetTotalizerCart"></div>
     <div class="dg-checkout-main-side-resumo order-6 ResultGetTotalizerCart"></div>
     <div class="dg-checkout-main-side-footer order-7">
-        <a class="dg-checkout-main-side-continuar-comprando dg-desktop-hide" href="/"><span class="dg-icon dg-icon-arrow01-left"></span>Seguir comprando</a>
+        <a class="dg-checkout-main-side-continuar-comprando dg-desktop-hide" href="/"><span class="dg-icon dg-icon-arrow01-left"></span>Voltar</a>
         <a id="pagamentoContinuarCheckout" href="javascript:void(0)" class="dg-checkout-main-side-prosseguir">
             Continuar
         </a>
