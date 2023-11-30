@@ -55,6 +55,8 @@
     if (tipoPg == "Marcas")
     {
         ViewData["BodyID"] = "marcas-pg";
+        ViewData["Description"] = oModel.MetaTagsSeo.Seo_Description;
+        ViewData["Title"] = oModel.MetaTagsSeo.Seo_Title;
     }
     if (tipoPg == "PrincipioAtivo")
     {
