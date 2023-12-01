@@ -6931,6 +6931,9 @@ body {
             background-color: #F5F9FD;
             border-radius: 15px;
             border-color: $corPrimaria;
+            @media (max-width: 420px) {
+                max-width: 90%;
+            }
             &::before {
                 content: '';
                 display: block;

@@ -24,6 +24,7 @@ body .dg-checkout-main-bloco-conteudo, body .dg-checkout-main-side-bloco, body .
 @media (max-width: 1056.28px) {
   body .dg-checkout-main-side-footer {
     background-color: #0B1841;
+    z-index: 101;
   }
 }
 
@@ -797,6 +798,18 @@ body .dg-checkout-footer {
   }
 }
 
+body .dg-checkout-main-bloco {
+  padding-bottom: 0;
+}
+
+body .dg-checkout-main-enderecos .dg-checkout-main-bloco-btn {
+  padding: 9px 12px;
+}
+
+body .dg-checkout-main-enderecos .dg-checkout-main-bloco-btn {
+  font-size: 12px;
+}
+
 @media (min-width: 1057px) {
   body .dg-checkout-footer-selos-lista {
     max-width: 203px;
@@ -858,6 +871,8 @@ body a.dg-checkout-main-bloco-btn-outline, body .dg-checkout-main-bloco-btn, bod
   text-transform: uppercase;
   border-radius: 12px;
   max-width: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 body .dg-checkout-main-bloco-voltar {
@@ -937,6 +952,7 @@ body .dg-usuario-editar-enderecos-item__info {
           justify-content: space-between;
   margin-top: 13px;
   padding-top: 13px;
+  padding-right: 66px;
   border-top: 1px solid #DFE6ED;
 }
 
@@ -946,12 +962,6 @@ body .dg-usuario-editar-enderecos-item__info > div:first-child {
       -ms-flex: 1;
           flex: 1;
   padding-right: 8px;
-}
-
-body .dg-usuario-editar-enderecos-item__info > div:first-child > * {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 body .dg-usuario-editar-enderecos-item__info > div:first-child > strong {
@@ -1146,9 +1156,20 @@ body .dg-checkout-main-fretes-form-checkbox {
 }
 
 body .dg-checkout-main-fretes-form-wrapper {
-  padding: 32px 32px 24px;
   border-radius: 15px;
   background-color: #F5F9FD;
+}
+
+@media (min-width: 1057px) {
+  body .dg-checkout-main-fretes-form-wrapper {
+    padding: 32px 32px 24px;
+  }
+}
+
+@media (max-width: 1056.28px) {
+  body .dg-checkout-main-fretes-form-wrapper {
+    padding: 20px;
+  }
 }
 
 body .dg-checkout-main-fretes-form-checkbox label, body .dg-checkout-main-fretes-form > div input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]):not([type="button"]) + label {
@@ -1221,6 +1242,8 @@ body .dg-checkout-main-fretes-form .dg-checkout-main-bloco-btn {
   padding: 0;
   line-height: 44px;
   background-color: #00D19D;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
 
 body .dg-checkout-main-fretes-form .dg-checkout-main-bloco-btn:hover, body .dg-checkout-main-fretes-form .dg-checkout-main-bloco-btn:focus {
@@ -1264,7 +1287,7 @@ body .dg-checkout-main-fretes-form .dg-checkout-main-fretes-form-checkbox {
 
 body .dg-usuario-editar-enderecos-item .dg-usuario-editar-enderecos-opcoes-menu {
   position: absolute;
-  bottom: 46px;
+  bottom: 18px;
   right: 18px;
 }
 
@@ -1414,6 +1437,12 @@ body .dg-checkout-main-fretes {
   margin-top: -22px;
 }
 
+@media (max-width: 1056.28px) {
+  body .dg-checkout-main-fretes {
+    margin-top: 0;
+  }
+}
+
 body .dg-checkout-main-carrinho-item-img img {
   border-radius: 11px;
 }
@@ -1421,6 +1450,15 @@ body .dg-checkout-main-carrinho-item-img img {
 body .dg-checkout-main-fretes li {
   padding-bottom: 0;
   padding-top: 22px;
+}
+
+@media (max-width: 1056.28px) {
+  body .dg-checkout-main-fretes li {
+    padding-top: 13px;
+  }
+  body .dg-checkout-main-fretes li:first-child {
+    padding-top: 0;
+  }
 }
 
 body .dg-checkout-main-side-bloco .dg-subtitulo {
@@ -1686,6 +1724,12 @@ body .dg-alert-overlay .dg-alert-container {
   border-color: #0B1841;
 }
 
+@media (max-width: 420px) {
+  body .dg-alert-overlay .dg-alert-container {
+    max-width: 90%;
+  }
+}
+
 body .dg-alert-overlay .dg-alert-container::before {
   content: '';
   display: block;
@@ -1733,6 +1777,12 @@ body .dg-checkout-main-bloco-aviso-fora-estado {
   font-weight: 500;
   min-height: 31px;
   line-height: 1.5;
+}
+
+@media (max-width: 1056.28px) {
+  body .dg-checkout-main-bloco-aviso-fora-estado {
+    margin: 25px 0;
+  }
 }
 
 body .dg-checkout-main-bloco-aviso-fora-estado > .dg-icon {
@@ -1978,7 +2028,7 @@ body .dg-boxproduto-main .dg-tooltip {
     margin-left: auto;
   }
   body .dg-checkout-header-info {
-    padding-top: 4px;
+    padding-top: 0;
     font-size: 9px;
   }
   body .dg-checkout-header-info strong {
@@ -2108,7 +2158,7 @@ body .dg-boxproduto-main .dg-tooltip {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    margin-bottom: 16px;
+    margin-bottom: 28px;
   }
   body .dg-checkout-main-bloco-topo > .dg-titulo, body .dg-checkout-main-bloco-passo {
     margin-bottom: 0;
@@ -2158,7 +2208,7 @@ body .dg-boxproduto-main .dg-tooltip {
   body .dg-checkout-main-side-resumo {
     bottom: 0;
   }
-  body .dg-checkout-main-side-resumo.order-6 {
+  body .dg-checkout-main-side-resumo.resumoTemplateSideGeral, body .dg-checkout-main-side-resumo.order-6 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2168,6 +2218,7 @@ body .dg-boxproduto-main .dg-tooltip {
     height: 93px;
     padding-left: 20px;
     line-height: 25px;
+    z-index: 100;
   }
   body .dg-checkout-main-side .dg-checkout-main-side-footer {
     padding: 0;
@@ -2262,11 +2313,106 @@ body .dg-boxproduto-main .dg-tooltip {
   body main {
     padding-bottom: 86px;
   }
+  body [paginaatual="entrega"] .dg-checkout-main-bloco-conteudo > .dg-subtitulo, body [paginaatual="entrega"] .dg-checkout-main-bloco-conteudo, body [paginaatual="endereco"] .dg-checkout-main-bloco-conteudo > .dg-subtitulo, body [paginaatual="endereco"] .dg-checkout-main-bloco-conteudo {
+    background-color: rgba(0, 0, 0, 0) !important;
+  }
+  body .dg-checkout-main-enderecos {
+    margin: 0;
+  }
+  body .dg-usuario-editar-enderecos-item {
+    width: 100%;
+    margin: 0;
+  }
+  body .dg-checkout-main-enderecos .dg-checkout-main-bloco-btn {
+    margin-bottom: 5px;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    width: 100%;
+    margin-top: 0;
+  }
+  body .dg-usuario-editar-enderecos-escolha {
+    margin-top: 10px;
+  }
+  body [paginaatual="entrega"] .dg-checkout-main-bloco-conteudo > .dg-subtitulo, body [paginaatual="endereco"] .dg-checkout-main-bloco-conteudo > .dg-subtitulo {
+    display: none;
+  }
+  body .container {
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+  body [paginaatual="endereco"] .dg-checkout-main-bloco-footer {
+    background: #f5f9fd;
+    padding: 0 !important;
+    margin-top: 0;
+  }
+  body [paginaatual="endereco"] .dg-checkout-main-bloco-footer .dg-checkout-main-bloco-btn {
+    position: static;
+    margin-left: auto;
+    margin: 0 0 0 auto;
+    padding: 9px 20px;
+    width: auto;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    border-radius: 12px;
+    max-width: none;
+    float: right;
+    width: 240px;
+    height: 44px;
+    padding: 0;
+    line-height: 44px;
+    background-color: #00D19D;
+  }
+  body [paginaatual="endereco"] .dg-checkout-main-bloco-footer .dg-checkout-main-bloco-voltar {
+    color: #0B1841;
+  }
+  body [paginaatual="endereco"] .dg-checkout-main-bloco-footer {
+    height: auto;
+  }
+  body [paginaatual="endereco"] .dg-checkout-main-bloco-footer .dg-checkout-main-bloco-btn, body .dg-checkout-main-fretes-form .dg-checkout-main-fretes-form-checkbox {
+    margin-top: 16px;
+  }
+  body .dg-checkout-main-fretes-form-wrapper + .dg-checkout-main-bloco-footer {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    background: none;
+    border: 0;
+    z-index: 101;
+    left: unset;
+  }
+  body .dg-checkout-main-fretes-form-wrapper + .dg-checkout-main-bloco-footer #labelbtnCadastroEndereco {
+    display: block;
+    width: 79px;
+    line-height: 1.35;
+  }
+  body .dg-checkout-main-bloco-voltar .dg-icon {
+    margin-right: 10px;
+  }
+  body [paginaatual="endereco"] .dg-checkout-main-bloco-footer .dg-checkout-main-bloco-voltar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-transform: none;
+  }
+  body [paginaatual="frete"] .dg-checkout-main-bloco-conteudo .dg-subtitulo {
+    display: none;
+  }
+  body [paginaatual="endereco"] .dg-checkout-main-side-footer {
+    display: none;
+  }
 }
 
 @media (max-width: 575px) {
   body .dg-checkout-main-carrinho-item .dg-checkout-main-carrinho-item-produto {
     min-width: 74%;
+  }
+  body [paginaatual="endereco"] .dg-checkout-main-bloco-footer .dg-checkout-main-bloco-btn {
+    width: 100%;
   }
 }
 

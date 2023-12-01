@@ -336,8 +336,7 @@
                         <div class="dg-usuario-editar-enderecos-item__info">
                             <div>
                                 <strong>${end.Endereco} ${end.Numero}</strong>
-                                <span>${end.Bairro}, ${end.Cidade} - ${end.Estado}</span>
-                                <span>${end.CEP}</span>
+                                <span>${end.Bairro}, ${end.Cidade} - ${end.Estado}, ${end.CEP}</span>
                             </div>
                         </div>
                     </a>
@@ -944,7 +943,14 @@
                 </span>
             </li>
             <li class="dg-checkout-main-side-resumo-total">
-                <span data-mobile-text-before="Valor " data-mobile-text-after="Total de Compra:">Total:</span>
+                <span>
+                    <span class="dg-mobile-hide">
+                        Total
+                    </span>
+                    <span class="dg-desktop-hide">
+                        Total da compra
+                    </span>
+                </span>
                 <span class="dg-checkout-main-side-resumo-valor">
                     R$ ${RetornoCarrinho.ValorTotalCarrinho.FormatCurrency()}
                 </span>

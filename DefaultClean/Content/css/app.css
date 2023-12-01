@@ -8294,6 +8294,15 @@ body .dg-usuario-conteudo-pedido-tabela-titulo {
     border-radius: 15px;
     border-color: #0B1841;
   }
+}
+
+@media (max-width: 767px) and (max-width: 420px) {
+  .dg-alert-overlay .dg-alert-container {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 767px) {
   .dg-alert-overlay .dg-alert-container::before {
     content: '';
     display: block;
