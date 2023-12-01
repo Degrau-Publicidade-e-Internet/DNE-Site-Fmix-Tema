@@ -4,7 +4,7 @@ $corComplementar: #00D19D;
 $corVermelho: #E00D4C;
 
 body {
-
+    color: $corPrimaria;
     @media (min-width: 1280px) {
         .container {
             width: 1220px;
@@ -15,7 +15,7 @@ body {
         background-color: $corPrimaria;
     }
 
-    .dg-checkout-main-side-resumo ul li, .dg-checkout-main-side-carrinho-form label {
+    .dg-checkout-main-pagamentos-info p, .dg-checkout-main-side-resumo ul li, .dg-checkout-main-side-carrinho-form label {
         color: #626669;
     }
 
@@ -319,6 +319,9 @@ body {
     .dg-checkout-main-bloco-topo  {
         &[paginaatual="carrinho"] {
             .dg-titulo {
+                &:empty {
+                    display: none;
+                }
                 &::before {
                     content: '';
                     display: inline-block;
@@ -334,6 +337,9 @@ body {
         }
         &[paginaatual="endereco"], &[paginaatual="entrega"] {
             .dg-titulo {
+                &:empty {
+                    display: none;
+                }
                 &::before {
                     content: '';
                     display: inline-block;
@@ -349,6 +355,9 @@ body {
         }
         &[paginaatual="frete"] {
             .dg-titulo {
+                &:empty {
+                    display: none;
+                }
                 &::before {
                     content: '';
                     display: inline-block;
@@ -357,6 +366,24 @@ body {
                     margin-right: 10px;
                     vertical-align: middle;
                     background-image: url(../img/checkout/truck-fast.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }
+        }
+        &[paginaatual=""] {
+            .dg-titulo {
+                &:empty {
+                    display: none;
+                }
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    width: 25px;
+                    height: 26px;
+                    margin-right: 10px;
+                    vertical-align: middle;
+                    background-image: url(../img/checkout/wallet.svg);
                     background-repeat: no-repeat;
                     background-position: center;
                 }
@@ -1256,6 +1283,17 @@ body {
             }
         }
     }
+
+    .dg-checkout-main-pagamentos-info > .dg-checkout-main-pagamentos-info {
+        padding: 24px;
+        border-radius: 15px;
+        background-color: #F5F9FD;
+    }
+
+    .dg-checkout-main-pagamentos-titulo, .dg-checkout-main-pagamentos-info p {
+        padding: 0;
+        border: 0;
+    }
     .dg-checkout-main-side-bloco .dg-subtitulo{
         padding-top: 0;
         margin-bottom: 16px;
@@ -1277,7 +1315,22 @@ body {
             display: none;
         }
     }
-    [paginaatual="frete"] {
+    .dg-checkout-main-side-frete + .dg-checkout-main-side-resumo {
+        padding-top: 18px;
+    }
+    .dg-checkout-main-side-footer.dg-loading:after {
+        background-color: rgba(245, 249, 253, .8);
+    }
+    .dg-checkout-main-side-footer {
+        overflow: unset;
+    }
+    .dg-checkout-main-pagamentos {
+        min-height: auto;
+    }
+    .dg-checkout-main-novo .dg-checkout-main-bloco .dg-subtitulo.dg-subtitulo-hide {
+        display: none;
+    }
+    [paginaatual="frete"], [paginaatual=""] {
         .dg-checkout-main-side-bloco .dg-subtitulo {
             display: block;
             padding-right: 15px;
@@ -1669,6 +1722,127 @@ body {
         }
     }
 
+    .InitPG.dg-checkout-main-bloco-conteudo {
+        > .dg-subtitulo {
+            margin-bottom: 18px;
+        }
+    }
+
+    .dg-checkout-main-novo .dg-checkout-main-pagamentos-label {
+        height: 61px;
+        margin-bottom: 11px;
+        border: 0 !important;
+        text-transform: none;
+        color: $corPrimaria;
+        background: #F5F9FD;
+        padding: 0 24px;
+    }
+
+    .dg-checkout-main-novo .dg-checkout-main-pagamentos-label::before {
+        width: 20px;
+        height: 20px;
+        content: '';
+        margin-right: 24px;
+        border: 1px solid $corComplementar;
+    }
+
+    .dg-checkout-main-pagamento-item-img[data-label-image="cartao.png"] {
+        background-image: url(/assets/img/checkout/cartao.png)
+    }
+    
+    .dg-checkout-main-pagamento-item-img[data-label-image="Pix.gif"] {
+        background-image: url(/assets/img/checkout/pix.png)
+    }
+    
+    .dg-checkout-main-pagamento-item-img[data-label-image="pag_boleto.png"] {
+        background-image: url(/assets/img/checkout/boleto.png)
+    }
+    
+    .dg-checkout-main-pagamento-item-img[data-label-image="icoItau.png"] {
+        background-image: url(/assets/img/checkout/itau.png)
+    }
+    
+    .dg-checkout-main-pagamento-item-img[data-label-image="pag_deposito.png"] {
+        background-image: url(/assets/img/checkout/deposito.png)
+    }
+    
+    .dg-checkout-main-pagamento-item-img[data-label-image="icoBradesco.gif"] {
+        background-image: url(/assets/img/checkout/bradesco.png)
+    }
+    
+    .dg-checkout-main-pagamento-item-img[data-label-image="icoVisa.gif"] {
+        background-image: url(/assets/img/checkout/bandeiras-parcelas/visa.png)
+    }
+    
+    .dg-checkout-main-pagamento-item-img[data-label-image="icoMasters.gif"] {
+        background-image: url(/assets/img/checkout/bandeiras-parcelas/mastercard.png)
+    }
+    
+    .dg-checkout-main-pagamento-item-img[data-label-image="icoAmerican.gif"] {
+        background-image: url(/assets/img/checkout/bandeiras-parcelas/ae.png)
+    }
+    
+    .dg-checkout-main-pagamento-item-img[data-label-image="icoElo.png"] {
+        background-image: url(/assets/img/checkout/bandeiras-parcelas/elo.png)
+    }
+    
+    .dg-checkout-main-pagamento-item-img[data-label-image="icoDiners.gif"] {
+        background-image: url(/assets/img/checkout/bandeiras-parcelas/diners.png)
+    }
+    
+    .dg-checkout-main-novo .dg-checkout-main-pagamentos-label {
+        border-radius: 6.74px;
+    }
+
+    .dg-checkout-main-pagamentos-cartao {
+        padding: 0;
+    }
+
+    .dg-checkout-main-pagamentos-cartao>form label:not(.dg-ac-leitor) {
+        color: #626669;
+        font-weight: 500 !important;
+        strong {
+            font-weight: 500 !important;
+        }
+    }
+
+    .dg-checkout-main-pagamentos-simulacao-verso {
+        box-shadow: none;
+    }
+
+    .dg-checkout-main-pagamentos-cartao>form select, .dg-checkout-main-pagamentos-cartao>form label:not(.dg-ac-leitor) {
+        background-color: #fff;
+    }
+    .dg-checkout-main-pagamentos-cartao>form input, .dg-checkout-main-pagamentos-cartao>form select, .dg-checkout-main-pagamentos-cartao>form label:not(.dg-ac-leitor) {
+        height: 44px !important;
+    }
+    .dg-checkout-main-pagamentos-simulacao-armazenarcartao-out {
+        left: 0;
+    }
+    .dg-checkout-main-pagamentos-simulacao-armazenarcartao input+label {
+        padding: 13px 0 4px 24px;
+        min-height: 45px;
+        color: #626669;
+    }
+    .dg-checkout-main-pagamentos-simulacao-armazenarcartao input+label {
+        border: 0;
+    }
+    .dg-checkout-main-pagamentos-simulacao-armazenarcartao input:checked+label .dg-icon {
+        display: none;
+    }
+    .dg-checkout-main-pagamentos-simulacao-armazenarcartao-out {
+        border: 2px solid $corComplementar;
+    }
+    .dg-checkout-main-pagamentos-simulacao-armazenarcartao-in {
+        width: 8px;
+        height: 8px;
+        top: 2px;
+        left: 2px;
+        background: $corComplementar;
+    }
+    .dg-checkout-main-pagamentos-simulacao-armazenarcartao input:checked+label .dg-checkout-main-pagamentos-simulacao-armazenarcartao-out {
+        background: $corComplementar;
+    }
     @media (max-width: 1056.28px) {
         .dg-checkout-main-side-carrinho-form input, .dg-checkout-main-side-carrinho-form label {
             padding-right: 0;

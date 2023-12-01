@@ -1,4 +1,5 @@
 body {
+  color: #0B1841;
   background-color: #fff;
 }
 
@@ -12,7 +13,7 @@ body .dg-checkout-footer, body .dg-checkout-header {
   background-color: #0B1841;
 }
 
-body .dg-checkout-main-side-resumo ul li, body .dg-checkout-main-side-carrinho-form label {
+body .dg-checkout-main-pagamentos-info p, body .dg-checkout-main-side-resumo ul li, body .dg-checkout-main-side-carrinho-form label {
   color: #626669;
 }
 
@@ -371,6 +372,10 @@ body .dg-checkout-main-bloco-topo > .dg-titulo {
   padding-right: 0;
 }
 
+body .dg-checkout-main-bloco-topo[paginaatual="carrinho"] .dg-titulo:empty {
+  display: none;
+}
+
 body .dg-checkout-main-bloco-topo[paginaatual="carrinho"] .dg-titulo::before {
   content: '';
   display: inline-block;
@@ -381,6 +386,10 @@ body .dg-checkout-main-bloco-topo[paginaatual="carrinho"] .dg-titulo::before {
   background-image: url(../img/checkout/header/shopping-cart.svg);
   background-repeat: no-repeat;
   background-position: center;
+}
+
+body .dg-checkout-main-bloco-topo[paginaatual="endereco"] .dg-titulo:empty, body .dg-checkout-main-bloco-topo[paginaatual="entrega"] .dg-titulo:empty {
+  display: none;
 }
 
 body .dg-checkout-main-bloco-topo[paginaatual="endereco"] .dg-titulo::before, body .dg-checkout-main-bloco-topo[paginaatual="entrega"] .dg-titulo::before {
@@ -395,6 +404,10 @@ body .dg-checkout-main-bloco-topo[paginaatual="endereco"] .dg-titulo::before, bo
   background-position: center;
 }
 
+body .dg-checkout-main-bloco-topo[paginaatual="frete"] .dg-titulo:empty {
+  display: none;
+}
+
 body .dg-checkout-main-bloco-topo[paginaatual="frete"] .dg-titulo::before {
   content: '';
   display: inline-block;
@@ -403,6 +416,22 @@ body .dg-checkout-main-bloco-topo[paginaatual="frete"] .dg-titulo::before {
   margin-right: 10px;
   vertical-align: middle;
   background-image: url(../img/checkout/truck-fast.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+body .dg-checkout-main-bloco-topo[paginaatual=""] .dg-titulo:empty {
+  display: none;
+}
+
+body .dg-checkout-main-bloco-topo[paginaatual=""] .dg-titulo::before {
+  content: '';
+  display: inline-block;
+  width: 25px;
+  height: 26px;
+  margin-right: 10px;
+  vertical-align: middle;
+  background-image: url(../img/checkout/wallet.svg);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -1461,6 +1490,17 @@ body .dg-checkout-main-fretes li {
   }
 }
 
+body .dg-checkout-main-pagamentos-info > .dg-checkout-main-pagamentos-info {
+  padding: 24px;
+  border-radius: 15px;
+  background-color: #F5F9FD;
+}
+
+body .dg-checkout-main-pagamentos-titulo, body .dg-checkout-main-pagamentos-info p {
+  padding: 0;
+  border: 0;
+}
+
 body .dg-checkout-main-side-bloco .dg-subtitulo {
   padding-top: 0;
   margin-bottom: 16px;
@@ -1484,55 +1524,75 @@ body .dg-checkout-main-side-buscacep .dg-subtitulo {
   display: none;
 }
 
-body [paginaatual="frete"] .dg-checkout-main-side-bloco .dg-subtitulo {
+body .dg-checkout-main-side-frete + .dg-checkout-main-side-resumo {
+  padding-top: 18px;
+}
+
+body .dg-checkout-main-side-footer.dg-loading:after {
+  background-color: rgba(245, 249, 253, 0.8);
+}
+
+body .dg-checkout-main-side-footer {
+  overflow: unset;
+}
+
+body .dg-checkout-main-pagamentos {
+  min-height: auto;
+}
+
+body .dg-checkout-main-novo .dg-checkout-main-bloco .dg-subtitulo.dg-subtitulo-hide {
+  display: none;
+}
+
+body [paginaatual="frete"] .dg-checkout-main-side-bloco .dg-subtitulo, body [paginaatual=""] .dg-checkout-main-side-bloco .dg-subtitulo {
   display: block;
   padding-right: 15px;
   padding-left: 15px;
 }
 
-body [paginaatual="frete"] .dg-checkout-main-side .dg-titulo + .dg-checkout-main-side-bloco {
+body [paginaatual="frete"] .dg-checkout-main-side .dg-titulo + .dg-checkout-main-side-bloco, body [paginaatual=""] .dg-checkout-main-side .dg-titulo + .dg-checkout-main-side-bloco {
   padding-top: 15px;
 }
 
-body [paginaatual="frete"] .dg-checkout-main-side-bloco {
+body [paginaatual="frete"] .dg-checkout-main-side-bloco, body [paginaatual=""] .dg-checkout-main-side-bloco {
   max-height: 36px;
   padding-top: 15px;
 }
 
-body [paginaatual="frete"] .dg-checkout-main-side-bloco.dg-ativo {
+body [paginaatual="frete"] .dg-checkout-main-side-bloco.dg-ativo, body [paginaatual=""] .dg-checkout-main-side-bloco.dg-ativo {
   max-height: none;
 }
 
-body [paginaatual="frete"] .dg-checkout-main-side-toggle {
+body [paginaatual="frete"] .dg-checkout-main-side-toggle, body [paginaatual=""] .dg-checkout-main-side-toggle {
   display: block;
   color: #002399;
 }
 
-body [paginaatual="frete"] .dg-checkout-main-side-toggle:hover, body [paginaatual="frete"] .dg-checkout-main-side-toggle:focus {
+body [paginaatual="frete"] .dg-checkout-main-side-toggle:hover, body [paginaatual="frete"] .dg-checkout-main-side-toggle:focus, body [paginaatual=""] .dg-checkout-main-side-toggle:hover, body [paginaatual=""] .dg-checkout-main-side-toggle:focus {
   background-color: rgba(0, 0, 0, 0);
 }
 
-body [paginaatual="frete"] a.dg-checkout-main-editar {
+body [paginaatual="frete"] a.dg-checkout-main-editar, body [paginaatual=""] a.dg-checkout-main-editar {
   top: 0;
   right: 46px;
   color: #626669;
 }
 
-body [paginaatual="frete"] a.dg-checkout-main-side-toggle {
+body [paginaatual="frete"] a.dg-checkout-main-side-toggle, body [paginaatual=""] a.dg-checkout-main-side-toggle {
   top: -12px;
   right: 1px;
 }
 
-body [paginaatual="frete"] .dg-checkout-main-side-cupom, body [paginaatual="frete"] .dg-checkout-main-side-observacao {
+body [paginaatual="frete"] .dg-checkout-main-side-cupom, body [paginaatual="frete"] .dg-checkout-main-side-observacao, body [paginaatual=""] .dg-checkout-main-side-cupom, body [paginaatual=""] .dg-checkout-main-side-observacao {
   padding-top: 15px;
 }
 
-body [paginaatual="frete"] .dg-checkout-main-side-cupom .dg-subtitulo a, body [paginaatual="frete"] .dg-checkout-main-side-observacao .dg-subtitulo a {
+body [paginaatual="frete"] .dg-checkout-main-side-cupom .dg-subtitulo a, body [paginaatual="frete"] .dg-checkout-main-side-observacao .dg-subtitulo a, body [paginaatual=""] .dg-checkout-main-side-cupom .dg-subtitulo a, body [paginaatual=""] .dg-checkout-main-side-observacao .dg-subtitulo a {
   display: block;
   color: #002399;
 }
 
-body [paginaatual="frete"] .dg-checkout-main-side-observacao .dg-subtitulo a {
+body [paginaatual="frete"] .dg-checkout-main-side-observacao .dg-subtitulo a, body [paginaatual=""] .dg-checkout-main-side-observacao .dg-subtitulo a {
   line-height: 30px;
   font-size: 11px;
 }
@@ -1965,6 +2025,136 @@ body .dg-checkout-main-carrinho-compre-lista .dg-boxproduto-titulo a {
 
 body .dg-boxproduto-main .dg-tooltip {
   display: none;
+}
+
+body .InitPG.dg-checkout-main-bloco-conteudo > .dg-subtitulo {
+  margin-bottom: 18px;
+}
+
+body .dg-checkout-main-novo .dg-checkout-main-pagamentos-label {
+  height: 61px;
+  margin-bottom: 11px;
+  border: 0 !important;
+  text-transform: none;
+  color: #0B1841;
+  background: #F5F9FD;
+  padding: 0 24px;
+}
+
+body .dg-checkout-main-novo .dg-checkout-main-pagamentos-label::before {
+  width: 20px;
+  height: 20px;
+  content: '';
+  margin-right: 24px;
+  border: 1px solid #00D19D;
+}
+
+body .dg-checkout-main-pagamento-item-img[data-label-image="cartao.png"] {
+  background-image: url(/assets/img/checkout/cartao.png);
+}
+
+body .dg-checkout-main-pagamento-item-img[data-label-image="Pix.gif"] {
+  background-image: url(/assets/img/checkout/pix.png);
+}
+
+body .dg-checkout-main-pagamento-item-img[data-label-image="pag_boleto.png"] {
+  background-image: url(/assets/img/checkout/boleto.png);
+}
+
+body .dg-checkout-main-pagamento-item-img[data-label-image="icoItau.png"] {
+  background-image: url(/assets/img/checkout/itau.png);
+}
+
+body .dg-checkout-main-pagamento-item-img[data-label-image="pag_deposito.png"] {
+  background-image: url(/assets/img/checkout/deposito.png);
+}
+
+body .dg-checkout-main-pagamento-item-img[data-label-image="icoBradesco.gif"] {
+  background-image: url(/assets/img/checkout/bradesco.png);
+}
+
+body .dg-checkout-main-pagamento-item-img[data-label-image="icoVisa.gif"] {
+  background-image: url(/assets/img/checkout/bandeiras-parcelas/visa.png);
+}
+
+body .dg-checkout-main-pagamento-item-img[data-label-image="icoMasters.gif"] {
+  background-image: url(/assets/img/checkout/bandeiras-parcelas/mastercard.png);
+}
+
+body .dg-checkout-main-pagamento-item-img[data-label-image="icoAmerican.gif"] {
+  background-image: url(/assets/img/checkout/bandeiras-parcelas/ae.png);
+}
+
+body .dg-checkout-main-pagamento-item-img[data-label-image="icoElo.png"] {
+  background-image: url(/assets/img/checkout/bandeiras-parcelas/elo.png);
+}
+
+body .dg-checkout-main-pagamento-item-img[data-label-image="icoDiners.gif"] {
+  background-image: url(/assets/img/checkout/bandeiras-parcelas/diners.png);
+}
+
+body .dg-checkout-main-novo .dg-checkout-main-pagamentos-label {
+  border-radius: 6.74px;
+}
+
+body .dg-checkout-main-pagamentos-cartao {
+  padding: 0;
+}
+
+body .dg-checkout-main-pagamentos-cartao > form label:not(.dg-ac-leitor) {
+  color: #626669;
+  font-weight: 500 !important;
+}
+
+body .dg-checkout-main-pagamentos-cartao > form label:not(.dg-ac-leitor) strong {
+  font-weight: 500 !important;
+}
+
+body .dg-checkout-main-pagamentos-simulacao-verso {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+body .dg-checkout-main-pagamentos-cartao > form select, body .dg-checkout-main-pagamentos-cartao > form label:not(.dg-ac-leitor) {
+  background-color: #fff;
+}
+
+body .dg-checkout-main-pagamentos-cartao > form input, body .dg-checkout-main-pagamentos-cartao > form select, body .dg-checkout-main-pagamentos-cartao > form label:not(.dg-ac-leitor) {
+  height: 44px !important;
+}
+
+body .dg-checkout-main-pagamentos-simulacao-armazenarcartao-out {
+  left: 0;
+}
+
+body .dg-checkout-main-pagamentos-simulacao-armazenarcartao input + label {
+  padding: 13px 0 4px 24px;
+  min-height: 45px;
+  color: #626669;
+}
+
+body .dg-checkout-main-pagamentos-simulacao-armazenarcartao input + label {
+  border: 0;
+}
+
+body .dg-checkout-main-pagamentos-simulacao-armazenarcartao input:checked + label .dg-icon {
+  display: none;
+}
+
+body .dg-checkout-main-pagamentos-simulacao-armazenarcartao-out {
+  border: 2px solid #00D19D;
+}
+
+body .dg-checkout-main-pagamentos-simulacao-armazenarcartao-in {
+  width: 8px;
+  height: 8px;
+  top: 2px;
+  left: 2px;
+  background: #00D19D;
+}
+
+body .dg-checkout-main-pagamentos-simulacao-armazenarcartao input:checked + label .dg-checkout-main-pagamentos-simulacao-armazenarcartao-out {
+  background: #00D19D;
 }
 
 @media (max-width: 1056.28px) {
