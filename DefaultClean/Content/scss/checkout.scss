@@ -1734,7 +1734,7 @@ body {
         border: 0 !important;
         text-transform: none;
         color: $corPrimaria;
-        background: #F5F9FD;
+        background-color: #F5F9FD;
         padding: 0 24px;
     }
 
@@ -1824,6 +1824,9 @@ body {
         min-height: 45px;
         color: #626669;
     }
+    .dg-checkout-main-pagamentos-cartao-confirmacoes>div .dg-icon {
+        color: #626669;
+    }
     .dg-checkout-main-pagamentos-simulacao-armazenarcartao input+label {
         border: 0;
     }
@@ -1838,12 +1841,74 @@ body {
         height: 8px;
         top: 2px;
         left: 2px;
-        background: $corComplementar;
     }
     .dg-checkout-main-pagamentos-simulacao-armazenarcartao input:checked+label .dg-checkout-main-pagamentos-simulacao-armazenarcartao-out {
-        background: $corComplementar;
+        border-color: $corComplementar;
+    }
+    .dg-checkout-main-pagamentos-simulacao-armazenarcartao input:checked+label .dg-checkout-main-pagamentos-simulacao-armazenarcartao-out .dg-checkout-main-pagamentos-simulacao-armazenarcartao-in {
+        background: $corComplementar !important;
+    }
+    .dg-checkout-main-side-bloco-wrapper {
+        > .dg-checkout-main-side-produto{
+            border-top-right-radius: 15px;
+            border-top-left-radius: 15px;
+        }
     }
     @media (max-width: 1056.28px) {
+        .dg-pagamento-fmix {
+            .dg-checkout-main-side-bloco {
+                > .dg-subtitulo {
+                    padding-bottom: 7px !important;
+                    margin-bottom: 7px !important;
+                    border-bottom: 1px solid #DFE6ED;
+                    color: #626669;
+                }
+            }
+            .dg-checkout-main.dg-checkout-main-novo .dg-checkout-main-side>.dg-titulo.dg-ativo .dg-checkout-main-side-toggle .dg-icon-linha1, .dg-checkout-main.dg-checkout-main-novo .dg-checkout-main-side>.dg-titulo.dg-ativo .dg-checkout-main-side-toggle .dg-icon-linha2 {
+                background: #626669;
+            }
+            .dg-checkout-main .dg-checkout-main-side-bloco-wrapper .dg-checkout-main-side-bloco ul, .dg-checkout-main .dg-checkout-main-side-bloco-wrapper .dg-checkout-main-side-bloco .dg-subtitulo {
+                padding: 0;
+                background-color: rgba(0,0,0,0);
+                height: auto;
+                margin-bottom: 0;
+                margin-right: 0;
+            }
+            .dg-checkout-main .dg-checkout-main-side-bloco-wrapper .dg-checkout-main-side-bloco {
+                padding-top: 19px;
+            }
+            .dg-checkout-main-side-produtos li {
+                padding-bottom: 0;
+                border-bottom: 0;
+                padding-top: 0;
+            }
+            .dg-checkout-main-side .dg-titulo {
+                font-weight: 500;
+                strong {
+                    font-weight: 500;
+                    color: $corPrimaria;
+                }
+            }
+            .dg-checkout-main .dg-checkout-main-side-bloco-wrapper .dg-checkout-main-side-bloco ul {
+                border: 0;
+            }
+            .dg-checkout-main.dg-checkout-main-novo .dg-checkout-main-side>.dg-titulo a {
+                top: -12px;
+                right: -9px;
+            }
+            .dg-checkout-main-novo .dg-checkout-main-pagamentos-label {
+                background-image: url(../img/checkout/chevon-right.svg);
+            }
+            aside.dg-checkout-main-side {
+                padding: 18px;
+                background-color: #f5f9fd;
+                border-radius: 6.74px;
+                > .dg-titulo {
+                    padding-bottom: 0;
+                    background-color: #f5f9fd;
+                }
+            }
+        }
         .dg-checkout-main-side-carrinho-form input, .dg-checkout-main-side-carrinho-form label {
             padding-right: 0;
         }
@@ -2122,6 +2187,9 @@ body {
                 .dg-icon {
                     display: none;
                 }
+                &:hover, &:focus {
+                    color: $corPrimaria;
+                }
             }
         }
         .dg-checkout-main-side-carrinho-form textarea {
@@ -2285,7 +2353,25 @@ body {
         .dg-header-minhaconta-flex > *, .dg-header-minhaconta-flex .dg-checkout-login-modal-footer, .dg-checkout-login-modal-conteudo {
             background-color: #fff;
             padding-bottom: 0;
+        }
 
+        .dg-checkout-main-novo .dg-checkout-main-bloco .dg-subtitulo {
+            display: none;
+        }
+        .dg-checkout-main-formas-info.jsTipoPagamentos {
+            background: none;
+            padding-right: 0;
+            padding-left: 0;
+        }
+        .dg-checkout-main-novo .dg-checkout-main-bloco-conteudo {
+            margin: 0;
+        }
+        .InitPG .dg-checkout-main-bloco-footer {
+            margin: 0;
+            border: 0;
+        }
+        .dg-checkout-main .dg-checkout-main-side-bloco .dg-subtitulo {
+            background-color: rgba(0,0,0,0);
         }
     }
 }
