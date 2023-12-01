@@ -1855,7 +1855,54 @@ body {
         }
     }
     @media (max-width: 1056.28px) {
+        &.dg-is-cartoes-dados {
+            background-color: #f5f9fd;
+            .dg-checkout-main-pagamentos-cartao {
+                background: none;
+            }
+        }
+        .dg-checkout-main-pagamentos-cartao-flecha--esquerda {
+            transform: none;
+        }
+        .InitPG .dg-checkout-main-bloco-footer>.dg-checkout-main-bloco-voltar{
+            right: 20px;
+            bottom: 27px;
+            left: unset;
+            color: $corPrimaria;
+            background-color: rgba(0,0,0,0);
+            text-transform: none;
+            &:hover, &:focus {
+                color: $corPrimaria;
+            }
+        }
+        &.dg-is-cartoes-dados .dg-checkout-main-bloco-footer-submobile .dg-checkout-main-bloco-voltar {
+            color: $corPrimaria;
+            background-color: rgba(0,0,0,0);
+            text-transform: none;
+            &:hover, &:focus {
+                color: $corPrimaria;
+            }
+        }
+        &.dg-is-cartoes-dados .dg-checkout-main-side-prosseguir-carta:not(.dg-inactive) {
+            background-color: $corComplementar;
+            color: #fff;
+            &:hover, &:focus {
+                background-color: $corComplementar;
+                color: #fff;
+            }
+        }
+        &.dg-is-cartoes-dados .dg-checkout-main-bloco-footer-submobile {
+            background-color: #f5f9fd;
+        }
         .dg-pagamento-fmix {
+            .dg-checkout-main-pagamentos-cartao .jsFormCartaoDeCredito .dg-checkout-main-pagamentos-simulacao-armazenarcartao label {
+                padding-right: 0px;
+                padding-left: 30px;
+                background-color: rgba(0,0,0,0);
+            }
+            .dg-checkout-main-side-resumo {
+                padding-left: 20px;
+            }
             .dg-checkout-main-side-bloco {
                 > .dg-subtitulo {
                     padding-bottom: 7px !important;
@@ -1893,8 +1940,14 @@ body {
                 border: 0;
             }
             .dg-checkout-main.dg-checkout-main-novo .dg-checkout-main-side>.dg-titulo a {
-                top: -12px;
+                top: -10px;
                 right: -9px;
+                background-image: url(../img/checkout/arrow-down.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                span {
+                    display: none;
+                }
             }
             .dg-checkout-main-novo .dg-checkout-main-pagamentos-label {
                 background-image: url(../img/checkout/chevon-right.svg);
