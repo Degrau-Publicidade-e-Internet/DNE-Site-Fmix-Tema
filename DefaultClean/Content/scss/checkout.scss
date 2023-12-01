@@ -1562,9 +1562,19 @@ body {
     }
     .dg-header-minhaconta-flex form .dg-titulo {
         padding: 24px 24px 12px;
+        @media (max-width: 1056.28px) {
+            padding-left: 0;
+            padding-right: 0;
+            background-color: #fff;
+        }
     }
     .dg-header-minhaconta-flex form .dg-checkout-login-modal-conteudo {
         padding: 0 24px;
+        @media (max-width: 1056.28px) {
+            padding-left: 0;
+            padding-right: 0;
+            background-color: #fff;
+        }
     }
     .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-input-wrapper input, .dg-checkout-login-modal-conteudo>div>input:hover+label, .dg-checkout-login-modal-conteudo>div>input:focus+label, .dg-checkout-login-modal-conteudo>div>label {
         background: #E0E3EA;
@@ -1629,6 +1639,9 @@ body {
     }
     .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-conteudo, .dg-header-minhaconta-flex .dg-header-minhaconta-modal-esquecisenha .dg-form-senha-step[data-form-senha-step="3"] .dg-header-minhaconta-modal-conteudo {
         padding: 0 24px;
+        @media (max-width: 1056.28px) {
+            padding: 0;
+        }
     }
     .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-btn, .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer-voltar-style, .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style, .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer-voltar-style, .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style, .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer-voltar-style, .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style, .dg-header-minhaconta-modal-footer .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer-voltar-style, .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte .dg-header-minhaconta-modal-footer .dg-header-minhaconta-modal-footer-voltar-style, a.dg-header-minhaconta-modal-footer-voltar-btn, .dg-form-senha-step[data-form-senha-step="2"] a.dg-header-minhaconta-modal-footer-voltar-style, .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-email a.dg-header-minhaconta-modal-footer-voltar-style, .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular a.dg-header-minhaconta-modal-footer-voltar-style, .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-suporte a.dg-header-minhaconta-modal-footer-voltar-style{
         background: #626669;
@@ -2084,6 +2097,21 @@ body {
         }
         [paginaatual="endereco"] .dg-checkout-main-side-footer {
             display: none;
+        }
+        .dg-header-minhaconta-flex .dg-checkout-login-modal-footer, .dg-header-minhaconta-flex>*:last-child .dg-checkout-login-modal-footer {
+            padding-left: 0;
+            padding-right: 0;
+            margin-top: 16px;
+            background-color: rgba(0,0,0,0);
+        }
+        .dg-checkout-login-modal .dg-checkout-login-modal-login {
+            padding-bottom: 0;
+            background-color: #fff;
+        }
+        .dg-header-minhaconta-flex > *, .dg-header-minhaconta-flex .dg-checkout-login-modal-footer, .dg-checkout-login-modal-conteudo {
+            background-color: #fff;
+            padding-bottom: 0;
+
         }
     }
 }
