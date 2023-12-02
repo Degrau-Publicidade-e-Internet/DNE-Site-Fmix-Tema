@@ -1395,7 +1395,7 @@ body {
             }
         }
         a.dg-checkout-main-editar {
-            top: -1px;
+            top: -3px;
             right: 46px;
             color: #626669;
             background-color: rgba(0,0,0,0);
@@ -1449,7 +1449,7 @@ body {
             }
         }
         a.dg-checkout-main-editar {
-            top: -1px;
+            top: -3px;
             right: 46px;
             color: #626669;
         }
@@ -1461,13 +1461,66 @@ body {
             display: block;
         }
     }
-    .dg-checkout-main-side-endereco {
+
+    .dg-checkout-main-pagamentos-simulacao-frente, .dg-checkout-main-pagamentos-simulacao-verso {
+        background-image: url(../img/checkout/pagamento/cartao-fundo.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 26px;
+        background-color: #03349F;
+        padding-top: 57.23%;
+    }
+    
+    .dg-checkout-main-pagamentos-simulacao-card {
+        padding-top: 57.23%;
+    }
+
+    .dg-checkout-main-side-endereco, .dg-checkout-main-side-frete {
         .dg-subtitulo {
             > span {
                 font-weight: 600;
                 color: $corSecundaria;
             }
         }
+    }
+    .dg-checkout-main-pagamentos-simulacao-frente-img {
+        top: 25px;
+        left: 27px;
+        top: 15px;
+        left: 15px;
+        background-position: center;
+        background-size: 50px;
+    }
+    .dg-checkout-main-pagamentos-simulacao-frente-numero {
+        top: 111px;
+        font-size: 18px;
+        word-spacing: 13px;
+        line-height: 1;
+        text-shadow: none;
+    }
+    .dg-checkout-main-pagamentos-cartao>form {
+        width: 58.907%;
+        @media (max-width: 1056.28px) {
+            width: 100%;
+        }
+    }
+    .dg-checkout-main-pagamentos-simulacao {
+        width: 41.093%;
+        @media (max-width: 1056.28px) {
+            width: 100%;
+        }
+    }
+    .dg-checkout-main-pagamentos-simulacao-frente-titular, .dg-checkout-main-pagamentos-simulacao-frente-vencimento{
+        font-size: 18px;
+        text-shadow: none;
+        line-height: 1;
+        bottom: 22px;
+    }
+    .dg-checkout-main-pagamentos-simulacao-frente:before, .dg-checkout-main-pagamentos-simulacao-verso:before {
+        display: none;
+    }
+    .dg-checkout-main-pagamentos-info p {
+        padding: 0 25px 10px;
     }
     .dg-checkout-main-side-bloco .dg-subtitulo {
         font-weight: 500;
@@ -1800,39 +1853,39 @@ body {
     }
 
     .dg-checkout-main-pagamento-item-img[data-label-image="cartao.png"] {
-        background-image: url(/assets/img/checkout/cartao.png)
+        background-image: url(../img/checkout/pagamento/cartao.svg)
     }
     
     .dg-checkout-main-pagamento-item-img[data-label-image="Pix.gif"] {
-        background-image: url(/assets/img/checkout/pix.png)
+        background-image: url(../img/checkout/pagamento/pix.svg)
     }
     
     .dg-checkout-main-pagamento-item-img[data-label-image="pag_boleto.png"] {
-        background-image: url(/assets/img/checkout/boleto.png)
+        background-image: url(../img/checkout/pagamento/boleto.svg)
     }
     
     .dg-checkout-main-pagamento-item-img[data-label-image="icoItau.png"] {
-        background-image: url(/assets/img/checkout/itau.png)
+        background-image: url(../img/checkout/pagamento/deposito.svg)
     }
     
     .dg-checkout-main-pagamento-item-img[data-label-image="pag_deposito.png"] {
-        background-image: url(/assets/img/checkout/deposito.png)
+        background-image: url(../img/checkout/pagamento/deposito.svg)
     }
     
     .dg-checkout-main-pagamento-item-img[data-label-image="icoBradesco.gif"] {
-        background-image: url(/assets/img/checkout/bradesco.png)
+        background-image: url(../img/checkout/pagamento/deposito.svg)
     }
     
     .dg-checkout-main-pagamento-item-img[data-label-image="pag_visa.png"] {
-        background-image: url(/assets/img/checkout/bandeiras-parcelas/visa.png)
+        background-image: url(../img/checkout/pagamento/visa.svg)
     }
     
     .dg-checkout-main-pagamento-item-img[data-label-image="pag_mastercard.png"] {
-        background-image: url(/assets/img/checkout/bandeiras-parcelas/mastercard.png)
+        background-image: url(../img/checkout/pagamento/mastercard.svg)
     }
     
     .dg-checkout-main-pagamento-item-img[data-label-image="pag_american.png"] {
-        background-image: url(/assets/img/checkout/bandeiras-parcelas/ae.png)
+        background-image: url(/assets/img/checkout/bandeiras-parcelas/american.png)
     }
     
     .dg-checkout-main-pagamento-item-img[data-label-image="pag_elo.png"] {
@@ -1845,6 +1898,10 @@ body {
     
     .dg-checkout-main-novo .dg-checkout-main-pagamentos-label {
         border-radius: 6.74px;
+    }
+
+    .dg-texto-verde {
+        color: $corComplementar;
     }
 
     .dg-checkout-main-pagamentos-cartao {
@@ -1960,10 +2017,53 @@ body {
             left: 22px;
         }
     }
+    .dg-checkout-main-novo .dg-checkout-main-pagamentos-label .dg-checkout-main-pagamento-item-img {
+        width: 50px;
+        height: 36px;
+        background-size: auto;
+    }
+    #PagamentoCartaoDados {
+        @media (min-width: 1057px) {
+            &::before {
+                content: "Cadastre um novo cartão abaixo:";
+                display: block;
+                padding: 0;
+                margin-bottom: 23px;
+                font-size: 12px;
+                line-height: 14px;
+                color: $corPrimaria;
+            }
+        }
+        &:empty {
+            display: none !important
+        }
+    }
+    a.dg-checkout-main-side-toggle {
+        background-image: url(../img/checkout/chevron-down.svg) !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        transform: none;
+        span {
+            display: none !important;
+        }
+    }
+    .dg-checkout-main-side-bloco.dg-ativo .dg-checkout-main-side-toggle {
+        transform: rotate(180deg);
+    }
     @media (max-width: 1056.28px) {
+        .dg-checkout-main-pix-passos, .dg-checkout-main-pagamentos-info p, .dg-checkout-main-pagamentos-deposito-box {
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .dg-checkout-main-pix-passos .dg-checkout-main-pix-passos-titulo{
+            font-size: 13px;
+        }
         .dg-checkout-main-novo .dg-checkout-main-pagamentos-label {
             padding-left: 18px;
             padding-right: 18px;
+        }
+        .dg-checkout-main-pagamentos-info > .dg-checkout-main-pagamentos-info {
+            margin-bottom: 16px;
         }
         .dg-checkout-main-novo .dg-checkout-main-pagamentos-parcela .dg-checkout-main-pagamentos-parcela-label span {
             font-size: 12px;
@@ -1977,6 +2077,9 @@ body {
         .dg-checkout-main-novo .dg-checkout-main-pagamentos-parcela .dg-checkout-main-pagamentos-parcela-label {
             padding-left: 18px;
             padding-right: 18px;
+        }
+        &.dg-is-cartoes-dados .dg-checkout-main-pagamentos-info {
+            background: #f5f9fd;
         }
         &.dg-is-cartoes-dados {
             background-color: #f5f9fd;
@@ -2010,6 +2113,23 @@ body {
             background-repeat: no-repeat;
             &::before {
                 display: none;
+            }
+        }
+        [paginaatual="endereco"], [paginaatual="frete"] {
+            .dg-checkout-main-side .dg-checkout-main-side-footer .dg-checkout-main-side-continuar-comprando {
+                display: none;
+            }
+        }
+        [paginaatual="frete"] .dg-checkout-main-bloco-footer {
+            bottom: 42px;
+            border: 0;
+            a {
+                font-size: 10px;
+                border-radius: 0;
+                text-transform: none;
+                line-height: 14px;
+                color: $corPrimaria;
+                background-color: rgba(0,0,0,0);
             }
         }
         [paginaatual="endereco"] .dg-checkout-main-bloco {
@@ -2124,6 +2244,38 @@ body {
                     background-color: #f5f9fd;
                 }
             }
+        }
+        &.dg-is-cartoes-dados {
+            .dg-pagamento-fmix {
+                .dg-checkout-main-side {
+                    display: block;
+                    padding: 0;
+                    margin: 0;
+                    .dg-checkout-main-side-footer, .dg-titulo, .dg-checkout-main-side-bloco-wrapper {
+                        display: none;
+                    }
+                }
+            }   
+            .dg-checkout-main-bloco-footer {
+                background: rgba(0,0,0,0);
+                z-index: 10000000;
+                background-color: rgba(0,0,0,0);
+            }
+            .dg-checkout-main-bloco-footer-submobile {
+                background: none;
+            }
+            .dg-checkout-main-side-prosseguir-cartao {
+                font-size: 12px;
+                width: 116px;
+                border-radius: 12px;
+                background-color: $corComplementar;
+                &:hover, &:focus {
+                    background-color: darken($corComplementar, 5%);
+                }
+            }
+        }
+        .InitPG .dg-checkout-main-bloco-footer > .dg-checkout-main-bloco-voltar {
+            bottom: 40px;
         }
         .dg-checkout-main-side-carrinho-form input, .dg-checkout-main-side-carrinho-form label {
             padding-right: 0;
