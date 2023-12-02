@@ -10,7 +10,7 @@ body {
   }
 }
 
-body .dg-checkout-footer, body .dg-checkout-header {
+body .dg-checkout-main-recibo-timeline-barra-progresso, body .dg-checkout-footer, body .dg-checkout-header {
   background-color: #0B1841;
 }
 
@@ -34,8 +34,30 @@ body .dg-checkout-header {
   border-bottom: 4px solid #00D19D;
 }
 
-body .dg-checkout-main-carrinho-item-total, body .dg-checkout-main-bloco-topo > .dg-titulo strong {
+body .dg-usuario-conteudo-pedido-status_item.dg-ativo, body .dg-checkout-main-recibo-bloco-1 ol li strong, body .dg-checkout-main-recibo-bloco-1 ol li.dg-verde, body .dg-checkout-main-carrinho-item-total, body .dg-checkout-main-bloco-topo > .dg-titulo strong {
   color: #00D19D;
+}
+
+body .dg-usuario-conteudo-pedido-status_item .dg-claro {
+  color: #626669;
+}
+
+body .dg-checkout-main-recibo-bloco-1 ol li {
+  font-weight: 500;
+  color: #626669;
+}
+
+body .dg-checkout-main-recibo-wrapper, body .dg-checkout-main-recibo-alerta {
+  background-color: #F5F9FD;
+}
+
+body .dg-checkout-main-recibo-wrapper {
+  border-radius: 15px;
+  padding: 25px 43px 24px 40px;
+}
+
+body .dg-checkout-main-recibo-bloco-1 {
+  padding-left: 0;
 }
 
 body .dg-checkout-main-carrinho-item-total {
@@ -43,8 +65,20 @@ body .dg-checkout-main-carrinho-item-total {
   font-weight: 600;
 }
 
-body .dg-checkout-main-side .dg-titulo strong {
+body .dg-checkout-main-recibo-alerta b, body .dg-checkout-main-side .dg-titulo strong {
   color: #002399;
+}
+
+body .dg-checkout-main-recibo-dados > li {
+  color: #626669;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+body .dg-checkout-main-recibo-dados > li .dg-checkout-main-recibo-dados-titulo {
+  color: #000;
+  font-weight: bold;
+  border-color: #DFE6ED;
 }
 
 body .dg-checkout-main-side-prosseguir {
@@ -57,12 +91,24 @@ body .dg-checkout-main-side-prosseguir:hover, body .dg-checkout-main-side-prosse
   background-color: #008564;
 }
 
+body .dg-checkout-main-bloco-passo--recibo {
+  right: 0;
+}
+
+body .dg-checkout-main-bloco-recibo-mascote {
+  display: none;
+}
+
 body .dg-checkout-main-carrinho-item, body .dg-checkout-main-side-resumo ul li {
   color: #626669;
 }
 
 body .dg-checkout-main-carrinho-item {
   border-color: #DFE6ED;
+}
+
+body .dg-checkout-main-recibo-table thead tr {
+  border: 0;
 }
 
 body .dg-checkout-main-carrinho-titulos, body .dg-checkout-main-carrinho-item-produto strong {
@@ -107,6 +153,26 @@ body .dg-checkout-main-bloco-btn-outline:hover, body .dg-checkout-main-bloco-btn
   background-color: #980933;
   color: #fff;
   border: 0;
+}
+
+body .dg-checkout-main-recibo-codigo {
+  margin-left: 8px;
+  font-size: 10px;
+  text-decoration: underline;
+  color: #626669;
+}
+
+body .dg-checkout-main-recibo-timeline-barra-progresso {
+  background-color: #00D19D;
+}
+
+body .dg-checkout-main-recibo-codigo-copiar .dg-btn-copiar, body .dg-checkout-main-recibo-codigo-copiar .dg-btn-imprimir {
+  background-color: #002399;
+  border-radius: 12px;
+}
+
+body .dg-checkout-main-recibo-codigo-copiar .dg-btn-copiar:hover, body .dg-checkout-main-recibo-codigo-copiar .dg-btn-copiar:focus, body .dg-checkout-main-recibo-codigo-copiar .dg-btn-imprimir:hover, body .dg-checkout-main-recibo-codigo-copiar .dg-btn-imprimir:focus {
+  background-color: #00124d;
 }
 
 body .dg-checkout-main-bloco-footer {
@@ -637,6 +703,11 @@ body .dg-checkout-main-bloco {
   width: 74.167%;
   margin-right: 2.5%;
   margin-bottom: 27px;
+}
+
+body .dg-checkout-main-bloco--full {
+  width: 100%;
+  margin-right: 0;
 }
 
 @media (max-width: 1056.28px) {

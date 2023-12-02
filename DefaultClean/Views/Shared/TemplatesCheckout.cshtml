@@ -1155,7 +1155,7 @@
     <section class="dg-checkout-main-bloco dg-checkout-main-bloco--full">
         <div class="dg-checkout-main-bloco-topo dg-checkout-main-bloco-topo--boleto">
             <h1 class="dg-titulo">
-                Recibo do pedido <strong>${RetornoRecibo.ID_Pedido}</strong>
+                Recibo do pedido <strong>#${RetornoRecibo.ID_Pedido}</strong>
                 {if RetornoRecibo.Pagamento.TipoPagamento == 'cartao'}
                 <button type="button" class="dg-checkout-main-bloco-informativo-btn jsReciboInformativoBtn" title="Informações de crédito" aria-label="Informações de crédito">
                     <svg xmlns="https://www.w3.org/2000/svg" width="6.053" height="9.543" viewBox="0 0 6.053 9.543">
@@ -1165,13 +1165,14 @@
                 {/if}
             </h1>
             <div class="dg-checkout-main-bloco-passo dg-checkout-main-bloco-passo--recibo" progresso="5">
-                <div class="dg-checkout-main-bloco-progresso"><span>5</span>/5</div>
+                <div class="dg-checkout-main-bloco-progresso"><b>Passo</b> <span>5</span> de 5</div>
+                @* <div class="dg-checkout-main-bloco-progresso"><span>5</span>/5</div>
                 <div class="dg-checkout-main-bloco-proximopasso">
                     <strong>Recibo</strong>
                     <div class="dg-checkout-main-bloco-barra">
                         <div class="dg-checkout-main-bloco-barra-interna"></div>
-                    </div>
-                </div>
+                    </div> 
+                </div>*@
             </div>
             <img class="dg-checkout-main-bloco-recibo-mascote" src="/ckeckout/assets/img/checkout/recibo/mascote.png" alt="Imagem contendo o mascote da DNE">
             <div class="dg-checkout-main-bloco-informativo jsReciboInformativoFechar">
@@ -1186,7 +1187,7 @@
         </div>
         <div class="dg-checkout-main-bloco-conteudo jsCheckoutConteudo InitRecibo">
             {if RetornoRecibo.ID_OpcaoPagamento == 758}
-            <h2 class="dg-subtitulo dg-recibo-subitulo">Escaneie este código <strong>para pagar:</strong></h2>
+            <h2 class="dg-subtitulo dg-recibo-subitulo">Escaneie este código para efetuar o pagamento</h2>
             {elseif RetornoRecibo.ID_OpcaoPagamento == 52}
             <h2 class="dg-subtitulo dg-recibo-subitulo">Pagamento via <strong>Depósito Bancário:</strong></h2>
             {elseif RetornoRecibo.ID_OpcaoPagamento == 35}
@@ -1374,22 +1375,34 @@
                             <li>
                                 <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados do Pedido</div>
                                 <ul>
-                                    <li class="no-margin">Data:  ${RetornoRecibo.Data} - Hora: ${Cliente.FormataHora(RetornoRecibo.Hora)}</li>
+                                    <li class="no-margin">
+                                        <span>Data:  ${RetornoRecibo.Data}</span>
+                                        <span>Hora: ${Cliente.FormataHora(RetornoRecibo.Hora)}</span>
+                                    </li>
                                     {if RetornoRecibo.Pagamento.Desconto > 0}
                                     <li class="no-margin">
-                                        Desconto por Forma de Pagamento:
-                                        R$ ${RetornoRecibo.Pagamento.FormatCurrency()}
+                                        <span>Desconto por Forma de Pagamento:</span>
+                                        <span>R$ ${RetornoRecibo.Pagamento.FormatCurrency()}</span>
                                     </li>
                                     {/if}
                                     {if RetornoRecibo.ValorTotalDesconto > 0}
                                     <li class="no-margin">
-                                        Desconto:
-                                        R$ ${RetornoRecibo.ValorTotalDesconto.FormatCurrency()}
+                                        <span>Desconto:</span>
+                                        <span>R$ ${RetornoRecibo.ValorTotalDesconto.FormatCurrency()}</span>
                                     </li>
                                     {/if}
-                                    <li class="no-margin">Valor dos Produtos: R$ ${RetornoRecibo.SubTotal.FormatCurrency()}</li>
-                                    <li>Valor do Frete: R$ ${valorFrete}</li>
-                                    <li><strong>Total do Pedido: R$ ${RetornoRecibo.TotalGeralJuros.FormatCurrency()}</strong></li>
+                                    <li class="no-margin">
+                                        <span>Valor dos Produtos:</span>
+                                        <span>R$ ${RetornoRecibo.SubTotal.FormatCurrency()}</span>
+                                    </li>
+                                    <li>
+                                        <span>Valor do Frete:</span>
+                                        <span>R$ ${valorFrete}</span>
+                                    </li>
+                                    <li>
+                                        <span><strong>Total do Pedido:</span>
+                                        <span><strong>R$ ${RetornoRecibo.TotalGeralJuros.FormatCurrency()}</strong></span>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
