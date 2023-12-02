@@ -2336,15 +2336,30 @@ body .dg-checkout-main-novo .dg-checkout-main-pagamentos-parcela-input:checked +
   body .InitPG .dg-checkout-main-bloco-footer > .dg-checkout-main-bloco-voltar:hover, body .InitPG .dg-checkout-main-bloco-footer > .dg-checkout-main-bloco-voltar:focus {
     color: #0B1841;
   }
-  body .dg-checkout-main-side .dg-checkout-main-side-footer .dg-checkout-main-side-continuar-comprando span {
+  body .dg-checkout-main-bloco-voltar .dg-icon {
+    top: 0;
+  }
+  body .dg-checkout-main-bloco-voltar .dg-icon, body .dg-checkout-main-side .dg-checkout-main-side-footer .dg-checkout-main-side-continuar-comprando span {
     width: 7px;
     height: 12px;
     background-image: url(../img/checkout/chevron-left.svg);
     background-position: center;
     background-repeat: no-repeat;
   }
-  body .dg-checkout-main-side .dg-checkout-main-side-footer .dg-checkout-main-side-continuar-comprando span::before {
+  body .dg-checkout-main-bloco-voltar .dg-icon::before, body .dg-checkout-main-side .dg-checkout-main-side-footer .dg-checkout-main-side-continuar-comprando span::before {
     display: none;
+  }
+  body [paginaatual="endereco"] .dg-checkout-main-bloco .dg-checkout-main-bloco-btn.editarCadastrarEndereco {
+    position: fixed;
+    z-index: 111;
+    padding: 0 15px;
+    bottom: 27px;
+    right: 20px;
+    width: 116px;
+    text-transform: none;
+  }
+  body .dg-checkout-main-side-resumo:not(.dg-checkout-main-side-resumo-custom) .dg-checkout-main-side-resumo-total {
+    color: #0B1841;
   }
   body.dg-is-cartoes-dados .dg-checkout-main-bloco-footer-submobile .dg-checkout-main-bloco-voltar {
     color: #0B1841;
@@ -2723,7 +2738,7 @@ body .dg-checkout-main-novo .dg-checkout-main-pagamentos-parcela-input:checked +
     height: 93px;
     padding-left: 20px;
     line-height: 25px;
-    z-index: 100;
+    z-index: 49;
     padding-bottom: 17px;
   }
   body .dg-checkout-main-side .dg-checkout-main-side-footer {
@@ -2889,17 +2904,19 @@ body .dg-checkout-main-novo .dg-checkout-main-pagamentos-parcela-input:checked +
   }
   body .dg-checkout-main-fretes-form-wrapper + .dg-checkout-main-bloco-footer {
     position: fixed;
-    bottom: 30px;
-    right: 20px;
+    bottom: 35px;
+    left: 20px;
     background: none;
     border: 0;
     z-index: 101;
-    left: unset;
+    right: unset;
+    width: auto;
   }
   body .dg-checkout-main-fretes-form-wrapper + .dg-checkout-main-bloco-footer #labelbtnCadastroEndereco {
     display: block;
     width: 79px;
     line-height: 1.35;
+    font-size: 10px;
   }
   body .dg-checkout-main-bloco-voltar .dg-icon {
     margin-right: 10px;

@@ -1999,7 +1999,10 @@ body {
                 color: $corPrimaria;
             }
         }
-        .dg-checkout-main-side .dg-checkout-main-side-footer .dg-checkout-main-side-continuar-comprando span {
+        .dg-checkout-main-bloco-voltar .dg-icon {
+            top: 0;
+        }
+        .dg-checkout-main-bloco-voltar .dg-icon, .dg-checkout-main-side .dg-checkout-main-side-footer .dg-checkout-main-side-continuar-comprando span {
             width: 7px;
             height: 12px;
             background-image: url(../img/checkout/chevron-left.svg);
@@ -2008,6 +2011,22 @@ body {
             &::before {
                 display: none;
             }
+        }
+        [paginaatual="endereco"] .dg-checkout-main-bloco {
+            // position: relative;
+            // z-index: 111;
+            .dg-checkout-main-bloco-btn.editarCadastrarEndereco {
+                position: fixed;
+                z-index: 111;
+                padding: 0 15px;
+                bottom: 27px;
+                right: 20px;
+                width: 116px;
+                text-transform: none;
+            }
+        }
+        .dg-checkout-main-side-resumo:not(.dg-checkout-main-side-resumo-custom) .dg-checkout-main-side-resumo-total {
+            color: $corPrimaria;
         }
         &.dg-is-cartoes-dados .dg-checkout-main-bloco-footer-submobile .dg-checkout-main-bloco-voltar {
             color: $corPrimaria;
@@ -2357,7 +2376,7 @@ body {
             height: 93px;
             padding-left: 20px;
             line-height: 25px;
-            z-index: 100;
+            z-index: 49;
             padding-bottom: 17px;
         }
         .dg-checkout-main-side .dg-checkout-main-side-footer {
@@ -2525,16 +2544,18 @@ body {
         .dg-checkout-main-fretes-form-wrapper {
             + .dg-checkout-main-bloco-footer {
                 position: fixed;
-                bottom: 30px;
-                right: 20px;
+                bottom: 35px;
+                left: 20px;
                 background: none;
                 border: 0;
                 z-index: 101;
-                left: unset;
+                right: unset;
+                width: auto;
                 #labelbtnCadastroEndereco {
                     display: block;
                     width: 79px;
                     line-height: 1.35;
+                    font-size: 10px;
                 }
             }
         }
