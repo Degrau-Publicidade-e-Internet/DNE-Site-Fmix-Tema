@@ -14,6 +14,10 @@ body .dg-checkout-main-recibo-timeline-barra-progresso, body .dg-checkout-footer
   background-color: #0B1841;
 }
 
+body .dg-checkout-main-pagamentos-cartao-numero .dg-icon {
+  background-color: #00D19D;
+}
+
 body .dg-checkout-main-pagamentos-info p, body .dg-checkout-main-side-resumo ul li, body .dg-checkout-main-side-carrinho-form label {
   color: #626669;
 }
@@ -2438,6 +2442,12 @@ body .dg-checkout-main-novo .dg-checkout-main-pagamentos-parcela-input:checked +
   }
 }
 
+@media (max-width: 1056.28px) {
+  body .dg-checkout-main-novo .SelectFormasPGCartao .dg-checkout-main-pagamentos-parcela-input:checked + label::after {
+    top: 16px;
+  }
+}
+
 body .dg-checkout-main-novo .dg-checkout-main-pagamentos-label .dg-checkout-main-pagamento-item-img {
   width: 50px;
   height: 36px;
@@ -2481,6 +2491,27 @@ body .dg-checkout-main-side-bloco.dg-ativo .dg-checkout-main-side-toggle {
   body .dg-checkout-main-pix-passos, body .dg-checkout-main-pagamentos-info p, body .dg-checkout-main-pagamentos-deposito-box {
     padding-left: 0;
     padding-right: 0;
+  }
+  body.dg-is-cartoes-dados .dg-checkout-main-bloco-footer-cartao-passos a.dg-pulse {
+    width: 116px;
+    white-space: initial;
+    font-size: 12px;
+    border-radius: 12px;
+  }
+  body .dg-checkout-main-pagamentos-cartao > form > div {
+    width: 100%;
+    max-width: 300px;
+  }
+  body .dg-checkout-main-pagamentos-cartao > form > div.dg-checkout-main-pagamentos-cartao-parcelamento {
+    max-width: 360px;
+  }
+  body.dg-is-cartoes-dados .dg-checkout-main-pagamentos-cartao {
+    padding: 0;
+  }
+  body .dg-checkout-main-pagamentos-cartao-parcelamento > .dg-checkout-main-pagamentos-simulacao-armazenarcartao {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
   }
   body .dg-checkout-main-pix-passos .dg-checkout-main-pix-passos-titulo {
     font-size: 13px;

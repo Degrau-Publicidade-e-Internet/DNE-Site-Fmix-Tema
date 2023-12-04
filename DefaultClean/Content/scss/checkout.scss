@@ -15,6 +15,10 @@ body {
         background-color: $corPrimaria;
     }
 
+    .dg-checkout-main-pagamentos-cartao-numero .dg-icon {
+        background-color: $corComplementar;
+    }
+
     .dg-checkout-main-pagamentos-info p, .dg-checkout-main-side-resumo ul li, .dg-checkout-main-side-carrinho-form label {
         color: #626669;
     }
@@ -2073,18 +2077,28 @@ body {
         content: '';
         background-color: rgba(0,0,0,0);
     }
-    .dg-checkout-main-novo .dg-checkout-main-pagamentos-parcela-input:checked+label::after {
-        content: '';
-        position: absolute;
-        top: 23px;
-        left: 28px;
-        width: 12px;
-        height: 12px;
-        border-radius: 12px;
-        background-color: $corComplementar;
-        @media (max-width: 1056.28px) {
-            top: 20px;
-            left: 22px;
+    .dg-checkout-main-novo {
+
+        .dg-checkout-main-pagamentos-parcela-input:checked+label::after {
+            content: '';
+            position: absolute;
+            top: 23px;
+            left: 28px;
+            width: 12px;
+            height: 12px;
+            border-radius: 12px;
+            background-color: $corComplementar;
+            @media (max-width: 1056.28px) {
+                top: 20px;
+                left: 22px;
+            }
+        }
+        .SelectFormasPGCartao {
+            .dg-checkout-main-pagamentos-parcela-input:checked+label::after {
+                @media (max-width: 1056.28px) {
+                    top: 16px;
+                }
+            }
         }
     }
     .dg-checkout-main-novo .dg-checkout-main-pagamentos-label .dg-checkout-main-pagamento-item-img {
@@ -2124,6 +2138,27 @@ body {
         .dg-checkout-main-pix-passos, .dg-checkout-main-pagamentos-info p, .dg-checkout-main-pagamentos-deposito-box {
             padding-left: 0;
             padding-right: 0;
+        }
+        &.dg-is-cartoes-dados .dg-checkout-main-bloco-footer-cartao-passos a.dg-pulse {
+            width: 116px;
+            white-space: initial;
+            font-size: 12px;
+            border-radius: 12px;
+        }
+        .dg-checkout-main-pagamentos-cartao>form>div {
+            width: 100%;
+            max-width: 300px;
+            &.dg-checkout-main-pagamentos-cartao-parcelamento {
+                max-width: 360px;
+            }
+        }
+        &.dg-is-cartoes-dados .dg-checkout-main-pagamentos-cartao {
+            padding: 0;
+        }
+        .dg-checkout-main-pagamentos-cartao-parcelamento>.dg-checkout-main-pagamentos-simulacao-armazenarcartao{
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .dg-checkout-main-pix-passos .dg-checkout-main-pix-passos-titulo{
             font-size: 13px;
