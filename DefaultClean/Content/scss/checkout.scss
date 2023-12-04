@@ -2795,6 +2795,11 @@ body {
         [paginaatual="endereco"] .dg-checkout-main-side-footer {
             display: none;
         }
+        &.edit-endereco-page {
+            .dg-checkout-main-side-resumo-total {
+                display: none !important;
+            }
+        }
         .dg-header-minhaconta-flex .dg-checkout-login-modal-footer, .dg-header-minhaconta-flex>*:last-child .dg-checkout-login-modal-footer {
             padding-left: 0;
             padding-right: 0;

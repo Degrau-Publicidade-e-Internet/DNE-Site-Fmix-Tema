@@ -73,7 +73,8 @@
     @Html.ScriptsFiles(ResourceLocation.Head, true)
 
     <link href="/Themes/DefaultClean/Content/css/checkout.css" rel="stylesheet" asp-append-version="true"/>
-
+    <script src="/Themes/DefaultClean/Content/js/Checkout.js" type="text/javascript" asp-append-version="true"></script>
+    
     @if (iWebHelper.NotIsNull(httpContextAccessor.HttpContext.Session.GetString("AvisoCadConfirm")) == "AvisoCadConfirm")
     {
         <text>

@@ -3172,6 +3172,9 @@ body .dg-checkout-main-side-bloco.dg-ativo .dg-checkout-main-side-toggle {
   body [paginaatual="endereco"] .dg-checkout-main-side-footer {
     display: none;
   }
+  body.edit-endereco-page .dg-checkout-main-side-resumo-total {
+    display: none !important;
+  }
   body .dg-header-minhaconta-flex .dg-checkout-login-modal-footer, body .dg-header-minhaconta-flex > *:last-child .dg-checkout-login-modal-footer {
     padding-left: 0;
     padding-right: 0;
