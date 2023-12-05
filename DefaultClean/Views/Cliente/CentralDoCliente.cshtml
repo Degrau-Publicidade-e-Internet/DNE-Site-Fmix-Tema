@@ -523,75 +523,77 @@
         <h3 class="dg-subtitulo">
             Aqui você pode verificar o andamento de seus pedidos e gerar 2º via de boletos ou notas fiscais.
         </h3>
-        <table class="dg-usuario-conteudo-pedidos-table">
-            <thead>
-                <tr>
-                    <th class="white-space">Nº Pedido</th>
-                    <th class="white-space">Data</th>
-                    <th class="white-space">Valor total</th>
-                    <th>Status</th>
-                    <th class="dg-mobile-hide">Forma de Pagamento</th>
-                    <th class="dg-mobile-hide">Nota Fiscal</th>
-                    <th style="width: 72px">
-                        <span class="dg-mobile-hide">Ver Pedido</span>
-                        <span class="dg-desktop-hide">Ver</span>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                {for vp in RetornoPedidos}  
+        <div style="overflow:auto">
+            <table class="dg-usuario-conteudo-pedidos-table">
+                <thead>
                     <tr>
-                        <td>${vp.ID_Pedido}</td>
-                        <td>${vp.Data}</td>
-                        <td class="white-space">R$ ${vp.TotalGeralJuros.FormatCurrency()}</td>
-                        <td>${vp.SubStatus}</td>
-                        <td class="dg-mobile-hide">
-                            {if vp.ID_OpcaoPagamento == 512}
-                            <span class="dg-usuario-conteudo-pedidos-flag" data-tipo-pagamento="${vp.Pagamento.FormaPagamento}"></span>
-                            {else}
-                            <span class="dg-usuario-conteudo-pedidos-flag" data-tipo-pagamento="${vp.Pagamento.TipoPagamento}"></span>
-                            {/if}
-
-                            {if vp.Pagamento.TipoPagamento == "cartao"}
-                            <p>Cartão de Crédito</p>
-                            {else}
-                            ${vp.Pagamento.FormaPagamento}
-                            {/if}
-
-
-                            {if vp.ID_OpcaoPagamento == 421 && vp.Pagamento.UrlBoleto != ""}
-                            <span class="dg-usuario-conteudo-pedidos-imprimir">
-                                <a href="javascript:void(0)" class="dg-usuario-conteudo-pedidos-btn" onclick="ClienteCentral.OpenJanelaBoleto('${vp.ID_Pedido}')">
-                                    <span class="dg-icon dg-icon-imprimir"></span>
-                                    Imprimir
-                                </a>
-                            </span>
-                            {/if}
-                        </td>
-                        <td class="dg-mobile-hide">
-                            {if vp.PdfNota  != ""}
-                            <a href="#" class="dg-usuario-conteudo-pedidos-btn btn-conteudo-pedidos-nota" onclick="ClienteCentral.BaixaNfCliente(this)" data-ID_Nota="${vp.PdfNota}" data-id_pedido="${vp.ID_Pedido}">
-                                Nº ${vp.PdfNota}
-                            </a>
-                            {else}
-                            <a href="javascript:void(0)" class="dg-usuario-conteudo-pedidos-btn btn-conteudo-pedidos-nota dg-isDisabled">
-                                -
-                            </a>
-                            {/if}
-                        </td>
-                        <td>
-
-                            <a href="javascript:void(0)" usuario-aba="verPedidos" data-pedido="${vp.ID_Pedido}" class="dg-usuario-conteudo-pedidos-btn">
-                                <span class="dg-icon dg-icon-eye"></span>
-                                Recibo do pedido <strong>${vp.ID_Pedido}:</strong>
-
-                            </a>
-
-                        </td>
+                        <th class="white-space">Nº Pedido</th>
+                        <th class="white-space">Data</th>
+                        <th class="white-space">Valor total</th>
+                        <th>Status</th>
+                        <th class="dg-mobile-hide">Forma de Pagamento</th>
+                        <th class="dg-mobile-hide">Nota Fiscal</th>
+                        <th style="width: 72px">
+                            <span class="dg-mobile-hide">Ver Pedido</span>
+                            <span class="dg-desktop-hide">Ver</span>
+                        </th>
                     </tr>
-                {/for}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {for vp in RetornoPedidos}  
+                        <tr>
+                            <td>${vp.ID_Pedido}</td>
+                            <td>${vp.Data}</td>
+                            <td class="white-space">R$ ${vp.TotalGeralJuros.FormatCurrency()}</td>
+                            <td>${vp.SubStatus}</td>
+                            <td class="dg-mobile-hide">
+                                {if vp.ID_OpcaoPagamento == 512}
+                                <span class="dg-usuario-conteudo-pedidos-flag" data-tipo-pagamento="${vp.Pagamento.FormaPagamento}"></span>
+                                {else}
+                                <span class="dg-usuario-conteudo-pedidos-flag" data-tipo-pagamento="${vp.Pagamento.TipoPagamento}"></span>
+                                {/if}
+
+                                {if vp.Pagamento.TipoPagamento == "cartao"}
+                                <p>Cartão de Crédito</p>
+                                {else}
+                                ${vp.Pagamento.FormaPagamento}
+                                {/if}
+
+
+                                {if vp.ID_OpcaoPagamento == 421 && vp.Pagamento.UrlBoleto != ""}
+                                <span class="dg-usuario-conteudo-pedidos-imprimir">
+                                    <a href="javascript:void(0)" class="dg-usuario-conteudo-pedidos-btn" onclick="ClienteCentral.OpenJanelaBoleto('${vp.ID_Pedido}')">
+                                        <span class="dg-icon dg-icon-imprimir"></span>
+                                        Imprimir
+                                    </a>
+                                </span>
+                                {/if}
+                            </td>
+                            <td class="dg-mobile-hide">
+                                {if vp.PdfNota  != ""}
+                                <a href="#" class="dg-usuario-conteudo-pedidos-btn btn-conteudo-pedidos-nota" onclick="ClienteCentral.BaixaNfCliente(this)" data-ID_Nota="${vp.PdfNota}" data-id_pedido="${vp.ID_Pedido}">
+                                    Nº ${vp.PdfNota}
+                                </a>
+                                {else}
+                                <a href="javascript:void(0)" class="dg-usuario-conteudo-pedidos-btn btn-conteudo-pedidos-nota dg-isDisabled">
+                                    -
+                                </a>
+                                {/if}
+                            </td>
+                            <td>
+
+                                <a href="javascript:void(0)" usuario-aba="verPedidos" data-pedido="${vp.ID_Pedido}" class="dg-usuario-conteudo-pedidos-btn">
+                                    <span class="dg-icon dg-icon-eye"></span>
+                                    Recibo do pedido <strong>${vp.ID_Pedido}:</strong>
+
+                                </a>
+
+                            </td>
+                        </tr>
+                    {/for}
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div class="dg-usuario-footer">

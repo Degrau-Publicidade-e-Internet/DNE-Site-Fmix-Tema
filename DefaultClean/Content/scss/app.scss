@@ -6749,10 +6749,38 @@ body .dg-usuario-conteudo-cartoes-table td, body .dg-usuario-conteudo-cartoes-ta
 }
 
 body {
+    .dg-usuario-sidebar>.dg-titulo {
+        padding-top: 0;
+        padding-left: 0;
+    }
+    .dg-usuario-conteudo-pedidos-btn .dg-icon {
+        margin-right: 0;
+    }
+    .dg-usuario-conteudo-pedidos-table .dg-usuario-conteudo-pedidos-flag {
+        background-size: 30px;
+    }
+    .dg-usuario-conteudo-pedidos-flag[data-tipo-pagamento="boleto"] {
+        background-image: url(../img/icones/central/pedidos/boleto2.svg)
+    }
+    
+    .dg-usuario-conteudo-pedidos-flag[data-tipo-pagamento="cartao"] {
+        background-image: url(../img/icones/central/pedidos/cartao.svg)
+    }
+    
+    .dg-usuario-conteudo-pedidos-flag[data-tipo-pagamento="deposito"] {
+        background-image: url(../img/icones/central/pedidos/deposito.svg)
+    }
+    
+    .dg-usuario-conteudo-pedidos-flag[data-tipo-pagamento="PIX"], .dg-usuario-conteudo-pedidos-flag[data-tipo-pagamento="servico"] {
+        background-image: url(../img/icones/central/pedidos/pix.svg)
+    }
+    
     .dg-header-minhaconta-modal-conteudo>div>label {
         background: #E0E3EA;
     }
     .dg-usuario-conteudo-pedidos-table {
+        // display: block;
+        // overflow: auto;
         width: 100%;
         margin-top: 18px;
         text-align: left;
@@ -6764,7 +6792,7 @@ body {
             font-weight: 500;
         }
         td, th {
-            font-size: 13px;
+            font-size: 12px;
             padding-right: 8px;
             color: #45494D;
             &:last-child {
