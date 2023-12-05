@@ -1537,12 +1537,7 @@ body {
     }
 
     .dg-checkout-main-pagamentos-simulacao-frente, .dg-checkout-main-pagamentos-simulacao-verso {
-        background-image: url(../img/checkout/pagamento/cartao-fundo.svg);
-        background-repeat: no-repeat;
-        background-size: cover;
         border-radius: 26px;
-        background-color: #03349F;
-        padding-top: 57.23%;
     }
     
     .dg-checkout-main-pagamentos-simulacao-card {
@@ -1558,19 +1553,37 @@ body {
         }
     }
     .dg-checkout-main-pagamentos-simulacao-frente-img {
-        top: 25px;
-        left: 27px;
-        top: 15px;
-        left: 15px;
         background-position: center;
         background-size: 50px;
     }
-    .dg-checkout-main-pagamentos-simulacao-frente-numero {
-        top: 111px;
-        font-size: 18px;
-        word-spacing: 13px;
-        line-height: 1;
-        text-shadow: none;
+    .InitPG {
+        .dg-checkout-main-pagamentos-simulacao-frente, .dg-checkout-main-pagamentos-simulacao-verso {
+            background-image: url(../img/checkout/pagamento/cartao-fundo.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #03349F;
+            padding-top: 57.23%;
+        }
+        .dg-checkout-main-pagamentos-simulacao-frente-img {
+            top: 15px;
+            left: 15px;
+        }
+        .dg-checkout-main-pagamentos-simulacao-frente-numero {
+            top: 111px;
+            font-size: 18px;
+            word-spacing: 13px;
+            line-height: 1;
+            text-shadow: none;
+        }
+        .dg-checkout-main-pagamentos-simulacao-frente-titular, .dg-checkout-main-pagamentos-simulacao-frente-vencimento{
+            font-size: 18px;
+            text-shadow: none;
+            line-height: 1;
+            bottom: 22px;
+        }
+    }
+    .dg-checkout-main-pagamentos-simulacao-frente:before, .dg-checkout-main-pagamentos-simulacao-verso:before {
+        display: none;
     }
     .dg-checkout-main-pagamentos-cartao>form {
         width: 58.907%;
@@ -1583,15 +1596,6 @@ body {
         @media (max-width: 1056.28px) {
             width: 100%;
         }
-    }
-    .dg-checkout-main-pagamentos-simulacao-frente-titular, .dg-checkout-main-pagamentos-simulacao-frente-vencimento{
-        font-size: 18px;
-        text-shadow: none;
-        line-height: 1;
-        bottom: 22px;
-    }
-    .dg-checkout-main-pagamentos-simulacao-frente:before, .dg-checkout-main-pagamentos-simulacao-verso:before {
-        display: none;
     }
     .dg-checkout-main-pagamentos-info p {
         padding: 0 25px 10px;
@@ -2259,8 +2263,34 @@ body {
             }
         }
     }
+    .dg-checkout-main-bloco-informativo-btn {
+        margin-left: 6px;
+        vertical-align: top;
+        float: none;
+        background-color: $corVermelho;
+        svg {
+            margin-left: 2px;
+        }
+    }
+    .dg-checkout-main-bloco-informativo .dg-red {
+        color: $corVermelho;
+    }
     .dg-checkout-main-recibo-table td img {
         border-radius: 5.74px;
+    }
+    .dg-checkout-main-recibo-codigo-copiar .dg-btn-copiar::before {
+        width: 26px;
+        height: 24px;
+        background-image: url(../img/checkout/document-copy.svg);
+    }
+    .dg-checkout-main-bloco-informativo .dg-checkout-main-bloco-informativo-fechar {
+        background-image: url(../img/checkout/close.svg);
+    }
+    .dg-checkout-main-bloco-informativo p {
+        color: #626669;
+    }
+    .dg-checkout-main-recibo-codigo-copiar .dg-btn-copiar, .dg-checkout-main-recibo-codigo-copiar .dg-btn-imprimir {
+        font-size: 12px;
     }
     @media (max-width: 1056.28px) {
         .dg-checkout-main-recibo-timeline-barra {

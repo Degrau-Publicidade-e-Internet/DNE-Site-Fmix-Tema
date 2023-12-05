@@ -1152,7 +1152,7 @@
     </div>
 </script>
 <script id="templateSideReciboConteudo" type="text/x-jquery-tmpl">
-    <section class="dg-checkout-main-bloco dg-checkout-main-bloco--full">
+    <section class="dg-checkout-main-bloco dg-checkout-main-bloco--full" data-pagamento="${RetornoRecibo.Pagamento.TipoPagamento}">
         <div class="dg-checkout-main-bloco-topo dg-checkout-main-bloco-topo--boleto">
             <h1 class="dg-titulo">
                 Recibo do pedido <strong>#${RetornoRecibo.ID_Pedido}</strong>
@@ -1276,9 +1276,9 @@
                             </div>
                             {/if}
                         </div>
-                        <p class="dg-checkout-main-recibo-codigo">
+                        @* <p class="dg-checkout-main-recibo-codigo">
                             <strong class="dg-verde">Pagamento via cartão {if RetornoRecibo.ID_SubStatus == '2'}aprovado{else}reprovado{/if}</strong><br>
-                        </p>
+                        </p> *@
                         {/if}
                     </div>
                     <div class="dg-checkout-main-recibo-bloco-2">
