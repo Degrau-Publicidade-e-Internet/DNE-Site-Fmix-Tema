@@ -6753,8 +6753,23 @@ body {
         padding-top: 0;
         padding-left: 0;
     }
-    .dg-usuario-conteudo-pedidos-btn .dg-icon {
+    .dg-usuario-conteudo-pedidos-btn .dg-icon.dg-icon-eye {
         margin-right: 0;
+    }
+    .dg-usuario-conteudo-pedidos-btn, .dg-usuario-conteudo-pedidos-btn .dg-icon {
+        font-size: 11px;
+    }
+    .dg-usuario-conteudo-pedidos-btn  {
+        color: #aeaeae;
+        &:hover, &:focus {
+            color: #aeaeae;
+            .dg-icon {
+                color: #aeaeae;
+            }
+        }
+    }
+    .dg-usuario-conteudo-pedidos-btn .dg-icon {
+        top: 2px;
     }
     .dg-usuario-conteudo-pedidos-table .dg-usuario-conteudo-pedidos-flag {
         background-size: 30px;

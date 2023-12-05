@@ -8111,8 +8111,28 @@ body .dg-usuario-sidebar > .dg-titulo {
   padding-left: 0;
 }
 
-body .dg-usuario-conteudo-pedidos-btn .dg-icon {
+body .dg-usuario-conteudo-pedidos-btn .dg-icon.dg-icon-eye {
   margin-right: 0;
+}
+
+body .dg-usuario-conteudo-pedidos-btn, body .dg-usuario-conteudo-pedidos-btn .dg-icon {
+  font-size: 11px;
+}
+
+body .dg-usuario-conteudo-pedidos-btn {
+  color: #aeaeae;
+}
+
+body .dg-usuario-conteudo-pedidos-btn:hover, body .dg-usuario-conteudo-pedidos-btn:focus {
+  color: #aeaeae;
+}
+
+body .dg-usuario-conteudo-pedidos-btn:hover .dg-icon, body .dg-usuario-conteudo-pedidos-btn:focus .dg-icon {
+  color: #aeaeae;
+}
+
+body .dg-usuario-conteudo-pedidos-btn .dg-icon {
+  top: 2px;
 }
 
 body .dg-usuario-conteudo-pedidos-table .dg-usuario-conteudo-pedidos-flag {

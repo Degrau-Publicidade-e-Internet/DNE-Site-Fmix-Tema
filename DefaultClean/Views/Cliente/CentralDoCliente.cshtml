@@ -229,20 +229,20 @@
                 Imprimir Nota Fiscal
             </a>
             {/if}
-            {if (RetornoPedido.ID_OpcaoPagamento == 421 || RetornoPedido.ID_OpcaoPagamento == 1) && RetornoPedido.Pagamento.UrlBoleto != ""}
+            {if (RetornoPedido.TipoPagamento == 421 || RetornoPedido.ID_OpcaoPagamento == 1) && RetornoPedido.Pagamento.UrlBoleto != ""}
             <a href="javascript:void(0)" class="dg-usuario-conteudo-pedidos-btn dg-usuario-conteudo-pedidos-btn--titulo dg-usuario-conteudo-pedidos-btn--pix" onclick="ClienteCentral.OpenJanelaBoleto('${RetornoPedido.ID_Pedido}')">
                 <span class="dg-icon dg-icon-boleto"></span>
                 2ª via do boleto
             </a>
             {/if}
-            {if RetornoPedido.ID_OpcaoPagamento == 512 && RetornoPedido.Pagamento.BtnPagamento == "pix"}
+            {if RetornoPedido.TipoPagamento == "pix" && RetornoPedido.Pagamento.BtnPagamento == "pix"}
             <a href="javascript:void(0)" class="dg-usuario-conteudo-pedidos-btn dg-usuario-conteudo-pedidos-btn--titulo dg-usuario-conteudo-pedidos-btn--pix" onclick="ClienteCentral.OpenModalPix('${RetornoPedido.ID_Pedido}')">
                 <span class="dg-icon dg-icon-pix"></span>
                 Clique para pagar com PIX
             </a>
             {/if}
         </div>
-        {if RetornoPedido.ID_OpcaoPagamento == 512}
+        {if RetornoPedido.TipoPagamento == "pix"}
         <div class="dg-modal-pix jsFecharModalPixa">
             <div class="dg-modal-pix-content">
                 <a class="dg-modal-pix-fechar jsFecharModalPixa" href="javascript:void(0)"></a>
@@ -277,7 +277,7 @@
                 </form>
             </div>
         </div>
-        {elseif (RetornoPedido.ID_OpcaoPagamento == 421 || RetornoPedido.ID_OpcaoPagamento == 1) && RetornoPedido.Pagamento.UrlBoleto != ""}
+        {elseif (RetornoPedido.TipoPagamento == 421 || RetornoPedido.ID_OpcaoPagamento == 1) && RetornoPedido.Pagamento.UrlBoleto != ""}
         <div class="dg-modal-pix">
             <div class="dg-modal-pix-content">
                 <div class="dg-modal-pix-title">Pagamento via <b>Boleto Bancário:</b></div>
@@ -547,7 +547,7 @@
                             <td class="white-space">R$ ${vp.TotalGeralJuros.FormatCurrency()}</td>
                             <td>${vp.SubStatus}</td>
                             <td class="dg-mobile-hide">
-                                {if vp.ID_OpcaoPagamento == 512}
+                                {if vp.Pagamento.TipoPagamento == "pix"}
                                 <span class="dg-usuario-conteudo-pedidos-flag" data-tipo-pagamento="${vp.Pagamento.FormaPagamento}"></span>
                                 {else}
                                 <span class="dg-usuario-conteudo-pedidos-flag" data-tipo-pagamento="${vp.Pagamento.TipoPagamento}"></span>
@@ -560,13 +560,13 @@
                                 {/if}
 
 
-                                {if vp.ID_OpcaoPagamento == 421 && vp.Pagamento.UrlBoleto != ""}
-                                <span class="dg-usuario-conteudo-pedidos-imprimir">
+                                {if vp.Pagamento.TipoPagamento == "boleto" && vp.Pagamento.UrlBoleto != ""}
+                                <div class="dg-usuario-conteudo-pedidos-imprimir">
                                     <a href="javascript:void(0)" class="dg-usuario-conteudo-pedidos-btn" onclick="ClienteCentral.OpenJanelaBoleto('${vp.ID_Pedido}')">
                                         <span class="dg-icon dg-icon-imprimir"></span>
                                         Imprimir
                                     </a>
-                                </span>
+                                </div>
                                 {/if}
                             </td>
                             <td class="dg-mobile-hide">
