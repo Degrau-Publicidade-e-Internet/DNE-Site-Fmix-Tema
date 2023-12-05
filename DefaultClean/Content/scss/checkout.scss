@@ -2134,7 +2134,144 @@ body {
     .dg-checkout-main-side-bloco.dg-ativo .dg-checkout-main-side-toggle {
         transform: rotate(180deg);
     }
+    .dg-checkout-main-recibo-timeline-barra {
+        height: 15px;
+        border-radius: 50px;
+        background-color: #F5F9FD;
+    }
+    .dg-checkout-main-recibo-timeline-barra-progresso {
+        border-radius: 50px;
+    }
+    .dg-usuario-conteudo-pedido-status_item::before{
+        top: -17px;
+        width: 9px;
+        height: 9px;
+    }
+    .dg-usuario-conteudo-pedido-status_item:first-child::before{
+        left: 3px;
+    }
+    .dg-checkout-main-recibo-total {
+        display: none;
+    }
+    .dg-checkout-main-recibo-total {
+        display: none;
+    }
+    .dg-checkout-main-recibo-dados ul li img {
+        vertical-align: middle;
+    }
+    .dg-checkout-main-recibo-table td, .dg-checkout-main-recibo-table th {
+        padding: 11px;
+        vertical-align: top;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14px;
+        color: $corPrimaria
+    }
+    .dg-checkout-main-recibo-table {
+        tbody {
+            tr {
+                td {
+					padding: 16px;
+                    vertical-align: middle;
+                    background-color: #F5F9FD;
+                    &.dg-qtd, &.dg-valor-und {
+                        font-size: 12px;
+                        font-weight: bold;
+                        color: $corPrimaria;
+                    }
+                }
+				.dg-produto-nome{
+					margin-bottom: 4px;
+					font-weight: bold;
+					font-size: 12px;
+                    color: $corPrimaria;
+				}
+				.dg-produto-codigo {
+                    font-size: 9px;
+                    color: #969696;
+
+                }
+                .dg-produto-marca{
+					font-size: 9px;
+                    color: #969696;
+                    span {
+                        font-weight: bold;
+                        color: $corComplementar;
+                    }
+				}
+                &:first-child {
+                    border-top: 0;
+					td {
+						&:first-child {
+							border-top-left-radius: 15px;
+						}
+						&:last-child {
+							border-top-right-radius: 15px;
+						}
+					}
+                    ~ tr {
+                        border-top: 1px solid #DFE6ED;
+                    }
+                }
+				&:last-child {
+					td {
+						&:first-child {
+							border-bottom-left-radius: 15px;
+						}
+						&:last-child {
+							border-bottom-right-radius: 15px;
+						}
+					}
+				}
+            }
+        }
+    }
+    .dg-checkout-main-recibo-alerta {
+        padding: 25px 55px 25px 123px;
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 15px;
+        background-image: url(../img/checkout/pagamento/truck-fast.svg);
+        background-size: auto;
+        background-position: 42px center;
+        font-size: 12px;
+        p {
+            padding-top: 0;
+            font-weight: 400;
+            line-height: 18px;
+            color: #626669;
+        }
+        b {
+            font-size: 14px;
+        }
+        p:first-child {
+            font-weight: bold;
+            margin-top: 10px;
+            ~ p {
+                margin-top: 0;
+            }
+        }
+    }
     @media (max-width: 1056.28px) {
+        .dg-checkout-main-recibo-alerta {
+            display: none;
+        }
+        .dg-checkout-main-recibo-container .dg-checkout-main-recibo-wrapper {
+            padding: 16px;
+        }
+        .dg-checkout-main-recibo-dados {
+            margin: 0;
+        }
+        .dg-checkout-main-bloco--full .dg-checkout-main-bloco-topo {
+            display: flex;
+        }
+        .dg-checkout-main-bloco--full .dg-checkout-main-bloco-topo>.dg-titulo, .dg-checkout-main-recibo-dados > li, .dg-checkout-main-recibo-container .dg-checkout-main-recibo-bloco-2{
+            padding: 0;
+        }
+        .dg-checkout-main-recibo-container .dg-checkout-main-recibo-bloco-2 ul ul {
+            display: block;
+        }
         .dg-checkout-main-pix-passos, .dg-checkout-main-pagamentos-info p, .dg-checkout-main-pagamentos-deposito-box {
             padding-left: 0;
             padding-right: 0;
@@ -2259,6 +2396,29 @@ body {
             text-transform: none;
             &:hover, &:focus {
                 color: $corPrimaria;
+            }
+        }
+        .dg-checkout-main-recibo-container {
+            border-top-right-radius: 0;
+            border-top-left-radius: 0;
+        }
+        .dg-checkout-main-bloco-conteudo.InitRecibo {
+            padding-top: 27px;
+            background-color: #f5f9fd;
+            border-radius: 6.74px;
+            overflow: hidden;
+            .dg-recibo-subitulo {
+                margin-bottom: 0;
+            }
+        }
+        .dg-checkout-main-recibo-dados > li {
+            line-height: 15px;
+            .dg-checkout-main-recibo-dados-titulo {
+                margin-bottom: 0;
+                color: #626669;
+            }
+            li {
+                margin-top: 7px;
             }
         }
         &.dg-is-cartoes-dados .dg-checkout-main-side-prosseguir-carta:not(.dg-inactive) {

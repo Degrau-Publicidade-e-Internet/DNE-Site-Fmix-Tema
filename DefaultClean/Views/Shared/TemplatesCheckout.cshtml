@@ -1241,7 +1241,7 @@
                         </div>
                         {elseif RetornoRecibo.ID_OpcaoPagamento == 35}
                         <div class="dg-checkout-main-recibo-flex">
-                            <img src="/ckeckout/assets/img/checkout/recibo/boleto-2x.png" />
+                            <img src="/Themes/DefaultClean/Content/img/checkout/pagamento/boleto.svg" width="62" />
                         </div>
                         <p class="dg-checkout-main-recibo-codigo">
                             ${RetornoRecibo.Pagamento.HtmlDinamicoFP}
@@ -1281,7 +1281,7 @@
                         </p>
                         {/if}
                     </div>
-                    <div class="dg-checkout-main-recibo-bloco-2 dg-mobile-hide">
+                    <div class="dg-checkout-main-recibo-bloco-2">
                         <ul class="dg-checkout-main-recibo-dados">
                             <li>
                                 <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados do Frete</div>
@@ -1400,7 +1400,7 @@
                                         <span>R$ ${valorFrete}</span>
                                     </li>
                                     <li>
-                                        <span><strong>Total do Pedido:</span>
+                                        <span><strong>Total do Pedido:</strong></span>
                                         <span><strong>R$ ${RetornoRecibo.TotalGeralJuros.FormatCurrency()}</strong></span>
                                     </li>
                                 </ul>
@@ -1468,138 +1468,43 @@
                             </ol>
                         </div>
                     </div>
-                    <div class="dg-checkout-main-recibo-bloco-2 dg-desktop-hide">
-                        <ul class="dg-checkout-main-recibo-dados">
-                            <li>
-                                <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados do Frete</div>
-                                <ul>
-                                    <li><span>Forma de envio:</span><span>${RetornoRecibo.Frete.Frete}</span></li>
-                                    <li><span>Tempo de Entrega:</span>
-                                    <span>
-                                        {var valorFrete = 0}
-                                        {if RetornoRecibo.Frete.IsRetiradaLoja == false}
 
-                                            {if RetornoRecibo.Frete.ID_Frete == 49}
-                                                Entrega no mesmo dia
-                                            {else}
-                                                {if RetornoRecibo.Frete.PrazoEntrega <= 0}
-                                                ${RetornoRecibo.Frete.PrazoEntregaHora}
-                                                {else}
-                                                ${RetornoRecibo.Frete.PrazoEntrega} {if RetornoRecibo.Frete.PrazoEntrega <= 1}dia útil{else}dias úteis{/if}
-                                                {/if}
-                                            {/if}
-                                        {else}
-                                        Tempo estimado para retirada em 1 hora
-                                        {/if}
-                                    </span>
-                                    </li>
-                                    <li><span>Valor:</span>
-                                        <span>
-                                            {if RetornoRecibo.Frete.Valor == '0'}
-                                            {var valorFrete = 'Grátis'}
-                                            ${valorFrete}
-                                            {else}
-                                            {var valorFrete = RetornoRecibo.Frete.Valor.FormatCurrency()}
-                                            R$ ${valorFrete}
-                                            {/if}
-                                        </span>
-                                        </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados da Entrega</div>
-                                <ul>
-                                    <li class="no-margin">
-                                        Tipo de endereço: ${RetornoRecibo.NomeEndereco}
-                                    </li>
-                                    <li class="no-margin">
-                                        CEP: ${RetornoRecibo.CEP}
-                                    </li>
-                                    <li class="no-margin">
-                                        Endereço: ${RetornoRecibo.Endereco} , ${RetornoRecibo.Numero} - ${RetornoRecibo.Bairro} - ${RetornoRecibo.Cidade}/${RetornoRecibo.Estado}
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados do Pagamento</div>
-                                <ul>
-                                    <li>
-                                        <span>
-                                            Pagamento escolhido:
-                                        </span>
-                                        <span>
-                                            ${RetornoRecibo.Pagamento.FormaPagamento}
-                                            {if RetornoRecibo.ID_OpcaoPagamento == 35}
-                                            <img src="/ckeckout/assets/img/checkout/recibo/boleto.png">
-                                            {elseif RetornoRecibo.ID_OpcaoPagamento == 52}
-                                            <img src="/ckeckout/assets/img/checkout/recibo/deposito.png">
-                                            {elseif RetornoRecibo.Pagamento.TipoPagamento == 'cartao'}
-                                            <img src="/ckeckout/assets/img/checkout/recibo/cartao.png">
-                                            {elseif RetornoRecibo.ID_OpcaoPagamento == 758}
-                                            <img src="/ckeckout/assets/img/checkout/recibo/pix.png">
-                                            {/if}
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span>Forma de Pagamento:</span>
-                                        <span>
-                                            ${RetornoRecibo.Pagamento.nparcela}x
-                                            R$ ${RetornoRecibo.ValorParcela.FormatCurrency()}
-                                        </span>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <div class="dg-checkout-main-recibo-dados-titulo jsMostrarDadosRecibo">Dados do Pedido</div>
-                                <ul>
-                                    <li class="no-margin">Data:  ${RetornoRecibo.Data} - Hora: ${RetornoRecibo.Hora}</li>
-                                    {if RetornoRecibo.Pagamento.Desconto > 0}
-                                    <li class="no-margin">
-                                        Desconto por Forma de Pagamento:
-                                        R$ ${RetornoRecibo.Pagamento.FormatCurrency()}
-                                    </li>
-                                    {/if}
-                                    <li class="no-margin">Valor dos Produtos: R$ ${RetornoRecibo.SubTotal.FormatCurrency()}</li>
-                                    <li>Valor do Frete: R$ ${valorFrete}</li>
-                                    <li><strong>Total do Pedido: R$ ${RetornoRecibo.TotalGeralJuros.FormatCurrency()}</strong></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="dg-checkout-main-recibo-table-title dg-desktop-hide">Produtos:</div>
+                    @* <div class="dg-checkout-main-recibo-table-title dg-desktop-hide">Produtos:</div> *@
                     <table class="dg-checkout-main-recibo-table">
                         <thead class="dg-mobile-hide">
                             <tr>
                                 <th></th>
                                 <th>Produto</th>
-                                <th>Qtd.</th>
-                                <th>Valor Und.</th>
+                                <th>Qtde</th>
+                                <th>Valor unitário</th>
                             </tr>
                         </thead>
                         <tbody>
                             {for itens in RetornoRecibo.Itens}
                             <tr>
                                 <td class="dg-mobile-hide">
-                                    <img class="dg-produto-img" src="/imagens/51x51/${itens.Foto}" alt="${itens.Produto}">
+                                    <img class="dg-produto-img" src="/imagens/44x44/${itens.Foto}" alt="${itens.Produto}">
                                 </td>
                                 <td>
                                     <div class="dg-checkout-main-recibo-table-flex">
+                                        <img class="dg-produto-img dg-desktop-hide" src="/imagens/75x75/${itens.Foto}" alt="${itens.Produto}">
                                         <div>
                                             <div class="dg-produto-nome">${itens.Produto} ${itens.ComplementoBrindes}</div>
+                                            <div class="dg-produto-marca">Marca: <span>${itens.Marca}</span></div>
                                             <div class="dg-produto-codigo">Cód. do produto: ${itens.ID_SubProduto}</div>
-                                            <div class="dg-produto-marca">Marca: ${itens.Marca}</div>
+                                        </div>
+                                        <div>
                                             <div class="dg-desktop-hide dg-checkout-main-recibo-table-valores">
                                                 <div>
-                                                    <b>Valor Und.</b>
-                                                    <div>${itens.Valor.FormatCurrency()}</div>
+                                                    <b>Subtotal:</b>
+                                                    <div>${itens.ValorTotal.FormatCurrency()}</div>
                                                 </div>
                                                 <div>
-                                                    <b>Qtd.</b>
+                                                    <b>Quantidade:</b>
                                                     <div>${itens.Qtd}</div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <img class="dg-produto-img dg-desktop-hide" src="/imagens/75x75/${itens.Foto}" alt="${itens.Produto}">
                                     </div>
                                 </td>
                                 <td class="dg-mobile-hide dg-qtd">${itens.Qtd}</td>
@@ -1612,14 +1517,14 @@
                         <span>Total do pedido <span>R$ ${RetornoRecibo.TotalGeralJuros.FormatCurrency()}</span></span>
                     </div>
     </section>
-    <div class="banner-ebit">
+    @* <div class="banner-ebit">
         <a id="bannerEbit"></a>
         <param id="ebitParam" value="email=${RetornoRecibo.Cliente.Email}&gender=&birthDay=&zipCode=${RetornoRecibo.CEP}&parcels=${RetornoRecibo.Pagamento.nparcela}&deliveryTax=${RetornoRecibo.eParam.ValorFreteEbit}&deliveryTime=${RetornoRecibo.Frete.PrazoEntrega}&totalSpent=${RetornoRecibo.eParam.TotalGeralEbit}&value=${RetornoRecibo.eParam.ValorProdutoEbit}&quantity=${RetornoRecibo.eParam.QtdProdutoEbit}&productName=${RetornoRecibo.eParam.NomeProdutoEbit}&transactionId=${RetornoRecibo.ID_Pedido}&sku=${RetornoRecibo.eParam.IDProdutoEbit}&buscapeId=1154673&storeId=10758" />
-    </div>
+    </div> *@
 </script>
-<div id="isGetSeloEbit">
+@* <div id="isGetSeloEbit">
     <script type="text/javascript" id="getSelo" src="https://imgs.ebit.com.br/ebitBR/selo-ebit/js/getSelo.js?10758&lightbox=true"></script>
-</div>
+</div> *@
 <script id="templateBarraMeuPedido" type="text/x-jquery-tmpl">
      <div class="dg-usuario-conteudo-pedido-status_item" id="pdConfirmado">
         <div id="pdConfirmadoSt"></div>
