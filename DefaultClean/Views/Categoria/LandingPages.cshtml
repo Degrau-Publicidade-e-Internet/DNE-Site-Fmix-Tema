@@ -175,15 +175,15 @@ else
 
 
                 <div class="dg-landing-banner @classTipo">
-
-                    @if (@oModel.HederCategoria.BannerPrincipal.Count() > 0)
+                    
+                    @if (oModel.HederCategoria.BannerPrincipal != "")
                     {
                         <img src="https://static.drogarianovaesperanca.com.br/banners/dne/@oModel.HederCategoria.BannerPrincipal">
-                    }
+                    } 
                 </div>
 
                 <div class="dg-landing-banner-fundo @classTipo">
-                    @if (@oModel.HederCategoria.ImagemFundo.Count() > 0)
+                    @if (@oModel.HederCategoria.ImagemFundo != "")
                     {
                         <style>
                             body {
@@ -464,11 +464,12 @@ else
                                     else
                                     {
                                         ULTP = "";
-                                        if (Model.PageCount == Model.Paginacao.Paginas.Count())
+                                        //Bebber
+                                        @* if (Model.PageCount == Model.Paginacao.Paginas.Count())
                                         {
                                             ULTP = "&ULTP=S";
 
-                                        }
+                                        } *@
                                         <li>
                                             <a href="?Pagina=@ItemPG.Pagina@Html.Display("sQS")@ULTP" class="number-pagination" rel="">@ItemPG.Pagina</a>
                                         </li>
