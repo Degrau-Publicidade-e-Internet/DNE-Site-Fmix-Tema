@@ -1177,10 +1177,10 @@ else
                             <ul class="pageFooter">
                             </ul>
                         </div> *@
-                        <div class="dg-categoria-carregar-mais">
-                            <div>Você visualizou <span class="jsCarregarMaisQtd">20</span> de <span class="jsCarregarMaisTotal"></span> produtos</div>
-                            <button type="button" class="jsCarregarMaisBtn" data-tipo-page="@tipoPg" role="button">Carregar Mais</button>
-                        </div>
+                    </div>
+                    <div class="dg-categoria-carregar-mais dg-hide">
+                        <div>Você visualizou <span class="jsCarregarMaisQtd">20</span> de <span class="jsCarregarMaisTotal"></span> produtos</div>
+                        <button type="button" class="jsCarregarMaisBtn" categoria="@oModel.request.NomeCategoria" subcategoria="@oModel.request.NomeSubCategoria" data-tipo-page="@tipoPg" role="button">Carregar Mais</button>
                     </div>
                 </main>
 
@@ -1205,5 +1205,5 @@ else
 @{
     Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Categoria.css", false);
     Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Categorias.js", false);
-    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/CategoriaV2.js", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/CategoriaV4.js", false);
 }
