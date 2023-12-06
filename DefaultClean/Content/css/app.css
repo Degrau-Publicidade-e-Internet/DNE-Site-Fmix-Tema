@@ -8477,6 +8477,68 @@ body .dg-usuario-conteudo-pedidos-btn:hover .dg-icon, body .dg-usuario-conteudo-
   color: #aeaeae;
 }
 
+body .dg-categoria-carregar-mais {
+  max-width: 360px;
+  margin: 24px auto 52px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 36px;
+  font-size: 12px;
+  line-height: 14px;
+  color: #0B1841;
+}
+
+body .dg-categoria-carregar-mais button {
+  display: block;
+  width: 138px;
+  height: 36px;
+  border-radius: 8px;
+  line-height: 36px;
+  padding: 0;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #002399;
+}
+
+@media (max-width: 991px) {
+  body .dg-categoria-carregar-mais button {
+    margin: 0 auto;
+  }
+}
+
+body .dg-categoria-carregar-mais button:hover, body .dg-categoria-carregar-mais button:focus {
+  background-color: #001d80;
+}
+
+body .dg-categoria-carregar-mais-barra {
+  position: relative;
+  border-radius: 100px;
+  width: 200px;
+  height: 6px;
+  background-color: #F5F9FD;
+  overflow: hidden;
+  margin-top: 16px;
+}
+
+body .dg-categoria-carregar-mais-barra-progresso {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #00D19D;
+}
+
 body .dg-usuario-conteudo-pedidos-btn .dg-icon {
   top: 2px;
 }
