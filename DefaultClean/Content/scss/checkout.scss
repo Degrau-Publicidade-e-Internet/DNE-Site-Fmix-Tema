@@ -165,6 +165,9 @@ body {
         font-size: 10px;
         text-decoration: underline;
         color: #626669;
+        &--cartao {
+            text-decoration: none;
+        }
     }
     .dg-checkout-main-recibo-timeline-barra-progresso {
         background-color: $corComplementar;
@@ -2315,6 +2318,44 @@ body {
             }
         }
     }
+    @keyframes pulse2 {
+        0% {
+            -webkit-box-shadow: 0 0 0 0 $corComplementar;
+            transform: translateY(0)
+        }
+    
+        70% {
+            -webkit-box-shadow: 0 0 0 10px rgba(204,169,44,0);
+            transform: translateY(-4px)
+        }
+    
+        100% {
+            -webkit-box-shadow: 0 0 0 0 rgba(204,169,44,0);
+            transform: translateY(0px)
+        }
+    }
+    @keyframes pulse3 {
+        0% {
+            -webkit-box-shadow: 0 0 0 0 $corSecundaria;
+            transform: translateY(0)
+        }
+    
+        70% {
+            -webkit-box-shadow: 0 0 0 10px rgba(204,169,44,0);
+            transform: translateY(-4px)
+        }
+    
+        100% {
+            -webkit-box-shadow: 0 0 0 0 rgba(204,169,44,0);
+            transform: translateY(0px)
+        }
+    }
+    .dg-checkout-main-side-prosseguir {
+        &.dg-pulse {
+            box-shadow: 0 0 0 $corComplementar;
+            animation: pulse2 2s infinite;
+        }
+    }
     .dg-checkout-main-bloco-informativo-btn {
         margin-left: 6px;
         vertical-align: top;
@@ -2340,6 +2381,11 @@ body {
     }
     .dg-checkout-main-recibo-codigo-copiar .dg-btn-copiar, .dg-checkout-main-recibo-codigo-copiar .dg-btn-imprimir {
         font-size: 12px;
+        &.dg-pulse-delay, &.dg-pulse {
+            box-shadow: 0 0 0 $corSecundaria;
+            animation: pulse3 2s infinite;
+            animation-delay: 2.5s;
+        }
     }
     @media (max-width: 1056.28px) {
         .dg-checkout-main-recibo-timeline-barra {
