@@ -8448,6 +8448,10 @@ body .dg-modal-recompra-1clique__select {
   }
 }
 
+body .dg-checkout-main-bloco-informativo-btn.dg-ativo svg path {
+  fill: #E00D4C;
+}
+
 body .dg-usuario-sidebar > .dg-titulo {
   padding-top: 0;
   padding-left: 0;
