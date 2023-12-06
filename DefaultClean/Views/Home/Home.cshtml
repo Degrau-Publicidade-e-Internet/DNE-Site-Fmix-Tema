@@ -54,12 +54,12 @@
         <div class="dg-modal-recompra-1clique__modal-wrapper">
             <header class="dg-modal-recompra-1clique__header">
                 <div class="dg-modal-recompra-1clique__header-titulo">
-                    Recompra com <span>1-Clique</span>
+                    <div>Recompra com <span>1-Clique</span></div>
+                    <div class="dg-modal-recompra-1clique__tabela-titulo">Veja os detalhes do pedido anterior. <span>Pedido ${Retorno.ID_Pedido}</span>.</div>
                 </div>
                 <img class="dg-modal-recompra-1clique__mascote" src="/assets/img/mascote/recompra.png" alt="Imagem contendo o mascote da DNE">
-                <button class="dg-modal-recompra-1clique__fechar" onclick="fechaModalRecompra1Clique()" type="button"><img src="/assets/img/home/modal-recompra/fechar.png" alt="Ícone de fechar"></button>
+                @* <button class="dg-modal-recompra-1clique__fechar" onclick="fechaModalRecompra1Clique()" type="button"><img src="/assets/img/home/modal-recompra/fechar.png" alt="Ícone de fechar"></button> *@
             </header>
-            <div class="dg-modal-recompra-1clique__tabela-titulo">Veja os detalhes do pedido anterior. <span>Pedido ${Retorno.ID_Pedido}</span>.</div>
             <div class="dg-modal-recompra-1clique__content-wrapper">
                 <div class="dg-modal-recompra-1clique__overflow">
                     <table class="dg-modal-recompra-1clique__tabela-produtos">
@@ -76,10 +76,10 @@
                         <tbody>
                             {for itens in Retorno.Itens}
                             <tr>
-                                <td class="dg-mobile-hide" style="width:118px"><img src="https://www.drogarianovaesperanca.com.br/imagens/51x51/${itens.Foto}" /></td>
+                                <td class="dg-mobile-hide" style="width:118px"><img src="https://www.drogarianovaesperanca.com.br/imagens/50x50/${itens.Foto}" /></td>
                                 <td>
                                     <div class="dg-modal-recompra-1clique__produto">
-                                        <img class="dg-desktop-hide" width="40" src="https://www.drogarianovaesperanca.com.br/imagens/51x51/${itens.Foto}" />
+                                        <img class="dg-desktop-hide" width="40" src="https://www.drogarianovaesperanca.com.br/imagens/50x50/${itens.Foto}" />
                                         ${itens.Produto}
                                     </div>
                                 </td>
@@ -89,7 +89,7 @@
                                 </td>
                                 <td style="width:130px" class="dg-text-center">
                                     <div class="dg-desktop-hide">Valor Und.</div>
-                                    ${itens.Valor.FormatCurrency()}
+                                    R$ ${itens.Valor.FormatCurrency()}
                                 </td>
                                 <td style="width:100px" class="dg-text-center">
                                     <div class="dg-desktop-hide">Qtd</div>
@@ -97,7 +97,7 @@
                                 </td>
                                 <td style="width:130px" class="dg-text-center">
                                     <div class="dg-desktop-hide">Sub Total</div>
-                                    ${itens.ValorTotal.FormatCurrency()}
+                                    R$ ${itens.ValorTotal.FormatCurrency()}
                                 </td>
                             </tr>
                             {/for}
@@ -145,16 +145,8 @@
 
                         <div class="dg-modal-recompra-1clique__info-bloco-titulo">Dados da Entrega</div>
                         <ul class="dg-modal-recompra-1clique__info-bloco-lista">
-                            <li class="dg-not-pushed">
-                                <div>Tipo de endereço:</div>
-                                <div>${Retorno.NomeEndereco}</div>
-                            </li>
-                            <li class="dg-not-pushed">
-                                <div>CEP:</div>
-                                <div>${Retorno.CEP}</div>
-                            </li>
                             <li>
-                                <div>Endereço: ${Retorno.Endereco}, ${Retorno.Numero} - ${Retorno.Bairro} - ${Retorno.Cidade}/${Retorno.Estado}</div>
+                                <div>${Retorno.Endereco}, ${Retorno.Numero} - ${Retorno.Bairro}, ${Retorno.Cidade}/${Retorno.Estado}, ${Retorno.CEP}</div>
                             </li>
                         </ul>
                     </li>
@@ -189,9 +181,9 @@
                     <li class="dg-modal-recompra-1clique__info-bloco">
                         <div class="dg-modal-recompra-1clique__info-bloco-titulo">Dados do Pedido</div>
                         <ul class="dg-modal-recompra-1clique__info-bloco-lista">
-                            <li class="dg-not-pushed">
-                                <div>Data:</div>
-                                <div>${Retorno.Data} - ${Retorno.Hora}</div>
+                            <li>
+                                <div>Data: ${Retorno.Data}</div>
+                                <div>Hora: ${Retorno.Hora}</div>
                             </li>
                             <li>
                                 <div>Valor dos Produtos:</div>
@@ -208,16 +200,16 @@
                             </li>
                             {/if}
                             <li class="dg-modal-recompra-1clique__total">
-                                <strong>
-                                    Total do pedido: <span>R$ ${Retorno.TotalGeralJuros.FormatCurrency()}</span>
-                                </strong>
+                                <div>Total:</div>
+                                <div><b>R$ ${Retorno.TotalGeralJuros.FormatCurrency()}</b></div>
                             </li>
                         </ul>
+
+                        <button class="dg-modal-recompra-1clique__editar-info" type="button" onclick="location.href='/checkout/'">Editar Informações</button>
                     </li>
                 </ul>
             </div>
         </div>
-        <button class="dg-modal-recompra-1clique__editar-info" type="button" onclick="location.href='/checkout/'">Editar Informações</button>
         <div class="dg-modal-recompra-1clique__footer">
             <p class="jsTextoExpande">
                 <strong>Importante:</strong> Quando você usa a compra com 1-Clique, seu pedido é processado automaticamente sem passar pelo carrinho de compras. Está transição será feita com o mesmo cartão de crédito de sua última compra.
@@ -228,7 +220,9 @@
                     </svg>
                 </button>
             </p>
-            <button class="dg-modal-recompra-1clique__footer-botao" type="button" id="recompra-1clique-fechar-compra">Tudo certo, podemos fechar a compra</button>
+            <button class="dg-modal-recompra-1clique__footer-botao" type="button" id="recompra-1clique-fechar-compra">
+                Tudo certo, podemos fechar a compra
+            </button>
         </div>
     </div>
 </script>
