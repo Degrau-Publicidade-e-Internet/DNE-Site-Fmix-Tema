@@ -5,7 +5,7 @@ $(document).ready(function () {
     });
 
     var CarregarMais = {
-        pagina: 1,
+        pagina: 2,
         tipo: null,
         btn: null,
         categoria: null,
@@ -33,15 +33,12 @@ $(document).ready(function () {
             self.faixavalor = searchParams.get('fv') != null ? searchParams.get('fv') : '';
 
             self.categoria = searchParams.get('q') != null ? searchParams.get('q') : self.string_to_slug(self.btn.attr('data-categoria'));
-
+           
             self.events();
         },
         events: function() {
             var self = this;
-            var triggerOnce = false;
-
             var waiting = false;
-
 
             self.btn.on('click', function() {
                 if (!waiting) {
@@ -60,8 +57,6 @@ $(document).ready(function () {
                         "Categoria": self.categoria,
                         "SubCategoria": self.subcategoria,
                     };
-
-                    console.log(item);
             
                     $.ajax({
                         type: 'POST',
@@ -70,9 +65,7 @@ $(document).ready(function () {
                         contentType: 'application/json',
                         dataType: 'json',
                         headers: addAntiForgeryToken({}),
-                        success: function (response) {
-                            // console.log(response);
-                            
+                        success: function (response) {                            
                             if (self.pagina !== 1) {
                                 $('.dg-boxproduto-lista').append(response.Lista.Subprodutos);
                                 
@@ -82,18 +75,7 @@ $(document).ready(function () {
                                 
                                 if (self.totalRegistros === $('.dg-boxproduto-lista .dg-boxproduto').length) {
                                     $('.dg-categoria-carregar-mais').addClass('dg-hide');
-                                }
-                                
-                            } else {
-                                triggerOnce = true;
-                                self.totalRegistros = response.Lista.TotalRegistros;
-
-                                if (self.totalRegistros > 20 && triggerOnce) {
-                                    
-                                    $('.dg-categoria-carregar-mais').removeClass('dg-hide');
-                                    $('.jsCarregarMaisTotal').text(self.totalRegistros)
-                                    triggerOnce = false;
-                                }
+                                }   
                             }
 
                             var totalBoxProduto = $('.dg-boxproduto-lista .dg-boxproduto').length;
@@ -113,7 +95,7 @@ $(document).ready(function () {
                     });
                 }
             });
-            self.btn.trigger('click');
+            // self.btn.trigger('click');
         },
         string_to_slug: function(str) {
             str = str.replace(/^\s+|\s+$/g, ''); // trim
