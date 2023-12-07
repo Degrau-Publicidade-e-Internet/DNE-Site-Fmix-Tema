@@ -5,7 +5,7 @@ $(document).ready(function () {
     });
 
     var CarregarMais = {
-        pagina: 2,
+        pagina: 1,
         tipo: null,
         btn: null,
         categoria: null,
@@ -38,7 +38,10 @@ $(document).ready(function () {
         },
         events: function() {
             var self = this;
+            var triggerOnce = false;
+
             var waiting = false;
+
 
             self.btn.on('click', function() {
                 if (!waiting) {
@@ -57,6 +60,8 @@ $(document).ready(function () {
                         "Categoria": self.categoria,
                         "SubCategoria": self.subcategoria,
                     };
+
+                    console.log(item);
             
                     $.ajax({
                         type: 'POST',
@@ -75,7 +80,18 @@ $(document).ready(function () {
                                 
                                 if (self.totalRegistros === $('.dg-boxproduto-lista .dg-boxproduto').length) {
                                     $('.dg-categoria-carregar-mais').addClass('dg-hide');
-                                }   
+                                }
+                                
+                            } else {
+                                triggerOnce = true;
+                                self.totalRegistros = response.Lista.TotalRegistros;
+
+                                if (self.totalRegistros > 20 && triggerOnce) {
+                                    
+                                    $('.dg-categoria-carregar-mais').removeClass('dg-hide');
+                                    $('.jsCarregarMaisTotal').text(self.totalRegistros)
+                                    triggerOnce = false;
+                                }
                             }
 
                             var totalBoxProduto = $('.dg-boxproduto-lista .dg-boxproduto').length;
@@ -95,7 +111,8 @@ $(document).ready(function () {
                     });
                 }
             });
-            // self.btn.trigger('click');
+
+            self.btn.trigger('click');
         },
         string_to_slug: function(str) {
             str = str.replace(/^\s+|\s+$/g, ''); // trim
@@ -115,5 +132,7 @@ $(document).ready(function () {
             return str;
         }
     }
-    CarregarMais.init();
+    if ($('.jsCarregarMaisBtn').length > 0) {
+        CarregarMais.init();
+    }
 }); 
