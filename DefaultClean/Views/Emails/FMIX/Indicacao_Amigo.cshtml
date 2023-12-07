@@ -1,0 +1,100 @@
+﻿@model EmailSendGenericModel
+@{
+    Layout = "_Layout_Email_DNE";
+
+}
+
+@if (Model != null)
+{
+
+    @if (Model.Cliente != null)
+    {
+
+        <!-- topo dne -->
+        <table width="550" border="0" cellspacing="0" cellpadding="0" class="conteudo" align="center">
+            <tr>
+                <td class="header">
+                    <a href="http://www.drogarianovaesperanca.com.br/" target="_blank"><img src="https://www.drogarianovaesperanca.com.br/Html/envios/indique/images/img-topo-acesso.jpg" border="0" width="550" /></a>
+                </td>
+            </tr>
+        </table>
+
+        <!-- informações de recebimento -->
+        <table width="550" border="0" cellpadding="0" cellspacing="0" class="conteudo" align="center" bgcolor="#FFF" style="border-right:1px solid #e2e8ea; border-bottom:1px solid #e2e8ea; border-left:1px solid #e2e8ea; border-top: 1px solid #E2E8EA;">
+            <tr>
+                <td>
+                    <table width="550" border="0" cellspacing="0" cellpadding="20" align="left" class="esquerdaCol">
+                        <tr>
+                            <td>
+                                <p><font face="verdana" color="#3a3a3a" size="4"><b>@Model.ModelDynamic.MeuNome,</b> indicou a você o site da Drogaria Nova Esperança, onde ele encontrou ofertas de medicamentos e ótimos preços.</font></p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <!-- tabela numero do pedido -->
+    <tr>
+                <td>
+                    <table width="550" border="0" cellspacing="0" cellpadding="20" align="left" bgcolor="#232232">
+                        <tr>
+                            <td>
+                                <table border="0" cellspacing="0" cellpadding="0" width="550">
+                                    <tr>
+                                        <td align="center">
+                                            <div>
+                                                <!--[if mso]>
+                                                <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://drogarianovaesperanca.com.br" style="height:40px;v-text-anchor:middle;width:260px;" stroke="f" fillcolor="#ed272b">
+                                                  <w:anchorlock/>
+                                                  <center>
+                                                <![endif]-->
+                                        <a href="http://drogarianovaesperanca.com.br"
+                                           style="background-color:#ed272b;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:40px;text-align:center;text-decoration:none;width:260px;-webkit-text-size-adjust:none;">Visite nossa loja e aproveite!</a>
+                                                <!--[if mso]>
+                                                    </center>
+                                                  </v:rect>
+                                                <![endif]-->
+                                    </div>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <!-- agradecimentos -->
+    <tr>
+                <td>
+                    <table width="550" border="0" cellspacing="0" cellpadding="20" align="left" bgcolor="#FFF">
+                        <tr>
+                            <td>
+                                <p><font face="verdana" size="2" color="#3a3a3a">Agradecemos por confiar na <b style="color:#ed272b;">drogarianovaesperanca.com.br</b>.</font></p>
+                                <p><font face="verdana" size="2" color="#3a3a3a"><b>Esperamos ter você como nosso cliente.</b></font></p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <!-- <table width="550" border="0" cellspacing="0" cellpadding="0" class="conteudo" align="center">
+              <tr>
+                 <td>
+                   <a href="https://premio.reclameaqui.com.br/indicadas/farmacias/45" target="_blank"><img src="%Dominio%/Html/envios/dadosAcesso/images/destaque-emkt_premio-reclame-aqui.png" border="0" width="550" /></a>
+               </td>
+              </tr>
+            </table> -->
+            <!-- footer dne -->
+    <table width="550" border="0" cellspacing="0" cellpadding="0" class="conteudo" align="center">
+                <tr>
+                    <td class="header">
+                        <a href="https://www.facebook.com/drogarianovaesperanca" target="_blank"><img src="https://www.drogarianovaesperanca.com.br/Html/envios/indique/images/img-footer.jpg" border="0" width="550" /></a>
+                    </td>
+                </tr>
+            </table>
+
+        </table>
+    }
+}
