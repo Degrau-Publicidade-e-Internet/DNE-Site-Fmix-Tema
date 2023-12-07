@@ -533,6 +533,20 @@ else
                             </ul>
                         </div>
                 </main>
+                 @if (@oModel.QTDResultTotal > 20) {
+                    <div class="dg-categoria-carregar-mais">
+                        <div class="dg-mobile-hide">
+                            <div>Você visualizou <span class="jsCarregarMaisQtd">20</span> de <span class="jsCarregarMaisTotal">@oModel.QTDResultTotal</span> produtos</div>
+                            <div class="dg-categoria-carregar-mais-barra">
+                                <div class="dg-categoria-carregar-mais-barra-progresso jsCarregarMaisProgresso"></div>
+                            </div>
+                        </div>
+                        <button type="button" class="jsCarregarMaisBtn" data-categoria="@Html.Raw(@ViewBag.Breadcrumbs_Name0)" data-subcategoria="@oModel.request.NomeSubCategoria" data-tipo="@tipoPg" role="button">
+                            <span class="dg-mobile-hide">Carregar Mais</span>
+                            <span class="dg-desktop-hide">Ver mais produtos</span>
+                        </button>
+                    </div>
+                }
             </div>
         </section>
 
@@ -555,5 +569,5 @@ else
 @{
     Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Categoria.css", false);
     Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Categorias.js", false);
-    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/CategoriaV1.js", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/CategoriaV21.js", false);
 }
