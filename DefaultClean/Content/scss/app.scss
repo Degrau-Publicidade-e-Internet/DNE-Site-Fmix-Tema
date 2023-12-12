@@ -7289,6 +7289,9 @@ body {
             }
         }
     }
+}
+
+body {
     .dg-alert-overlay {
         background-color: rgba(11, 24, 65, 0.8) !important;
         .dg-btn-alert-ok, .dg-btn-alert-cancelar {
@@ -7304,6 +7307,7 @@ body {
             background-color: #F5F9FD;
             border-radius: 15px;
             border-color: $corPrimaria;
+            color: #444;
             @media (max-width: 420px) {
                 max-width: 90%;
             }
@@ -7329,6 +7333,16 @@ body {
                     background: $corVermelho;
                     border: $corVermelho;
                 }
+            }
+            &.dg-positivo {
+                color: #444;
+            }
+            .dg-btn-alert-cancelar {
+                border: 1px solid #ccc;
+                float: left;
+            }
+            .dg-btn-alert-cancelar {
+                opacity: .75;
             }
         }
     }

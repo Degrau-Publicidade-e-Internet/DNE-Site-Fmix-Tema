@@ -8734,54 +8734,72 @@ body .dg-usuario-conteudo-pedido-tabela-titulo {
   .dg-favoritos-boxproduto-lista .dg-boxproduto .dg-boxproduto-tags {
     right: 8px;
   }
-  .dg-alert-overlay {
-    background-color: rgba(11, 24, 65, 0.8) !important;
-  }
-  .dg-alert-overlay .dg-btn-alert-ok, .dg-alert-overlay .dg-btn-alert-cancelar {
-    background: #0B1841;
-    border: #0B1841;
-  }
-  .dg-alert-overlay .dg-alert-container {
-    max-width: 400px;
-    border-top: 0;
-    border-right: 0;
-    border-left: 0;
-    border-bottom-width: 3px;
-    background-color: #F5F9FD;
-    border-radius: 15px;
-    border-color: #0B1841;
-  }
 }
 
-@media (max-width: 767px) and (max-width: 420px) {
-  .dg-alert-overlay .dg-alert-container {
+body .dg-alert-overlay {
+  background-color: rgba(11, 24, 65, 0.8) !important;
+}
+
+body .dg-alert-overlay .dg-btn-alert-ok, body .dg-alert-overlay .dg-btn-alert-cancelar {
+  background: #0B1841;
+  border: #0B1841;
+}
+
+body .dg-alert-overlay .dg-alert-container {
+  max-width: 400px;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-bottom-width: 3px;
+  background-color: #F5F9FD;
+  border-radius: 15px;
+  border-color: #0B1841;
+  color: #444;
+}
+
+@media (max-width: 420px) {
+  body .dg-alert-overlay .dg-alert-container {
     max-width: 90%;
   }
 }
 
-@media (max-width: 767px) {
-  .dg-alert-overlay .dg-alert-container::before {
-    content: '';
-    display: block;
-    margin: 0 auto 12px;
-    width: 36px;
-    height: 36px;
-    background-image: url(../img/checkout/logo-chat.svg);
-    background-repeat: no-repeat;
-    background-position: top center;
-    margin-top: -34px;
-    border-radius: 50%;
-  }
-  .dg-alert-overlay .dg-alert-container .dg-btn-alert-ok, .dg-alert-overlay .dg-alert-container .dg-btn-alert-cancelar {
-    border-radius: 15px;
-  }
-  .dg-alert-overlay .dg-alert-container.dg-negativo {
-    color: #0B1841;
-    border-color: #E00D4C;
-  }
-  .dg-alert-overlay .dg-alert-container.dg-negativo .dg-btn-alert-ok, .dg-alert-overlay .dg-alert-container.dg-negativo .dg-btn-alert-cancelar {
-    background: #E00D4C;
-    border: #E00D4C;
-  }
+body .dg-alert-overlay .dg-alert-container::before {
+  content: '';
+  display: block;
+  margin: 0 auto 12px;
+  width: 36px;
+  height: 36px;
+  background-image: url(../img/checkout/logo-chat.svg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  margin-top: -34px;
+  border-radius: 50%;
+}
+
+body .dg-alert-overlay .dg-alert-container .dg-btn-alert-ok, body .dg-alert-overlay .dg-alert-container .dg-btn-alert-cancelar {
+  border-radius: 15px;
+}
+
+body .dg-alert-overlay .dg-alert-container.dg-negativo {
+  color: #0B1841;
+  border-color: #E00D4C;
+}
+
+body .dg-alert-overlay .dg-alert-container.dg-negativo .dg-btn-alert-ok, body .dg-alert-overlay .dg-alert-container.dg-negativo .dg-btn-alert-cancelar {
+  background: #E00D4C;
+  border: #E00D4C;
+}
+
+body .dg-alert-overlay .dg-alert-container.dg-positivo {
+  color: #444;
+}
+
+body .dg-alert-overlay .dg-alert-container .dg-btn-alert-cancelar {
+  border: 1px solid #ccc;
+  float: left;
+}
+
+body .dg-alert-overlay .dg-alert-container .dg-btn-alert-cancelar {
+  opacity: .75;
 }
 /*# sourceMappingURL=app.css.map */
