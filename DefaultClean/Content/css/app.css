@@ -8802,4 +8802,12 @@ body .dg-alert-overlay .dg-alert-container .dg-btn-alert-cancelar {
 body .dg-alert-overlay .dg-alert-container .dg-btn-alert-cancelar {
   opacity: .75;
 }
+
+body .dg-modal-templateIndiqueUmAmigo-box-indicar a {
+  background: #002399;
+}
+
+body .dg-modal-templateIndiqueUmAmigo-box-indicar a:hover, body .dg-modal-templateIndiqueUmAmigo-box-indicar a:focus {
+  background: #001d80;
+}
 /*# sourceMappingURL=app.css.map */
