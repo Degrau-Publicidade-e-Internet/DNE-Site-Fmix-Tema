@@ -3,19 +3,17 @@ var desabilitaSearchAssinatura = false;
 $(document).ready(function () {
     //Central do Cliente//----------------------
 	if ($("[usuario-aba]").length > 0) {
-		if (window.innerWidth > 991) {
-			ClienteCentral.abrirAbaUsuario($('[usuario-aba="editarDados"]'));
-		} else {
-			$('.jsFecharAbaCentral').click(function() {
-				if ($('.jsPedido').is(':visible')) {
-					$("[usuario-aba]").removeClass('dg-ativo');
-					ClienteCentral.abrirAbaUsuario($('[usuario-aba="meusPedidos"]'));
-				} else {
-					$('.dg-usuario-main').removeClass('dg-isSideOpen');
-					$('.dg-usuario').removeClass('dg-isSideOpen');
-					$("[usuario-aba]").removeClass('dg-ativo');
-				}
-			});
+		if (window.innerWidth < 992) {
+            $('.jsFecharAbaCentral').click(function() {
+                if ($('.jsPedido').is(':visible')) {
+                    $("[usuario-aba]").removeClass('dg-ativo');
+                    ClienteCentral.abrirAbaUsuario($('[usuario-aba="meusPedidos"]'));
+                } else {
+                    $('.dg-usuario-main').removeClass('dg-isSideOpen');
+                    $('.dg-usuario').removeClass('dg-isSideOpen');
+                    $("[usuario-aba]").removeClass('dg-ativo');
+                }
+            });
 		}
 		$("[usuario-aba]").click(function () {
 			if ($(this).attr("usuario-aba").length > 0) {
@@ -31,13 +29,14 @@ $(document).ready(function () {
 		if (abaPorParametro !== "") {
 			$("[usuario-aba='" + abaPorParametro + "']").click();
 		} else {
-			$(".dg-usuario-sidebar-lista > ul > li:first-child > [usuario-aba]").click();
+			// $(".dg-usuario-sidebar-lista > ul > li:first-child > [usuario-aba]").click();
+            ClienteCentral.abrirAbaUsuario($('[usuario-aba="editarDados"]'));
 		}
 	} else {
 		var abaPorParametro = pegarParametro("url");
-        $("[usuario-aba='" + abaPorParametro + "']").click();
-		// if (abaPorParametro === "meusPedidos") {
-		// }
+		if (abaPorParametro === "meusPedidos") {
+			$("[usuario-aba='" + abaPorParametro + "']").click();
+		}
 	}
 
     if ($('#HtmlUsuarioFavLista').length > 0) {
@@ -308,6 +307,243 @@ var ClienteCentral = {
                     $('#sexo-m').prop('checked', true);
                 } else {
                     $('#sexo-0').prop('checked', true);
+                }
+
+                $('.jsEditarCampo').on('click', function() {
+                    var campo = $(this).attr('data-campo');
+                
+                    var campoEmail = $('#Email').val();
+                    var campoCelular = $('#TelCel').val();
+                
+                    var Resultado = TrimPath.processDOMTemplate("#template-editarCampo", { campo, campoEmail, campoCelular } );
+                    var funcao = function() {
+                        formEditarCampo(campo)
+                    };
+                    
+                    abrirModal({
+                        titulo: '',
+                        classe: 'modalEditarCampo',
+                        txt: Resultado,
+                        startFunction: funcao
+                    });
+                });
+                
+                function formEditarCampo(campo) {
+                    $(".dg-modal-classe-modalEditarCampo input").on('change', function (){
+                        verificarLabelInputLogin(this);
+                    });
+                
+                    $('.jsCodigoSmsInputEditarCampo').on('input', function() {
+                        var findNextEl = $(this).next();
+                        var findPrevEl = $(this).prev();
+                        if (findNextEl.length > 0 && $(this).val() !== "") {
+                            findNextEl.focus();
+                        } else if ($(this).val() === "" && findPrevEl.length > 0) {
+                            findPrevEl.focus();
+                        }
+                    });
+                
+                    $('.jsCodigoSmsInputEditarCampo').on('keydown', function(e) {
+                        var key = e.keyCode || e.charCode;
+                        
+                        if( key === 8 || key === 46 ) {
+                            var findPrevEl = $(this).prev();
+                            if ($(this).val() === "" && findPrevEl.length > 0) {
+                                findPrevEl.focus();
+                            }
+                        }
+                    });
+                
+                    var esperando30s = false;
+                    
+                    var item = {};
+                    var itemStep1 = {};
+                    var itemStep2 = {};
+
+                    var tipo = '';
+                
+                    var step = 1;
+                    var method = 'POST';
+
+                    var AtualEmail = $('#AtualEmail').val();
+                    var AtualTelCel = $('#AtualTelCel').val();
+                
+                    $('.jsReenviarCodigoEditarCampo').on('click', function() {
+                        if (!esperando30s) {
+                            esperando30s = true;
+                
+                            $('.jsReenviarCodigoEditarCampo').css({opacity: '0.65'});
+                            $('.jsReenviarCodigoEditarCampo').css({cursor: 'not-allowed'});
+                
+                            var counter = 30;
+                            $('.jsReenviarCodigoEditarCampoTimer').text("(30s)");
+                            
+                            var intervalo = setInterval(function() {
+                                counter--;
+                                var stringCounter = "(" + (counter < 10 ? "0" + counter : counter) + "s)";
+                                $('.jsReenviarCodigoEditarCampoTimer').text(stringCounter);
+                                
+                                if (counter === -1) {
+                                    esperando30s = false;
+                                    $('.jsReenviarCodigoEditarCampo').css({opacity: '1'});
+                                    $('.jsReenviarCodigoEditarCampo').css({cursor: 'pointer'});
+                                    $('.jsReenviarCodigoEditarCampoTimer').empty();
+                                    clearInterval(intervalo);
+                                }
+                            }, 1000);
+                
+                            $.ajax({
+                                type: 'POST',
+                                data: JSON.stringify(itemStep1),
+                                url: "/api/EdicaoEmailCelCliente",
+                                contentType: 'application/json; charset=utf-8',
+                                headers: addAntiForgeryToken({}), //<< obrigatorio pessoal
+                                dataType: 'json',
+                                success: function (response) {},
+                            });
+                        }
+                    });
+                
+                    $('#editarCampoForm').on('submit', function(e) {
+                        e.preventDefault();
+                        var form = $(this);
+                
+                        if (step === 1) {
+                            var email = $('#Email').val();
+                    
+                            var newEmail = '';
+                            if (campo === "Email") {
+                                tipo = "Endereço de e-mail";
+                                newEmail = $('#EditarEmail').val();
+
+                                if (AtualEmail === newEmail) {
+                                    $.alertpadrao({
+                                        type: 'html',
+                                        text: "O endereço de e-mail preenchido é o mesmo que o atual.",
+                                        addClass: "dg-negativo"
+                                    });
+                                    return;
+                                }
+
+                                if ($('#ConfirmarEditarEmail').val() !== newEmail) {
+                                     $.alertpadrao({
+                                        type: 'html',
+                                        text: "Endereço de e-mail incorreto.<br>Verifique se as informações foram preenchidas corretamente.",
+                                        addClass: "dg-negativo"
+                                    });
+                                    return;
+                                }
+                                
+                            } else if (campo === "TelCel") {
+                                tipo = "Número de celular";
+                                newEmail = $('#EditarTelCel').val();
+
+                                if (AtualTelCel === newEmail) {
+                                    $.alertpadrao({
+                                        type: 'html',
+                                        text: "O número de celular preenchido é o mesmo que o atual.",
+                                        addClass: "dg-negativo"
+                                    });
+                                    return;
+                                }
+
+                                if ($('#ConfirmarEditarTelCel').val() !== newEmail) {
+                                     $.alertpadrao({
+                                        type: 'html',
+                                        text: "Número de celular incorreto.<br>Verifique se as informações foram preenchidas corretamente.",
+                                        addClass: "dg-negativo"
+                                    });
+                                    return;
+                                }
+                            }
+                    
+                            itemStep1 = {
+                                "EmailAtual": email,
+                                "EmailNew": newEmail
+                            };
+                            item = itemStep1;
+
+                            method = 'POST';
+                            
+                        } else if (step === 2) {
+                            var smsCodeEl = form.find('.jsCodigoSmsInputEditarCampo');
+                            var smsCode = "";
+            
+                            smsCodeEl.each(function() {
+                                smsCode += $(this).val();
+                            });
+            
+                            if (smsCode.length < 6) {
+                                $.alertpadrao({
+                                    type: 'html',
+                                    text: "Por favor, insira o código para prosseguir.",
+                                    addClass: "dg-negativo"
+                                });
+                                return;
+                            } else {
+                                itemStep2 = {
+                                    code: smsCode
+                                };
+                                item = itemStep2;
+                            }
+
+                            method = 'PUT';
+                        }
+                
+                        $('#editarCampoForm').addClass('dg-loading');
+                        $('#editarCampoForm button[type="submit"]').attr('disabled', true);
+                
+                        $.ajax({
+                            type: method,
+                            data: JSON.stringify(item),
+                            url: "/api/EdicaoEmailCelCliente",
+                            contentType: 'application/json; charset=utf-8',
+                            headers: addAntiForgeryToken({}), //<< obrigatorio pessoal
+                            dataType: 'json',
+                            success: function (response) {
+                                console.log(response);
+                                if (response.StatusCode === 0) {
+                                    if (step === 1) {
+                                        $('.jsStep1Editar').hide();
+                                        $('.jsStep2Editar').show();
+                                        $('.jsCodigoSmsInputEditarCampo').first().focus();
+                                        step = 2;
+                                    } else if (step === 2) {
+                                        $.alertpadrao({ text: tipo + " alterado.", mode: "alert", addClass: "dg-positivo", EventCloseSameAsOk: true, CallBackOK: function () {
+                                                fecharModal($('#editarCampoForm')[0]);
+                                                ClienteCentral.abrirAbaUsuario($('[usuario-aba="editarDados"]'));
+                                            }
+                                        });
+                                    }
+                                } else if (response.StatusCode === 1) {
+                                    if (step === 1) {
+                                        $.alertpadrao({
+                                            type: 'html',
+                                            text: response.Erro,
+                                            addClass: "dg-negativo"
+                                        });
+                                    } else if (step === 2) {
+                                        $.alertpadrao({
+                                            type: 'html',
+                                            text: response.Erro,
+                                            addClass: "dg-negativo"
+                                        });
+                                    }
+                                } else {
+                                    $.alertpadrao({
+                                        type: 'html',
+                                        text: "Falha no envio. Tente novamente mais tarde.",
+                                        addClass: "dg-negativo"
+                                    });
+                                }
+                
+                                $('#editarCampoForm').removeClass('dg-loading');
+                                $('#editarCampoForm button[type="submit"]').removeAttr('disabled');
+                            },
+                            error: function (XMLHttpRequest, textStatus, errorThrown) {},
+                            failure: function (msg) {}
+                        });
+                    });
                 }
             },
             editarConsentimentos: function () {

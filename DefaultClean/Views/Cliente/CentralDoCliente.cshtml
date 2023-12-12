@@ -646,6 +646,9 @@
                     <label for="Email">
                         E-mail
                     </label>
+                    <button type="button" class="dg-usuario-editar-btn jsEditarCampo" data-campo="Email">
+                        <span class="dg-icon dg-icon-editar" role="presentation"></span>
+                    </button>
                 </div>
             </div>
 
@@ -664,6 +667,9 @@
                     <label for="TelCel">
                         Telefone Celular
                     </label>
+                    <button type="button" class="dg-usuario-editar-btn jsEditarCampo" data-campo="TelCel">
+                        <span class="dg-icon dg-icon-editar" role="presentation"></span>
+                    </button>
                 </div>
             </div>
 
@@ -1024,11 +1030,88 @@
 
 </script>
 
+<script id="template-editarCampo" type="text/x-jquery-tmpl" charset="UTF-8">
+    <form id="editarCampoForm">
+        <div class="jsStep1Editar">
+            {if campo == "Email"}
+                <h3 class="dg-titulo">Editar E-mail</h3>
+            {elseif campo == "TelCel"}
+                <h3 class="dg-titulo">Editar Celular</h3>
+            {/if}
+            <div class="dg-editar-campo-atual">
+                <div class="dg-editar-campo-atual-label">
+                    {if campo == "Email"}
+                        E-mail atual
+                    {elseif campo == "TelCel"}
+                        Celular atual
+                    {/if}
+                </div>
+                <div class="dg-editar-campo-atual-valor">
+                    {if campo == "Email"}
+                        <input type="hidden" id="AtualEmail" value="${campoEmail}">${campoEmail}
+                    {elseif campo == "TelCel"}
+                        <input type="hidden" id="AtualTelCel" value="${campoCelular}">${campoCelular}
+                    {/if}
+                </div>
+            </div>
+            <div class="dg-editar-campo-flex">
+                <div class="dg-relative">
+                    {if campo == "Email"}
+                        <input class="dg-form-control" type="email" id="EditarEmail" required validar>
+                        <label for="EditarEmail">Novo e-mail</label>
+                    {elseif campo == "TelCel"}
+                        <input class="dg-form-control" type="tel" id="EditarTelCel" mascara="telefone" required validar>
+                        <label for="EditarTelCel">Novo celular</label>
+                    {/if}
+                </div>
+            
+                <div class="dg-relative">
+                    {if campo == "Email"}
+                        <input class="dg-form-control" type="email" id="ConfirmarEditarEmail" required validar>
+                        <label for="ConfirmarEditarEmail">Confirmar novo e-mail</label>
+                    {elseif campo == "TelCel"}
+                        <input class="dg-form-control" type="tel" id="ConfirmarEditarTelCel" mascara="telefone" required validar>
+                        <label for="ConfirmarEditarTelCel">Confirmar novo celular</label>
+                    {/if}
+                </div>
+            </div>
+
+            <div style="text-align:right">
+                <button type="submit" class="dg-btn">Continuar</button>
+            </div>
+        </div>
+        <div class="jsStep2Editar" style="display:none">
+            <h3 class="dg-titulo">Insira o código de verificação</h3>
+            <p>
+                {if campo == "Email"}
+                    Um código de 6 digitos foi enviado por SMS para o número <strong>${campoCelular}<strong>.
+                {elseif campo == "TelCel"}
+                    Um código de 6 digitos foi enviado para o e-mail <strong>${campoEmail}<strong>.
+                {/if}
+            </p>
+            <div class="dg-input-wrapper">
+                <input type="text" maxlength="1" class="jsCodigoSmsInputEditarCampo" name="smsCodigo[]" />
+                <input type="text" maxlength="1" class="jsCodigoSmsInputEditarCampo" name="smsCodigo[]" />
+                <input type="text" maxlength="1" class="jsCodigoSmsInputEditarCampo" name="smsCodigo[]" />
+                <input type="text" maxlength="1" class="jsCodigoSmsInputEditarCampo" name="smsCodigo[]" />
+                <input type="text" maxlength="1" class="jsCodigoSmsInputEditarCampo" name="smsCodigo[]" />
+                <input type="text" maxlength="1" class="jsCodigoSmsInputEditarCampo" name="smsCodigo[]" />
+            </div>
+            <div style="text-align:center">
+                <button type="button" class="jsReenviarCodigoEditarCampo dg-reenviar-codigo">Reenviar código <span class="jsReenviarCodigoEditarCampoTimer"></span></button>
+            </div>
+            <div style="text-align:right">
+                <button type="submit" class="dg-btn">Continuar</button>
+            </div>
+        </div>
+    </form>
+</script>
+
 @*@Html.Raw(@Model.SEOOrganization)*@
 
 @{
     Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/CentralCliente.css", false);
     Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/tiny-slider.css", false);
     Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/slick.js", false);
-    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/CentralClienteV4.js", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/CentralClienteV6.js", false);
 }
