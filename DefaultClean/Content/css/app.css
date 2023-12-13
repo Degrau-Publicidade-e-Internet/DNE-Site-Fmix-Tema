@@ -707,14 +707,22 @@ body .dg-menuA > .container > ul > li {
     background-position: center right 5px;
     background-image: url(../img/icones/chevron-right-blue.svg);
   }
+  body .dg-menuA > .container > ul > li:hover, body .dg-menuA > .container > ul > li:focus {
+    background-image: url(../img/icones/chevron-right-green.svg);
+  }
+  body .dg-menuA > .container > ul > li:hover > a, body .dg-menuA > .container > ul > li:focus > a {
+    color: #00D19D !important;
+    text-decoration: underline;
+  }
 }
 
 @media (min-width: 992px) {
-  body .dg-menuA > .container > ul > li a {
+  body .dg-menuA > .container > ul > li > a {
     color: #0B1841 !important;
   }
-  body .dg-menuA > .container > ul > li a:hover, body .dg-menuA > .container > ul > li a:focus {
-    color: #0B1841 !important;
+  body .dg-menuA > .container > ul > li > a:hover, body .dg-menuA > .container > ul > li > a:focus {
+    color: #00D19D !important;
+    text-decoration: underline;
   }
 }
 
@@ -8809,5 +8817,10 @@ body .dg-modal-templateIndiqueUmAmigo-box-indicar a {
 
 body .dg-modal-templateIndiqueUmAmigo-box-indicar a:hover, body .dg-modal-templateIndiqueUmAmigo-box-indicar a:focus {
   background: #001d80;
+}
+
+.dg-menuA-submenu .dg-boxproduto.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) .dg-boxproduto-compra .dg-boxproduto-qtd {
+  left: 44%;
+  color: #fff !important;
 }
 /*# sourceMappingURL=app.css.map */

@@ -604,14 +604,22 @@ body {
             padding-left: 22px;
             background-position: center right 5px;
             background-image: url(../img/icones/chevron-right-blue.svg);
+            &:hover, &:focus {
+                background-image: url(../img/icones/chevron-right-green.svg);
+                > a {
+                    color: $corComplementar !important;
+                    text-decoration: underline;
+                }
+            }
         }
     }
 
     @media (min-width: 992px) {
-        .dg-menuA>.container>ul>li a {
+        .dg-menuA>.container>ul>li>a {
             color: $corPrimaria !important;
             &:hover, &:focus {
-                color: $corPrimaria !important;
+                color: $corComplementar !important;
+                text-decoration: underline;
             }
         }
     }
@@ -7350,6 +7358,18 @@ body {
         background: $corSecundaria;
         &:hover, &:focus {
             background: darken($corSecundaria, 5%);
+        }
+    }
+}
+
+
+.dg-menuA-submenu  {
+    .dg-boxproduto {
+        &.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) {
+            .dg-boxproduto-compra .dg-boxproduto-qtd {
+                left: 44%;
+                color: #fff !important;
+            }
         }
     }
 }
