@@ -76,10 +76,10 @@
                         <tbody>
                             {for itens in Retorno.Itens}
                             <tr>
-                                <td class="dg-mobile-hide" style="width:118px"><img src="https://www.drogarianovaesperanca.com.br/imagens/50x50/${itens.Foto}" /></td>
+                                <td class="dg-mobile-hide" style="width:118px"><img src="https://www.farmaciamix.com.br/imagens/50x50/${itens.Foto}" /></td>
                                 <td>
                                     <div class="dg-modal-recompra-1clique__produto">
-                                        <img class="dg-desktop-hide" width="40" src="https://www.drogarianovaesperanca.com.br/imagens/50x50/${itens.Foto}" />
+                                        <img class="dg-desktop-hide" width="40" src="https://www.farmaciamix.com.br/imagens/50x50/${itens.Foto}" />
                                         ${itens.Produto}
                                     </div>
                                 </td>
@@ -300,7 +300,7 @@
                             foreach (var item in areaEstruturada.ItemEstrutura) {
                                 <div>
                                     <a class="dg-home-descontos-lista2__item"  href="@item.Url" target="@item.Target">
-                                        <img src="@Html.Domain()/assets/img/lazy.png" width="50" height="50" data-src-lazy="https://static.drogarianovaesperanca.com.br/marcas/@item.Imagem" alt="Imagem do @Html.Raw(@item.Descricao)">
+                                        <img src="@Html.Domain()/assets/img/lazy.png" width="50" height="50" data-src-lazy="https://static.farmaciamix.com.br/marcas/@item.Imagem" alt="Imagem do @Html.Raw(@item.Descricao)">
                                         <div class="dg-home-descontos-lista2__info">
                                             <div class="dg-home-descontos-lista2__info-nome">@Html.Raw(@item.Descricao)</div>
                                             <div class="dg-home-descontos-lista2__info-ate">Com até</div>
@@ -333,11 +333,11 @@
 
                                 <img class="tns-lazy-img dg-home-descontos-img @if(!string.IsNullOrEmpty(item.ImagemHover)){
                         <text>dg-hover</text>
-                        }" src="@Html.Domain()/assets/img/lazy.png" width="224" height="414" data-src="https://static.drogarianovaesperanca.com.br/marcas/@item.Imagem" alt="@Html.Raw(@item.Descricao)" loading="lazy" role="presentation">
+                        }" src="@Html.Domain()/assets/img/lazy.png" width="224" height="414" data-src="https://static.farmaciamix.com.br/marcas/@item.Imagem" alt="@Html.Raw(@item.Descricao)" loading="lazy" role="presentation">
 
                                 @if (!string.IsNullOrEmpty(item.ImagemHover))
                                 {
-                                    <img class="dg-home-descontos-img-hover" src="@Html.Domain()/assets/img/lazy.png" width="224" height="414" data-src-lazy="https://static.drogarianovaesperanca.com.br/marcas/@item.ImagemHover" alt="@Html.Raw(@item.Descricao)" loading="lazy" role="presentation">
+                                    <img class="dg-home-descontos-img-hover" src="@Html.Domain()/assets/img/lazy.png" width="224" height="414" data-src-lazy="https://static.farmaciamix.com.br/marcas/@item.ImagemHover" alt="@Html.Raw(@item.Descricao)" loading="lazy" role="presentation">
                                 }
                             </a>
                         }
@@ -650,7 +650,7 @@
 
             <div class="dg-modal-recompra-topo">
                 <div class="dg-recompra-mascote">
-                    <img src="@Html.Domain()/assets/img/institucional/mascote2.png" alt="Mascote - Drogaria Nova Esperança">
+                    <img src="@Html.Domain()/assets/img/institucional/mascote2.png" alt="Mascote - Farmacia Mix">
                 </div>
 
                 <div class="dg-recompra-chamada" role="alert">
@@ -768,7 +768,7 @@
     <div class="dg-modal-recompra-sucesso">
         <div class="dg-modal-recompra-topo">
             <div class="dg-recompra-mascote">
-                <img src="/assets/img/mascote/mascote_recompra.png" alt="Drogaria Nova Esperança" title="Drogaria Nova Esperança">
+                <img src="/assets/img/mascote/mascote_recompra.png" alt="Farmacia Mix" title="Farmacia Mix">
             </div>
             <div class="dg-recompra-sucesso-chamada">
                 <span class="dg-recompra-nome">Ótimo.</span>
