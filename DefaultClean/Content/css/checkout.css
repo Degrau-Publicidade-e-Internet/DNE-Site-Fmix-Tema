@@ -3762,4 +3762,18 @@ body .dg-checkout-header-info.dg-loading:before {
 body .dg-checkout-main-carrinho-compre-lista .dg-boxproduto {
   overflow: visible !important;
 }
+
+body .dg-checkout-main-side-observacao a.dg-checkout-main-side-toggle {
+  background-image: none !important;
+}
+
+body .dg-usuario-editar-enderecos-opcoes-menu .dg-tooltip {
+  right: 0;
+  left: unset !important;
+}
+
+body .dg-usuario-editar-enderecos-opcoes-menu .dg-tooltip::before {
+  left: unset;
+  right: 10px;
+}
 /*# sourceMappingURL=checkout.css.map */
