@@ -3363,6 +3363,10 @@ body .dg-produto .dg-produto-tags .dg-produto-desconto {
   margin-left: 0;
 }
 
+body .dg-produto .dg-produto-tags .dg-produto-desconto ~ .dg-produto-desconto {
+  margin-right: 4px;
+}
+
 body .dg-produto .dg-produto-tags .dg-tooltip-left {
   left: 90%;
   right: unset;
@@ -3448,12 +3452,12 @@ body .dg-produto .dg-produto-img-subacoes {
   }
 }
 
-body .dg-produto .dg-produto-img-principal img {
+body .dg-produto .dg-produto-img-principal > img {
   max-height: 336px;
 }
 
 @media (max-width: 991px) {
-  body .dg-produto .dg-produto-img-principal img {
+  body .dg-produto .dg-produto-img-principal > img {
     max-height: 258px;
   }
 }
@@ -8842,5 +8846,10 @@ body .dg-institucional-comocomprar-texto {
 
 body .dg-categoria-breadcrumb a, body .dg-categoria-breadcrumb span {
   color: #0B1841 !important;
+}
+
+body .dg-modal-classe-bulapdf .dg-modal-fechar {
+  top: -44px;
+  right: 0;
 }
 /*# sourceMappingURL=app.css.map */

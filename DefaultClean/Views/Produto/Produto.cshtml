@@ -367,7 +367,7 @@
                                 <div class="dg-produto-desconto dg-produto-desconto--porcentagem dg-@DescontoPorcentagemCor dg-tooltip-hover" aria-label="desconto de">
                                     <span class="dg-icon dg-icon-arrow01-down"></span> @Math.Floor(DescontoPorcentagem).ToString()%
                                     <div class="dg-tooltip-left">
-                                        desconto
+                                        Desconto
                                     </div>
                                 </div>
                             }
@@ -480,9 +480,12 @@
                     <p class="dg-produto-info-side__descricao dg-SuplementoDescricao">
                         @SP.SuplementoDescricao
                     </p>
+                     @if (!string.IsNullOrEmpty(SP.SeoDescricaoProduto) || !string.IsNullOrEmpty(Descricao) || !string.IsNullOrEmpty(SP.PdfBula.Trim()) || !string.IsNullOrEmpty(SP.Bula.Trim()) || !string.IsNullOrEmpty(SP.AvisoLegal.Trim()))
+                    {
                     <div>
-                        <button type="button" class="dg-produto-info-side__descricao__vertd jsIrParaCaracteristicas">Ver mais características</butto>
+                        <button type="button" class="dg-produto-info-side__descricao__vertd jsIrParaCaracteristicas">Ver mais características</button>
                     </div>
+                    }
                     <div class="dg-produto-info-side__bottom">
                         <div class="dg-produto-img-listagem">
                             @foreach (var f in Fotos)
@@ -574,28 +577,28 @@
                                         </ul>
                                         <ul class="dg-modal-templateCompraParcelada-formas-lista">
                                         @foreach (var _fo in Model.ValCart.FormasPagamento)
-                                        {
-                                                                    <li data-flag-item="@_fo.FormaPagamento">
-                                                                        <ul data-itens="@_fo.OpcoesPagamento.Count()">
-                                                    @foreach (var _op in _fo.OpcoesPagamento)
-                                                    {
-                                                                                                <li>
-                                                            @_op.OpcaoPagamento
-                                                            @if (_op.TotalGeralJuros > 0)
-                                                            {
-                                                                                                                            <span>Com Juros</span>
-                                                            }
-                                                                                                    R$ @_op.ValorParcela.ToString("#,0.00")
-                                                            @if (_op.TotalGeralJuros > 0)
-                                                            {
-                                                                                                                            <span> - Total R$ @_op.TotalGeralJuros.ToString("#,0.00")</span>
-                                                            }
-                                                                                                </li>
-                                                    }
+                                    {
+                                                                        <li data-flag-item="@_fo.FormaPagamento">
+                                                                            <ul data-itens="@_fo.OpcoesPagamento.Count()">
+                                                @foreach (var _op in _fo.OpcoesPagamento)
+                                                {
+                                                                                                            <li>
+                                                        @_op.OpcaoPagamento
+                                                        @if (_op.TotalGeralJuros > 0)
+                                                        {
+                                                                                                                                                <span>Com Juros</span>
+                                                        }
+                                                                                                                R$ @_op.ValorParcela.ToString("#,0.00")
+                                                        @if (_op.TotalGeralJuros > 0)
+                                                        {
+                                                                                                                                                <span> - Total R$ @_op.TotalGeralJuros.ToString("#,0.00")</span>
+                                                        }
+                                                                                                            </li>
+                                                }
 
-                                                                        </ul>
-                                                                    </li>
-                                        }
+                                                                            </ul>
+                                                                        </li>
+                                    }
                                         </ul>
                                         <div class="dg-modal-templateCompraParcelada-formas-footer">
                                             Consulte os juros aplicados em sua compra na escolha da forma de pagamento.
