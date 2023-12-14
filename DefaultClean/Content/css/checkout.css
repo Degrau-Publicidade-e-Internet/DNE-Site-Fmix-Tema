@@ -3745,6 +3745,12 @@ body .dg-checkout-main-recibo-codigo-copiar .dg-btn-copiar.dg-pulse-delay, body 
   }
 }
 
+body .dg-checkout-main-carrinho-item-val {
+  background-color: #F5F9FD;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 body .dg-checkout-header-info.dg-loading:after {
   background-color: #0B1841;
 }

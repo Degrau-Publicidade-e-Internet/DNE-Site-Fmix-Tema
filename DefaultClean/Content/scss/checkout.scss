@@ -3299,6 +3299,11 @@ body {
 }
 
 body {
+    .dg-checkout-main-carrinho-item-val {
+        background-color: #F5F9FD;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
     .dg-checkout-header-info.dg-loading:after {
         background-color: $corPrimaria;
     }
