@@ -23,14 +23,14 @@
     if (tipoPg == "Familia")
     {
         classTipo = "dg-familia";
-        ViewData["Description"] = $"Comprar toda a linha {oModel.PalavraBusca} com melhor preço, compare os preços de {oModel.PalavraBusca} na Drogaria Nova Esperança. Comprar online com entrega em todo o Brasil. 11 3990-7450";
-        ViewData["Title"] = oModel.CategoriaTitle.Trim() + " | Drogaria Nova Esperança";
+        ViewData["Description"] = $"Comprar toda a linha {oModel.PalavraBusca} com melhor preço, compare os preços de {oModel.PalavraBusca} na Farmácia Mix. Comprar online com entrega em todo o Brasil. 11 3990-7450";
+        ViewData["Title"] = oModel.CategoriaTitle.Trim() + " | Farmácia Mix";
     }
     if (tipoPg == "Categorias")
     {
         classTipo = "dg-categoria";
-        ViewData["Description"] = $"Comprar {oModel.CategoriaTitle.Trim()} online na Drogaria Nova Esperança em até 3X sem juros. Desde 1972 promovendo saúde. Entregamos em todo o Brasil - 11 3990-7450";
-        ViewData["Title"] = $"Comprar {oModel.CategoriaTitle.Trim()} online | Drogaria Nova Esperança";
+        ViewData["Description"] = $"Comprar {oModel.CategoriaTitle.Trim()} online na Farmácia Mix em até 3X sem juros. Desde 1972 promovendo saúde. Entregamos em todo o Brasil - 11 3990-7450";
+        ViewData["Title"] = $"Comprar {oModel.CategoriaTitle.Trim()} online | Farmácia Mix";
     }
     var tipoPagColunas = "dg-3";
 
@@ -263,7 +263,7 @@ else
                         <div class="dg-header-copy">
                             <div class="dg-header-logo">
                                 <a href="@Html.Domain()/" class="dg-add-loading">
-                                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/header/logo-white.svg" alt="Drogaria Nova Esperança - Logotipo" loading="lazy">
+                                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/header/logo-white.svg" alt="Farmácia Mix - Logotipo" loading="lazy">
                                 </a>
                             </div>
                             <div class="dg-header-carrinho">
