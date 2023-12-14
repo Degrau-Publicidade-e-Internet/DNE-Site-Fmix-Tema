@@ -337,9 +337,9 @@ body {
         right: unset;
         left: 15px;
         border-radius: 8px;
-        background-color: $corComplementar;
+        background-color: rgba(0,0,0,0);
         &:hover {
-            background-color: darken($corComplementar, 5%);
+            background-color: rgba(0,0,0,0);
         }
     }
     .dg-boxproduto-compra {
@@ -393,9 +393,15 @@ body {
         }
     }
     &.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) .dg-boxproduto-compra {
+        overflow: unset;
         .dg-relative {
             width: 100%;
+            overflow: unset;
+            * {
+                overflow: unset;
+            }
         }
+
         .dg-boxproduto-compra-btn {
             // left: 22px;
             left: 50%;

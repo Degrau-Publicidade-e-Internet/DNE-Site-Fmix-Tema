@@ -411,11 +411,11 @@ body {
   right: unset;
   left: 15px;
   border-radius: 8px;
-  background-color: #00D19D;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .dg-boxproduto .dg-boxproduto-compra-btn:hover {
-  background-color: #00b88a;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .dg-boxproduto .dg-boxproduto-compra {
@@ -479,8 +479,17 @@ body {
   transition: 300ms ease left;
 }
 
+.dg-boxproduto.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) .dg-boxproduto-compra {
+  overflow: unset;
+}
+
 .dg-boxproduto.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) .dg-boxproduto-compra .dg-relative {
   width: 100%;
+  overflow: unset;
+}
+
+.dg-boxproduto.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) .dg-boxproduto-compra .dg-relative * {
+  overflow: unset;
 }
 
 .dg-boxproduto.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) .dg-boxproduto-compra .dg-boxproduto-compra-btn {
