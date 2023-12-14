@@ -8832,4 +8832,10 @@ body .dg-modal-templateIndiqueUmAmigo-box-indicar a:hover, body .dg-modal-templa
   left: 44%;
   color: #fff !important;
 }
+
+body .dg-institucional-comocomprar-texto {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 /*# sourceMappingURL=app.css.map */
