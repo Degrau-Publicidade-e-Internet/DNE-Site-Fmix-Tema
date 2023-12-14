@@ -7401,4 +7401,18 @@ body {
     &#produto-pg .dg-modal-id-dgmodalsimilares .dg-boxproduto-hover:hover .dg-boxproduto-preco {
         bottom: 61px;
     }
+
+    .dg-usuario-editar-enderecos-opcoes-menu {
+        .dg-tooltip {
+            right: 0;
+            left: unset !important;
+            &::before {
+                left: unset;
+                right: 10px;
+            }
+        }
+    }
+    .dg-icon.dg-icon-eye {
+        background-image: url(../img/icones/eye.svg);
+    }
 }

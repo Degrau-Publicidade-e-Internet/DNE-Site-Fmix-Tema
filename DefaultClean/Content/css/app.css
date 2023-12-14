@@ -8860,4 +8860,18 @@ body .dg-categoria-titulo:before {
 body#produto-pg .dg-modal-id-dgmodalsimilares .dg-boxproduto-hover:hover .dg-boxproduto-preco {
   bottom: 61px;
 }
+
+body .dg-usuario-editar-enderecos-opcoes-menu .dg-tooltip {
+  right: 0;
+  left: unset !important;
+}
+
+body .dg-usuario-editar-enderecos-opcoes-menu .dg-tooltip::before {
+  left: unset;
+  right: 10px;
+}
+
+body .dg-icon.dg-icon-eye {
+  background-image: url(../img/icones/eye.svg);
+}
 /*# sourceMappingURL=app.css.map */

@@ -96,7 +96,7 @@
 
 <script>
     var DominioAjax = '@Html.Domain()';
-    var afiliacao = 'DNE';
+    var afiliacao = 'FMIX';
 </script>
 
 
@@ -383,4 +383,31 @@
     });
 
 }
+</script>
+
+<script>
+    window.onload = function() {
+        setTimeout(function() {
+            $("*:-webkit-autofill").each(function(){
+                $(this).addClass('dg-ativo');
+            })
+        }, 1);
+        
+        if ($('.jsIsDesktop').is(':visible')) {
+            @* $('body').append('<script id="monitoramento_gvp_chat_flutuante" type="text/javascript" lang="javascript" src="https://webapp.ideacrm.com.br/monitoramento.js.aspx?idc=7554&floatingchat=1" />'); *@
+
+            $('.jsAbrirChat').off('click');
+            $('.jsAbrirChat').click(function () {
+                if ($(this).hasClass("dg-loading")) {
+                    console.log("Aguarde o chat abrir");
+                } else {
+                    abreClickChatFlutuanteGVP('iHJO4ElJkkMQ551MIOP9X/AISbxWm9eQ_o1s5/BYPkVE=_ZeBm0mD5x3I=');
+                    $(this).addClass("dg-loading");
+                    setTimeout(function () {
+                        $('.jsAbrirChat').removeClass("dg-loading");
+                    }, 3000);
+                }
+            });
+        }
+    }
 </script>

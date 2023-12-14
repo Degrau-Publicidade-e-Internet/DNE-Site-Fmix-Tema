@@ -3744,4 +3744,16 @@ body .dg-checkout-main-recibo-codigo-copiar .dg-btn-copiar.dg-pulse-delay, body 
     max-width: 140px;
   }
 }
+
+body .dg-checkout-header-info.dg-loading:after {
+  background-color: #0B1841;
+}
+
+body .dg-checkout-header-info.dg-loading:before {
+  margin: 0;
+}
+
+body .dg-checkout-main-carrinho-compre-lista .dg-boxproduto {
+  overflow: visible !important;
+}
 /*# sourceMappingURL=checkout.css.map */

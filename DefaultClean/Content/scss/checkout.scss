@@ -3297,3 +3297,15 @@ body {
         max-width: 140px;
     }
 }
+
+body {
+    .dg-checkout-header-info.dg-loading:after {
+        background-color: $corPrimaria;
+    }
+    .dg-checkout-header-info.dg-loading:before {
+        margin: 0;
+    }
+    .dg-checkout-main-carrinho-compre-lista .dg-boxproduto {
+        overflow: visible !important;
+    }
+}
