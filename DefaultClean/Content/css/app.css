@@ -5488,6 +5488,7 @@ body .dg-header-busca-auto-lista-vertodos {
   font-weight: 400;
   color: #002399;
   background-color: rgba(0, 0, 0, 0);
+  text-align: right;
 }
 
 body .dg-header-busca-auto-lista-vertodos:hover, body .dg-header-busca-auto-lista-vertodos:focus {
@@ -6600,15 +6601,15 @@ body .dg-categoria-ordenacao-item br {
   display: none;
 }
 
-body .dg-categoria-ordenacao-item:hover {
+body .dg-categoria-ordenacao-item.dg-ativo, body .dg-categoria-ordenacao-item:hover, body .dg-categoria-ordenacao-item:focus {
   max-width: 300px;
   background-color: #00D19D;
   border-color: #00D19D;
-  color: #fff;
+  color: #fff !important;
 }
 
-body .dg-categoria-ordenacao-item:hover svg path {
-  stroke: #fff;
+body .dg-categoria-ordenacao-item.dg-ativo svg path, body .dg-categoria-ordenacao-item:hover svg path, body .dg-categoria-ordenacao-item:focus svg path {
+  stroke: #fff !important;
 }
 
 body .dg-categoria-ordenacao-item span {
@@ -8837,5 +8838,9 @@ body .dg-institucional-comocomprar-texto {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+body .dg-categoria-breadcrumb a, body .dg-categoria-breadcrumb span {
+  color: #0B1841 !important;
 }
 /*# sourceMappingURL=app.css.map */
