@@ -8856,4 +8856,8 @@ body .dg-modal-classe-bulapdf .dg-modal-fechar {
 body .dg-categoria-titulo:before {
   display: none;
 }
+
+body#produto-pg .dg-modal-id-dgmodalsimilares .dg-boxproduto-hover:hover .dg-boxproduto-preco {
+  bottom: 61px;
+}
 /*# sourceMappingURL=app.css.map */
