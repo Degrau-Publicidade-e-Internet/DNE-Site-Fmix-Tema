@@ -5079,7 +5079,7 @@ body {
             font-weight: 600;
             align-items: center;
             padding-right: 0;
-            max-width: 491px;
+            max-width: 500px;
             width: 100%;
             svg {
                 flex-shrink: 0;
@@ -7394,5 +7394,8 @@ body {
     .dg-modal-classe-bulapdf .dg-modal-fechar {
         top: -44px;
         right: 0;
+    }
+    .dg-categoria-titulo:before {
+        display: none;
     }
 }

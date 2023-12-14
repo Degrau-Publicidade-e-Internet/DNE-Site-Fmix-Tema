@@ -6127,7 +6127,7 @@ body .dg-categoria-intro .dg-categoria-titulo {
       -ms-flex-align: center;
           align-items: center;
   padding-right: 0;
-  max-width: 491px;
+  max-width: 500px;
   width: 100%;
 }
 
@@ -8851,5 +8851,9 @@ body .dg-categoria-breadcrumb a, body .dg-categoria-breadcrumb span {
 body .dg-modal-classe-bulapdf .dg-modal-fechar {
   top: -44px;
   right: 0;
+}
+
+body .dg-categoria-titulo:before {
+  display: none;
 }
 /*# sourceMappingURL=app.css.map */
