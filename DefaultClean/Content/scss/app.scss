@@ -1572,6 +1572,9 @@ body {
     .dg-box-produto-horizontal-wrapper {
         > * {
             position: static;
+            &.dg-boxproduto-relative .dg-boxproduto-preco {
+                position: static;
+            }
         }
         .dg-boxproduto-main {
             position: relative;
@@ -3141,8 +3144,27 @@ body {
         }
     }
     .dg-produto-enviar-receita {
+        position: absolute;
+        bottom: -13px;
+        left: 0;
+        text-align: center;
         width: 100%;
         margin-top: 8px;
+        @media (max-width: 991px) {
+            margin-top: 16px;
+            position: relative;
+            bottom: unset;
+            left: unset;
+            span {
+                background-color: #f5f9fd;
+                width: auto;
+                display: inline-block;
+                padding: 3px 12px;
+                border: 1px solid #d2d2d2;
+                border-radius: 12px;
+                font-weight: 500;
+            }
+        }
         span {
             color: #8b9eb7;
             background-image: linear-gradient($corSecundaria, $corSecundaria);
@@ -7644,6 +7666,11 @@ body {
 
     .dg-boxproduto-relative {
         position: relative;
+    }
+    @media (max-width: 991px) {
+        .dg-header .dg-header-topo .dg-header-busca-input.dg-loading {
+            padding-right: 90px;
+        }
     }
 }
 

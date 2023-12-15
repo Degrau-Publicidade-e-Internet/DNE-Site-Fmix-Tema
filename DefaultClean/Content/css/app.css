@@ -1860,6 +1860,10 @@ body .dg-home-sintomas .dg-home-sintomas-lista-txt {
   position: static;
 }
 
+.dg-boxproduto-horizontal .dg-box-produto-horizontal-wrapper > *.dg-boxproduto-relative .dg-boxproduto-preco {
+  position: static;
+}
+
 .dg-boxproduto-horizontal .dg-box-produto-horizontal-wrapper .dg-boxproduto-main {
   position: relative;
   margin-top: 24px;
@@ -3785,8 +3789,30 @@ body .dg-produto-abas__titulo img, body .dg-produto-titulo img {
 }
 
 body .dg-produto-enviar-receita {
+  position: absolute;
+  bottom: -13px;
+  left: 0;
+  text-align: center;
   width: 100%;
   margin-top: 8px;
+}
+
+@media (max-width: 991px) {
+  body .dg-produto-enviar-receita {
+    margin-top: 16px;
+    position: relative;
+    bottom: unset;
+    left: unset;
+  }
+  body .dg-produto-enviar-receita span {
+    background-color: #f5f9fd;
+    width: auto;
+    display: inline-block;
+    padding: 3px 12px;
+    border: 1px solid #d2d2d2;
+    border-radius: 12px;
+    font-weight: 500;
+  }
 }
 
 body .dg-produto-enviar-receita span {
@@ -9119,5 +9145,11 @@ body .dg-boxproduto .dg-boxproduto-preco {
 
 body .dg-boxproduto-relative {
   position: relative;
+}
+
+@media (max-width: 991px) {
+  body .dg-header .dg-header-topo .dg-header-busca-input.dg-loading {
+    padding-right: 90px;
+  }
 }
 /*# sourceMappingURL=app.css.map */
