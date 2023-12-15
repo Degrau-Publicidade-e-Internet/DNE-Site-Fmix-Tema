@@ -7677,13 +7677,11 @@ body {
         }
     }
     @media (max-width: 575px) {
-        .dg-boxproduto-lista {
-            .dg-boxproduto:not(.dg-boxproduto-horizontal) .dg-erro-sem-estoque {
-                left: -20px;
-                font-size: 10px;
-                &::after {
-                    left: 43px;
-                }
+        .dg-boxproduto:not(.dg-boxproduto-horizontal) .dg-erro-sem-estoque {
+            left: -20px;
+            font-size: 10px;
+            &::after {
+                left: 43px;
             }
         }
     }
