@@ -607,6 +607,30 @@ else
                                         </li>
                                     }
 
+                                    
+if (Model.MostraDescontoEspecial)
+{
+    <li>
+
+
+        @if (!tipoPg.Equals("PrincipioAtivo"))
+        {
+            <a href='@Html.Display("URLDescontoEspecial")'><span class="dg-icon dg-icon-"></span>Desconto Especial</a>
+            
+
+                <a href="@Html.Display("URLLimparDE")" aria-label="Limpar Filtro" class="dg-categoria-sidebar-limpar dg-tooltip-hover">
+                    <span class="dg-icon dg-icon-x"></span>
+                    <span class="dg-tooltip">
+                        Limpar Filtro
+                    </span>
+                </a>
+            
+
+        }
+
+    </li>
+}
+
                                 }
 
 
