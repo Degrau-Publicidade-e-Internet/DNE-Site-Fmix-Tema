@@ -9036,7 +9036,8 @@ body .dg-boxproduto .dg-boxproduto-compra-bg {
 }
 
 body .dg-boxproduto .dg-erro-sem-estoque {
-  left: 50%;
+  left: 50px;
+  font-size: 11px;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
@@ -9150,6 +9151,19 @@ body .dg-boxproduto-relative {
 @media (max-width: 991px) {
   body .dg-header .dg-header-topo .dg-header-busca-input.dg-loading {
     padding-right: 90px;
+  }
+  body .dg-boxproduto-lista {
+    overflow: unset;
+  }
+}
+
+@media (max-width: 575px) {
+  body .dg-boxproduto-lista .dg-boxproduto:not(.dg-boxproduto-horizontal) .dg-erro-sem-estoque {
+    left: -20px;
+    font-size: 10px;
+  }
+  body .dg-boxproduto-lista .dg-boxproduto:not(.dg-boxproduto-horizontal) .dg-erro-sem-estoque::after {
+    left: 43px;
   }
 }
 /*# sourceMappingURL=app.css.map */
