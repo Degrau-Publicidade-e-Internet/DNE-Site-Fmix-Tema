@@ -72,6 +72,10 @@ $(document).ready(function () {
         startMenuLoginMobile();
         menuLoginMobileWrapper.find('.dg-header-minhaconta-modal-esquecisenha').addClass('dg-ativo');
     });
+
+    $('body').on('click', ".dg-header-busca-auto-lista-vertodos", function(){
+		$(".dg-header-busca-btn").click();
+	});
 });
 
 Header.busca = function() {

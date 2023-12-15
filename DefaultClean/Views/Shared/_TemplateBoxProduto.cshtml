@@ -28,6 +28,8 @@
     if (Model.ProdutosModalSimilares) {
         fromSlider = true;
     }
+
+    string classeUnidade = "";
 }
 
 @foreach (var product in Model.SubProduto)
@@ -220,115 +222,127 @@
 
         </div>
 
-        <!-- Preço -->
-        <div class="dg-boxproduto-preco" boxprodutovalor="@ValorTotal.ToString()">
-
+        <div class="dg-boxproduto-relative">
+            
             @if (MostraTagPromocao2 == 1)
             {
                 if (oGPM2.QtdDesc > 0)
                 {
-                    <span class="dg-boxproduto-preco-de dg-boxproduto-preco-unidade">1 UN. R$@oGPM2.ValorSite.ToString("#,0.00")</span>
-                    <span class="dg-boxproduto-preco-por dg-boxproduto-preco-unidade">
-                        <small>@oGPM2.QtdDesc UN.</small> R$@oGPM2.PorUnidade.ToString("#,0.00")&nbsp;<span style="font-size:11px">CADA</span>
+                    classeUnidade = "dg-boxproduto-preco-unidade";
+                }
+            }
+
+            <!-- Preço -->
+            <div class="dg-boxproduto-preco @classeUnidade" boxprodutovalor="@ValorTotal.ToString()">
+
+                @if (MostraTagPromocao2 == 1)
+                {
+                    if (oGPM2.QtdDesc > 0)
+                    {
+                        <span class="dg-boxproduto-preco-de dg-boxproduto-preco-unidade">1 UN. R$@oGPM2.ValorSite.ToString("#,0.00")</span>
+                        <span class="dg-boxproduto-preco-por dg-boxproduto-preco-unidade">
+                            <small>@oGPM2.QtdDesc UN.</small> R$@oGPM2.PorUnidade.ToString("#,0.00")&nbsp;<span style="font-size:11px">CADA</span>
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="dg-boxproduto-preco-por">R$@ValorTotal.ToString("#,0.00")</span>
+                    }
+                }
+                else if (IfDesconto == 1)
+                {
+
+
+                    <span class="dg-boxproduto-preco-de"><span>De: </span>R$@ValorDe.ToString("#,0.00")</span>
+                    <span class="dg-boxproduto-preco-por">
+                        <span>Por: </span>R$@Valor.ToString("#,0.00")
+                        @if (isCompreTambemCheckout == true)
+                        {
+                            <span class="dg-boxproduto-desconto-checkout">-@DescontoPorcentagem%</span>
+                        }
                     </span>
                 }
                 else
                 {
                     <span class="dg-boxproduto-preco-por">R$@ValorTotal.ToString("#,0.00")</span>
                 }
-            }
-            else if (IfDesconto == 1)
+
+            </div>
+
+            @if (product.VendaRestrita)
             {
+                <div class="dg-boxproduto-compra">
+                    <div class="dg-relative">
+                        <a class="dg-boxproduto-compra-bg" href="@sURL">
+                            <span href="@sURL" class="dg-boxproduto-qtd" rel="@ID_SubProduto.ToString()">
+                                Saiba Mais
+                            </span>
 
-
-                <span class="dg-boxproduto-preco-de"><span>De: </span>R$@ValorDe.ToString("#,0.00")</span>
-                <span class="dg-boxproduto-preco-por">
-                    <span>Por: </span>R$@Valor.ToString("#,0.00")
-                    @if (isCompreTambemCheckout == true)
-                    {
-                        <span class="dg-boxproduto-desconto-checkout">-@DescontoPorcentagem%</span>
-                    }
-                </span>
+                            <span class="dg-boxproduto-compra-btn" aria-label="Saiba mais sobre @Produto @product.ComplementoBrindes" rel="@product.ID_SubProduto">
+                                <span class="dg-icon dg-icon-saiba-mais"></span>
+                            </span>
+                        </a>z
+                    </div>
+                </div>
             }
-            else
+            else if (product.Importado)
             {
-                <span class="dg-boxproduto-preco-por">R$@ValorTotal.ToString("#,0.00")</span>
+                <div class="dg-boxproduto-btn-importado" rel="@ID_SubProduto.ToString()">
+                    Importado
+                </div>
             }
+            else if (BTnIndisponivel == 1)
+            {
+                <div class="dg-boxproduto-compra">
+                    <div class="dg-relative">
+                        <div class="dg-boxproduto-compra-bg jsModalAviseMe">
+                            <a href="javascript:void(0)" class="dg-boxproduto-qtd" rel="@product.ID_SubProduto">
+                                Avise-me
+                            </a>
 
+                            <a href="javascript:void(0)" class="dg-boxproduto-compra-btn" role="link" aria-label="Avisar chegada de @Produto @product.ComplementoBrindes" rel="@product.ID_SubProduto">
+                                <span class="dg-icon dg-icon-avise-me"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+            else if (BtnControlado == 1)
+            {
+                <div class="dg-boxproduto-compra">
+                    <div class="dg-relative">
+                        <div class="dg-boxproduto-compra-bg">
+                            <a href="@sURL" class="dg-boxproduto-qtd" rel="@ID_SubProduto.ToString()">
+                                Saiba Mais
+                            </a>
+
+                            <a href="@sURL" class="dg-boxproduto-compra-btn" aria-label="Saiba mais sobre @Produto @product.ComplementoBrindes" rel="@product.ID_SubProduto">
+                                <span class="dg-icon dg-icon-saiba-mais"></span>
+                            </a>
+                        </div>z
+                    </div>
+                </div>
+            }
+            else if (BTnComprar == 1)
+            {
+                <form class="dg-boxproduto-compra">
+                    <div class="dg-relative">
+                        <div class="dg-boxproduto-compra-bg">
+                            <div class="dg-boxproduto-qtd">
+                                <input type="number" class="dg-boxproduto-qtd-input" name="" id="QTD_@product.ID_SubProduto" value="@QtdComp" multiplo="@QtdMult" maxlength="2" onKeyPress="if(this.value.length==4) return false;">
+                                <a href="javascript:void(0)" class="dg-boxproduto-qtd-menos" rel="@product.ID_SubProduto">-</a>
+                                <a href="javascript:void(0)" class="dg-boxproduto-qtd-mais" rel="@product.ID_SubProduto">+</a>
+                            </div>
+
+                            <a href="javascript:void(0)" class="dg-boxproduto-compra-btn BtComprarProduto" role="link" aria-label="Comprar @Produto @product.ComplementoBrindes" ID_SubProduto="@product.ID_SubProduto">
+                                <span class="dg-icon dg-icon-cart"></span>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            }
         </div>
 
-        @if (product.VendaRestrita)
-        {
-            <div class="dg-boxproduto-compra">
-                <div class="dg-relative">
-                    <div class="dg-boxproduto-compra-bg">
-                        <a href="@sURL" class="dg-boxproduto-qtd" rel="@ID_SubProduto.ToString()">
-                            Saiba Mais
-                        </a>
-
-                        <a href="@sURL" class="dg-boxproduto-compra-btn" aria-label="Saiba mais sobre @Produto @product.ComplementoBrindes" rel="@product.ID_SubProduto">
-                            <span class="dg-icon dg-icon-saiba-mais"></span>
-                        </a>
-                    </div>z
-                </div>
-            </div>
-        }
-        else if (product.Importado)
-        {
-            <div class="dg-boxproduto-btn-importado" rel="@ID_SubProduto.ToString()">
-                Importado
-            </div>
-        }
-        else if (BTnIndisponivel == 1)
-        {
-            <div class="dg-boxproduto-compra">
-                <div class="dg-relative">
-                    <div class="dg-boxproduto-compra-bg">
-                        <a href="javascript:void(0)" class="dg-boxproduto-qtd jsModalAviseMe" rel="@product.ID_SubProduto">
-                            Avise-me
-                        </a>
-
-                        <a href="javascript:void(0)" class="dg-boxproduto-compra-btn jsModalAviseMe" role="link" aria-label="Avisar chegada de @Produto @product.ComplementoBrindes" rel="@product.ID_SubProduto">
-                            <span class="dg-icon dg-icon-avise-me"></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        }
-        else if (BtnControlado == 1)
-        {
-            <div class="dg-boxproduto-compra">
-                <div class="dg-relative">
-                    <div class="dg-boxproduto-compra-bg">
-                        <a href="@sURL" class="dg-boxproduto-qtd" rel="@ID_SubProduto.ToString()">
-                            Saiba Mais
-                        </a>
-
-                        <a href="@sURL" class="dg-boxproduto-compra-btn" aria-label="Saiba mais sobre @Produto @product.ComplementoBrindes" rel="@product.ID_SubProduto">
-                            <span class="dg-icon dg-icon-saiba-mais"></span>
-                        </a>
-                    </div>z
-                </div>
-            </div>
-        }
-        else if (BTnComprar == 1)
-        {
-            <form class="dg-boxproduto-compra">
-                <div class="dg-relative">
-                    <div class="dg-boxproduto-compra-bg">
-                        <div class="dg-boxproduto-qtd">
-                            <input type="number" class="dg-boxproduto-qtd-input" name="" id="QTD_@product.ID_SubProduto" value="@QtdComp" multiplo="@QtdMult" maxlength="2" onKeyPress="if(this.value.length==4) return false;">
-                            <a href="javascript:void(0)" class="dg-boxproduto-qtd-menos" rel="@product.ID_SubProduto">-</a>
-                            <a href="javascript:void(0)" class="dg-boxproduto-qtd-mais" rel="@product.ID_SubProduto">+</a>
-                        </div>
-
-                        <a href="javascript:void(0)" class="dg-boxproduto-compra-btn BtComprarProduto" role="link" aria-label="Comprar @Produto @product.ComplementoBrindes" ID_SubProduto="@product.ID_SubProduto">
-                            <span class="dg-icon dg-icon-cart"></span>
-                        </a>
-                    </div>
-                </div>
-            </form>
-        }
 
         <!-- Informações flutuantes -->
         <div class="dg-boxproduto-info">

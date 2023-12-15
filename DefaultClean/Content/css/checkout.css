@@ -375,6 +375,12 @@ body .dg-checkout-main-carrinho-item-produto {
   width: 38%;
 }
 
+@media (min-width: 1057px) and (max-width: 1279px) {
+  body .dg-checkout-main-carrinho-item-produto {
+    width: 32%;
+  }
+}
+
 body .dg-checkout-main-carrinho-item {
   border-bottom: 0;
   padding-bottom: 0;
@@ -1965,7 +1971,7 @@ body .dg-checkout-main-carrinho-compre-lista .dg-boxproduto .dg-boxproduto-compr
   background-color: #00D19D;
 }
 
-body .dg-checkout-main-carrinho-compre .dg-boxproduto > form .dg-boxproduto-compra-btn, body .compretambem .dg-boxproduto > form .dg-boxproduto-compra-btn {
+body .dg-checkout-main-carrinho-compre .dg-boxproduto form .dg-boxproduto-compra-btn, body .compretambem .dg-boxproduto form .dg-boxproduto-compra-btn {
   position: absolute;
   bottom: -4px;
   right: 22px;
@@ -1980,7 +1986,7 @@ body .dg-checkout-main-carrinho-compre .dg-boxproduto > form .dg-boxproduto-comp
   background-size: 16px;
 }
 
-body .dg-checkout-main-carrinho-compre .dg-boxproduto > form .dg-boxproduto-compra-btn::before, body .compretambem .dg-boxproduto > form .dg-boxproduto-compra-btn::before {
+body .dg-checkout-main-carrinho-compre .dg-boxproduto form .dg-boxproduto-compra-btn::before, body .compretambem .dg-boxproduto form .dg-boxproduto-compra-btn::before {
   display: none;
 }
 
@@ -1988,7 +1994,7 @@ body .dg-checkout-main-carrinho-compre .dg-boxproduto-img, body .compretambem .d
   width: 96px;
 }
 
-body .dg-checkout-main-carrinho-compre .dg-boxproduto > form, body .dg-checkout-main-carrinho-compre .dg-boxproduto > div:not(.dg-boxproduto-concluido-overlay):not(.dg-boxproduto-concluido), body .compretambem .dg-boxproduto > form, body .compretambem .dg-boxproduto > div:not(.dg-boxproduto-concluido-overlay):not(.dg-boxproduto-concluido) {
+body .dg-checkout-main-carrinho-compre .dg-boxproduto form, body .dg-checkout-main-carrinho-compre .dg-boxproduto > div:not(.dg-boxproduto-concluido-overlay):not(.dg-boxproduto-concluido), body .compretambem .dg-boxproduto form, body .compretambem .dg-boxproduto > div:not(.dg-boxproduto-concluido-overlay):not(.dg-boxproduto-concluido) {
   position: static;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -3774,5 +3780,36 @@ body .dg-usuario-editar-enderecos-opcoes-menu .dg-tooltip {
 body .dg-usuario-editar-enderecos-opcoes-menu .dg-tooltip::before {
   left: unset;
   right: 10px;
+}
+
+body .dg-checkout-main-carrinho-compre-lista .dg-boxproduto-compra, body .dg-checkout-main-carrinho-compre-lista .dg-boxproduto-preco {
+  position: static;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding-left: 0;
+  z-index: 0;
+  min-height: auto;
+  height: auto;
+}
+
+@media (max-width: 1056.28px) {
+  body .dg-boxproduto-relative {
+    padding-left: 0 !important;
+  }
+}
+
+body .dg-checkout-main-carrinho-compre .dg-boxproduto form *, body .compretambem .dg-boxproduto form * {
+  position: static;
+}
+
+body .dg-checkout-main-carrinho-compre .dg-boxproduto form .dg-boxproduto-qtd, body .compretambem .dg-boxproduto form .dg-boxproduto-qtd {
+  display: none;
+}
+
+body .dg-checkout-main-carrinho-compre .dg-boxproduto form {
+  width: 100%;
+  height: auto;
+  padding-left: 0;
+  min-height: auto;
 }
 /*# sourceMappingURL=checkout.css.map */
