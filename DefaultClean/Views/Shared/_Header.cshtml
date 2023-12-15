@@ -1012,7 +1012,7 @@
         {if buscaInfo.Produtos.length > 0}
             <ul class="dg-header-busca-produtos-lista">
                 {for produto in buscaInfo.Produtos}
-                    <li>
+                    <li class="jsBoxproduto" id_subproduto="${produto.ID_SubProduto}" nome="${produto.Produto}" marca="${produto.Marca}" categoria="${produto.Categoria}" preco="${produto.Valor}">
                         <a href="${produto.URLProduto}" class="dg-header-busca-auto-lista-item">
                             <figure class="dg-img">
                                 <img src="@Html.Domain()/imagens/76x76/${produto.Foto}" alt="${produto.Produto}">
