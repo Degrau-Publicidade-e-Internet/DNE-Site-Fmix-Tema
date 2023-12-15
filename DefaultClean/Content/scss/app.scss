@@ -478,6 +478,7 @@ body {
     &.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) {
         .dg-boxproduto-preco {
             top: -44px;
+            bottom: unset !important;
         }
     }
 
@@ -715,6 +716,7 @@ body {
             &.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) {
                 .dg-boxproduto-preco {
                     top: -44px;
+                    bottom: unset !important;
                 }
                 .dg-boxproduto-compra-bg {
                     width: 100%;

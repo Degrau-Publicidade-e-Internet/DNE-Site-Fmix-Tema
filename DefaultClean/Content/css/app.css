@@ -579,6 +579,7 @@ body {
 
 .dg-boxproduto.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) .dg-boxproduto-preco {
   top: -44px;
+  bottom: unset !important;
 }
 
 .dg-boxproduto.dg-boxproduto--indisponivel .dg-boxproduto-compra-bg, .dg-boxproduto.dg-boxproduto--indisponivel .dg-boxproduto-qtd, .dg-boxproduto.dg-boxproduto--indisponivel .dg-boxproduto-compra-btn, .dg-boxproduto.dg-boxproduto--indisponivel .dg-boxproduto-compra .dg-relative {
@@ -842,6 +843,7 @@ body .dg-menuA-submenu-destaques-box .dg-boxproduto .dg-boxproduto-compra .dg-bo
 
 body .dg-menuA-submenu-destaques-box .dg-boxproduto.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) .dg-boxproduto-preco {
   top: -44px;
+  bottom: unset !important;
 }
 
 body .dg-menuA-submenu-destaques-box .dg-boxproduto.dg-boxproduto-hover:not(.dg-boxproduto-horizontal) .dg-boxproduto-compra-bg {
