@@ -7459,7 +7459,7 @@ body {
         opacity: 1;
         margin-left: 4px !important;
         margin-right: 8px !important;
-        width: 60px !important;
+        width: 65px !important;
     }
     
     .dg-boxproduto {
@@ -7522,7 +7522,7 @@ body {
 
     .dg-boxproduto.dg-boxproduto-horizontal {
         .dg-boxproduto-compra .dg-boxproduto-qtd {
-            width: 60px !important;
+            width: 65px !important;
             opacity: 1 !important;
             opacity: 1;
             margin-left: 0 !important;
@@ -7547,5 +7547,38 @@ body {
             font-size: 10px;
             position: static;
         }
+    }
+}
+
+body {
+    @media (max-width: 991px) {
+        .dg-boxproduto .dg-erro-sem-estoque {
+            left: 0;
+            transform: none;
+            &::after {
+                left: 20px;
+                margin-left: 0;
+            }
+        }
+        .dg-produto-img-subacoes {
+            .dg-tooltip-bottom {
+                right: 0;
+                left: unset;
+            }
+        }
+    }
+    @media (max-width: 379px) {
+        .dg-produto .dg-produto-img-principal {
+            width: 210px;
+            height: 230px;
+            > img {
+                max-height: 230px;
+            }
+        }
+    }
+    .dg-boxproduto .dg-boxproduto-qtd-menos, .dg-boxproduto .dg-boxproduto-qtd-mais {
+        width: 14px;
+        height: 14px;
+        font-size: 15px;
     }
 }
