@@ -352,7 +352,7 @@ body {
 }
 
 .dg-boxproduto .dg-boxproduto-img img {
-  max-height: 132px;
+  max-height: 120px;
 }
 
 .dg-boxproduto .dg-boxproduto-preco {
@@ -9044,7 +9044,7 @@ body .dg-boxproduto .dg-erro-sem-estoque {
 
 body .dg-boxproduto .dg-erro-sem-estoque::after {
   left: 50%;
-  margin-left: -10px;
+  margin-left: -28px;
 }
 
 body .dg-boxproduto.dg-boxproduto-horizontal .dg-boxproduto-compra, body .dg-boxproduto.dg-boxproduto-horizontal .dg-boxproduto-compra > .dg-relative, body .dg-boxproduto.dg-boxproduto-horizontal .dg-boxproduto-compra-bg {
