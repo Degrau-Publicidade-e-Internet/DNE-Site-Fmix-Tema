@@ -1556,7 +1556,7 @@
 <script id="templateEpharma_formulario" type="text/x-jquery-tmpl">
      <div class="dg-modal-header">
         <div class="dg-modal-header__esquerda">
-            {if config.clienteExisteDNE == false}
+            {if config.clienteExiste == false}
                 <div>Para prosseguir, é necessário se cadastrar:</div>
             {else}
                 <div>Para prosseguir, é necessário preencher os dados a seguir:</div>
@@ -1567,7 +1567,7 @@
     <form action="" class="dg-modal-form jsEpharma_form-cadastro dg-cadastro-form">
         <div class="dg-modal-overflow-content">
             <div class="dg-form-row">
-                {if config.clienteExisteDNE == false}
+                {if config.clienteExiste == false}
                     <div class="dg-form-control">
                         <div class="dg-relative">
                         <input class="dg-input" type="text" name="Nome" id="Nome" required validar>

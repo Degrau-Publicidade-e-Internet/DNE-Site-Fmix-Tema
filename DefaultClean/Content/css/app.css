@@ -9168,4 +9168,13 @@ body .dg-boxproduto-relative {
     left: 43px;
   }
 }
+
+@media (min-width: 992px) {
+  body .dg-categoria-sidebar {
+    width: 23.27%;
+  }
+  body .dg-categoria-produtos {
+    width: 76.73%;
+  }
+}
 /*# sourceMappingURL=app.css.map */

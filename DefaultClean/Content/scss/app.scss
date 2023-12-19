@@ -7689,3 +7689,15 @@ body {
     }
 }
 
+
+
+@media (min-width: 992px) {
+    body {
+        .dg-categoria-sidebar {
+            width: 23.27%;
+        }
+        .dg-categoria-produtos {
+            width: 76.73%;
+        }
+    }
+}
