@@ -9177,4 +9177,30 @@ body .dg-boxproduto-relative {
     width: 76.73%;
   }
 }
+
+@media (max-width: 480px) {
+  #produto-pg .dg-boxproduto-preco {
+    bottom: unset;
+  }
+}
+
+body .dg-produto-tag-wrapper .dg-produto-tag .dg-tooltip-bottom {
+  left: 0;
+  right: unset;
+}
+
+body .dg-produto-tag-wrapper .dg-produto-tag .dg-tooltip-bottom:before {
+  left: 10px;
+  top: -4px;
+  right: unset;
+}
+
+.dg-modal-id-templateFichaTecnica .dg-modal-container .dg-modal-conteudo, .dg-modal-id-templateProdutoParaQueServe .dg-modal-container .dg-modal-conteudo {
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.dg-modal-id-templateFichaTecnica .dg-titulo, .dg-modal-id-templateProdutoParaQueServe .dg-titulo {
+  font-size: 24px;
+}
 /*# sourceMappingURL=app.css.map */

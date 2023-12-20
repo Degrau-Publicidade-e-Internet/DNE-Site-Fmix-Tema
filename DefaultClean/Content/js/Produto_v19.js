@@ -485,4 +485,40 @@ function ModalSimiliares() {
 	$(".dg-modal-id-dgmodalsimilares img[data-src-lazy]").each(function() {
         $(this).attr('src', ($(this).attr("data-src-lazy")));
     });
+
+	$(".dg-modal-id-dgmodalsimilares .dg-boxproduto-qtd-mais").each(function(){
+		if(!$(this).hasClass("dg-ativado") && $(this).parents(".dg-desativado").length === 0) {
+			$(this).click(function(){
+				var valorAtualProd = parseInt($(this).parent().find(".dg-boxproduto-qtd-input").val());
+				valorAtualProd += 1;
+				$(this).parent().find(".dg-boxproduto-qtd-input").val(valorAtualProd);
+			});
+			$(this).addClass("dg-ativado");
+		}
+	});
+
+	$(".dg-modal-id-dgmodalsimilares .dg-boxproduto-qtd-menos").each(function(){
+		if(!$(this).hasClass("dg-ativado") && $(this).parents(".dg-desativado").length === 0) {
+			$(this).click(function(){
+				var valorAtualProd = parseInt($(this).parent().find(".dg-boxproduto-qtd-input").val());
+				if(valorAtualProd > 1) {
+					valorAtualProd -= 1;
+					$(this).parent().find(".dg-boxproduto-qtd-input").val(valorAtualProd);
+				}
+			});
+			$(this).addClass("dg-ativado");
+		}
+	});
+
+	$(".dg-modal-id-dgmodalsimilares .dg-boxproduto-qtd-input").each(function(){
+		if(!$(this).hasClass("dg-ativado") && $(this).parents(".dg-desativado").length === 0) {
+			$(this).keypress(function (e) {
+			  if (e.which == 13) {
+				$(this).parents(".dg-boxproduto").find(".dg-boxproduto-compra-btn").click();
+				return false; 
+			  }
+			});
+			$(this).addClass("dg-ativado");
+		}
+	});
 }

@@ -7701,3 +7701,31 @@ body {
         }
     }
 }
+
+@media (max-width: 480px) {
+    #produto-pg .dg-boxproduto-preco {
+        bottom: unset;
+    }
+}
+
+body .dg-produto-tag-wrapper {
+    .dg-produto-tag .dg-tooltip-bottom {
+        left: 0;
+        right: unset;
+    }
+    .dg-produto-tag .dg-tooltip-bottom:before {
+        left: 10px;
+        top: -4px;
+        right: unset;
+    }
+}
+
+.dg-modal-id-templateFichaTecnica, .dg-modal-id-templateProdutoParaQueServe {
+    .dg-modal-container .dg-modal-conteudo {
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .dg-titulo {
+        font-size: 24px;
+    }
+}
