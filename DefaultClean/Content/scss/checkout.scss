@@ -858,7 +858,6 @@ body {
         width: auto;
         font-size: 12px;
         line-height: 14px;
-        text-transform: uppercase;
         border-radius: 12px;
         max-width: none;
         box-shadow: none;
@@ -3367,6 +3366,15 @@ body {
     @media (max-width: 1056.28px) {
         .dg-pagamento-fmix .dg-checkout-main .dg-checkout-main-side-bloco-wrapper {
             border-radius: 0;
+        }
+    }
+}
+
+body {
+    .dg-btn-alert-cancelar {
+        text-transform: lowercase;
+        &:first-letter {
+            text-transform: uppercase;
         }
     }
 }

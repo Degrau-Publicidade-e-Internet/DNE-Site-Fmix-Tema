@@ -9205,4 +9205,12 @@ body .dg-produto-tag-wrapper .dg-produto-tag .dg-tooltip-bottom:before {
 .dg-modal-id-templateFichaTecnica .dg-titulo, .dg-modal-id-templateProdutoParaQueServe .dg-titulo {
   font-size: 24px;
 }
+
+body .dg-btn-alert-cancelar {
+  text-transform: lowercase;
+}
+
+body .dg-btn-alert-cancelar:first-letter {
+  text-transform: uppercase;
+}
 /*# sourceMappingURL=app.css.map */

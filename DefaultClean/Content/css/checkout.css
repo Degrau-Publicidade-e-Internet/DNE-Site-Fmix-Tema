@@ -983,7 +983,6 @@ body a.dg-checkout-main-bloco-btn-outline, body .dg-checkout-main-bloco-btn, bod
   width: auto;
   font-size: 12px;
   line-height: 14px;
-  text-transform: uppercase;
   border-radius: 12px;
   max-width: none;
   -webkit-box-shadow: none;
@@ -3819,5 +3818,13 @@ body .dg-checkout-main-carrinho-compre .dg-boxproduto form {
   body .dg-pagamento-fmix .dg-checkout-main .dg-checkout-main-side-bloco-wrapper {
     border-radius: 0;
   }
+}
+
+body .dg-btn-alert-cancelar {
+  text-transform: lowercase;
+}
+
+body .dg-btn-alert-cancelar:first-letter {
+  text-transform: uppercase;
 }
 /*# sourceMappingURL=checkout.css.map */

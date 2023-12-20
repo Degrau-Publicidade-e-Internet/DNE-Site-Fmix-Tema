@@ -7731,3 +7731,12 @@ body .dg-produto-tag-wrapper {
         font-size: 24px;
     }
 }
+
+body {
+    .dg-btn-alert-cancelar {
+        text-transform: lowercase;
+        &:first-letter {
+            text-transform: uppercase;
+        }
+    }
+}
