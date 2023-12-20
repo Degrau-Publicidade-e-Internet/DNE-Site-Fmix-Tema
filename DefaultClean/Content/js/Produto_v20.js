@@ -6,7 +6,10 @@ $(document).ready(function () {
     $("#BtComprarProduto").click(function () {
         var ID_SubProduto = $(this).attr("ID_SubProduto");
         var Qtd = parseInt($("#QTD_" + ID_SubProduto).val());
-        AddCart('.dg-produto', ID_SubProduto, Qtd, 'irCarrinho', $(this));
+		if (Qtd === 0) {
+			Qtd = 1;
+		}
+		AddCart('.dg-produto', ID_SubProduto, Qtd, 'irCarrinho', $(this));
     });
     
     $(".BtComprarProdutoPromocao").click(function () {

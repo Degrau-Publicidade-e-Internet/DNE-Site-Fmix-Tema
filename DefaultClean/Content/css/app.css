@@ -4231,6 +4231,8 @@ body .dg-modal-container .dg-modal-conteudo .dg-titulo {
 @media (max-width: 991px) {
   body .dg-modal-container .dg-modal-conteudo .dg-titulo {
     margin-bottom: 12px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
 

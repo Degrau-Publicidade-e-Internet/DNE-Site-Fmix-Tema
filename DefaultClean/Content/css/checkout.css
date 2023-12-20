@@ -2032,6 +2032,8 @@ body .dg-boxproduto-titulo {
 @media (max-width: 1056.28px) {
   body .dg-boxproduto-titulo {
     min-height: auto;
+    max-height: 20px;
+    overflow: hidden;
   }
 }
 
@@ -3811,5 +3813,11 @@ body .dg-checkout-main-carrinho-compre .dg-boxproduto form {
   height: auto;
   padding-left: 0;
   min-height: auto;
+}
+
+@media (max-width: 1056.28px) {
+  body .dg-pagamento-fmix .dg-checkout-main .dg-checkout-main-side-bloco-wrapper {
+    border-radius: 0;
+  }
 }
 /*# sourceMappingURL=checkout.css.map */
