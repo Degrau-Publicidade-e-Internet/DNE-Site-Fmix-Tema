@@ -7739,4 +7739,9 @@ body {
             text-transform: uppercase;
         }
     }
+    .dg-usuario-conteudo-pedido-titulo.dg-ativo {
+        &::before {
+            transform: scale(1);
+        }
+    }
 }

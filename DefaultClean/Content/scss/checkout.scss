@@ -3377,4 +3377,7 @@ body {
             text-transform: uppercase;
         }
     }
+    .dg-pagamento-fmix .dg-checkout-main.dg-checkout-main-novo .dg-checkout-main-side > .dg-titulo.dg-ativo a {
+        transform: rotate(180deg) !important;
+    }
 }

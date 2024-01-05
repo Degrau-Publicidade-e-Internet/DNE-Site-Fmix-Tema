@@ -3827,4 +3827,9 @@ body .dg-btn-alert-cancelar {
 body .dg-btn-alert-cancelar:first-letter {
   text-transform: uppercase;
 }
+
+body .dg-pagamento-fmix .dg-checkout-main.dg-checkout-main-novo .dg-checkout-main-side > .dg-titulo.dg-ativo a {
+  -webkit-transform: rotate(180deg) !important;
+          transform: rotate(180deg) !important;
+}
 /*# sourceMappingURL=checkout.css.map */

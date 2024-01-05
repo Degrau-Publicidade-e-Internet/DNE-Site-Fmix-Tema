@@ -9213,4 +9213,9 @@ body .dg-btn-alert-cancelar {
 body .dg-btn-alert-cancelar:first-letter {
   text-transform: uppercase;
 }
+
+body .dg-usuario-conteudo-pedido-titulo.dg-ativo::before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
 /*# sourceMappingURL=app.css.map */
