@@ -2504,7 +2504,18 @@ body {
     }
 
     .dg-ProdutoisEsgotado .dg-produto-acoes-btns .dg-produto-acoes-btns-similares-btn, .dg-ProdutoisEsgotado2 .dg-produto-acoes-btns .dg-produto-acoes-btns-similares-btn, .dg-produto-acoes-btns-similares-btn {
-        display: none
+        height: 44px;
+        border: 11px;
+        padding: 12px;
+        border-radius: 11px;
+        font-size: 12px;
+        background-color: $corSecundaria;
+        &:hover, &:focus {
+            background-color: darken($corSecundaria, 5%);
+        }
+        @media (max-width: 991px) {
+            margin-bottom: 0;
+        }
     }
 
     .dg-produto {
@@ -4082,7 +4093,7 @@ body {
                 margin-bottom: 0;
                 border-bottom: 1px solid rgba(0,0,0,0.15);
                 @media (max-width: 991px) {
-                    padding: 16px;
+                    padding: 16px 48px 16px 16px;
                 }
             }
             .dg-subtitulo {

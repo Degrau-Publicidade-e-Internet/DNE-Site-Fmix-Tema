@@ -480,6 +480,21 @@
                     <p class="dg-produto-info-side__descricao dg-SuplementoDescricao">
                         @SP.SuplementoDescricao
                     </p>
+                    @if (BTnComprar == 1)
+                    {
+                        @if (MostraDetalhesCompraTrue == 1)
+                        {
+                            @if (BTnIndisponivel == 1)
+                            {
+                                @if (SP.ID_Categoria != 12 && SP.ID_Categoria != 1)
+                                {
+                                    @* Checar se há similares pra mostrar botão *@
+                                    @* Similares deverá enviar para uma página com os similares do mesmo *@
+                                    <a href="javascript:void(0)" id="btnMostraSimilar" class="dg-produto-acoes-btns-similares-btn jsProdutoIndisponivel jsOpenSimilaresModal dg-desktop-hide" rel="@SP.ID_SubProduto" nameSimilar="@SP.Produto" idSimilar="@SP.ID_SubProduto" principioAtivoSimilar="@SP.PrincipioAtivo">Ver Genéricos e Similares</a>
+                                }
+                            }
+                        }
+                    }
                      @if (!string.IsNullOrEmpty(SP.SeoDescricaoProduto) || !string.IsNullOrEmpty(Descricao) || !string.IsNullOrEmpty(SP.PdfBula.Trim()) || !string.IsNullOrEmpty(SP.Bula.Trim()) || !string.IsNullOrEmpty(SP.AvisoLegal.Trim()))
                     {
                     <div>
@@ -723,21 +738,6 @@
                     @* @if (BTnComprar == 1) { *@
                     @* @if (MostraDetalhesCompraTrue == 1) { *@
 
-                    @if (BTnComprar == 1)
-                    {
-                        @if (MostraDetalhesCompraTrue == 1)
-                        {
-                            @if (BTnIndisponivel == 1)
-                            {
-                                @if (SP.ID_Categoria != 12 && SP.ID_Categoria != 1)
-                                {
-                                    @* Checar se há similares pra mostrar botão *@
-                                    @* Similares deverá enviar para uma página com os similares do mesmo *@
-                                    <a href="javascript:void(0)" id="btnMostraSimilar" class="dg-produto-acoes-btns-similares-btn jsProdutoIndisponivel jsOpenSimilaresModal dg-desktop-hide" rel="@SP.ID_SubProduto" nameSimilar="@SP.Produto" idSimilar="@SP.ID_SubProduto" principioAtivoSimilar="@SP.PrincipioAtivo">Ver Genéricos e Similares</a>
-                                }
-                            }
-                        }
-                    }
                     <div class="dg-produto-info-preco-valores">
                         @if (IfDesconto == 1)
                         {
@@ -773,6 +773,21 @@
                    
 
                     <div class="dg-produto-acoes-btns" data-produto-epharma="@mostraProdutoEpharma">
+                        @if (BTnComprar == 1)
+                        {
+                            @if (MostraDetalhesCompraTrue == 1)
+                            {
+                                @if (BTnIndisponivel == 1)
+                                {
+                                    @if (SP.ID_Categoria != 12 && SP.ID_Categoria != 1)
+                                    {
+                                        @* Checar se há similares pra mostrar botão *@
+                                        @* Similares deverá enviar para uma página com os similares do mesmo *@
+                                        <a href="javascript:void(0)" id="btnMostraSimilar" class="dg-produto-acoes-btns-similares-btn jsProdutoIndisponivel jsOpenSimilaresModal dg-desktop-hide" rel="@SP.ID_SubProduto" nameSimilar="@SP.Produto" idSimilar="@SP.ID_SubProduto" principioAtivoSimilar="@SP.PrincipioAtivo">Ver Genéricos e Similares</a>
+                                    }
+                                }
+                            }
+                        }
                         @if (BTnComprar == 1)
                         {
                             @if (MostraDetalhesCompraTrue == 1)
@@ -940,16 +955,22 @@
                                         <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/call-calling.svg" alt="">
                                         <div class="dg-txt">
                                             <p>11 3990 7450</p>
-                                            <strong>Segunda a Sábado</strong>, das 8h às 20h
+                                            <p>
+                                                Seg a Sex das 8h às 19h38<br>
+                                                Sábado das 8h às 12h
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="dg-produto-acoes-btns-compra dg-desktop-hide">
-                                    <a class="dg-produto-acoes-televenda" href="tel:+551139907720">
+                                    <a class="dg-produto-acoes-televenda" href="tel:+551139907450">
                                         <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/call-calling-white.svg" alt="">
                                         <span>
                                             <span>Televendas: (11) 3990-7450</span>
-                                            <span>Segunda a Sábado das 8h às 20h</span>
+                                            <p>
+                                                Seg a Sex das 8h às 19h38<br>
+                                                Sábado das 8h às 12h
+                                            </p>
                                         </span>
                                     </a>
                                 </div>
@@ -964,16 +985,22 @@
                                         <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/call-calling.svg" alt="">
                                         <div class="dg-txt">
                                             <p>11 3990 7450</p>
-                                            <strong>Segunda a Sábado</strong>, das 8h às 20h
+                                            <p>
+                                                Seg a Sex das 8h às 19h38<br>
+                                                Sábado das 8h às 12h
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="dg-produto-acoes-btns-compra dg-desktop-hide">
-                                    <a class="dg-produto-acoes-televenda" href="tel:+551139907720">
+                                    <a class="dg-produto-acoes-televenda" href="tel:+551139907450">
                                         <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/call-calling-white.svg" alt="">
                                         <span>
                                             <span>Televendas: (11) 3990-7450</span>
-                                            <span>Segunda a Sábado das 8h às 20h</span>
+                                            <p>
+                                                Seg a Sex das 8h às 19h38<br>
+                                                Sábado das 8h às 12h
+                                            </p>
                                         </span>
                                     </a>
                                 </div>
@@ -992,12 +1019,15 @@
                                     <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/call-calling.svg" alt="">
                                     <div class="dg-txt">
                                         <p>11 3990 7450</p>
-                                        <strong>Segunda a Sábado</strong>, das 8h às 20h
+                                        <p>
+                                            Seg a Sex das 8h às 19h38<br>
+                                            Sábado das 8h às 12h
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="dg-produto-acoes-btns-compra dg-desktop-hide">
-                                <a class="dg-produto-acoes-televenda" href="tel:+551139907720">(11) 3990-7450<span class="dg-icon dg-icon-televendas-1"></span></a>
+                                <a class="dg-produto-acoes-televenda" href="tel:+551139907450">(11) 3990-7450<span class="dg-icon dg-icon-televendas-1"></span></a>
                             </div>
                         }
 
