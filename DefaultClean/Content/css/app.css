@@ -6190,8 +6190,8 @@ body .dg-categoria-desc-divider {
 
 body .dg-categoria-intro {
   display: block;
-  padding: 24px 0 24px 104px;
-  height: 141px;
+  padding: 24px 0 12px 104px;
+  min-height: 141px;
   border-radius: 15px;
   position: relative;
 }
@@ -8591,7 +8591,7 @@ body .dg-usuario-conteudo-pedidos-btn:hover .dg-icon, body .dg-usuario-conteudo-
 }
 
 body .dg-categoria-carregar-mais {
-  max-width: 360px;
+  max-width: 380px;
   margin: 24px auto 52px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8608,6 +8608,18 @@ body .dg-categoria-carregar-mais {
   color: #0B1841;
 }
 
+@media (max-width: 991px) {
+  body .dg-categoria-carregar-mais {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
 body .dg-categoria-carregar-mais button {
   display: block;
   width: 138px;
@@ -8621,11 +8633,13 @@ body .dg-categoria-carregar-mais button {
   text-transform: uppercase;
   color: #fff;
   background-color: #002399;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 @media (max-width: 991px) {
   body .dg-categoria-carregar-mais button {
-    margin: 0 auto;
+    margin: 10px auto 0;
   }
 }
 
@@ -8641,6 +8655,13 @@ body .dg-categoria-carregar-mais-barra {
   background-color: #F5F9FD;
   overflow: hidden;
   margin-top: 16px;
+}
+
+@media (max-width: 991px) {
+  body .dg-categoria-carregar-mais-barra {
+    margin: 0 auto;
+    margin-top: 8px;
+  }
 }
 
 body .dg-categoria-carregar-mais-barra-progresso {

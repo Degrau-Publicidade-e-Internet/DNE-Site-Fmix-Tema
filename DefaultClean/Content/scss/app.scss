@@ -5148,8 +5148,8 @@ body {
     }
     .dg-categoria-intro {
         display: block;
-        padding: 24px 0 24px 104px;
-        height: 141px;
+        padding: 24px 0 12px 104px;
+        min-height: 141px;
         border-radius: 15px;
         position: relative;
         @media (max-width: 991px) {
@@ -7163,7 +7163,7 @@ body {
         }
     }
     .dg-categoria-carregar-mais {
-        max-width: 360px;
+        max-width: 380px;
         margin: 24px auto 52px;
         display: flex;
         align-items: center;
@@ -7172,7 +7172,11 @@ body {
         font-size: 12px;
         line-height: 14px;
         color: $corPrimaria;
-        button {
+        @media (max-width: 991px) {
+            flex-direction: column;
+            justify-content: center;
+        }
+        button { 
             display: block;
             width: 138px;
             height: 36px;
@@ -7185,8 +7189,9 @@ body {
             text-transform: uppercase;
             color: #fff;
             background-color: $corSecundaria;
+            flex-shrink: 0;
             @media (max-width: 991px) {
-                margin: 0 auto;
+                margin: 10px auto 0;
             }
             &:hover, &:focus {
                 background-color: darken($corSecundaria, 5%);
@@ -7201,6 +7206,10 @@ body {
         background-color: #F5F9FD;
         overflow: hidden;
         margin-top: 16px;
+        @media (max-width: 991px) {
+            margin: 0 auto;
+            margin-top: 8px;
+        }
         &-progresso {
             position: absolute;
             top: 0;
