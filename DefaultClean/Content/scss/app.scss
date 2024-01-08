@@ -5197,9 +5197,6 @@ body {
         @media (min-width: 992px) {
             width: 18%;
         }
-        @media (min-width: 1280px) {
-            width: 14.668%;
-        }
     }
     .dg-categoria-sidebar {
         background-color: #F5F9FD;
@@ -7800,7 +7797,7 @@ body {
         background-color: #edf0f3;
     }
     .dg-header-sac {
-        margin-left: 0;
+        margin-left: auto;
     }
     .dg-header-sac .dg-icon {
         width: auto;

@@ -6258,12 +6258,6 @@ body .dg-categoria-intro .dg-categoria-desc-wrapper {
   }
 }
 
-@media (min-width: 1280px) {
-  body .dg-boxproduto-lista.dg-4 .dg-boxproduto {
-    width: 14.668%;
-  }
-}
-
 body .dg-categoria-sidebar {
   background-color: #F5F9FD;
   border-radius: 25px;
@@ -9271,7 +9265,7 @@ body .dg-header-sac__block-wrapper {
 }
 
 body .dg-header-sac {
-  margin-left: 0;
+  margin-left: auto;
 }
 
 body .dg-header-sac .dg-icon {
