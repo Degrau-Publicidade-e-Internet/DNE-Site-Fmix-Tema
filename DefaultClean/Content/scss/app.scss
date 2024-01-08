@@ -5815,11 +5815,11 @@ body {
             line-height: 18px;
             &:last-child {
                 margin-bottom: 0;
-                font-weight: bold;
-                color: $corComplementar;
-                @media (max-width: 991px) {
-                    margin-bottom: 20px;
-                }
+                // font-weight: bold;
+                // color: $corComplementar;
+                // @media (max-width: 991px) {
+                //     margin-bottom: 20px;
+                // }
             }
             @media (max-width: 991px) {
                 margin-bottom: 16px;
@@ -7753,6 +7753,14 @@ body {
     .dg-usuario-conteudo-pedido-titulo.dg-ativo {
         &::before {
             transform: scale(1);
+        }
+    }
+}
+
+body {
+    @media (max-width: 991px) {
+        .dg-categoria-sidebar .dg-titulo[data-tipo-titulo="preco"] .dg-categoria-sidebar-limpar {
+            top: 0;
         }
     }
 }

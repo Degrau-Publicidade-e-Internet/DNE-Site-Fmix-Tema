@@ -6978,14 +6978,6 @@ body .dg-institucional-nossahistoria p {
 
 body .dg-institucional-nossahistoria p:last-child {
   margin-bottom: 0;
-  font-weight: bold;
-  color: #00D19D;
-}
-
-@media (max-width: 991px) {
-  body .dg-institucional-nossahistoria p:last-child {
-    margin-bottom: 20px;
-  }
 }
 
 @media (max-width: 991px) {
@@ -9232,5 +9224,11 @@ body .dg-btn-alert-cancelar:first-letter {
 body .dg-usuario-conteudo-pedido-titulo.dg-ativo::before {
   -webkit-transform: scale(1);
           transform: scale(1);
+}
+
+@media (max-width: 991px) {
+  body .dg-categoria-sidebar .dg-titulo[data-tipo-titulo="preco"] .dg-categoria-sidebar-limpar {
+    top: 0;
+  }
 }
 /*# sourceMappingURL=app.css.map */
