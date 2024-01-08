@@ -7063,7 +7063,7 @@ body .dg-institucional-atendimento-row h3 ~ p b {
   color: #002399 !important;
 }
 
-body .dg-modal-farmaceutico-wrapper a {
+body .dg-modal-farmaceutico-wrapper > div a {
   color: #00D19D;
 }
 
@@ -9290,5 +9290,22 @@ body .dg-header-sac__text {
 
 body .dg-menuA > .container > ul > li > a.dg-ativo ~ .dg-menuA-submenu {
   display: block;
+}
+
+body .dg-erroForm + input:not([type="radio"]):not([type="checkbox"]), body .dg-erroForm + select {
+  border-color: #E00D4C;
+}
+
+body .dg-erroForm {
+  padding: 5px 10px;
+  border-radius: 5px;
+  position: absolute;
+  font-size: 12px;
+  top: -10px;
+  background: #E00D4C;
+}
+
+body .dg-erroForm:hover, body .dg-erroForm:focus {
+  background: #c80c44;
 }
 /*# sourceMappingURL=app.css.map */

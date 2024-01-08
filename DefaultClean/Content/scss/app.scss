@@ -5899,7 +5899,7 @@ body {
             color: $corSecundaria !important;
         }
     }
-    .dg-modal-farmaceutico-wrapper a {
+    .dg-modal-farmaceutico-wrapper > div a {
         color: $corComplementar;
     }
 
@@ -7818,5 +7818,20 @@ body {
     }
     .dg-menuA>.container>ul>li>a.dg-ativo~.dg-menuA-submenu {
         display: block;
+    }
+
+    .dg-erroForm+input:not([type="radio"]):not([type="checkbox"]), .dg-erroForm+select {
+        border-color: $corVermelho;
+    }
+    .dg-erroForm {
+        padding: 5px 10px;
+        border-radius: 5px;
+        position: absolute;
+        font-size: 12px;
+        top: -10px;
+        background: $corVermelho;
+        &:hover, &:focus {
+            background: darken($corVermelho, 5%);
+        }
     }
 }
