@@ -85,19 +85,6 @@
             </form>
             <div class="dg-header-busca-overlay"></div>
             
-            <div class="dg-header-sac">
-                <div class="dg-icon dg-icon-sac"></div>
-                <div class="dg-header-sac__block-wrapper">
-                    <div class="dg-header-sac__block">
-                        <div class="dg-header-sac__title">SAC</div>
-                        <div class="dg-header-sac__text">(11) 3990-5089</div>
-                    </div>
-                    <div class="dg-header-sac__block">
-                        <div class="dg-header-sac__title">Televendas</div>
-                        <div class="dg-header-sac__text">(11) 3990-7450</div>
-                    </div>
-                </div>
-            </div>
 
             <div class="dg-header-luz">
                 <button type="button" class="dg-header-luz-btn jsMudaTema">
@@ -117,6 +104,20 @@
                     </div>
                 </a>
             </div>
+            
+            <div class="dg-header-sac">
+                <img class="dg-icon dg-icon-sac" src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/call-calling-azul.svg" alt="">
+                <div class="dg-header-sac__block-wrapper">
+                    <div class="dg-header-sac__block">
+                        <div class="dg-header-sac__title">SAC</div>
+                        <div class="dg-header-sac__text">(11) 3990-5089</div>
+                    </div>
+                    <div class="dg-header-sac__block">
+                        <div class="dg-header-sac__title">Televendas</div>
+                        <div class="dg-header-sac__text">(11) 3990-7450</div>
+                    </div>
+                </div>
+            </div>
 
             <script id="templateLogadoMenu" type="text/x-jquery-tmpl">
                 {if RetornoLogado.logado}
@@ -131,7 +132,7 @@
 
                 {if RetornoLogado.logado}
                 <div class="dg-desktop-hide dg-menu-login-mobile">
-                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/frame-mobile.svg" width="37" height="37">
+                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/frame-mobile-blue.svg" width="37" height="37">
                     <div class="dg-menu-login-mobile-top">
                         <div>Bem-vindo, <strong>${RetornoLogado.NomeCliente}</strong></div>
                         <div class="dg-menu-login-mobile-bottom">
@@ -176,7 +177,7 @@
                 </div>
                 {else}
                 <div class="dg-desktop-hide dg-menu-login-mobile">
-                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/frame-mobile.svg" width="37" height="37" alt="ìcone de usuário">
+                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/frame-mobile-blue.svg" width="37" height="37" alt="ìcone de usuário">
                     <div>
                         <div class="dg-menu-login-mobile-top">Bem-vindo, <strong>visitante</strong></div>
                         <div class="dg-menu-login-mobile-bottom">
@@ -612,7 +613,7 @@
                 <div class="dg-header-copy">
                     <div class="dg-header-logo">
                         <a href="@Html.Domain()/" class="dg-add-loading">
-                            <img src="@Html.Domain()/Themes/DefaultClean/Content/img/header/logo-white.svg" alt="Farmacia Mix - Logotipo" loading="lazy">
+                            <img src="@Html.Domain()/Themes/DefaultClean/Content/img/header/logo.svg" alt="Farmacia Mix - Logotipo" loading="lazy">
                         </a>
                     </div>
                     <div class="dg-header-carrinho">
@@ -632,7 +633,7 @@
             @foreach (var categoria in OHeader.MenuCategorias)
             {
                 <li>
-                    <a href="@Html.Domain()/@categoria.URLCategoria/" menuaba="@Html.Raw(categoria.Categoria)">
+                    <a class="dg-mobile-hide" href="@Html.Domain()/@categoria.URLCategoria/" menuaba="@Html.Raw(categoria.Categoria)">
                         @* <span class="dg-icon dg-icon-@categoria.URL"></span> *@
                         <span class="dg-icon-img dg-icon-img-@categoria.URL" role="presentation">
                             <img src="@Html.Domain()/assets/img/lazy.png" class="dg-icon-img-img" data-src-menu-icon="@categoria.URL" alt="Categoria: @categoria.URL" loading="lazy">
@@ -640,6 +641,19 @@
                         </span>
                         @Html.Raw(categoria.Categoria)
                        
+                    </a>
+                    <a class="jsIgnoreJs dg-desktop-hide" href="@Html.Domain()/@categoria.URLCategoria/">
+                        @* <span class="dg-icon dg-icon-@categoria.URL"></span> *@
+                        <span class="dg-icon-img dg-icon-img-@categoria.URL" role="presentation">
+                            <img src="@Html.Domain()/assets/img/lazy.png" class="dg-icon-img-img" data-src-menu-icon="@categoria.URL" alt="Categoria: @categoria.URL" loading="lazy">
+                            <img src="@Html.Domain()/assets/img/lazy.png" class="dg-icon-img-hover" data-src-menu-icon="@categoria.URL-hover" alt="Categoria: @categoria.URL hover" loading="lazy">
+                        </span>
+                        @Html.Raw(categoria.Categoria)
+                       
+                    </a>
+
+                    <a href="#" class="dg-desktop-hide" menuaba="@Html.Raw(categoria.Categoria)">
+                        <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/chevron-right-blue.svg" alt="Icone Seta" loading="lazy">
                     </a>
 
                     <!-- submenu -->

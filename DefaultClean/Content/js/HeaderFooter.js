@@ -288,3 +288,239 @@ function inserirNoCarrinho(el, e) {
         $(el).removeClass('dg-adicionado-carrinho');
     }, 1750);
 }
+
+
+Header.menuCategorias = function() {
+    $(".dg-header-menu a, .dg-header-m-abrirmenu, .dg-menuA-overlay").on('click', function(event) {
+        var el = $(this);
+
+        if ($(".dg-menuA").hasClass("dg-jsativo") === false) {
+            $(".dg-menuA > .container > ul > li > a").prepend("<span class='dg-menuA-detalhe1'></span><span class='dg-menuA-detalhe2'></span>");
+            $(".dg-menuA [data-src-menu]").each(function(){
+                $(this).attr("src",$(this).attr("data-src-menu")).removeAttr("data-src-menu");
+                $(this)[0].removeAttribute('width');
+                $(this)[0].removeAttribute('height');
+            });
+    
+            $(".dg-menuA [data-src-menu-icon]").each(function(){
+                $(this).attr("src",DominioAjax+"/assets/img/header/icones/"+$(this).attr("data-src-menu-icon")+".png").removeAttr("data-src-menu-icon");
+                $(this)[0].removeAttribute('width');
+                $(this)[0].removeAttribute('height');
+            });
+            // checandoTamanhoLiMenuA();
+    
+            $(".dg-menuA > .container > ul").prepend("<a href='javascript:void(0)' aria-label='Fechar Menu Principal' class='dg-menuA-fechar' title='Fechar Menu'></a>");
+    
+            // Funções de navegação
+            $(".dg-menuA > .container > ul > li > a").mouseenter(function(){
+                if(window.innerWidth > 991) {
+                    if ($(this).parent().find(".dg-menuA-submenu").length > 0) {
+                        $(".dg-menuA > .container > ul > li > a").removeClass("dg-ativo");
+                        $(this).addClass("dg-ativo");
+                        // checandoTamanhoLiMenuA();
+                        $(".dg-menuA").addClass("dg-ativo-submenu");
+                    }
+                }
+            });
+    
+            var submenuFunction = "click";
+    
+            if(window.innerWidth > 991) {
+                submenuFunction = "focus";	
+            }
+    
+            $.fn.textWidth = function(){
+                var html_org = $(this).html();
+                var html_calc = '<span>' + html_org + '</span>';
+                $(this).html(html_calc);
+                var width = $(this).find('span:first').width();
+                $(this).html(html_org);
+                return width;
+            };
+    
+            $(".dg-menuA > .container > ul > li > a").on(submenuFunction, function(){
+                if ($(this).parent().find(".dg-menuA-submenu").length > 0 && $(this).attr("menuaba")) {
+                    $('.dg-menuA > .container > ul > li.dg-ativo').removeClass('dg-ativo');
+                    $(".dg-menuA > .container > ul > li > a").removeClass("dg-ativo");
+                    $(this).addClass("dg-ativo");
+                    // checandoTamanhoLiMenuA();
+                    $(".dg-menuA").addClass("dg-ativo-submenu");
+                    $(this).closest('li').addClass('dg-ativo');
+                    if(window.innerWidth < 992) {
+                        if (!$(this).hasClass('dg-widthCalculated')) {
+                            $(this).addClass('dg-widthCalculated');
+                            $(this).parent().find('.dg-menuA-submenu').find('li span strong').each(function(i) {
+                                $(this).css('width', $(this).textWidth() + 1 + 'px');
+                            });
+                        }
+                    }
+                }
+            });
+    
+            // Funções de fechar menu
+            $(".dg-menuA-fechar").click(function(){
+                $(".dg-menuA > .container > ul > li > a").removeClass("dg-ativo");
+                $(".dg-menuA").removeClass("dg-ativo-submenu");
+                $(".dg-menuA").addClass("dg-loading-invisible");
+                $(".dg-menuA, .dg-menuA-overlay").addClass("dg-menuA-fadeOut");
+                $('body').removeClass('dg-isBlockedScroll');
+                $('html').removeClass('dg-isBlockedScroll');
+                setTimeout(function(){
+                    $(".dg-menuA, .dg-menuA-overlay, .dg-header-menu-vertodas, .dg-header").removeClass("dg-aberto");
+                    $(".dg-menuA, .dg-menuA-overlay").removeClass("dg-menuA-fadeOut");
+                    $(".dg-menuA").removeClass("dg-loading-invisible");
+                },500);
+            });
+    
+            $(".dg-menuA-submenu").prepend("<a href='javascript:void(0)' aria-label='Fechar Sub-Menu' class='dg-menuA-fechar-submenu'><span class='dg-icon dg-icon-arrow01-left'></span>Voltar</a>");
+    
+            $(".dg-menuA-fechar-submenu").click(function(){
+                $(".dg-menuA").removeClass("dg-ativo-submenu");
+                $('.dg-menuA > .container > ul > li.dg-ativo').removeClass('dg-ativo');
+                $(".dg-menuA > .container > ul > li > a").removeClass("dg-ativo");
+            });
+    
+            $(".dg-menuA").addClass("dg-jsativo");
+        }
+    
+        if ($(el).attr("menuaba")) {
+            event.preventDefault();
+            if ($(".dg-menuA").hasClass("dg-loading-invisible") === false) {
+    
+                if ($(".dg-menuA").hasClass("dg-aberto") === false) {
+    
+                    $(".dg-menuA").addClass("dg-loading-invisible");
+                    $(".dg-menuA, .dg-menuA-overlay, .dg-header-menu-vertodas, .dg-header").addClass("dg-aberto");
+                    $(".dg-menuA, .dg-menuA-overlay").addClass("dg-menuA-fadeIn");
+    
+                    setTimeout(function(){
+                        $(".dg-menuA, .dg-menuA-overlay").removeClass("dg-menuA-fadeIn");
+                        $(".dg-menuA").removeClass("dg-loading-invisible");
+                    },500);
+    
+                    $('body').addClass('dg-isBlockedScroll');
+                    $('html').addClass('dg-isBlockedScroll');
+    
+    
+                } else {
+                    $(".dg-menuA > .container > ul > li > a").removeClass("dg-ativo");
+                    $(".dg-menuA").removeClass("dg-ativo-submenu");
+                    $(".dg-menuA").addClass("dg-loading-invisible");
+                    $(".dg-menuA, .dg-menuA-overlay").addClass("dg-menuA-fadeOut");
+                    setTimeout(function(){
+                        $(".dg-menuA, .dg-menuA-overlay, .dg-header-menu-vertodas, .dg-header").removeClass("dg-aberto");
+                        $(".dg-menuA, .dg-menuA-overlay").removeClass("dg-menuA-fadeOut");
+                        $(".dg-menuA").removeClass("dg-loading-invisible");
+                    },500);
+                }
+                // console.log($(el).attr("menuaba"));
+                $(".dg-menuA > .container > ul > li > a").removeClass("dg-ativo");
+                $(".dg-menuA > .container > ul > li > a[menuaba='"+$(el).attr("menuaba")+"']").addClass("dg-ativo");
+            }
+    
+        } else {
+            $(".dg-menuA > .container > ul > li > a").removeClass("dg-ativo");
+            $(".dg-menuA").removeClass("dg-ativo-submenu");
+            $(".dg-menuA").addClass("dg-loading-invisible");
+            $(".dg-menuA, .dg-menuA-overlay").addClass("dg-menuA-fadeOut");
+            setTimeout(function(){
+                $(".dg-menuA, .dg-menuA-overlay, .dg-header-menu-vertodas, .dg-header").removeClass("dg-aberto");
+                $(".dg-menuA, .dg-menuA-overlay").removeClass("dg-menuA-fadeOut");
+                $(".dg-menuA").removeClass("dg-loading-invisible");
+            },500);
+        }
+    
+        setTimeout(function() {
+            if ($(el).attr('menuaba') === "Principal") {
+                if(window.innerWidth > 991) {
+                    $(".dg-menuA > .container > ul > li > a").first().trigger('mouseenter');
+                }
+            }
+        }, 100);
+
+    });
+
+    $(".dg-header-menu a").mouseenter(function(){
+        if ($(".dg-menuA").hasClass("dg-jsativo")) {
+            if ($(this).attr("menuaba")) {
+                $(".dg-menuA > .container > ul > li > a").removeClass("dg-ativo");
+                if ($(this).attr("menuaba") === "Principal") {
+                    $(".dg-menuA > .container > ul > li > a[menuaba='"+$(".dg-menuA > .container > ul > li > a").first().attr("menuaba")+"']").addClass("dg-ativo");
+                } else {
+                    $(".dg-menuA > .container > ul > li > a[menuaba='"+$(this).attr("menuaba")+"']").addClass("dg-ativo");
+                }
+            }
+    
+        }
+    });
+
+    $(".dg-menuA > .container > ul > li > a:not(.jsIgnoreJs)").click(function(e) {
+        if(window.innerWidth <= 991) {
+            e.preventDefault();
+        }
+    });
+};
+
+function abrirModal(jsonInfo) {
+    // {
+    //     "titulo" : "titulo do modal",
+    //     "txt" : "caso o modal tenha texto",
+    //     "id" : "idDoTemplate",
+		// "classe" : "classe",
+		// "fechar" : true,
+    // }
+
+	if(!jsonInfo.fechar) {
+		jsonInfo.fechar = "sim";
+	}
+    var conteudoModalTxt = '';
+
+	var classeModalExtra = '';
+
+	if(jsonInfo.classe) {
+		classeModalExtra = "dg-modal-classe-"+jsonInfo.classe;
+	}
+
+	if(jsonInfo.id) {
+		conteudoModalTxt = '<div class="dg-modal dg-modal-id-'+jsonInfo.id+' '+classeModalExtra+'"><div class="dg-modal-container modalAnimated modalFadeInUp modalDelay-300"><div class="dg-modal-conteudo" role="alert">';
+	} else {
+		conteudoModalTxt = '<div class="dg-modal '+classeModalExtra+'"><div class="dg-modal-container modalAnimated modalFadeInUp modalDelay-300"><div class="dg-modal-conteudo" role="alert">';
+	}
+
+    if(jsonInfo.titulo) {
+        conteudoModalTxt += '<div class="dg-titulo">'+jsonInfo.titulo+' </div>';
+	}
+
+    if(jsonInfo.id) {
+		if(jQuery("#"+jsonInfo.id).html()){
+			conteudoModalTxt += jQuery("#"+jsonInfo.id).html();
+		}
+	}
+
+	if (jsonInfo.txt != "" && jsonInfo.txt !== undefined) {
+        conteudoModalTxt += jsonInfo.txt;
+    }
+
+    conteudoModalTxt += '</div>';
+	
+	if(jsonInfo.fechar === "sim") {
+		conteudoModalTxt += '<a href="javascript:void(0)" onclick="fecharModal(this)" class="dg-modal-fechar">x</a>';
+	}
+
+	conteudoModalTxt += '</div>';
+
+	if(jsonInfo.fechar === "sim") {
+		conteudoModalTxt += '<div class="dg-modal-overlay modalAnimated modalFadeIn" onclick="fecharModal(this)"></div>';
+	} else {
+		conteudoModalTxt += '<div class="dg-modal-overlay modalAnimated modalFadeIn"></div>';
+	}
+	conteudoModalTxt += '</div>';
+
+    jQuery("body").append(conteudoModalTxt);
+
+	ativarMascaras(".dg-modal");
+
+	if (jsonInfo.startFunction) {
+		jsonInfo.startFunction();
+	}
+}
