@@ -4009,7 +4009,9 @@ body {
             align-items: center;
             text-align: left;
             background: $corComplementar;
-            color: #fff;
+            color: $corPrimaria;
+            background-color: #eafbf7;
+            border: 1px solid #00d19d;
             > span {
                 > span:first-child {
                     font-weight: bold;
@@ -7832,6 +7834,24 @@ body {
         background: $corVermelho;
         &:hover, &:focus {
             background: darken($corVermelho, 5%);
+        }
+    }
+
+    .dg-produto .dg-produto-acoes-proibido-tel p {
+        + p {
+            font-size: 13px;
+            font-weight: 400;
+            color: $corPrimaria;
+        }
+    }
+    .dg-produto-acoes-televenda {
+        @media (max-width: 991px) {
+            img {
+                margin-right: 4px;
+            }
+            span span {
+                margin: 0;
+            }
         }
     }
 }

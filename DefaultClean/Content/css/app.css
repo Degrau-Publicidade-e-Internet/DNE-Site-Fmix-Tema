@@ -4773,7 +4773,9 @@ body .dg-modal-id-templateModalEpharma_autorizar .dg-modal-form__continuar butto
             align-items: center;
     text-align: left;
     background: #00D19D;
-    color: #fff;
+    color: #0B1841;
+    background-color: #eafbf7;
+    border: 1px solid #00d19d;
   }
   body .dg-ProdutoisPodeComprar .dg-produto-acoes-televenda > span > span:first-child, body .dg-ProdutoisPodeComprar2 .dg-produto-acoes-televenda > span > span:first-child, body .dg-ProdutoisProibido .dg-produto-acoes-televenda > span > span:first-child, body .dg-ProdutoisProibido2 .dg-produto-acoes-televenda > span > span:first-child {
     font-weight: bold;
@@ -9307,5 +9309,20 @@ body .dg-erroForm {
 
 body .dg-erroForm:hover, body .dg-erroForm:focus {
   background: #c80c44;
+}
+
+body .dg-produto .dg-produto-acoes-proibido-tel p + p {
+  font-size: 13px;
+  font-weight: 400;
+  color: #0B1841;
+}
+
+@media (max-width: 991px) {
+  body .dg-produto-acoes-televenda img {
+    margin-right: 4px;
+  }
+  body .dg-produto-acoes-televenda span span {
+    margin: 0;
+  }
 }
 /*# sourceMappingURL=app.css.map */
