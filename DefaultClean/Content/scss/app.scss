@@ -2189,24 +2189,24 @@ body {
                 height: 138px;
                 padding: 22px 0 19px;
                 .dg-header-logo {
-                    order: 1;
                     padding-top: 6px;
                     margin-right: auto;
-                }
-                .dg-header-carrinho {
                     order: 2;
                 }
+                .dg-header-carrinho {
+                    order: 3;
+                }
                 .dg-header-m-abrirmenu {
+                    order: 1;
                     width: 38px;
                     height: 38px;
-                    margin-left: 16px;
-                    margin-right: 0;
+                    margin-left: 0;
+                    margin-right: 16px;
                     border-radius: 12px;
                     background-color: $corPrimaria;
                     background-image: url(../img/icones/menu-mobile.svg);
                     background-position: center;
                     background-repeat: no-repeat;
-                    order: 3;
                     span {
                         display: none;
                     }
@@ -2345,10 +2345,19 @@ body {
         .dg-header-copy {
             display: flex;
             padding-top: 0;
-            .dg-header-logo {
+            > .dg-header-logo {
                 padding-top: 6px;
                 margin-left: 0;
                 margin-right: auto;
+                order: 2;
+            }
+            > .dg-header-carrinho {
+                order: 3;
+            }
+            > .dg-menuA-fechar {
+                order: 1;
+                margin-left: 0;
+                margin-right: 16px;
             }
         }
         .dg-header-menu-login {
