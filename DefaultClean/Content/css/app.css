@@ -2713,7 +2713,7 @@ body .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-header-minhaconta-m
     padding-bottom: 0;
     border-radius: 0;
     background: none;
-    border-top: 1px solid #c2c2c2;
+    border-top: 1px solid #e6e6e6;
   }
   body .dg-menuA > .container > ul > .dg-menuA-fechar {
     display: none;
@@ -2721,7 +2721,7 @@ body .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-header-minhaconta-m
   body .dg-menuA > .container > ul > li {
     height: auto;
     padding: 0 !important;
-    border-bottom: 1px solid #c2c2c2;
+    border-bottom: 1px solid #e6e6e6;
   }
   body .dg-menuA > .container > ul > li:not(.dg-header-menu-login) {
     display: -webkit-box;
@@ -2769,7 +2769,7 @@ body .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-header-minhaconta-m
     width: 100%;
     height: 188px;
     padding: 22px 20px 0 !important;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: #EDF0F3;
     border-bottom: 0 !important;
   }
   body .dg-menuA > .container .dg-header-menu-login .templateLogadoLogadoCont {
@@ -2785,7 +2785,7 @@ body .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-header-minhaconta-m
     color: #00D19D;
   }
   body .dg-menuA > .container .dg-header-menu-login .dg-menu-login-mobile-bottom {
-    color: #fff;
+    color: #0B1841;
   }
   body .dg-header-copy {
     display: -webkit-box;
@@ -2865,7 +2865,7 @@ body .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-header-minhaconta-m
     padding-top: 13px !important;
   }
   .dg-menuA .dg-menuA-submenu .dg-menuA-fechar-submenu {
-    border-bottom: 1px solid #c2c2c2;
+    border-bottom: 1px solid #e6e6e6;
   }
   .dg-menuA .dg-menuA-submenu .dg-menuA-fechar-submenu {
     padding-left: 22px !important;
@@ -2907,7 +2907,7 @@ body .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-header-minhaconta-m
   .dg-menuA .dg-menuA-submenu-itens li {
     height: auto;
     padding: 0 !important;
-    border-bottom: 1px solid #c2c2c2;
+    border-bottom: 1px solid #e6e6e6;
   }
   .dg-menuA .dg-menuA-submenu-itens li a {
     text-transform: uppercase;
@@ -2940,7 +2940,7 @@ body .dg-header-minhaconta-modal-footer-voltar-btn, body .dg-header-minhaconta-m
 
 @media (max-width: 991px) {
   .dg-menuA-overlay {
-    background-color: rgba(238, 238, 238, 0.9);
+    background-color: #f9f9f9;
     -webkit-backdrop-filter: blur(3px);
             backdrop-filter: blur(3px);
   }
