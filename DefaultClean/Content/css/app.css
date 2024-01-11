@@ -9340,4 +9340,10 @@ body .dg-produto .dg-produto-acoes-proibido-tel p + p {
     margin: 0;
   }
 }
+
+@media (min-width: 1180px) and (min-height: 681px) {
+  body .dg-header-sac {
+    margin-top: 0;
+  }
+}
 /*# sourceMappingURL=app.css.map */
