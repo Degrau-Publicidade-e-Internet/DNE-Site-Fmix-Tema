@@ -27,7 +27,7 @@
             // });
 
             $(".templateLogadoLogadoCont #modalCadastro").submit(function () {
-                if (validacaoBasica($(this))) {
+                if (validacaoBasica($(this)[0].className)) {
                     Cliente.validaCPF($(this).find('#VeryCPF'));
                 }
             });
