@@ -4898,6 +4898,8 @@ body .dg-modal-id-dgmodalsimilares .dg-modal-container .dg-modal-conteudo .dg-su
 @media (max-width: 991px) {
   body .dg-modal-id-dgmodalsimilares .dg-modal-container .dg-modal-conteudo .dg-subtitulo {
     margin-top: 16px;
+    padding: 0 24px;
+    text-align: left;
   }
 }
 

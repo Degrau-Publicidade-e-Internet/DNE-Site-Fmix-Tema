@@ -465,7 +465,7 @@ function ModalSimiliares() {
 		autoplayButtonOutput: false, 
 		mouseDrag: true,
 		nav: false,
-		items: 1.2,
+		items: 1.5,
 		loop: false,
 		controls: false,
 		gutter: 20,
