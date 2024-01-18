@@ -3679,8 +3679,8 @@ body .dg-produto .dg-produto-info-side .dg-produto-acoes-modais > * {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  max-width: 154px;
   margin-right: 5px;
+  max-width: 50%;
 }
 
 body .dg-produto .dg-produto-info-side .dg-produto-acoes-modais > *:last-child {

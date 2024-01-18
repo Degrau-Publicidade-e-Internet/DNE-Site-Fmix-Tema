@@ -3071,8 +3071,8 @@ body {
                 }
                 > * {
                     flex: 1;
-                    max-width: 154px;
                     margin-right: 5px;
+                    max-width: 50%;
                     &:last-child {
                         margin-right: 0;
                     }
@@ -7896,4 +7896,5 @@ body {
             background-color: #eee;
         }
     }
+
 }
