@@ -519,32 +519,7 @@
                                 }
                             }
                         </div>
-                        <div class="dg-produto-acoes-modais">
-                            @if (SP.ID_Categoria != 2 && SP.ID_Categoria != 34)
-                            {
-                                <div>
-                                    <h2>
-                                        <a href="javascript:void(0)" class="dg-produto-acoes-modais-btn" onclick="abrirModal({titulo:'Apresentação', id:'templateProdutoParaQueServe'})">
-                                            <strong>Apresentação</strong>
-                                        </a>
-                                    </h2>
-                                    
-                                    <div id="templateProdutoParaQueServe" style="display:none">
-                                        @{
-
-                                            string PrincipalIndicacao = SP.PrincipalIndicacao;
-
-                                            if (string.IsNullOrEmpty(PrincipalIndicacao))
-                                            {
-                                                PrincipalIndicacao = "Não informado.";
-                                            }
-                                        }
-
-                                        @Html.Raw(@PrincipalIndicacao)
-                                    </div>
-                                </div>
-                            }
-                            
+                        <div class="dg-produto-acoes-modais">                    
                             @if (MostraProdutoImportado == 1)
                             {
                                 <div class="dg-produto-acoes-modais-valoraprox">

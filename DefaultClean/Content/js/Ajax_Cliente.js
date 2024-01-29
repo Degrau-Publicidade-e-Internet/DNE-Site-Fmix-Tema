@@ -27,7 +27,7 @@
             // });
 
             $(".templateLogadoLogadoCont #modalCadastro").submit(function () {
-                if (validacaoBasica($(this))) {
+                if (validacaoBasica($(this)[0].className)) {
                     Cliente.validaCPF($(this).find('#VeryCPF'));
                 }
             });
@@ -257,4 +257,52 @@ function validacaoBasica(form, validacaoExtra) {
     }
 
     return retornoValidacao;
+}
+
+Cliente.validaCPF = function (el) {
+    var elValue = $(el).closest('form').find('#VeryCPF').val();
+
+    if (!Cliente.TestaCPF(elValue)) {
+        // C.P.F Inválido
+        $.alertpadrao({ type: 'html', text: 'CPF inválido. Por favor, insira um valor correto.', addClass: "dg-negativo" });
+    } else {
+        var item = {};
+        item.cpf = elValue;
+        $.ajax({
+            type: 'POST',
+            url: "/Api/ValidaCPF/",
+            data: item,
+            contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+            headers: addAntiForgeryToken({}), //<< obrigatorio pessoal
+            dataType: 'json',
+            success: function (response) {
+
+                if (response.StatusCode > 0) {
+
+                    $.alertpadrao({ type: 'html', text: response.Erro, addClass: "dg-negativo" });
+
+                }
+                else {
+
+                    if ($("#FW").val() != "" && typeof $("#FW").val() !== "undefined") {
+
+                        var fw = $("#FW").val();
+                        //location.href = DominioAjax + "/" + fw + "/";
+                        window.location.href = DominioAjax + '/cadastro/?pg=' + fw + '&cpf=' + elValue;
+                    } else {
+                        window.location.href = DominioAjax + '/cadastro/' + '?cpf=' + elValue;
+                    }
+                    
+
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+
+            },
+            failure: function (msg) {
+
+            }
+        });
+
+    }
 }
