@@ -13,6 +13,8 @@
     ViewData["QtdfPags"] = oModel.PageCount;
     ViewData["compretambemCheckout"] = null;
 
+    oModel.request.NomeSubCategoria = oModel._functionsProject.RemoverAcentos(oModel.request.NomeSubCategoria);
+
 
     string corFaixa = "#C6E3E1";
 
