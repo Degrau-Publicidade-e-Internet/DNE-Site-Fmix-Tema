@@ -1,0 +1,1912 @@
+﻿@model DNE.Site.Models.Pages.PageProdutoModel
+@using DNE.Models.Generic;
+@using System.Globalization;
+@using Newtonsoft.Json;
+@{
+    var marca = char.ToUpper(Model.SEORootProduct.brand.name.ToLower()[0]) + Model.SEORootProduct.brand.name.ToLower().Substring(1);
+    var produto = char.ToUpper(Model.SEORootProduct.name.ToLower()[0]) + Model.SEORootProduct.name.ToLower().Substring(1);
+
+    ViewData["BodyID"] = "produto-pg";
+    ViewData["TemosTambem"] = "";
+    ViewData["compretambemCheckout"] = null;
+
+
+
+    ViewData["Description"] = Model.SEORootProduct.description;
+    ViewData["Title"] = Model.MetaTitle;
+
+    var SP = Model.SubProduto;
+
+    var FnProject = Model._functionsProject;
+    var farmaceu = FnProject.GetFarmaceuticosResponsavel();
+
+    var Fotos = Model.Fotos;
+    var PromocaoMedicamento = Model.PromocaoMedicamento;
+    var PromocaoMedicamento2 = Model.PromocaoMedicamento2;
+    var GiftIndCamp = Model.GiftIndustriaCampanha;
+    var _seoProduct = Model.SEORootProduct;
+
+    var banners = Model.BannerCategoria;
+
+    string UrlBreadCrumbsC = "";
+    string UrlBreadCrumbsSC = "";
+    string URLProduto = "";
+    string URLProduto2 = "";
+    int MostraBtnPromocao = 0;
+    int MostraBtnPromocao2 = 0;
+    int MostraDetalhesCompraTrue = 1;
+    int MostraDetalhesCompraFalse = 0;
+    int MostraProdutoImportado = 0;
+    decimal Valor = 0.00m; ;
+    decimal ValorComDesconto = 0.00m;
+    decimal ValorDe = 0.00m;
+    decimal ValorTotal = 0;
+    int IfDesconto = 0;
+    decimal ValorNovo = 0;
+    decimal ValorSiteSP = 0.00m;
+    decimal Peso = 0.00m;
+    int Estoque = 0;
+    int EstoqueAtual = 0;
+    int BTnComprar = 0;
+    int BTnIndisponivel = 0;
+    decimal DescontoValor = 0;
+    decimal DescontoPorcentagem = 0;
+    string DescontoPorcentagemCor = "";
+    decimal ValorEmQtd = 0.00m;
+    int MostraProdutoVendaRestrita = 0;
+    string Descricao = "";
+    string SEO_Produto = "";
+    string Urlcanonical = "";
+
+    string isFavorito = Model.IsFavorito == true ? "dg-produto-img-favorito" : "";
+
+    if (SP != null)
+    {
+
+        Urlcanonical = Model.UrlCanonical;
+    }
+
+
+}
+
+
+@{
+    // Bebber para o task 86a0jkcba a variavel com avisolegal é @SP.AvisoLegal
+    
+    if (SP != null)
+    {
+        
+        Valor = SP.Valor;
+        ValorComDesconto = SP.ValorComDesconto;
+
+        ViewData["PageProduto_Foto"] = Model._functionsProject.FotosControladoRXType(SP.Controlado, SP.Generico, SP.RXType, SP.RX, SP.Foto, SP.Controlado405);
+        ViewData["ID_SubProduto"] = SP.ID_SubProduto;
+        ViewData["DataLayerProd"] = JsonConvert.SerializeObject(Model.DataLayerNew);
+
+        string _subCat = SP.SubCategoria;
+        string compSubCat = "";
+        if (_subCat != null)
+        {
+            compSubCat = FnProject.TiraAcento(SP.SubCategoria.Trim()) + "/";
+        }
+
+        SEO_Produto = ("Comprar " + FnProject.PrimeiraMaiuscula(SP.NomeProduto.ToLower(), "1") + " com melhor preço e entrega em todo o Brasil. Conheça todas as apresentações de " + FnProject.PrimeiraMaiuscula(SP.NomeProduto.ToLower(), "1").Split(' ')[0] + " na <a href='" + FnProject.Dominio() + "/" + FnProject.TiraAcento(SP.Categoria.Trim()) + "/" + compSubCat + "'>categoria de " + SP.SubCategoria + ".</a> " + FnProject.PrimeiraMaiuscula(SP.NomeProduto.ToLower(), "1").Split(' ')[0] + " comprar com quem tem mais de 40 anos de tradição. ").Replace("™", "&trade;");
+
+        string compSub = "";
+
+        if (SP.SubCategoria != null)
+        {
+            compSub = FnProject.TiraAcento(SP.SubCategoria.Trim()) + "/";
+        }
+
+        UrlBreadCrumbsC = FnProject.TiraAcento(SP.Categoria) + "/";
+        UrlBreadCrumbsSC = FnProject.TiraAcento(SP.Categoria) + "/" + compSub;
+
+        URLProduto2 = FnProject.Dominio() + "/" + FnProject.TiraAcento(SP.Categoria.Trim()) + "/" + compSub + "comprar-" + FnProject.TiraAcento(SP.NomeProduto.Trim()) + "-" + SP.ID_SubProduto;
+
+        URLProduto = URLProduto2 + "/";
+
+
+        if (PromocaoMedicamento != null)
+        {
+            if (PromocaoMedicamento.Compre > 0 && PromocaoMedicamento.Pague > 0) { MostraBtnPromocao = 1; }
+        }
+        else if (PromocaoMedicamento2 != null)
+        {
+            if (PromocaoMedicamento2.QtdDesc > 0 && SP.Estoque >= PromocaoMedicamento2.QtdDesc) { MostraBtnPromocao2 = 1; }
+        }
+        //Descricao = (SP.DescrDNE.Length > 1 ? SP.DescrDNE : SP.Descr);
+        Descricao = SP.Descricao;
+
+        ValorTotal = Model.ValorTotal;
+        ValorSiteSP = Model.ValorSiteSP;
+        IfDesconto = Model.IfDesconto;
+        ValorDe = Model.ValorDe;
+        ValorNovo = Model.ValorNovo;
+
+        Peso = SP.Peso;
+        Estoque = SP.Estoque;
+        EstoqueAtual = Model.EstoqueAtual;
+
+        if (SP.VendaRestrita)
+        {
+            MostraDetalhesCompraTrue = 0;
+            MostraDetalhesCompraFalse = 0;
+            MostraProdutoVendaRestrita = 1;
+        }
+
+        if (SP.Controlado == true || SP.Controlado405)
+        {
+            BTnComprar = 1;
+            MostraDetalhesCompraTrue = 0;
+            MostraDetalhesCompraFalse = 1;
+
+        }
+        else if (Estoque <= 0 || SP.Indisponivel == true)
+        {
+            BTnIndisponivel = 1;
+            BTnComprar = 1;
+        }
+        else
+        {
+            BTnComprar = 1;
+        }
+
+        if (SP.Importado)
+        {
+            MostraProdutoImportado = 1;
+            MostraDetalhesCompraTrue = 0;
+            MostraDetalhesCompraFalse = 0;
+            BTnComprar = 0;
+        }
+
+        if (IfDesconto > 0)
+        {
+            DescontoValor = (ValorNovo - Valor);
+        }
+
+        ValorEmQtd = (ValorTotal / Convert.ToDecimal(1.02));
+
+        DescontoPorcentagem = 0;
+        DescontoPorcentagemCor = "laranja";
+
+        if (ValorNovo > 0)
+        {
+            DescontoPorcentagem = (((ValorNovo - Valor) / ValorNovo) * 100);
+        }
+
+
+        if (DescontoPorcentagem > 25 && DescontoPorcentagem <= 50)
+        {
+            DescontoPorcentagemCor = "roxo";
+        }
+        else if (DescontoPorcentagem > 50)
+        {
+            DescontoPorcentagemCor = "verde";
+        }
+
+        
+    }    
+
+    var statusClasse = "";
+    @if (BTnComprar == 1)
+    {
+    @if (MostraDetalhesCompraTrue == 1)
+        {
+    @if (BTnIndisponivel == 0)
+            {
+    @if (MostraBtnPromocao == 1)
+                {
+                    statusClasse = "dg-ProdutoisPodeComprarPromocao";
+    @if (IfDesconto == 1)
+                    {
+                        statusClasse = "dg-ProdutoisPodeComprarPromocao2";
+                    }
+                }
+                else
+                {
+                    statusClasse = "dg-ProdutoisPodeComprar";
+    @if (IfDesconto == 1)
+                    {
+                        statusClasse = "dg-ProdutoisPodeComprar2";
+                    }
+                }
+            }
+            else
+            {
+                statusClasse = "dg-ProdutoisEsgotado";
+    @if (IfDesconto == 1)
+                {
+                    statusClasse = "dg-ProdutoisEsgotado2";
+                }
+            }
+        }
+    }
+
+    @if (MostraDetalhesCompraFalse == 1)
+    {
+        statusClasse = "dg-ProdutoisProibido";
+    @if (IfDesconto == 1)
+        {
+            statusClasse = "dg-ProdutoisProibido2";
+        }
+    }
+
+    @if (MostraProdutoVendaRestrita == 1)
+    {
+        statusClasse = "dg-ProdutoisProibido";
+    @if (IfDesconto == 1)
+        {
+            statusClasse = "dg-ProdutoisProibido2";
+        }
+    }
+
+    bool mostraProdutoEpharma = false;
+    if(Model.ProdutoEpharma != null){
+        if(Model.ProdutoEpharma.valor > 0){
+            mostraProdutoEpharma = true;
+        }        
+    }
+}
+
+@Html.Raw(@Model.SEOJson)
+@Html.Raw(@Model.SEORootPJson)
+
+@* Conteúdo *@
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v18.0" nonce="BtvW2kzr"></script>
+<section>
+    <div class="container">
+        <ul class="dg-produto-breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
+            <li property="itemListElement" typeof="ListItem">
+                <a href="@Html.Domain()/" property="item" typeof="WebPage">
+                    <span property="name">Home</span>
+                </a>
+                <meta property="position" content="1">
+            </li>
+
+            @if (SP != null)
+            {
+                @if (SP.Categoria != null)
+                {
+                    <li property="itemListElement" typeof="ListItem">
+                        <a href="@Html.Domain()/@UrlBreadCrumbsC" property="item" typeof="WebPage">
+                            <span property="name">@SP.Categoria</span>
+                        </a>
+                        <meta property="position" content="2">
+                    </li>
+                }
+
+                @if (@SP.SubCategoria != null)
+                {
+                    <li property="itemListElement" typeof="ListItem">
+                        <a href="@Html.Domain()/@UrlBreadCrumbsSC" property="item" typeof="WebPage">
+                            <span property="name">@SP.SubCategoria</span>
+                        </a>
+                        <meta property="position" content="3">
+                    </li>
+                }
+
+                <li property="itemListElement" typeof="ListItem">
+                    <span property="item" typeof="WebPage">
+                        <span property="name"> @SP.NomeProduto</span>
+                    </span>
+                    <meta property="position" content="4">
+                </li>
+            }
+        </ul>
+    </div>
+
+</section>
+
+<main id="main" class="dg-main @statusClasse">
+    <div class="container">
+        <div class="dg-produto"  nome="@SP.NomeProduto.Replace("™", "&trade;")"
+            categoria="@SP.Categoria"
+            marca="@SP.Marca"
+            preco="@Valor.ToString("#,0.00")"
+            id_subproduto="@SP.ID_SubProduto" itemscope itemtype="https://schema.org/Product">
+
+            <meta itemprop="Name" content="@SP.NomeProduto @SP.ComplementoBrindes" />
+            <span style="display: none" typeof="Brand">
+                <meta itemprop="Name" content="@marca" />
+            </span>
+
+            @* Título *@
+            @* <div class="dg-produto-info-titulo dg-desktop-hide">
+                @SP.NomeProduto @SP.ComplementoBrindes
+            </div>
+            <div class="dg-produto-info-fabricacao dg-desktop-hide">
+                Fabricado por
+                <a href="@Html.Domain()/marcas/@SP.FabricanteURL.ToLower()/">
+                    <strong>@SP.Marca</strong>
+                </a>
+            </div> *@
+            @* / Título *@
+            @* Imagem *@
+
+            
+
+            <section class="dg-produto-img @isFavorito">
+                <div class="dg-produto-img-box">
+                    <figure class="dg-produto-img-principal">
+                        <img fetchpriority="high" itemprop="image" src="/imagens-complete/336x336/@SP.Foto" img-zoom="@SP.Foto" width="336" height="336" title="@(SP.Generico == false ? "COMPRAR " + SP.NomeProduto : "COMPRAR " + SP.NomeProduto + " - " + SP.Marca)" alt="@(SP.Generico == false ? "COMPRAR " + SP.NomeProduto : "COMPRAR " + SP.NomeProduto + " - " + SP.Marca)">
+                        <span class="dg-produto-img-zoom"></span>
+                    </figure>
+
+                    @if (@SP.MenorValorCF)
+                    {
+                        <div class="dg-evento-tag"></div>
+                    }
+
+                    <!-- Tags -->
+                    <div class="dg-produto-tags">
+                        <input type="hidden" id="produtoDataValidade" value="@SP.DataValidade"></input>
+
+
+                        @if (SP.DataValidade >= DateTime.Now)
+                        {
+                            <div class="dg-produto-desconto dg-azul-verde">
+                                Val.:
+                                @if (SP.DataValidade.Day <= 1)
+                                {
+                                    @SP.DataValidade.ToString("MM/yyyy")
+                                }
+                                else
+                                {
+                                    @SP.DataValidade.ToString("dd/MM/yyyy")
+                                }
+                            </div>
+                        }
+
+                        @if (BTnIndisponivel == 0)
+                        {
+                            @if (IfDesconto > 0 && DescontoPorcentagem > 5)
+                            {
+                                <!-- Desconto -->
+                                <div class="dg-produto-desconto dg-produto-desconto--porcentagem dg-@DescontoPorcentagemCor dg-tooltip-hover" aria-label="desconto de">
+                                    <span class="dg-icon dg-icon-arrow01-down"></span> @Math.Floor(DescontoPorcentagem).ToString()%
+                                    <div class="dg-tooltip-bottom">
+                                        Desconto
+                                    </div>
+                                </div>
+                            }
+                        }
+                        @if (SP.Generico)
+                        {
+                            <div class="dg-produto-tag-wrapper">
+                                <div class="dg-produto-tag dg-produto-tag-generico dg-tooltip-hover" aria-label="Medicamento genérico">
+                                    <span class="dg-icon dg-icon-generico"></span>
+                                    <div class="dg-tooltip-bottom">
+                                        Genérico
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        @if (SP.Refrigerado)
+                        {
+                            <div class="dg-produto-tag-wrapper">
+                                <div class="dg-produto-tag dg-produto-tag-refrigerado dg-tooltip-hover" aria-label="Produto refrigerado">
+                                    <span class="dg-icon"><img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/home/refrigerado.png" alt="Produto refrigerado"></span>
+                                    <div class="dg-tooltip-bottom">
+                                        Refrigerado
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <!-- Sub-ações -->
+                    <div class="dg-produto-img-subacoes">
+
+                        <a href="javascript:void(0)" class="dg-produto-img-favoritar dg-tooltip-hover" data-id_subproduto="@SP.ID_SubProduto" aria-label="Adicionar aos favoritos">
+                            <span class="dg-icon dg-icon-favorito"></span>
+                            <div class="dg-tooltip-bottom">
+                                Favorito
+                            </div>
+                        </a>
+
+                        <a href="@Html.Domain()/@Model.ProdutoSemelhante" class="dg-produto-img-familia dg-tooltip-hover" aria-label="Visualizar similares">
+                            <span class="dg-icon dg-icon-familia"></span>
+                            <div class="dg-tooltip-bottom">
+                                Visualizar semelhantes
+                            </div>
+                        </a>
+                        <div style="position: relative;width: 22px;display: inline-block;">
+                            <a href="javascript:void(0)" class="dg-produto-img-familia dg-show-share-menu jsMostraShare dg-tooltip-hover" aria-label="Compartilhar">
+                                <span class="dg-icon dg-icon-share"></span>
+                                <div class="dg-tooltip-bottom">
+                                    Compartilhar
+                                </div>
+                            </a>
+                            <div class="dg-share-block jsShareBlock">
+                                <div class="dg-share-block__title">Compartilhar em:</div>
+
+                                <a class="dg-share-button" href="http://twitter.com/share?text=Im Sharing on Twitter&url=@URLProduto" rel="noreferrer" target="_blank">
+                                    <img width="18" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAAAAABWESUoAAAA3ElEQVR4Ac2SGQDFMBBE1ylOcYpTner0neK0TnGpU53iFKc6xWl+p+f25D7InZ295Cv0mGjFUOzWDVVVa/WykaBiaBBFfsiyory3JASRjs8mInqxUGRw47CIBIy7Ew0Sh0nED4OXCwkNh8h7GrrgCkVK9a7w6Q2BjoVa6Oo9EZEDVJ7I1M4UeMDXzIEhvoukFxNMaP8o4gpon1l9qnqc7DcPIgpd7Ce0t/fJVO0q0qIsVeuY1XwNYK1gwm8J2GAqvHRF5mD7BcG0Rl6yegjw0BqdakE8Bni0RyjyDf4Y1Y0n0wNT4wAAAABJRU5ErkJggg==" alt="Logo Twitter">
+                                    Twitter
+                                </a>
+                                <a class="dg-share-button" href="https://www.facebook.com/share.php?u=@URLProduto2&quote123" rel="noreferrer" target="_blank">
+                                    <img width="18" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAgVBMVEUAAAAQcP8IZf8IZ/8JZv8HZf8IZv8IZv8IaP8JZ/8HZv8IZv8FZf8YcP9FjP+TvP/g7P/////R4/9Vlf8QYP+Es/9kn/8IZv8nef8JZf8AYP/v9f/Q4v/B2P9GjP8HZv+yz//Q4/83g/8HZv/g6/+Dsv8HZf/n7//////////e6//ZLyHjAAAAK3RSTlMAEGCfz+//XyCQj98w/////////xD//6D/kBD/////7////8///5Cgz+/vONkvXQAAAPJJREFUeAF9kkUCwzAMBGVSGMrM3P//rxBaB+e6s0YREFJpw2y0cgS1cT3DQLmNWPjcwK/XA24RWIuEdg4j7OtHUX0NYedxko5+jCeZMc0En8FsVDDHSd1WDoFdIlogX46awopozWA+ythsd7s9ZxymJBkcs3wcMZC0YHDKhDNbKLowuGYC21zINIWUbQ7EwwJT7YogqgTTKaTY4tIp7HDIRadwwzVlKVyv11HG9cekFBxam8FbTInuQ4LCd3cL2Uzd+4UV/VkHfUIgMLRdQuBi7JsCxh5rQEAfrO9NYSWojruwBOOhDoR8PF+j0fuipNX+AmbCIviMIiwCAAAAAElFTkSuQmCC" alt="Logo Facebook">
+                                    Facebook
+                                </a>
+                                <a class="dg-share-button" href="http://www.linkedin.com/shareArticle?mini=true&url=@URLProduto2&title=@SP.NomeProduto @if (SP.Generico) { @SP.Marca } @SP.ComplementoBrindes&summary=123&source=FMIX" rel="noreferrer" target="_blank">
+                                    <img width="18" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABDUlEQVR4AWP4////gOLB44D6nTcsGIo33QHi/zTGd0B2YTiAPpYjHIHNAf/piQk6wGPW8f/rLz8HYRCbXg5AWI4GQGJ0cwDY12gAJDbcHUA4CkZAIqQUK7Ts/m/SfxBMs5RupswBaACr+P47b/5zlG/5DyzZ/r/+8hNF7vuvP//nn3r0X6JhJ+0ccPrR+/+H7735jw9cf/n5v0D1Nuo5gBxQve06zR0AjoL7b7/+//zjN4bc+ScfaOeA33///k9Yfg4mDw7u/Xdeo6uhnQP6D93FMNxlxjF0ZbRzgMXEQ9iyI90cALIMJoccDXRzAK6CZog6YNQBow6gIx54Bwx4x2RAu2bAysoEZu9o7xgAQrvkxt3WZi0AAAAASUVORK5CYII=" alt="Logo Linkedin">
+                                    Linkedin
+                                </a>
+                                <a class="dg-share-button" href="https://api.whatsapp.com/send?text=@URLProduto2" rel="noreferrer" target="_blank">
+                                    <img width="18" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAmVBMVEVHcEwg32Al1WUl02cl1GYl02Ul02Ym02Yl0mUg12Ao12Al1Gcm02Yl02Yl1GUl1GUl02Yk02Ygz2goz2gl1Gcl1GYk1GYl1WUl02cgz3Am1WYl1GYm02Ygz2Ak02Ql0mYk0WYj0mYl02Uo02Ql0mYn0WYn1GYm0mYm0mUq1Wom0WYj02Um0mYl02Yl0mYlz2Un0WQq1WUj02cilIlXAAAAM3RSTlMAEGCQz+//r2AgIJ9/78+/0IAgIN/fcDDQEH+PgBBAoIBQv0DvcHBQsDCAkKDPjzBwMJAU6DEhAAABZElEQVR4AWTTBbajUBBF0YsdiBAixN1d5z+4/vBYb0Gzo8DFqgrJclzPDyDww6ihuqYXYNGqRdr55rgThklMPdLsAnGvr9wgSoFhKdEcQjxSSRaJx+Xtk74qBmEp0YXJVP/rwdBRZgbpVHUhzPMTBMT97HcRqWKZwkrSGjbFhaxUsYWdpCGpTA5PVQk42kNLfw5A7KjiCCctiiOTOatiAC1dwNGfIZD2VXVgqA5DZRbAVarqEGtYBJYHuKl+lTagCBjXA/lRjLvtYMMGiPUAR8YT4kjSi3Cv3IGdjuDKWD6BTjQD2DmSxuBlXztb/TuWY6p7NvUsD4qRynbhWNS6PG6mZDNoFQVwVPL+LPLiN4ucDviqMf3P5tS2s76d0PTUNNFRxX5oBzEBZ//ZBeUnpbnGDvoS4oDc7rN3JOf72QH8pnbwcjEVqZ3PNdDxtlNFCVYSyUo8dypjul20kqT1byABBAAASawYPAmTfuIAAAAASUVORK5CYII=" alt="Logo WhatsApp">
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                @if (BTnComprar == 1) {
+                    @if (MostraDetalhesCompraTrue == 1) {
+                        @if (BTnIndisponivel != 0) {
+                            <p class="dg-desktop-hide" style="text-align: center;margin-bottom: 10px;font-size: 10px;">Desculpe-nos, nosso estoque para este produto <strong>está esgotado</strong>.</p>
+                        }
+                    }
+                }
+
+                <div class="dg-produto-info-side">
+                    <section itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                        <meta itemprop="url" content="@Urlcanonical" />
+                        <meta itemprop="availability" href="https://schema.org/@_seoProduct.offers.availability" />
+                        <meta itemprop="itemCondition" href="https://schema.org/NewCondition" />
+                        <meta itemprop="priceCurrency" content="BRL" />
+                        <meta itemprop="gtin" content="@SP.CodBarras" />
+                        
+                        <h1 class="dg-produto-info-titulo dg-mobile-hide" itemprop="name">
+                            @SP.NomeProduto @if (SP.Generico) { @SP.Marca } @SP.ComplementoBrindes
+                        </h1>
+
+                         <div class="dg-produto-info-fabricacao">
+                            <h2 class="">
+                                Fabricado por
+                                <a href="@Html.Domain()/marcas/@SP.FabricanteURL.ToLower()">
+                                    <strong>@SP.Marca</strong>
+                                </a>
+                            </h2>
+                            @if (SP.Refrigerado)
+                            {
+                                <p class="dg-produto-acoes-modais-textos-refrigerado"><b>Atenção!</b> Não aceitamos trocas ou devoluções de produtos refrigerados.</p>
+                            }
+                        </div>
+                    </section>
+                    <p class="dg-produto-info-side__descricao dg-SuplementoDescricao">
+                        @SP.SuplementoDescricao
+                    </p>
+                    @if (BTnComprar == 1)
+                    {
+                        @if (MostraDetalhesCompraTrue == 1)
+                        {
+                            @if (BTnIndisponivel == 1)
+                            {
+                                @if (SP.ID_Categoria != 12 && SP.ID_Categoria != 1)
+                                {
+                                    @* Checar se há similares pra mostrar botão *@
+                                    @* Similares deverá enviar para uma página com os similares do mesmo *@
+                                    <a href="javascript:void(0)" id="btnMostraSimilar" class="dg-produto-acoes-btns-similares-btn jsProdutoIndisponivel jsOpenSimilaresModal dg-desktop-hide" rel="@SP.ID_SubProduto" nameSimilar="@SP.Produto" idSimilar="@SP.ID_SubProduto" principioAtivoSimilar="@SP.PrincipioAtivo">Ver Genéricos e Similares</a>
+                                }
+                            }
+                        }
+                    }
+                     @if (!string.IsNullOrEmpty(SP.SeoDescricaoProduto) || !string.IsNullOrEmpty(Descricao) || !string.IsNullOrEmpty(SP.PdfBula.Trim()) || !string.IsNullOrEmpty(SP.Bula.Trim()) || !string.IsNullOrEmpty(SP.AvisoLegal.Trim()))
+                    {
+                    <div>
+                        <button type="button" class="dg-produto-info-side__descricao__vertd jsIrParaCaracteristicas">Ver mais características</button>
+                    </div>
+                    }
+                    <div class="dg-produto-info-side__bottom">
+                        <div class="dg-produto-img-listagem">
+                            @foreach (var f in Fotos)
+                            {
+                                <a href="javascript:void(0)" class="dg-produto-img-listagem-item">
+                                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="/imagens/51x51/@f.Foto" img-foco="@f.Foto" width="51" height="51" alt="@(SP.Generico == false ? "COMPRAR " + SP.NomeProduto : "COMPRAR " + SP.NomeProduto + " - " + SP.Marca)" title="@(SP.Generico == false ? "COMPRAR " + SP.NomeProduto : "COMPRAR " + SP.NomeProduto + " - " + SP.Marca)" loading="lazy">
+                                </a>
+                            }
+                            @if (SP.Video.Length > 1)
+                            {
+                                @foreach (var vI in SP.Video.Split(','))
+                                {
+                                    <a href="javascript:void(0)" class="dg-produto-img-listagem-item" video="https://www.youtube.com/embed/@vI?autoplay=1" rel="video">
+                                        <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="https://i1.ytimg.com/vi/@vI/default.jpg" alt="Vídeo" title="Vídeo" loading="lazy">
+                                    </a>
+                                }
+                            }
+                        </div>
+                        <div class="dg-produto-acoes-modais">                    
+                            @if (MostraProdutoImportado == 1)
+                            {
+                                <div class="dg-produto-acoes-modais-valoraprox">
+                                    <span>Valor aproximado, sujeito às oscilações cambiais.</span>
+                                </div>
+
+                                <div class="dg-produto-acoes-modais-importado">
+                                    <p>
+                                        A <strong>Drogaria Nova Esperança</strong> presta assessoria de importação de
+                                        medicamentos seguindo as normas estabelecidas pela ANVISA na
+                                        RDC nº 81 de 11/2008. A importação é feita em nome do próprio
+                                        paciente e todas as etapas do processo ficam registradas.
+                                    </p>
+                                    <p class="dg-produto-acoes-modais-importado-email">
+                                        Para tirar suas dúvidas ou obter mais informações, consulte nossa central de
+                                        atendimento pelo telefone abaixo ou envie e-mail para <a href="mailto:importados@drogarianovaesperanca.com.br">importados@drogarianovaesperanca.com.br</a>
+                                    </p>
+                                    <p class="dg-produto-acoes-modais-importado-tel">
+                                        <strong>Televendas:</strong> 11 3990-7450
+                                    </p>
+                                </div>
+
+                            }
+                            else
+                            {
+
+
+                                @if (MostraDetalhesCompraTrue == 1)
+                                {
+                                    <h2>
+                                        <a href="javascript:void(0)" class="dg-produto-acoes-modais-btn" onclick="abrirModal({titulo:'Compra <span>Parcelada</span>',id:'templateCompraParcelada', startFunction: modalParcelas})">
+                                            <strong>Parcelas</strong>
+                                        </a>
+                                    </h2>
+
+                                    <script id="templateCompraParcelada" type="text/x-jquery-tmpl">
+                                        <div class="dg-subtitulo">Confira a opção de pagamento desejada.</div>
+                                        <ul class="dg-modal-templateCompraParcelada-flag-lista">
+                                        @foreach (var _fo in Model.ValCart.FormasPagamento)
+                                        {
+                                                                    <li>
+                                                                        <button type="button" class="dg-modal-templateCompraParcelada-flag"  data-flag="@_fo.FormaPagamento" arial-label="Ver parcelas de @_fo.FormaPagamento"></button>
+                                                                    </li>
+                                        }
+                                        </ul>
+                                        <ul class="dg-modal-templateCompraParcelada-formas-lista">
+                                        @foreach (var _fo in Model.ValCart.FormasPagamento)
+                                    {
+                                                                        <li data-flag-item="@_fo.FormaPagamento">
+                                                                            <ul data-itens="@_fo.OpcoesPagamento.Count()">
+                                                @foreach (var _op in _fo.OpcoesPagamento)
+                                                {
+                                                                                                            <li>
+                                                        @_op.OpcaoPagamento
+                                                        @if (_op.TotalGeralJuros > 0)
+                                                        {
+                                                                                                                                                <span>Com Juros</span>
+                                                        }
+                                                                                                                R$ @_op.ValorParcela.ToString("#,0.00")
+                                                        @if (_op.TotalGeralJuros > 0)
+                                                        {
+                                                                                                                                                <span> - Total R$ @_op.TotalGeralJuros.ToString("#,0.00")</span>
+                                                        }
+                                                                                                            </li>
+                                                }
+
+                                                                            </ul>
+                                                                        </li>
+                                    }
+                                        </ul>
+                                        <div class="dg-modal-templateCompraParcelada-formas-footer">
+                                            Consulte os juros aplicados em sua compra na escolha da forma de pagamento.
+                                        </div>
+                                    </script>
+                                }
+
+                            }
+                            
+
+                            <h2>
+                                <a href="javascript:void(0)" class="dg-produto-acoes-modais-btn" onclick="abrirModal({titulo:'Ficha <span>técnica</span>',id:'templateFichaTecnica'})">
+                                    <strong>Ficha técnica</strong>
+                                </a>
+                            </h2>
+
+                        </div>
+                        <script id="templateFichaTecnica" type="text/x-jquery-tmpl">
+                            <ul>
+                                <li>Nome do Produto: @SP.NomeProduto</li>
+                                <li>SKU: <span> @SP.ID_SubProduto</span></li>
+
+                            @if (FnProject.GetListWhiteIPsPageProduct().Where(x => x.IP == FnProject.GetIPCliente()).Count() > 0)
+                            {
+                                        <li>C&oacute;digo EAN: <span itemprop="gtin13">@SP.CodBarras</span></li>
+                            }
+
+                            @if (!string.IsNullOrEmpty(SP.RegistroMS))
+                            {
+                                        <li>Registro Minist&eacute;rio da Sa&uacute;de: @SP.RegistroMS</li>
+                            }
+
+                            @if (!string.IsNullOrEmpty(SP.PrincipioAtivo))
+                            {
+                                var i = 0;
+                                    <li>Princ&iacute;pio Ativo: @foreach (var item in Model.PrincipioAtivo)
+                                    {
+                                        i++;
+                                                <a href="@FnProject.Dominio()/principio-ativo/@item.UrlPrincipio/"> @item.Principio @if (i < Model.PrincipioAtivo.Count())
+                                            {
+                                                <span>,</span>
+                                            } </a>
+                                    }
+                                        </li>
+
+
+                            }
+
+                            @if (!string.IsNullOrEmpty(SP.Marca))
+                            {
+                                        <li>Fabricante: @SP.Marca</li>
+                            }
+
+                            @if (!string.IsNullOrEmpty(SP.SAC))
+                            {
+                                        <li>SAC Fabricante: @SP.SAC</li>
+                            }
+
+                            @if (!string.IsNullOrEmpty(SP.Email))
+                            {
+                                        <li>E-mail Fabricante: @SP.Email</li>
+                            }
+                            </ul>
+                        </script>
+                    </div>
+
+                    @if (MostraDetalhesCompraFalse == 1)
+                    {
+                        <div class="dg-desktop-hide dg-produto-acoes-proibido-mobile">
+                            @if (SP.Controlado405)
+                            {
+                                <div class="dg-produto-acoes-proibido">
+                                    <h4 class="dg-produto-acoes-proibido-titulo">Comercialização proibida pela internet</h4>
+                                    <p class="dg-produto-acoes-proibido-aviso"><strong>MEDICAMENTO SUJEITO A CONTROLE ESPECIAL - RDC Nº 405 - 22/07/2020 - MINISTÉRIO DA SAÚDE</strong></p>
+                                    <p class="dg-produto-acoes-proibido-txt">Por determinação da <strong>Anvisa</strong>, este medicamento não pode ser comercializado <br class="dg-desktophide">pela internet. Para mais informações, entre em contato com o nosso televendas.</p>
+                                </div>
+                            } else {
+                                <div class="dg-produto-acoes-proibido">
+                                    <h4 class="dg-produto-acoes-proibido-titulo">Comercialização proibida pela internet</h4>
+                                    <p class="dg-produto-acoes-proibido-aviso"><strong>MEDICAMENTO SUJEITO A CONTROLE ESPECIAL <br class="dg-desktophide">PORTARIA Nº 344 - 01/02/1999 - MINISTÉRIO DA SAÚDE</strong></p>
+                                    <p class="dg-produto-acoes-proibido-txt">Por determinação da <strong>Anvisa</strong>, este medicamento não pode ser comercializado <br class="dg-desktophide">pela internet. Para mais informações, entre em contato com o nosso televendas.</p>
+                                </div>
+                            }
+                        </div>
+                    }
+
+                     @if (MostraProdutoVendaRestrita == 1)
+                    {
+                        <div class="dg-produto-acoes-proibido dg-desktop-hide dg-produto-acoes-proibido-mobile">
+                            <h4 class="dg-produto-acoes-proibido-titulo">Este produto tem comercialização proibida pela internet</h4>
+                            <p class="dg-produto-acoes-proibido-aviso"><strong>Medicamento de venda restrita a Clínicas e Hospitais</strong></p>
+                            <p class="dg-produto-acoes-proibido-txt">Para mais informações entre em contato com nosso Televendas.</p>
+                        </div>
+                    }
+
+                     @if (SP.RX)
+                    {
+                    <label class="dg-produto-enviar-receita dg-desktop-hide">
+                        <span class="jsReceitaBtn">Envie sua receita</span>
+                        <input type="file" class="jsReceitaFile">
+                    </label>
+                    }
+                </div>
+
+
+
+            </section>
+
+            @* /Imagem *@
+
+            @* Info do produto *@
+
+            <section class="dg-produto-info" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+
+                
+                <h1 class="dg-produto-info-titulo dg-desktop-hide">
+                    @SP.NomeProduto @if (SP.Generico) { @SP.Marca } @SP.ComplementoBrindes
+                </h1>
+
+
+                <div class="dg-produto-info-preco">
+                    @* @if (BTnComprar == 1) { *@
+                    @* @if (MostraDetalhesCompraTrue == 1) { *@
+
+                    <div class="dg-produto-info-preco-valores">
+                        @if (IfDesconto == 1)
+                        {
+
+                            <div class="dg-produto-info-preco-de">De: @ValorDe.ToString("#,0.00")</div>
+                            <div data-size="@Valor.ToString("#,0.00").Count()" class="dg-produto-info-preco-por" itemprop="price" content="@Valor.ToString().Replace(",", ".")">R$@Valor.ToString("#,0.00")</div>
+
+                        }
+                        else
+                        {
+                            <div data-size="@Valor.ToString("#,0.00").Count()" class="dg-produto-info-preco-por" itemprop="price" content="@ValorTotal.ToString().Replace(",", ".")">R$@ValorTotal.ToString("#,0.00")</div>
+                        }
+
+
+                        <div class="dg-produto-info-preco-parcelamento">
+
+                            @Model.ValCart.QTDParcelas.ToString()x de R$@Model.ValCart.ValorminimoParcela.ToString("#,0.00")
+
+                            @* <a href="javascript:void(0)" class="dg-produto-info-preco-icone dg-tooltip-hover" aria-label="Valor em 3x sem juros para compras com parcela mínima de R$50,00. Consulte os juros aplicados em sua compra na escolha da forma de pagamento.">
+                                <span class="dg-icon" role="presentation">i</span>
+                                <span class="dg-tooltip">
+                                    Valor em 3x sem juros para compras com <b class="dg-blue">parcela m&iacute;nima de R$ 50,00</b>.<span class="dg-red">*Consulte os juros aplicados em sua compra na escolha da forma de pagamento.</span>
+                                </span>
+                            </a> *@
+
+                        </div>
+                        <div class="dg-produto-info-sp">Preço para SP: @ValorSiteSP.ToString("#,0.00")</div>
+                    </div>
+                </div>
+
+                @* Ações *@
+                <div class="dg-produto-acoes">
+                   
+
+                    <div class="dg-produto-acoes-btns" data-produto-epharma="@mostraProdutoEpharma">
+                        @if (BTnComprar == 1)
+                        {
+                            @if (MostraDetalhesCompraTrue == 1)
+                            {
+                                @if (BTnIndisponivel == 1)
+                                {
+                                    @if (SP.ID_Categoria != 12 && SP.ID_Categoria != 1)
+                                    {
+                                        @* Checar se há similares pra mostrar botão *@
+                                        @* Similares deverá enviar para uma página com os similares do mesmo *@
+                                        <a href="javascript:void(0)" id="btnMostraSimilar" class="dg-produto-acoes-btns-similares-btn jsProdutoIndisponivel jsOpenSimilaresModal dg-desktop-hide" rel="@SP.ID_SubProduto" nameSimilar="@SP.Produto" idSimilar="@SP.ID_SubProduto" principioAtivoSimilar="@SP.PrincipioAtivo">Ver Genéricos e Similares</a>
+                                    }
+                                }
+                            }
+                        }
+                        @if (BTnComprar == 1)
+                        {
+                            @if (MostraDetalhesCompraTrue == 1)
+                            {
+                                @if (BTnIndisponivel == 0)
+                                {
+                                    @if (EstoqueAtual > 0) { Estoque = EstoqueAtual; }
+                                    
+                                    <form class="dg-produto-acoes-btns-compra" name="formcomprar" id="formcomprar">
+                                        <div class="dg-produto-acoes-btns-compra-qtd">
+                                            <input type="number" class="dg-produto-acoes-btns-compra-qtd-input" name="" id="QTD_@SP.ID_SubProduto" value="1" multiplo="1" maxlength="4">
+                                            <a href="javascript:void(0)" class="dg-produto-acoes-btns-compra-qtd-menos">-</a>
+                                            <a href="javascript:void(0)" class="dg-produto-acoes-btns-compra-qtd-mais">+</a>
+                                        </div>
+
+                                        <a href="javascript:void(0)" class="dg-produto-acoes-btns-compra-btn" atributo="" id="BtComprarProduto" ID_SubProduto="@SP.ID_SubProduto">
+                                            Comprar <span class="dg-icon dg-icon-cart"></span>
+                                        </a>
+                                    </form>
+
+                                    @if (MostraBtnPromocao == 1)
+                                    {
+
+                                        @if (PromocaoMedicamento != null)
+                                        {
+                                            <a href="javascript:void(0)" class="dg-produto-acoes-btns-compre3 BtComprarProdutoPromocao" ID_SubProduto="@SP.ID_SubProduto" compre="@PromocaoMedicamento.Compre" pague="@PromocaoMedicamento.Pague">
+                                                <span class="dg-produto-acoes-btns-compre3-compre">Compre @PromocaoMedicamento.Compre</span> <span class="dg-produto-acoes-btns-compre3-pague">pague @PromocaoMedicamento.Pague</span> <span class="dg-icon dg-icon-cart"></span>
+                                            </a>
+                                        }
+                                    }
+
+                                    if(mostraProdutoEpharma){
+                                        <div class="dg-produto-PBM jsOpenEpharma_Modal dg-loading" tabindex="0" role="button">
+                                            <div class="dg-produto-PBM__esquerda">
+                                                <img class="jsImagemIndustria" src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/discount-shape-white.svg" alt="Ícone desconto">
+                                                <div class="dg-produto-PBM__esquerda__text">
+                                                    <div>
+                                                        Pague <span id="getValorDescontoEpharma">R$ @Model.ProdutoEpharma.valor.ToString("#,0.00")</span>
+                                                    </div>
+                                                    <div>Ativar desconto lab</div>
+                                                </div>
+                                                <input type="hidden" value="@Model.ProdutoEpharma.id_cliente" id="id_clienteIndustria">
+                                            </div>
+                                            <p class="dg-produto-PBM__sobre">Economize com o programa de laboratório.</p>
+                                        </div>            
+                                    }
+                                    
+                                    if (MostraBtnPromocao2 == 1)
+                                    {
+
+                                        <a href="javascript:void(0)" class="dg-produto-acoes-btns-compre BtComprarProdutoPromocao BtComprarProdutoPromocao2" ID_SubProduto="@SP.ID_SubProduto" compre="@PromocaoMedicamento2.QtdDesc">
+                                            Compre <span>@PromocaoMedicamento2.QtdDesc</span> UND. por <span>R$@PromocaoMedicamento2.PorUnidade.ToString("#,0.00")</span> cada
+                                        </a>
+
+                                    }
+
+                                    @* <button type="button" class="dg-produto-btn-assinatura">
+                                        ASSINAR plano<img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/edit.svg" alt="" />
+                                    </button> *@
+
+                                    <div class="dg-produto-acoes-btns-frete__wrapper">
+                                        <p class="dg-produto-acoes-btns-frete__titulo">Calcular frete e <b>prazo de entrega</b></p>
+                                        <form id="buscaFreteProdutoForm" class="dg-produto-acoes-btns-frete">
+                                            <input id="buscarCepProduto" type="tel" class="dg-produto-acoes-btns-frete-input" mascara="cep" validar required>
+                                            <label for="buscarCepProduto">Digite seu CEP</label>
+
+                                            <button type="submit" class="dg-produto-acoes-btns-frete-btn buscaFreteProduto" aria-label="Calcular Frete" atributo="">
+                                                <span class="dg-icon dg-icon-search"></span>
+                                            </button>
+                                            <div id="templateFreteProduto"></div>
+                                            <input type="hidden" value="" id="ValorTotal" />
+                                        </form>
+                                    </div>
+
+                                    @if (SP.RX)
+                                    {
+                                    <label class="dg-produto-enviar-receita dg-mobile-hide">
+                                        <span class="jsReceitaBtn">Envie sua receita</span>
+                                        <input type="file" class="jsReceitaFile">
+                                    </label>
+                                    }
+                                    <script id="templateFreteProdutoConteudo" type="text/x-jquery-tmpl">
+                                        @* <div class="dg-subtitulo">CEP: <span>${RetornoFrete.CEP}</span></div> *@
+                                        <button type="button" class="dg-fechar-frete-modal jsFreteModal">
+                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="9" cy="9" r="9" fill="#E00D4C"/>
+                                                <line x1="4.64645" y1="13.6464" x2="13.6464" y2="4.64645" stroke="white"/>
+                                                <line y1="-0.5" x2="12.7279" y2="-0.5" transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 14 14)" stroke="white"/>
+                                            </svg>
+                                        </button>
+                                        <ul class="dg-checkout-main-fretes">
+                                            {if RetornoFrete.Itens != null}
+                                            {for LItens in RetornoFrete.Itens}
+                                            <li class="settipoFrete" rel="${LItens.ID_Frete}">
+                                                <div for="tipoFrete${LItens.NomeFrete}">
+                                                    <strong>
+                                                        ${LItens.NomeFrete}
+                                                        {if LItens.ValorFrete == '0.00'}
+                                                        Grátis
+                                                        {else}
+                                                        <span>R$${LItens.ValorFrete.FormatCurrency()}</span>
+                                                        {/if}
+                                                    </strong>
+                                                    <p>
+                                                        {if LItens.IsRetiradaLoja == false}
+                                                            {if LItens.ID_Frete == 49}
+                                                                Entrega no mesmo dia
+                                                            {else}
+                                                                {if LItens.PrazoEntrega <= 0}
+                                                                Estimado em ${LItens.PrazoEntregaHora}
+                                                                {else}
+                                                                Estimado em ${LItens.PrazoEntrega} {if LItens.PrazoEntrega <= 1}dia útil{else}dias úteis{/if}
+                                                                {/if}
+                                                            {/if}
+                                                        {if LItens.Aviso != ""}
+                                                        <br />${LItens.Aviso}{else}<span class="preco-frete-finalizar-valido-box"></span>
+                                                        {/if}
+                                                        {else}
+                                                        Tempo estimado para retirada em 1 hora
+                                                        {/if}
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            {/for}
+
+                                            {if RetornoFrete.Msg != "" && RetornoFrete.Msg != null }
+                                            <li class="nenhum-frete-carrinho">${RetornoFrete.Msg}</li>
+                                            {/if}
+                                            {else}
+                                            <li class="nenhum-frete-carrinho">Nenhum frete disponivel para esse CEP</li>
+                                            {/if}
+                                        </ul>
+                                    </script>
+
+                                }
+                                else
+                                {
+
+                                    <div class="dg-produto-acoes-aviseme">
+                                        <p>Desculpe-nos, nosso estoque para este produto <strong>está esgotado</strong>.</p>
+                                        @if (SP.ID_Categoria != 12 && SP.ID_Categoria != 1)
+                                        {
+                                            @* Checar se há similares pra mostrar botão *@
+                                            @* Similares deverá enviar para uma página com os similares do mesmo *@
+                                            <a href="javascript:void(0)" id="btnMostraSimilar" class="dg-produto-acoes-btns-similares-btn jsProdutoIndisponivel jsOpenSimilaresModal" rel="@SP.ID_SubProduto" nameSimilar="@SP.Produto" idSimilar="@SP.ID_SubProduto" principioAtivoSimilar="@SP.PrincipioAtivo">Ver Genéricos e Similares</a>
+                                        }
+                                        <a href="javascript:void(0)" class="dg-produto-acoes-btns-aviseme-btn jsModalAviseMe" rel="@SP.ID_SubProduto">
+                                            Avise-me <strong>quando chegar</strong><img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/message.svg" alt="">
+                                        </a>
+                                    </div>
+                                }
+                            }
+                        }
+
+                        @if (MostraDetalhesCompraFalse == 1)
+                        {
+                            @if (SP.Controlado405)
+                            {
+
+                                <div class="dg-produto-acoes-proibido dg-mobile-hide">
+                                    <h4 class="dg-produto-acoes-proibido-titulo">Comercialização proibida pela internet</h4>
+                                    <p class="dg-produto-acoes-proibido-aviso"><strong>MEDICAMENTO SUJEITO A CONTROLE ESPECIAL - RDC Nº 405 - 22/07/2020 - MINISTÉRIO DA SAÚDE</strong></p>
+                                    <p class="dg-produto-acoes-proibido-txt">Por determinação da <strong>Anvisa</strong>, este medicamento não pode ser comercializado <br class="dg-desktophide">pela internet. Para mais informações, entre em contato com o nosso televendas.</p>
+                                    <div class="dg-produto-acoes-proibido-tel">
+                                        <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/call-calling.svg" alt="">
+                                        <div class="dg-txt">
+                                            <p>11 3990 7450</p>
+                                            <p>
+                                                Seg a Sex das 8h às 19h38<br>
+                                                Sábado das 8h às 12h
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dg-produto-acoes-btns-compra dg-desktop-hide">
+                                    <a class="dg-produto-acoes-televenda" href="tel:+551139907450">
+                                        <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/call-calling-dark.svg" alt="">
+                                        <span>
+                                            <span>Televendas: (11) 3990-7450</span>
+                                            <p>
+                                                Seg a Sex das 8h às 19h38<br>
+                                                Sábado das 8h às 12h
+                                            </p>
+                                        </span>
+                                    </a>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="dg-produto-acoes-proibido dg-mobile-hide">
+                                    <h4 class="dg-produto-acoes-proibido-titulo">Comercialização proibida pela internet</h4>
+                                    <p class="dg-produto-acoes-proibido-aviso"><strong>MEDICAMENTO SUJEITO A CONTROLE ESPECIAL <br class="dg-desktophide">PORTARIA Nº 344 - 01/02/1999 - MINISTÉRIO DA SAÚDE</strong></p>
+                                    <p class="dg-produto-acoes-proibido-txt">Por determinação da <strong>Anvisa</strong>, este medicamento não pode ser comercializado <br class="dg-desktophide">pela internet. Para mais informações, entre em contato com o nosso televendas.</p>
+                                    <div class="dg-produto-acoes-proibido-tel">
+                                        <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/call-calling.svg" alt="">
+                                        <div class="dg-txt">
+                                            <p>11 3990 7450</p>
+                                            <p>
+                                                Seg a Sex das 8h às 19h38<br>
+                                                Sábado das 8h às 12h
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dg-produto-acoes-btns-compra dg-desktop-hide">
+                                    <a class="dg-produto-acoes-televenda" href="tel:+551139907450">
+                                        <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/call-calling-dark.svg" alt="">
+                                        <span>
+                                            <span>Televendas: (11) 3990-7450</span>
+                                            <p>
+                                                Seg a Sex das 8h às 19h38<br>
+                                                Sábado das 8h às 12h
+                                            </p>
+                                        </span>
+                                    </a>
+                                </div>
+                            }
+
+                        }
+
+                        @if (MostraProdutoVendaRestrita == 1)
+                        {
+
+                            <div class="dg-produto-acoes-proibido dg-mobile-hide">
+                                <h4 class="dg-produto-acoes-proibido-titulo">Este produto tem comercialização proibida pela internet</h4>
+                                <p class="dg-produto-acoes-proibido-aviso"><strong>Medicamento de venda restrita a Clínicas e Hospitais</strong></p>
+                                <p class="dg-produto-acoes-proibido-txt">Para mais informações entre em contato com nosso Televendas.</p>
+                                <div class="dg-produto-acoes-proibido-tel">
+                                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/call-calling.svg" alt="">
+                                    <div class="dg-txt">
+                                        <p>11 3990 7450</p>
+                                        <p>
+                                            Seg a Sex das 8h às 19h38<br>
+                                            Sábado das 8h às 12h
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dg-produto-acoes-btns-compra dg-desktop-hide">
+                                <a class="dg-produto-acoes-televenda" href="tel:+551139907450">(11) 3990-7450<span class="dg-icon dg-icon-televendas-1"></span></a>
+                            </div>
+                        }
+
+
+                        @if (MostraDetalhesCompraTrue == 1)
+                        {
+                            @if (BTnIndisponivel == 1)
+                            {
+
+                                @if (SP.RX)
+                                {
+                                    @* <a href="javascript:void(0)" class="dg-produto-acoes-btns-similares-btn">Enviar Receita</a> *@
+                                }
+
+                            }
+
+                            @if (GiftIndCamp != null)
+                            {
+                                string placeholderIndustrial = "Digite seu cupom";
+                                if (GiftIndCamp.Campanha.IndexOf("ZAMBON") == -1)
+                                {
+                                    placeholderIndustrial = "Digite seu código";
+                                }
+
+                                @if (GiftIndCamp.Campanha != "")
+                                {
+                                    <section class="dg-produto-acoes-btns-calculo-cupom">
+                                        <p>@GiftIndCamp.Campanha</p>
+                                        <form>
+                                            <input type="text" name="GiftIndustria" id="GiftIndustria" placeholder="@placeholderIndustrial" />
+                                            <a href="javascript:void(0)" class="" id="carregandoGift" onclick="InsereGiftCardIndustria();">Validar</a>
+                                        </form>
+                                        <p style="display:none;" id="giftInvalido">codigo inválido!</p>
+                                        <p style="display:none;" id="giftValido">codigo inserido com <strong>sucesso!</strong></p>
+                                    </section>
+                                }
+                            }
+                        }
+                        @*@if (Model.SubProdutosConcorrentes.Count() > 0)
+                        {
+                            <table class="dg-table-compare">
+                                <thead>
+                                    <tr>
+                                        <th>Farmácia</th>
+                                        <th>Preço (Frete não incluso)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if ((BTnComprar == 1 && BTnIndisponivel == 0 && MostraDetalhesCompraFalse != 1 && MostraProdutoVendaRestrita != 1) || BTnIndisponivel == 1)
+                                    {
+                                        <tr>
+                                            <td class="dg-table-store">Zambon em Casa</td>
+                                            <td>
+                                                <div class="dg-table-flex">
+                                                    <div class="dg-table-price">
+                                                        @if (IfDesconto == 1)
+                                                        {
+                                                            <span>R$ @Valor.ToString("#,0.00")</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span>R$ @ValorTotal.ToString("#,0.00")</span>
+                                                        }
+                                                    </div>
+                                                    @if (BTnComprar == 1 && BTnIndisponivel == 0 && MostraDetalhesCompraFalse != 1 && MostraProdutoVendaRestrita != 1)
+                                                    {
+                                                        <button class="dg-table-btn dg-table-btn--comprar" type="button" id="BtComprarProduto" ID_SubProduto="@SP.ID_SubProduto"
+                                                    nome="@SP.NomeProduto"
+                                                    categoria="@SP.Categoria"
+                                                    marca="@SP.Marca"
+                                                    preco="@ValorTotal.ToString("#,0.00")">
+                                                            Comprar
+                                                        </button>
+                                                    }
+                                                    else if (BTnIndisponivel == 1)
+                                                    {
+                                                        <span class="dg-table-btn dg-table-btn--indisponivel">Indisponível</span>
+                                                    }
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+
+
+                                    @foreach (var item in Model.SubProdutosConcorrentes)
+                                    {
+                                        var url = item.URL_Concorrente.Contains("https://") ? item.URL_Concorrente : $"https://{item.URL_Concorrente}";
+                                        <tr>
+                                            <td class="dg-table-store">@Html.Raw(item.Nome_Concorrente)</td>
+                                            <td>
+                                                <div class="dg-table-flex">
+                                                    <div class="dg-table-price">@item.Preco_Concorrente.ToString("#,0.00")</div>
+                                                    <a href="@Html.Raw(url)" target="_blank" class="dg-table-btn">Ir ao site</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    }
+
+                                </tbody>
+                            </table>
+                        }*@
+
+                    </div>
+                </div>
+                @* /Ações *@
+            </section>
+
+            @* /Info do produto *@
+
+        </div>
+
+    </div>
+
+</main>
+
+<input type="hidden" id="ID_SubProduto" value="@SP.ID_SubProduto" />
+<input type="hidden" id="ValorProduto" value="@ValorTotal.ToString("#,0.00")" />
+<input type="hidden" id="MarcaProduto" value="@SP.Marca" />
+<input type="hidden" id="NameProduto" value="@SP.NomeProduto.Replace("™", "&trade;")" />
+<input type="hidden" id="CategoriaProduto" value="@SP.Categoria" />
+<input type="hidden" id="SubCategoriaProduto" value="@SP.SubCategoria" />
+<input type="hidden" id="Peso" value="@SP.Peso" />
+<input type="hidden" id="PesoUnico" value="@SP.Peso" />
+<input type="hidden" id="PrincipioAtivo" value="@SP.PrincipioAtivo" />
+<input type="hidden" id="ID_SubProduto-Aviso" value="@SP.ID_SubProduto" attrcache="7" />
+<input type="hidden" id="EAN" value="@SP.CodBarras" />
+
+@* Abas *@
+
+@if (Model.TemosTambem.SubProduto.Count() > 0)
+{
+    ViewData["TemosTambem"] = "TemosTambem";
+    <div class="dg-produto-compre-tambem">
+        <div class="container">
+            <section>
+                <h3 class="dg-produto-titulo">
+                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/discount-shape.svg" alt="">Produtos <strong>Semelhantes</strong>
+                </h3>
+
+                <div class="dg-produto-boxproduto-slide dg-loading">
+                    @{
+                        ViewData["fromSlider"] = "fromSlider";
+                    }
+                    @await Html.PartialAsync("_TemplateBoxProduto", Model.TemosTambem)
+                </div>
+            </section>
+
+        </div>
+    </div>
+    
+    ViewData["TemosTambem"] = "TemosTambem";
+    <div class="dg-produto-compre-tambem">
+        <div class="container">
+            <section>
+                <h3 class="dg-produto-titulo">
+                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/discount-shape.svg" alt="">Produtos <strong>Complementares</strong>
+                </h3>
+
+                <div class="dg-produto-boxproduto-slide dg-loading">
+                    @{
+                        ViewData["fromSlider"] = "fromSlider";
+                    }
+                    @await Html.PartialAsync("_TemplateBoxProduto", Model.TemosTambemComplementar)
+                </div>
+            </section>
+
+        </div>
+    </div>
+}
+
+<div class="container jsCaracteristicas">
+
+    @if (MostraProdutoImportado == 1)
+    {
+        <section class="dg-produto-importado">
+            <h3 class="dg-subtitulo">
+                Importe seus medicamentos legalmente, de acordo as legislações brasileiras.
+            </h3>
+            <h4 class="dg-titulo">
+                A <strong>Drogaria Nova Esperança</strong> presta consultoria completa em todas as etapas.
+            </h4>
+            <ol>
+                <li>
+                    Paciente recebe prescrição ou laudo
+                    médico contendo: dosagem, posologia,
+                    <strong>carimbo com CRM</strong> e assinatura do
+                    médico responsável.
+                </li>
+
+                <li>
+                    O paciente contata a <strong>
+                        Drogaria Nova Esperança
+                    </strong> e fornece as informações que
+                    estão no laudo e seus dados pessoais.
+                </li>
+
+                <li>
+                    A <strong>Drogaria Nova Esperança</strong> busca o
+                    medicamento com o <strong>menor preço</strong> em
+                    fornecedores estrangeiros da América do
+                    Norte e Europa.
+                </li>
+
+                <li>
+                    O paciente recebe a cotação para a
+                    importação. <strong>Efetuando o pagamento</strong>
+                    iniciamos o processo de importação, que
+                    poderá ser rastreado em todas as etapas.
+                </li>
+
+                <li>
+                    Ao chegar ao Brasil, a <strong>
+                        Drogaria
+                        Nova Esperança
+                    </strong> apresenta toda
+                    documentação para liberação do produto
+                    à <strong>Anvisa e Receita Federal</strong>.
+                </li>
+
+                <li>
+                    A <strong>Drogaria Nova Esperança</strong> envia o
+                    medicamento para o endereço do
+                    paciente informado no início.
+                    Prazo de Entrega: Aproximadamente
+                    <strong>20 dias úteis</strong>.
+                </li>
+            </ol>
+        </section>
+    }
+
+    
+
+    @if (!string.IsNullOrEmpty(SP.SeoDescricaoProduto) || !string.IsNullOrEmpty(Descricao) || !string.IsNullOrEmpty(SP.PdfBula.Trim()) || !string.IsNullOrEmpty(SP.Bula.Trim()) || !string.IsNullOrEmpty(SP.AvisoLegal.Trim()))
+    {
+        <h3 class="dg-produto-abas__titulo">
+            <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/bag-2.svg" alt="">Características <b class="dg-desktop-regular">do produto</b> <b class="dg-mobile-hide">@SP.NomeProduto @if (SP.Generico) { @SP.Marca } @SP.ComplementoBrindes</b></h3>
+
+        <section class="dg-produto-abas">
+            @* <h3 class="dg-titulo">
+        Mais informações sobre o produto
+        </h3> *@
+
+            <div class="dg-produtos-abas-listagem">
+                <div class="dg-produtos-abas">
+                    <a href="javascript:void(0)" data-produto-aba="Detalhes" class="dg-produto-aba-btn">Detalhes do produto</a>
+
+                    @if (!string.IsNullOrEmpty(SP.SeoDescricaoProduto))
+                    {
+                        @* Aba *@
+                        <a href="javascript:void(0)" data-produto-aba="Descrição" class="dg-produto-aba-btn">Descrição do produto</a>
+                        @* /Aba *@
+                    }
+
+                    @if (!string.IsNullOrEmpty(Descricao))
+                    {
+                        string LabelDescricao = SP.LabelDescricao;
+
+                        if (LabelDescricao == "") { LabelDescricao = "Descrição complementar"; }
+
+                        if (SP.LabelDescricao.Length > 1)
+                        {
+                            LabelDescricao = SP.LabelDescricao;
+                        }
+
+
+                        @* Aba *@
+                        <a href="javascript:void(0)" data-produto-aba="@LabelDescricao-2" class="dg-produto-aba-btn">@LabelDescricao</a>
+                        @* /Aba *@
+                    }
+
+
+                    @if (!string.IsNullOrEmpty(SP.PdfBula.Trim()))
+                    {
+
+                        @* Aba *@
+                        <a href="javascript:void(0)" data-produto-aba="BulaPdf" data-Bula="@SP.PdfBula" class="dg-produto-aba-btn dg-produto-aba-btn-bula dg-isPdf">Bula em PDF</a>
+                        @* /Aba *@
+
+                    }
+
+
+                    @if (!string.IsNullOrEmpty(SP.Bula.Trim()))
+                    {
+                        @* Aba *@
+                        <a href="javascript:void(0)" data-produto-aba="Bula" class="dg-produto-aba-btn">Bula</a>
+                        @* /Aba *@
+                    }
+                    
+                    @if (!string.IsNullOrEmpty(SP.AvisoLegal.Trim()))
+                    {
+                        @* Aba *@
+                        <a href="javascript:void(0)" data-produto-aba="AvisoLegal" class="dg-produto-aba-btn">Aviso</a>
+                        @* /Aba *@
+                    }
+
+                </div>
+
+                <div class="dg-produtos-abas-textos">
+                    <div class="dg-produtos-abas-textos-wrapper">
+                        <div class="dg-produto-aba-info-wrapper" data-produto-aba-info="Detalhes">
+                            <button class="dg-produto-aba-info-close jsFecharAbaProduto dg-desktop-hide"><span class="dg-icon dg-icon-arrow01-left"></span>Voltar</button>
+                            @* Aba *@
+                            <div class="dg-produto-aba-info" id="standoutDivAutomatico"></div>
+                            @* @Html.Raw(SP.ScriptJS) *@
+                            @* /Aba *@
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(SP.SeoDescricaoProduto))
+                        {
+                            @* Aba *@
+                            <div class="dg-produto-aba-info-wrapper" data-produto-aba-info="Descrição">
+                                <button class="dg-produto-aba-info-close jsFecharAbaProduto dg-desktop-hide"><span class="dg-icon dg-icon-arrow01-left"></span>Voltar</button>
+
+
+
+
+                                <div class="dg-produto-aba-info">
+                                    @Html.Raw(SP.SeoDescricaoProduto.Replace("{farmaceutico}", farmaceu))
+                                </div>
+                            </div>
+                            @* /Aba *@
+                        }
+
+                        @if (!string.IsNullOrEmpty(Descricao))
+                        {
+
+                            string LabelDescricao = SP.LabelDescricao;
+
+                            if (LabelDescricao == "") { LabelDescricao = "Descrição complementar"; }
+
+                            if (SP.LabelDescricao.Length > 1)
+                            {
+                                LabelDescricao = SP.LabelDescricao;
+                            }
+
+                            @* Aba *@
+                            <div class="dg-produto-aba-info-wrapper" data-produto-aba-info="@LabelDescricao-2">
+                                <button class="dg-produto-aba-info-close jsFecharAbaProduto dg-desktop-hide"><span class="dg-icon dg-icon-arrow01-left"></span>Voltar</button>
+                                @if (SP.ID_Categoria == 2 || SP.ID_Categoria == 34)
+                                {
+                                    <div class="dg-produto-aba-descricao-medicamento">
+                                        <p>
+                                            ISTO É UM MEDICAMENTO, NÃO USE SEM PRESCRIÇÃO MÉDICA E ORIENTAÇÃO DO FARMACÊUTICO. AO PERSISTIREM OS SINTOMAS, O MÉDICO DEVERÁ SER CONSULTADO.
+                                        </p>
+                                    </div>
+                                }
+                                <div class="dg-produto-aba-info">
+                                    @Html.Raw(SP.Descricao.Length > 1 ? SP.Descricao : Descricao)
+                                </div>
+                            </div>
+                            @* /Aba *@
+                        }
+
+
+                        @if (!string.IsNullOrEmpty(SP.PdfBula.Trim()))
+                        {
+                            @* Aba *@
+                            <div class="dg-produto-aba-info-wrapper" data-produto-aba-info="BulaPdf">
+                                <button class="dg-produto-aba-info-close jsFecharAbaProduto dg-desktop-hide"><span class="dg-icon dg-icon-arrow01-left"></span>Voltar</button>
+                                <div class="dg-produto-aba-info" data-bula="@SP.PdfBula"></div>
+                            </div>
+                            @* /Aba *@
+                        }
+
+                        @if (!string.IsNullOrEmpty(SP.Bula.Trim()))
+                        {
+                            @* Aba *@
+                            <div class="dg-produto-aba-info-wrapper" data-produto-aba-info="Bula">
+                                <button class="dg-produto-aba-info-close jsFecharAbaProduto dg-desktop-hide"><span class="dg-icon dg-icon-arrow01-left"></span>Voltar</button>
+                                <div class="dg-produto-aba-info">
+                                    @Html.Raw(@SP.Bula.Replace("{farmaceutico}", farmaceu))
+                                </div>
+                            </div>
+                            @* /Aba *@
+                        }
+
+                        @if (!string.IsNullOrEmpty(SP.AvisoLegal.Trim()))
+                        {
+                             @* Aba *@
+                            <div class="dg-produto-aba-info-wrapper" data-produto-aba-info="AvisoLegal">
+                                <button class="dg-produto-aba-info-close jsFecharAbaProduto dg-desktop-hide"><span class="dg-icon dg-icon-arrow01-left"></span>Voltar</button>
+                                <div class="dg-produto-aba-info">
+                                    @Html.Raw(@SP.AvisoLegal)
+                                </div>
+                            </div>
+                            @* /Aba *@
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+</div>
+
+@* /Abas *@
+
+
+
+
+
+@* / Versão anvisa *@
+
+@if (!string.IsNullOrEmpty(SP.SeoDescricaoProduto))
+{
+    <div class="container">
+
+        <div class="dg-produto-anvisa">
+            @if (!string.IsNullOrEmpty(SP.Advertencia))
+            {
+                <div class="dg-produto-aba-descricao-medicamento">
+                    <p>
+                        @Html.Raw(SP.Advertencia)
+                    </p>
+                </div>
+            }
+            else if (!string.IsNullOrEmpty(SP.Aviso))
+            {
+                <div class="dg-produto-aba-descricao-medicamento">
+                    <p>
+                        @Html.Raw(SP.Aviso)
+                    </p>
+                </div>
+
+            }
+            else
+            {
+
+                @if (SP.ID_Categoria == 2 || SP.ID_Categoria == 34)
+                {
+                    <div class="dg-produto-aba-descricao-medicamento">
+                        <p>
+                            ISTO É UM MEDICAMENTO, NÃO USE SEM PRESCRIÇÃO MÉDICA E ORIENTAÇÃO DO FARMACÊUTICO. AO PERSISTIREM OS SINTOMAS, O MÉDICO DEVERÁ SER CONSULTADO.
+                        </p>
+                    </div>
+                }
+            }
+
+        </div>
+
+    </div>
+}
+
+@* banners *@
+<div class="container">
+    <section class="dg-home-destaques2-wrapper">
+        <div class="dg-home-destaques2">
+            @await Component.InvokeAsync("BannersCategoria", banners)
+        </div>
+    </section>
+</div>
+@* banners *@
+
+<div class="container">
+<div class="js-ext-edrone-vitrine-filtragem-colaborativa"></div>
+<div class="js-ext-edrone-vitrine-mais-vendidos"></div>
+</div>
+
+
+
+<script id="template-genericoSimilar" type="text/x-jquery-tmpl">
+    <h3 class='dg-subtitulo'>Segue abaixo uma lista de <strong>Genéricos e Similares</strong>:</h3>
+    <div class='dg-boxproduto-lista'>
+        ${SimilaresHtml}
+    </div>
+    <div class='dg-modal-similares-final'>
+        <a href="${SimilaresUrl}">
+            <span>Ver todos os genéricos e similares</span>
+            <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/generico.svg" alt="Ícone generico">
+        </a>
+    </div>
+    @*   <!-- Some HTML here -->
+        <scr{{= ""}}ipt type="text/javascript">
+        ga('ec:addImpression', {             // Provide product details in an impressionFieldObject.
+        'id': '${ID_SubProduto}',                     // Product ID (string).
+        'name': '${produto.Produto}',                // Product name (string).
+        'category': '${produto.Categoria}',       // Product category (string).
+        'brand': '${produto.Marca}',            // Product brand (string).
+        'list': 'Simmilar',   // Product list (string).
+        'position': `+ i + `,               // Product position (number).
+        });
+        </scr{{= ""}}ipt>*@
+
+</script>
+
+
+<script>    
+    gtag('event', 'view_item',
+        {
+            items: [
+                {
+                    'item_id': '@SP.ID_SubProduto',
+                    'item_name': '@SP.NomeProduto.Replace("™", "&trade;")',
+                    'item_category': '@SP.Categoria',
+                    'item_brand': '@SP.Marca',
+                    'price': parseFloat('@ValorTotal.ToString("#,0.00")'.replace(/,/g, ".")),
+                    'quantity': 1
+                }
+            ]
+        });
+</script>
+
+@*===============================Epharma=========================================================*@
+<script id="template-produtodesconto-epharma" type="text/x-jquery-tmpl">
+    <div class="dg-produto-PBM jsOpenEpharma_Modal dg-loading" tabindex="0" role="button">
+        <div class="dg-produto-PBM__esquerda">
+            <div class="dg-produto-PBM__esquerda__1">pague: <span id="getValorDescontoEpharma">R$ ${product.valor}</span></div>
+            <div>Economizando com o laboratório e-Pharma.</div>
+            <input type="hidden" value="${product.id_cliente}" id="id_clienteIndustria">
+        </div>
+        <div class="dg-produto-PBM__direita">
+            <img class="jsImagemIndustria" src="@Html.Domain()/assets/img/produto/e-pharma.png" alt="Logo da e-Pharma">
+        </div>
+    </div>
+    
+</script>
+
+<script id="templateModalEpharma_autorizar" type="text/x-jquery-tmpl">
+    <div class="dg-modal-header">
+        <img class="jsImagemIndustria" src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/produto/discount-shape-green-pbm.svg" alt="Ícone desconto">
+        <div class="dg-modal-header__esquerda">Economizando com o programa de laboratório, informe seus dados.</div>
+        <div class="dg-modal-header__pague">Pague: <span id="valorDesconto-epharma">0</span></div>
+        <p class="dg-modal-header__sobre"><a>Clique aqui</a> e saiba mais sobre o programa de laboratório.</p>
+    </div>
+    <div action="" class="dg-modal-form">
+        @* <div class="dg-modal-form__esquerda">
+            <div class="dg-modal-form__esquerda-titulo">Este produto tem desconto exclusivo para clientes cadastrados no programa:</div>
+            <div class="dg-modal-form__esquerda-texto">Informamos ao lado o preço do produto com o desconto mínimo oferecido pelo programa. Este desconto pode alterar de acordo com os itens da cesta, a quantidade do produto e o CPF, Cartão ou Cupom informado.</div>
+        </div> *@
+        <form class="dg-modal-form__direita jsEpharma_form-autorizar">
+            <div style="position:relative">
+                <input type="text" placeholder="Digite Nº de CPF" id="cpfModalEpharma" validar mascara="cpf">
+                <button type="submit">
+                    <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.19005 1.04754e-07C0.887563 7.81279e-08 0.585076 0.114521 0.34627 0.35992C-0.115422 0.834357 -0.115422 1.61963 0.34627 2.09407L5.12239 7.00205L0.346269 11.91C-0.115423 12.3845 -0.115423 13.1697 0.346269 13.6442C0.80796 14.1186 1.57214 14.1186 2.03383 13.6442L7.65373 7.86912C8.11542 7.39468 8.11542 6.60941 7.65373 6.13497L2.03383 0.35992C1.79503 0.114521 1.49254 1.31381e-07 1.19005 1.04754e-07Z" fill="#0B1841"/>
+                    </svg>
+                </button>
+            </div>
+        </form>
+        <div class="dg-modal-form__continuar">
+            <p>Continuar e pagar R$@ValorTotal.ToString("#,0.00")</p>
+            <button type="button">COMPRAR SEM DESCONTO</button>
+        </div>
+    </div>
+</script>
+
+<script id="templateModalEpharma_redirecionamentoCarrinho" type="text/x-jquery-tmpl">
+    <div style="text-align: center;">
+        <h1 class="dg-titulo">Desconto <strong>E-pharma</strong> Autorizado</h1>
+        <p style="font-size: 18px">Redirecionando para o carinho em...</p>
+        <p style="font-size: 28px;;font-weight:bold;color:#094684" class="jsContadorRedirecionamentoCarrinho"></p>
+    </div>
+</script>
+
+<script id="templateEpharma_formulario" type="text/x-jquery-tmpl">
+     <div class="dg-modal-header">
+        <div class="dg-modal-header__esquerda">
+            {if config.clienteExiste == false}
+                <div>Para prosseguir, é necessário se cadastrar:</div>
+            {else}
+                <div>Para prosseguir, é necessário preencher os dados a seguir:</div>
+            {/if}
+        </div>
+        @* <div class="dg-modal-header__direita"><img class="jsImagemIndustriaDados" style="height: 30px" alt="Logo da Indústria" /></div> *@
+    </div>
+    <form action="" class="dg-modal-form jsEpharma_form-cadastro dg-cadastro-form">
+        <div class="dg-modal-overflow-content">
+            <div class="dg-form-row">
+                {if config.clienteExiste == false}
+                    <div class="dg-form-control">
+                        <div class="dg-relative">
+                        <input class="dg-input" type="text" name="Nome" id="Nome" required validar>
+                        <label class="dg-label" for="Nome">
+                            Nome*
+                        </label>
+                        </div>
+                    </div>
+
+                    <div class="dg-form-control">
+                        <div class="dg-relative">
+                        <input class="dg-input" type="text" name="Sobrenome" id="Sobrenome" required validar>
+                        <label class="dg-label" for="Sobrenome">
+                            Sobrenome*
+                        </label>
+                        </div>
+                    </div>
+
+                    <div class="dg-form-control">
+                        <div class="dg-relative">
+                        <input class="dg-input" type="tel" name="DataNasc" id="DataNasc" mascara="data" required validar>
+                        <label class="dg-label" for="DataNasc">
+                            Data de Nascimento*
+                        </label>
+                        </div>
+                    </div>
+
+                    <div class="dg-form-control">
+                        <div class="dg-relative">
+                        <select class="dg-select" name="Sexo" id="Sexo" required validar>
+                            <option id="S" val="" disabled selected>Selecione</option>
+                            <option id="M" val="M">Masculino</option>
+                            <option id="F" val="F">Feminino</option>
+                            <option id="I" val="I">Indefinido</option>
+                        </select>
+                        <label class="dg-label" for="Sexo">
+                            Sexo*
+                        </label>
+                        </div>
+                    </div>                
+
+                    <div class="dg-form-control">
+                        <div class="dg-relative">
+                        <input class="dg-input" type="tel" name="CPF" id="CPF" mascara="cpf" required validar value="${config.cpf}" disabled>
+                        <label class="dg-label" for="CPF">
+                            CPF*
+                        </label>
+                        </div>
+                    </div>
+
+                    <div class="dg-form-control">
+                        <div class="dg-relative">
+                        <input class="dg-input" type="email" name="Email" id="Email" mascara="lowercase" required validar>
+                        <label class="dg-label" for="Email">
+                            E-mail*
+                        </label>
+                        </div>
+                    </div>
+
+                    <div class="dg-form-control">
+                        <div class="dg-relative">
+                        <input class="dg-input" type="tel" name="TelRes" id="TelRes" mascara="telefone" validar>
+                        <label class="dg-label" for="TelRes">
+                            Telefone Residencial
+                        </label>
+                        </div>
+                    </div>
+
+                    <div class="dg-form-control">
+                        <div class="dg-relative">
+                        <input class="dg-input" type="tel" name="TelCel" id="TelCel" mascara="telefone" required validar>
+                        <label class="dg-label" for="TelCel">
+                            Telefone Celular*
+                        </label>
+                        </div>
+                    </div>
+
+                    <div class="dg-form-control">
+                        <div class="dg-relative">
+                        <input class="dg-input" type="tel" name="TelCom" id="TelCom" mascara="telefone" validar>
+                        <label class="dg-label" for="TelCom">
+                            Telefone Comercial
+                        </label>
+                        </div>
+                    </div>
+
+                    <div class="dg-form-control">
+                        <div class="dg-relative">
+                        <input class="dg-input" type="password" class="jsIsPassword" name="Senha" id="Senha" autocomplete="new-password" required validar>
+                        <label class="dg-label" for="Senha">
+                            Senha*
+                        </label>
+                        <a href="javascript:void(0)" class="dg-cadastro-conteudo-versenha" aria-label="Deixa campo de senha visível"><span class="dg-icon dg-icon-eye"></span></a>
+                        </div>
+                    </div>
+
+                    <div class="dg-form-control">
+                        <div class="dg-relative">
+                        <input class="dg-input" type="password" class="jsIsPassword" name="ConfirmaSenha" id="ConfirmaSenha" required validar>
+                        <label class="dg-label" for="ConfirmaSenha">
+                            Confirmar senha*
+                        </label>
+                        <a href="javascript:void(0)" class="dg-cadastro-conteudo-versenha" aria-label="Deixa campo de senha visível"><span class="dg-icon dg-icon-eye"></span></a>
+                        </div>
+                    </div>
+
+                    <div class="dg-form-control dg-cadastro-separador" style="width:100%">
+                        <a href="javascript:void(0)" class="dg-cadastro-conteudo-permissoes-btn">
+                            <strong>Permissões</strong>
+                            <span>Edite aqui as suas permissões</span>
+                            <span class="dg-icon dg-icon-editar"></span>
+                        </a>
+                        <div class="dg-cadastro-conteudo-permissoes">
+                            <h3 class="dg-titulo">
+                                Receba <strong>novidades</strong>, <strong>promoções</strong> e <strong>ofertas</strong> personalizadas!
+                            </h3>
+                            <div>
+                                <input class="dg-input" type="checkbox" name="News" id="News" checked>
+                                <label for="News">E-mail</label>
+                            </div>
+                            <div>
+                                <input class="dg-input" type="checkbox" name="SMS" id="SMS" checked>
+                                <label for="SMS">SMS</label>
+                            </div>
+                            <div>
+                                <input class="dg-input" type="checkbox" name="LGPD_Redes_sociais" id="LGPD_Redes_sociais" checked>
+                                <label for="LGPD_Redes_sociais">Redes Sociais</label>
+                            </div>
+                            <div>
+                                <input class="dg-input" type="checkbox" name="WhatsApp" id="WhatsApp" checked>
+                                <label for="WhatsApp">WhatsApp</label>
+                            </div>
+                        </div>
+                    </div>
+                {/if}
+            </div>
+            <div class="dg-form-row">
+                {if config.fields.length > 0}
+                    {for input in config.fields}
+                        {if input.type == "text"}                
+                            <div class="dg-form-control">
+                                <div class="dg-relative">
+                                    {if input.apiAlias == "beneficiario_endereco_cidade" || input.apiAlias == "beneficiario_endereco_uf"}
+                                        <input class="dg-input jsEpharmaCampo" type="${input.type}" id="${input.columnId}" name="columnId" apialias="${input.apiAlias}" value="${input.value}" required validar readonly="true">
+                                        <label class="dg-label" style="background-color:#d1d1d1">${input.label}*</label>
+                                    {elseif input.apiAlias == "beneficiario_endereco_cep"}
+                                        <input class="dg-input jsEpharmaCampo" type="${input.type}" id="${input.columnId}" name="columnId" apialias="${input.apiAlias}" mascara="numero" value="${input.value}" required validar>
+                                        <label class="dg-label">${input.label}*</label>
+                                    {else}
+                                        <input class="dg-input jsEpharmaCampo" type="${input.type}" id="${input.columnId}" name="columnId" apialias="${input.apiAlias}" value="${input.value}" required validar>
+                                        <label class="dg-label">${input.label}*</label>
+                                    {/if}
+                                </div>
+                            </div>
+                        {else}
+                            {if input.type == "checkbox"}
+                                <div class="dg-form-control">
+                                    <input class="jsEpharmaCampo" type="${input.type}" id="${input.columnId}" name="columnId" apialias="${input.apiAlias}" value="${input.value}">
+                                    <label for="${input.columnId}">${input.label}</label>
+                                </div>
+                            {else}
+                                <input class="jsEpharmaCampo" type="${input.type}" id="${input.columnId}" name="columnId"   apialias="${input.apiAlias}" value="${input.value}">
+                            {/if}
+                        {/if}
+                    {/for}
+                {/if}
+                {if config.quiz.length > 0}
+                    {for input in config.quiz}
+                        {if input.type == "text"}
+                            <div class="dg-form-control">
+                                <div class="dg-relative">
+                                    <input class="dg-input jsEpharmaCampoQuiz" type="${input.type}" id="${input.id}" name="columnId" apialias="${input.apiAlias}" value="${input.value}" required validar>
+                                    <label class="dg-label">${input.label}*</label>
+                                </div>
+                            </div>
+                        {else}
+                            {if input.type == "checkbox"}
+                                <div class="dg-form-control">
+                                    <input class="jsEpharmaCampoQuiz" type="${input.type}" id="${input.id}" name="columnId" apialias="${input.apiAlias}" required validar configurationId="${input.configurationId}" skuId="${input.skuId}" value="${input.value}">
+                                    <label for="${input.id}">${input.label}</label>
+                                </div>
+                            {elseif input.apiAlias == "Question_Receive_Access"}
+                                <div class="dg-form-control jsEpharmaCampoQuiz" apialias="${input.apiAlias}" id="${input.id}">
+                                    <div style="margin-bottom:10px">${input.label}</div>
+                                    <div class="dg-relative">
+                                        <label>
+                                            <input style="vertical-align:-1px;" type="${input.type}" name="columnIdReceiveAccess" apialias="${input.apiAlias}" configurationId="${input.configurationId}" skuId="${input.skuId}" value="1">
+                                            SMS
+                                        </label>
+                                    </div>
+                                    <div class="dg-relative">
+                                        <label>
+                                            <input style="vertical-align:-1px;" type="${input.type}" name="columnIdReceiveAccess" apialias="${input.apiAlias}" configurationId="${input.configurationId}" skuId="${input.skuId}" value="2" checked>
+                                            E-mail
+                                        </label>
+                                    </div>
+                                </div>
+                            {else}
+                                <input class="jsEpharmaCampoQuiz" type="${input.type}" id="${input.id}" name="columnId" apialias="${input.apiAlias}" configurationId="${input.configurationId}" skuId="${input.skuId}" value="${input.value}">
+                            {/if}
+                        {/if}
+                    {/for}
+                {/if}
+                
+                <input class="jsEpharmaCampo" type="hidden" id="benefitId" value="">
+                <input class="jsEpharmaCampo" type="hidden" id="benefitCadastrado" value="false">
+            </div>
+            <div class="dg-form-row">
+                <div class="dg-form-control dg-form-control--full ativa1 ativa3">
+                    <h3 class="dg-titulo">Dados do médico</h3>
+                </div>
+            </div>
+            <div class="dg-form-row">
+                <div class="dg-form-control">
+                    <div class="dg-relative">
+                        <input class="dg-input jsEpharmaCampoMedico" type="text" id="NomeMedico" name="NomeMedico" required validar>
+                        <label class="dg-label">Medico*</label>
+                    </div>
+                </div>
+                <div class="dg-form-control">
+                    <div class="dg-relative">
+                        <select class="dg-select jsEpharmaCampoMedico" name="tipoConselhoEpharma" id="tipoConselhoEpharma" required validar>
+                            <option value="1" selected>CRM</option>
+                            <option value="2">CRO</option>
+                        </select>
+                        <label>Tipo de Conselho*</label>
+                    </div>
+                </div>
+                <div class="dg-form-control">
+                    <div class="dg-relative">
+                        <input class="dg-input jsEpharmaCampoMedico" type="text" id="nCRMEpharma" name="nCRMEpharma" required validar mascara="numero">
+                        <label class="dg-label">Nº*</label>
+                    </div>
+                </div>                
+                <div class="dg-form-control">
+                    <div class="dg-relative">
+                        <select class="dg-select jsEpharmaCampoMedico" id="estadoEpharma" name="estadoEpharma" required validar>
+                            <option selected disabled>Selecione o Estado</option>
+                        </select>
+                        <label>Estado*</label>
+                    </div>
+                </div>
+                <div class="dg-form-control">
+                    <div class="dg-relative">
+                        <input class="dg-input jsEpharmaCampoMedico" type="text" id="datapharma" name="datapharma" required validar mascara="data">
+                        <label class="dg-label">Data da prescrição*</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-footer">
+            <button class="jsSubmitCadastroEpharma" type="submit">Cadastrar</button>
+        </div>
+    </form>
+</script>
+
+<script id="template-login-pdv" type="text/x-jquery-tmpl">
+    <div class="jsModalPBMLogin">
+        <form class="dg-header-minhaconta-modal-login jsHeaderMinhacontaModalLogin" id="modalLogin" onsubmit="return false;" autocomplete="off">
+            <h1 class="dg-titulo">
+            Logue para continuar
+            </h1>
+            <div class="dg-header-minhaconta-modal-conteudo">
+                <div id="campoUsuarioLogin">
+                    <input required type="text" mascara="lowercase" id="LoginUsuario" name="LoginUsuario">
+                    <label for="LoginUsuario">Digite seu e-mail ou CPF:</label>
+                </div>
+
+                <div id="campoSenhaLogin">
+                    <input required type="password" id="LoginSenha" name="LoginSenha">
+                    <label for="LoginSenha">Digite sua Senha</label>
+                </div>
+            </div>
+            <div class="dg-header-minhaconta-modal-footer">
+                <div class="dg-header-minhaconta-modal-topo dg-header-minhaconta-modal-esqueci-url">
+                    <a href="javascript:void(0)">
+                        <svg xmlns="https://www.w3.org/2000/svg" width="10.356" height="12.083" viewBox="0 0 10.356 12.083">
+                            <path id="locked" d="M5.1,14.333h9.148a.6.6,0,0,0,.6-.6V8.022a.6.6,0,0,0-.6-.593H13.67V6.595a4.757,4.757,0,0,0-1.149-3.112A3.921,3.921,0,0,0,9.681,2.25h0a3.931,3.931,0,0,0-2.84,1.23A4.745,4.745,0,0,0,5.687,6.592v.836H5.1a.6.6,0,0,0-.6.593v5.715A.6.6,0,0,0,5.1,14.333ZM7.116,6.595a3.376,3.376,0,0,1,.758-2.166V4.421a2.5,2.5,0,0,1,1.8-.8h.005a2.5,2.5,0,0,1,1.8.8v.005l0,0a3.362,3.362,0,0,1,.758,2.166v.834H7.116Z" transform="translate(-4.5 -2.25)" fill="#fc3141"/>
+                        </svg>
+                        <span class="dg-txt">
+                            Esqueceu
+                            <strong>sua senha?</strong>
+                        </span>
+                    </a>
+                </div>
+
+                <button type="submit" class="dg-header-minhaconta-modal-footer-btn btn-login-modal">
+                    Entrar
+                </button>
+            </div>
+
+
+            <button type="submit" class="dg-header-minhaconta-modal-footer-btn btn-login-modal-senha" style="display:none">
+                Entrar
+            </button>
+        </form>
+        <form class="dg-header-minhaconta-modal-esquecisenha jsHeaderMinhacontaModalEsqueciSenha" onsubmit="return false;" name="form-senha" id="form-senha" autocomplete="off">
+            <div class="dg-form-senha-step dg-step-ativo" data-form-senha-step="1">
+                <div class="dg-titulo">
+                    Esqueceu sua senha?
+                    <p>
+                        Preencha seu e-mail ou CPF abaixo para receber uma solicitação de mudança.
+                    </p>
+                </div>
+                <div class="dg-header-minhaconta-modal-conteudo">
+                    <div>
+                        <input id="EsqueciSenhaEmail" required validar type="text" mascara="lowercase">
+                        <label for="EsqueciSenhaEmail">Informe seu e-mail ou CPF:</label>
+                    </div>
+                </div>
+
+                <div class="dg-header-minhaconta-modal-footer">
+                    <button type="submit" class="dg-header-minhaconta-modal-footer-btn dg-header-minhaconta-modal-footer-esqueci-btn">
+                        Prosseguir
+                    </button>
+
+                    <a href="javascript:void(0)" class="dg-header-minhaconta-modal-footer-voltar-btn">
+                        Voltar ao login
+                    </a>
+                </div>
+            </div>
+            <div class="dg-form-senha-step" data-form-senha-step="2"></div>
+            <div class="dg-form-senha-step" data-form-senha-step="3"></div>
+        </form>
+    </div>
+</script>
+
+@*===============================Epharma=========================================================*@
+
+@{
+    Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Produto.css", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/slick.js", false);
+    @* Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Produto.js", false); *@
+    Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Assinatura.js", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Epharma.js", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/Produto_v20.js", false);
+}

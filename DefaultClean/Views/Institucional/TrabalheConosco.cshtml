@@ -1,0 +1,495 @@
+﻿@{
+    ViewData["BodyID"] = "institucional-trabalhe-conosco-pg";
+}
+
+<!--Conteudo-->
+<div class="container">
+    @* BreadCrumb *@
+    <ul class="dg-institucional-breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
+
+         <li property="itemListElement" typeof="ListItem" itemscope itemtype="https://schema.org/ListItem">
+            <a href="@Html.Domain()/" property="item" typeof="WebPage">
+                <span property="name">Home</span>
+            </a>
+            <meta property="position" content="1">
+            <meta property="name" content="Home">
+        </li>
+        
+
+        <li property="itemListElement" typeof="ListItem" itemscope itemtype="https://schema.org/ListItem">
+            <a href="@ViewBag.UrlBreadcrumb" property="item" typeof="WebPage">
+                <span property="name">Trabalhe Conosco</span>
+            </a>
+            <meta property="position" content="2">
+            <meta property="name" content="Trabalhe Conosco">
+        </li>
+    </ul>
+    @* BreadCrumb *@
+
+    <h1 class="dg-institucional-titulo">Trabalhe <strong>Conosco</strong></h1>
+    <main id="main" class="dg-institucional dg-institucional-trabalheconosco jsMoveLabelInput">
+
+        <p>
+            Venha fazer parte da Farmácia Mix, uma empresa com mais de 40 anos de tradição em cuidar
+            da saúde dos brasileiros.
+        </p>
+        <p>
+            Aqui, você tem a oportunidade de transformar sua carreira e alçar novos objetivos profissionais.
+            Preencha o formulário e candidate-se a uma vaga.
+        </p>
+        <h2>Informe o seu <b>Perfil Profissional</b></h2>
+        <form name="FormTrabalhe" class="dg-form-wrapper" id="FormTrabalheConosco" onsubmit="return false;">
+            <div class="dg-form-control">
+                <div class="dg-relative">
+                    <input id="Nome" type="text" name="Nome" class="dg-input" data-sobenome-validar required validar>
+                    <label for="Nome" class="dg-label">Nome Completo<span style="color:red">*</span></label>
+                </div>
+            </div>
+            <div class="dg-form-control">
+                <div class="dg-relative">
+                    <input id="Email" type="email" mascara="lowercase" name="Email" class="dg-input" required validar>
+                    <label for="Email" class="dg-label">Email<span style="color:red">*</span></label>
+                </div>
+            </div>
+            <div class="dg-form-control">
+                <div class="dg-relative">
+                    <input id="DataNascimento" type="tel" name="DataNascimento" class="dg-input" mascara="data" required validar>
+                    <label for="DataNascimento" class="dg-label">Data de Nascimento<span style="color:red">*</span></label>
+                </div>
+            </div>
+             <div class="dg-form-control">
+                <div class="dg-relative">
+                    <input id="Idade" type="tel" name="Idade" class="dg-input" mascara="numero" required validar>
+                    <label for="Idade" class="dg-label">Qual a sua idade?</label>
+                </div>
+            </div>
+            <div class="dg-form-control">
+                <div class="dg-relative">
+                    <input id="NomeMae" type="text" name="NomeMae" class="dg-input" required validar>
+                    <label for="NomeMae" class="dg-label">Nome da Mãe<span style="color:red">*</span></label>
+                </div>
+            </div>
+            <div class="dg-form-control">
+                <div class="dg-relative">
+                    <input id="Rg" type="text" name="Rg" class="dg-input" required validar>
+                    <label for="Rg" class="dg-label">RG<span style="color:red">*</span></label>
+                </div>
+            </div>
+            <div class="dg-form-control">
+                <div class="dg-relative">
+                    <input id="DataEmissao" type="tel" name="DataEmissao" class="dg-input" required validar mascara="data">
+                    <label for="DataEmissao" class="dg-label">Data de Emissão (RG)<span style="color:red">*</span></label>
+                </div>
+            </div>
+            <div class="dg-form-control">
+                <div class="dg-relative">
+                    <input id="CPF" type="tel" name="CPF" class="dg-input" mascara="cpf" required validar>
+                    <label for="CPF" class="dg-label">CPF<span style="color:red">*</span></label>
+                </div>
+            </div>
+            <div class="dg-form-control">
+                <div class="dg-relative">
+                    <input id="CEP" type="tel" name="CEP" oninput="Cliente.AutoBuscaEndereco()" class="dg-input" mascara="cep" required validar>
+                    <label for="CEP" class="dg-label">CEP<span style="color:red">*</span></label>
+                </div>
+            </div>
+            <div class="dg-form-control">
+                <div class="dg-relative">
+                    <input id="Endereco" type="text" name="endereco" class="dg-input" required validar>
+                    <label for="Endereco" class="dg-label">Endereço<span style="color:red">*</span></label>
+                </div>
+            </div>
+            <div class="dg-form-control">
+                <div class="dg-relative">
+                    <input id="Numero" mascara="numero" type="text" name="numero" class="dg-input" required validar>
+                    <label for="Numero" class="dg-label">Número<span style="color:red">*</span></label>
+                </div>
+            </div>
+            <div class="dg-form-control">
+                <div class="dg-relative">
+                    <input id="Bairro" type="text" name="bairro" class="dg-input" required validar>
+                    <label for="Bairro" class="dg-label">Bairro<span style="color:red">*</span></label>
+                </div>
+            </div>
+            <div class="dg-form-control">
+                <div class="dg-relative">
+                    <input name="Estado" type="text" id="Estado" class="dg-input" required validar>
+                    <label for="Estado" class="dg-label">Estado<span style="color:red">*</span></label>
+                </div>
+            </div>
+            <div class="dg-form-control">
+                <div class="dg-relative">
+                    <input name="Cidade" type="text" id="Cidade" class="dg-input" required validar>
+                    <label for="Cidade" class="dg-label">Cidade<span style="color:red">*</span></label>
+                </div>
+            </div>
+            <div class="dg-form-control">
+                <div class="dg-relative">
+                    <input id="Celular" type="tel" name="Celular" class="dg-input" mascara="telefone" required validar>
+                    <label for="Celular" class="dg-label">Telefone Celular<span style="color:red">*</span></label>
+                </div>
+            </div>
+             <div class="dg-form-control dg-form-control--half dg-form-control--escolaridade">
+                <div class="dg-radio">
+                    <div class="dg-common-label" style="font-weight: 500;border-bottom: 1px solid #e4e7ed;padding-bottom: 5px;margin-bottom: 10px;">
+                        Grau de escolaridade<span style="color:red">*</span>
+                    </div>
+                    <div class="dg-form-radio-inline">
+                        <div class="dg-form-radio-inline__title">Fundamental:</div>
+                        <div class="dg-form-radio-inline__wrapper">
+                            <div class="dg-form-radio-inline__field">
+                                <input id="Fundamental_incompleto" name="escolaridade" value="FI" type="radio" required validar>
+                                <label for="Fundamental_incompleto">Incompleto</label>
+                            </div>
+                            <div class="dg-form-radio-inline__field">
+                                <input id="Fundamental_completo" name="escolaridade" value="FC" type="radio" required validar>
+                                <label for="Fundamental_completo">Completo</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dg-form-radio-inline">
+                        <div class="dg-form-radio-inline__title">Médio:</div>
+                        <div class="dg-form-radio-inline__wrapper">
+                            <div class="dg-form-radio-inline__field">
+                                <input id="Medio_incompleto" name="escolaridade" value="MI" type="radio" required validar>
+                                <label for="Medio_incompleto">Incompleto</label>
+                            </div>
+                            <div class="dg-form-radio-inline__field">
+                                <input id="Medio_completo" name="escolaridade" value="MC" type="radio" required validar>
+                                <label for="Medio_completo">Completo</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dg-form-radio-inline">
+                        <div class="dg-form-radio-inline__title">Superior:</div>
+                        <div class="dg-form-radio-inline__wrapper">
+                            <div class="dg-form-radio-inline__field">
+                                <input id="Superior_incompleto" name="escolaridade" value="SI" type="radio" required validar>
+                                <label for="Superior_incompleto">Incompleto</label>
+                            </div>
+                            <div class="dg-form-radio-inline__field">
+                                <input id="Superior_completo" name="escolaridade" value="SC" type="radio" required validar>
+                                <label for="Superior_completo">Completo</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dg-form-radio-inline">
+                        <div class="dg-form-radio-inline__title">Pós-graduado:</div>
+                        <div class="dg-form-radio-inline__wrapper">
+                            <div class="dg-form-radio-inline__field">
+                                <input id="Posgraduado_incompleto" name="escolaridade" value="PI" type="radio" required validar>
+                                <label for="Posgraduado_incompleto">Incompleto</label>
+                            </div>
+                            <div class="dg-form-radio-inline__field">
+                                <input id="Posgraduado_completo" name="escolaridade" value="PC" type="radio" required validar>
+                                <label for="Posgraduado_completo">Completo</label>
+                            </div>
+                        </div>
+                        </div>
+                </div>
+            </div>
+            <div class="dg-form-control dg-form-control--half">
+                <fieldset class="panel-section">
+                    <legend style="font-weight:600">Redes Sociais</legend>
+                    <div class="dg-relative">
+                        <input class="dg-input" type="text" id="usuarioFacebook" name="usuarioFacebook">
+                        <label class="dg-label dg-label-facebook">Qual seu Facebook?</label>
+                    </div>
+                    <div class="dg-relative">
+                        <input class="dg-input" type="text" id="usuarioInstagram" name="usuarioInstagram">
+                        <label class="dg-label">Qual seu Instagram?</label>
+                    </div>
+                    <div class="dg-relative">
+                        <input class="dg-input" type="text" id="usuarioLinkedin" name="usuarioLinkedin">
+                        <label class="dg-label">Qual seu Linkedin?</label>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="dg-form-control">
+                <div class="dg-relative">
+                    <label for="Departamento" class="dg-label dg-label--push" style="font-weight:600">Área de Interesse</label>
+                    <select name="Departamento" id="Departamento" multiple="" class="dg-select">
+                        <option value="Administrativo" rel="23">Administrativo</option>
+                        <option value="Compras" rel="25">Compras</option>
+                        <option value="Controladoria" rel="24">Controladoria</option>
+                        <option value="E-commerce" rel="26">E-commerce</option>
+                        <option value="Expedição" rel="27">Expedição</option>
+                        <option value="Farmacêutico" rel="28">Farmacêutico</option>
+                        <option value="Financeiro" rel="30">Financeiro</option>
+                        <option value="Licitação Hospitalar" rel="61">Licitação Hospitalar</option>
+                        <option value="Logística" rel="36">Logística</option>
+                        <option value="Loja" rel="60">Loja</option>
+                        <option value="Marketing" rel="37">Marketing</option>
+                        <option value="RH - Recursos Humanos" rel="38">RH - Recursos Humanos</option>
+                        <option value="SAC - Serviço de Atendimento ao Cliente" rel="39">SAC - Serviço de Atendimento ao Cliente</option>
+                        <option value="Tesouraria" rel="41">Tesouraria</option>
+                        <option value="TI - Tecnologia da Informação" rel="42">TI - Tecnologia da Informação</option>
+                    </select>
+                </div>
+            </div>
+            <div class="dg-form-control">
+                <div class="dg-radio">
+                    <div class="dg-common-label" style="font-weight: 500;border-bottom: 1px solid #e4e7ed;padding-bottom: 5px;margin-bottom: 10px;">É o seu primeiro emprego?<span style="color:red">*</span></div>
+                    <div>
+                        <input type="radio" id="primeiroEmprego2" name="primeiroEmprego" class="jsPrimeiroEmprego" value="0" validar required>
+                        <label for="primeiroEmprego2">Não</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="primeiroEmprego1" name="primeiroEmprego" class="jsPrimeiroEmprego" value="1" validar required>
+                        <label for="primeiroEmprego1">Sim</label>
+                    </div>
+                </div>
+
+                <div class="dg-radio dg-hide jsNotPrimeiroEmprego">
+                    <div class="dg-common-label" style="font-weight: 500;border-bottom: 1px solid #e4e7ed;padding-bottom: 5px;margin-bottom: 10px;">Você tem experiência na área de interesse?<span style="color:red">*</span></div>
+                    <div>
+                        <input type="radio" id="experienciaAreaRadio2" name="experienciaAreaRadio" value="0" required validar>
+                        <label for="experienciaAreaRadio2">Não</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="experienciaAreaRadio1" name="experienciaAreaRadio" value="1" required validar>
+                        <label for="experienciaAreaRadio1">Sim</label>
+                    </div>
+                </div>
+            </div>
+            <div class="dg-form-control dg-hide jsNotPrimeiroEmprego">
+                <div class="dg-radio">
+                    <div class="dg-common-label" style="font-weight: 500;border-bottom: 1px solid #e4e7ed;padding-bottom: 5px;margin-bottom: 10px;">Está trabalhando atualmente?<span style="color:red">*</span></div>
+                    <div>
+                        <input type="radio" id="estaTrabalhando2" name="estaTrabalhando" value="0" validar required class="jsObrigaQuandoSeleciona">
+                        <label for="estaTrabalhando2">Não</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="estaTrabalhando1" name="estaTrabalhando" value="1" required-last="true" validar required class="jsObrigaQuandoSeleciona"> 
+                        <label for="estaTrabalhando1">Sim</label>
+                    </div>
+                </div>
+                <div>
+                    <div class="dg-form-last-input dg-relative">
+                        <input id="estaTrabalhandoEmpresa" type="text" class="dg-input" name="estaTrabalhandoEmpresa">
+                        <label class="dg-label">Empresa</label>
+                    </div>
+                    <div class="dg-form-last-input dg-relative">
+                        <input id="estaTrabalhandoFuncao" type="text" class="dg-input" name="estaTrabalhandoFuncao">
+                        <label class="dg-label">Função</label>
+                    </div>
+                    <div class="dg-form-last-input dg-relative">
+                        <textarea id="estaTrabalhandoComentarios" type="text" class="dg-input jsIgnoreField" name="estaTrabalhandoComentarios"></textarea>
+                        <label class="dg-label">Comentários</label>
+                    </div>
+                </div>
+            </div>
+            <div class="dg-form-control dg-hide jsNotPrimeiroEmprego jsUltimoEmprego jsObrigaQuandoPreenche">
+                <fieldset class="panel-section">
+                    <legend style="font-weight:600">Última Experiência <span class="jsAstericoRequired" style="display:none;color:red">*</span></legend>
+                    <div class="dg-relative">
+                        <input type="text" id="entradaUltimaExperiencia" name="entradaUltimaExperiencia" maxlength="10" class="dg-input data-mask" validar mascara="data">
+                        <label class="dg-label">Entrada</label>
+                    </div>
+                    <div class="dg-relative">
+                        <input type="text" id="saidaUltimaExperiencia" name="saidaUltimaExperiencia" maxlength="10" class="dg-input data-mask" validar mascara="data">
+                        <label class="dg-label">Saída</label>
+                    </div>
+                    <div class="dg-relative">
+                        <input type="text" id="cargoUltimaExperiencia" name="cargoUltimaExperiencia" class="dg-input" validar>
+                        <label class="dg-label">Cargo</label>
+                    </div>
+                    <div class="dg-relative">
+                        <input type="text" id="empresaUltimaExperiencia" name="empresaUltimaExperiencia" class="dg-input" validar>
+                        <label class="dg-label">Nome da Empresa</label>
+                    </div>
+                    <div class="dg-relative">
+                        <label class="dg-common-label">Descrição das atividades</label>
+                        <textarea class="dg-textarea" name="descricaoUltimaExperiencia" id="descricaoUltimaExperiencia" rows="3" validar></textarea>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="dg-form-control dg-hide jsNotPrimeiroEmprego jsObrigaQuandoPreenche">
+                <fieldset class="panel-section">
+                    <legend style="font-weight:600">Penúltima Experiência</legend>
+                    <div class="dg-relative">
+                        <input type="text" id="entradaPenultimaExperiencia" name="entradaPenultimaExperiencia" maxlength="10" class="dg-input data-mask" validar mascara="data">
+                        <label class="dg-label">Entrada</label>
+                    </div>
+                    <div class="dg-relative">
+                        <input type="text" id="saidaPenultimaExperiencia" name="saidaPenultimaExperiencia" maxlength="10" class="dg-input data-mask" validar mascara="data">
+                        <label class="dg-label">Saída</label>
+                    </div>
+                    <div class="dg-relative">
+                        <input type="text" id="cargoPenultimaExperiencia" name="cargoPenultimaExperiencia" class="dg-input" validar>
+                        <label class="dg-label">Cargo</label>
+                    </div>
+                    <div class="dg-relative">
+                        <input type="text" id="empresaPenultimaExperiencia" name="empresaPenultimaExperiencia" class="dg-input" validar>
+                        <label class="dg-label">Nome da Empresa</label>
+                    </div>
+                    <div class="dg-relative">
+                        <label class="dg-common-label">Descrição das atividades</label>
+                        <textarea class="dg-textarea" name="descricaoPenultimaExperiencia" id="descricaoPenultimaExperiencia" rows="3" validar></textarea>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="dg-form-control dg-hide jsNotPrimeiroEmprego jsObrigaQuandoPreenche">
+                <fieldset class="panel-section">
+                    <legend style="font-weight:600">Antepenúltima Experiência</legend>
+                    <div class="dg-relative">
+                        <input type="text" id="entradaAntepenultimoExperiencia" name="entradaAntepenultimoExperiencia" maxlength="10" class="dg-input data-mask" validar mascara="data">
+                        <label class="dg-label">Entrada</label>
+                    </div>
+                    <div class="dg-relative">
+                        <input type="text" id="saidaAntepenultimoExperiencia" name="saidaAntepenultimoExperiencia" maxlength="10" class="dg-input data-mask" validar mascara="data">
+                        <label class="dg-label">Saída</label>
+                    </div>
+                    <div class="dg-relative">
+                        <input type="text" id="cargoAntepenultimoExperiencia" name="cargoAntepenultimoExperiencia" class="dg-input" validar>
+                        <label class="dg-label">Cargo</label>
+                    </div>
+                    <div class="dg-relative">
+                        <input type="text" id="empresaAntepenultimoExperiencia" name="empresaAntepenultimoExperiencia" class="dg-input" validar>
+                        <label class="dg-label">Nome da Empresa</label>
+                    </div>
+                    <div class="dg-relative">
+                        <label class="dg-common-label">Descrição das atividades</label>
+                        <textarea class="dg-textarea" name="descricaoAntepenultimoExperiencia" id="descricaoAntepenultimoExperiencia" rows="3" validar></textarea>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="dg-form-control dg-form-parente-dne">
+                <div class="dg-radio">
+                    <div class="dg-common-label" style="font-weight: 500;border-bottom: 1px solid #e4e7ed;padding-bottom: 5px;margin-bottom: 10px;">Você é parente ou conhece alguém da Farmácia Mix?<span style="color:red">*</span></div>
+                    <div>
+                        <input type="radio" id="parenteAlguem2" class="jsObrigaQuandoSeleciona" name="parenteAlguem" value="0" validar required>
+                        <label for="parenteAlguem2">Não</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="parenteAlguem1" class="jsObrigaQuandoSeleciona" name="parenteAlguem" value="1" validar required required-last="true">
+                        <label for="parenteAlguem1">Sim</label>
+                    </div>
+                </div>
+                <div>
+                    <div class="dg-form-last-input dg-relative">
+                        <input type="text" class="dg-input" id="parenteAlguemNome" name="parenteAlguemNome">
+                        <label class="dg-label">Nome do(a) colaborador(a)</label>
+                    </div>
+                    <div class="dg-form-last-input dg-relative">
+                        <input type="text" class="dg-input" id="parenteAlguemDepartamento" name="parenteAlguemDepartamento">
+                        <label class="dg-label">Departamento</label>
+                    </div>
+                    <div class="dg-form-last-input dg-relative">
+                        <textarea type="text" class="dg-input jsIgnoreField" id="parenteAlguemComentarios" name="parenteAlguemComentarios"></textarea>
+                        <label class="dg-label">Comentários</label>
+                    </div>
+                </div>
+            </div>
+             <div class="dg-form-control dg-form-control--half dg-hide jsNotPrimeiroEmprego">
+                <div class="dg-radio">
+                    <div class="dg-common-label" style="font-weight: 500;border-bottom: 1px solid #e4e7ed;padding-bottom: 5px;margin-bottom: 10px;">Você já trabalhou conosco?<span style="color:red">*</span></div>
+                    <div>
+                        <input type="radio" id="jaTrabalhouConosco2" class="jsObrigaQuandoSeleciona" name="jaTrabalhouConosco" value="0" validar required>
+                        <label for="jaTrabalhouConosco2">Não</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="jaTrabalhouConosco1" class="jsObrigaQuandoSeleciona" name="jaTrabalhouConosco" value="1" validar required required-last="true">
+                        <label for="jaTrabalhouConosco1">Sim</label>
+                    </div>
+                </div>
+                <div>
+                    <div class="dg-form-last-input dg-relative">
+                        <div class="dg-form-two-fields">
+                            <div class="dg-relative">
+                                <input type="text" class="dg-input" mascara="data" id="jaTrabalhouConoscoEntrada" name="jaTrabalhouConoscoEntrada">
+                                <label class="dg-label">Entrada</label>
+                            </div>
+                            <div class="dg-segregate-text">Até</div>
+                            <div class="dg-relative">
+                                <input type="text" class="dg-input" mascara="data" id="jaTrabalhouConoscoSaida" name="jaTrabalhouConoscoSaida">
+                                <label class="dg-label">Saída</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dg-form-last-input dg-relative">
+                        <input type="text" class="dg-input" id="jaTrabalhouConoscoDepartamento" name="jaTrabalhouConoscoDepartamento">
+                        <label class="dg-label">Departamento</label>
+                    </div>
+                    <div class="dg-form-last-input dg-relative">
+                        <textarea type="text" class="dg-input jsIgnoreField" id="jaTrabalhouConoscoComentarios" name="jaTrabalhouConoscoComentarios"></textarea>
+                        <label class="dg-label">Comentários</label>
+                    </div>
+                </div>
+            </div>
+            <div class="dg-form-control">
+                <div class="dg-radio">
+                    <div class="dg-common-label" style="font-weight: 500;border-bottom: 1px solid #e4e7ed;padding-bottom: 5px;margin-bottom: 10px;">Tem disponibilidade para trabalhar aos sábados?<span style="color:red">*</span></div>
+                    <div>
+                        <input type="radio" id="disponibilidadeSabados2" class="jsObrigaQuandoSeleciona" name="disponibilidadeSabado" value="0" validar required>
+                        <label for="disponibilidadeSabados2">Não</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="disponibilidadeSabados1" class="jsObrigaQuandoSeleciona" name="disponibilidadeSabado" value="1" validar required required-last="true">
+                        <label for="disponibilidadeSabados1">Sim</label>
+                    </div>
+                </div>
+                <div class="dg-form-last-input dg-relative">
+                    <input type="text" class="dg-input" id="disponibilidadeSabadoComentario" name="disponibilidadeSabadoComentario">
+                    <label class="dg-label">Conte-nos um pouco mais</label>
+                </div>
+            </div>
+            <div class="dg-form-control">
+                <div class="dg-radio">
+                    <div class="dg-common-label" style="font-weight: 500;border-bottom: 1px solid #e4e7ed;padding-bottom: 5px;margin-bottom: 10px;">Tem alguma deficiência?<span style="color:red">*</span></div>
+                    <div>
+                        <input type="radio" id="temDeficienciaRadio2" class="jsObrigaQuandoSeleciona" name="temDeficienciaRadio" value="0" required validar>
+                        <label for="temDeficienciaRadio2">Não</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="temDeficienciaRadio1" class="jsObrigaQuandoSeleciona" name="temDeficienciaRadio" value="1" required validar required-last="true">
+                        <label for="temDeficienciaRadio1">Sim</label>
+                    </div>
+                </div>
+                <div class="dg-form-last-input dg-relative">
+                    <input type="text" class="dg-input" id="temDeficiencia" name="temDeficienciaQual">
+                    <label class="dg-label">Qual?</label>
+                </div>
+            </div>
+             <div class="dg-form-control dg-hide jsNotPrimeiroEmprego">
+                <div class="dg-radio">
+                    <div class="dg-common-label" style="font-weight: 500;border-bottom: 1px solid #e4e7ed;padding-bottom: 5px;margin-bottom: 10px;">Já trabalhou em drogarias?<span style="color:red">*</span></div>
+                    <div>
+                        <input type="radio" id="tempoExperienciaFarmaciaRadio2" class="jsObrigaQuandoSeleciona" name="tempoExperienciaFarmaciaRadio" value="0" validar required>
+                        <label for="tempoExperienciaFarmaciaRadio2">Não</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="tempoExperienciaFarmaciaRadio1" class="jsObrigaQuandoSeleciona" name="tempoExperienciaFarmaciaRadio" value="1" validar required required-last="true">
+                        <label for="tempoExperienciaFarmaciaRadio1">Sim</label>
+                    </div>
+                </div>
+                <div class="dg-form-last-input dg-relative">
+                    <input type="text" class="dg-input" id="tempoExperienciaFarmacia" name="tempoExperienciaFarmacia">
+                    <label class="dg-label">Por quanto tempo?</label>
+                </div>
+            </div>
+           
+
+            <div class="dg-form-control dg-form-control--footer dg-form-control--footer-captcha">
+                 <label class="dg-form-label-aceitar">
+                    <input type="checkbox" name="ConsentimentoLGPD" class="jsAceitarInformacoes" required validar>
+                    Assumo que as presentes informações prestadas são verdadeiras e autorizo, em caso de aprovação para o cargo, o arquivo destas e de todos os dados do processo seletivo na Farmácia Mix, caso não seja aprovado, autorizo a destruição e descarte dos mesmos.
+                </label>
+                <div id="Trabalhe-vcg" class="dg-Trabalhe-recaptcha"></div>
+                <div class="dg-relative">
+                    <button type="submit" name="EnviarTrabalhe" id="EnviarTrabalhe" class="dg-btn">Enviar Formulário</button>
+                </div>
+            </div>
+        </form>
+    </main>
+</div>
+@Html.Raw(@ViewBag.SEOOrganization)
+<!--Conteudo-->
+
+@{
+    Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/TrabalheConosco.js", false);
+}
+
+@{
+    Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Institucional.css", false);
+}

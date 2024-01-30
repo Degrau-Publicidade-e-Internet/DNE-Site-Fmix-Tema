@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["BodyID"] = "institucional-frete-e-entrega-pg";
+}
+
+<!--Conteudo-->
+<div class="container"> 
+    @* BreadCrumb *@
+    <ul class="dg-institucional-breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
+
+
+        <li property="itemListElement" typeof="ListItem" itemscope itemtype="https://schema.org/ListItem">
+            <a href="@Html.Domain()/" property="item" typeof="WebPage">
+                <span property="name">Home</span>
+            </a>
+            <meta property="position" content="1">
+            <meta property="name" content="Home">
+        </li>
+        
+
+
+         <li property="itemListElement" typeof="ListItem" itemscope itemtype="https://schema.org/ListItem">
+            <a href="@ViewBag.UrlBreadcrumb" property="item" typeof="WebPage">
+                <span property="name">Política de Frete e Entrega</span>
+            </a>
+            <meta property="position" content="2">
+            <meta property="name" content="Política de Frete e Entrega">
+        </li>
+
+    </ul>
+    @* /BreadCrumb *@
+
+
+    <h1 class="dg-institucional-titulo">Política de <strong>Frete e Entrega</strong></h1>
+    <main id="main" class="dg-institucional">
+        <h2>Cálculo do Frete</h2>
+        <p>O frete é calculado durante o processo de compra, onde será solicitado o CEP da entrega do produto, resultando no valor do frete. Com isso, o cálculo será somado ao valor da compra, formando assim o total a ser pago.</p>
+        <h2>Entrega</h2>
+        <p>As entregas são realizadas mediante a confirmação do pagamento de um frete. O valor deste está relacionado as dimensões e peso do produto, a distância do local e a forma de entrega da encomenda.</p>
+        <p>Importante: O prazo de envio de sua encomenda na loja inicia em 01 dia útil após a confirmação de pagamento pela instituição financeira.</p>
+        <p>Caso tenha dúvidas, entre em contato com o nosso Serviço de Atendimento ao Cliente.</p>
+    </main>
+</div>
+@Html.Raw(@ViewBag.SEOOrganization)
+<!--Conteudo--> 
+
+
+@{
+    Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Institucional.css", false);
+}

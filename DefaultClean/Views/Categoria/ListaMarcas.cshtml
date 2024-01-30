@@ -1,0 +1,170 @@
+﻿@model DNE.Site.Models.ListaDeProdutosModel
+
+@{
+    var _static = Model._functionsProject.GetUrlStatic();
+}
+
+
+@if (Model.ListaMarcas.ListMarca.Count > 0)
+{
+    <h4 class="dg-titulo" data-tipo-titulo="marca">
+        Filtre por <strong>marca</strong>:
+        @if (Model.request.idmarca > 0)
+        {
+            if (Model.Tipo.Equals("PrincipioAtivo"))
+            {
+                <a href="@Html.Domain()@Model.ListaMarcas.Link" aria-label="Limpar Filtro" class="dg-categoria-sidebar-limpar dg-tooltip-hover">
+                    <span class="dg-icon dg-icon-x"></span>
+                    <span class="dg-tooltip">
+                        Limpar Filtro
+                    </span>
+                </a>
+            }
+            else if (Model.Tipo.Equals("Busca"))
+            {
+                <a href="@Html.Domain()/@Model.ListaMarcas.Link" aria-label="Limpar Filtro" class="dg-categoria-sidebar-limpar dg-tooltip-hover">
+                    <span class="dg-icon dg-icon-x"></span>
+                    <span class="dg-tooltip">
+                        Limpar Filtro
+                    </span>
+                </a>
+            }
+
+
+            else 
+            {
+                <a href="@Html.Domain()/@Model.ListaMarcas.Link" aria-label="Limpar Filtro" class="dg-categoria-sidebar-limpar dg-tooltip-hover">
+                    <span class="dg-icon dg-icon-x"></span>
+                    <span class="dg-tooltip">
+                        Limpar Filtro
+                    </span>
+                </a>
+            }
+        }
+
+    </h4>
+    <div class="dg-categoria-sidebar-listagem-wrapper">
+        <ul class="dg-categoria-sidebar-listagem dg-categoria-sidebar-listagem-marca">
+
+
+
+            @if (Model.Tipo.Equals("PrincipioAtivo"))
+            {
+
+                var url = Model.UrlFiltros;
+
+                foreach (var marca in Model.ListaMarcas.ListMarca)
+                {
+                    var contagem = marca.Contagem > 0 ? @marca.Contagem.ToString() : "";
+
+
+                    <li>
+                        <a href="@Html.Domain()@marca.Link">
+
+
+
+                            @if (marca.Icone != "")
+                            {
+                                <img src="@Html.Domain()/assets/img/lazy.png" alt="@marca.Alt_Icone" title="@marca.Alt_Icone"
+                     data-src-lazy="@_static/marcas/@marca.Icone">
+
+                            }
+                            @marca.Marca
+                            @if (contagem != "")
+                            {
+                                <span class="dg-categoria-sidebar-contagem">@contagem</span>
+                            }
+
+                        </a>
+                    </li>
+                }
+            }
+
+            else if (Model.Tipo.Equals("Busca"))
+            {
+                
+                foreach (var marca in Model.ListaMarcas.ListMarca)
+                {
+                    var contagem = marca.Contagem > 0 ? @marca.Contagem.ToString() : "";
+
+
+                    <li>
+                        <a href="@Model.UrlFiltros&idmarca=@marca.ID_Marca">
+
+                            @if (marca.Icone != "")
+                            {
+                                <img src="@Html.Domain()/assets/img/lazy.png" alt="@marca.Alt_Icone" title="@marca.Alt_Icone"
+                     data-src-lazy="@_static/marcas/@marca.Icone">
+
+                            }
+                            @marca.Marca
+                            @if (contagem != "")
+                            {
+                                <span class="dg-categoria-sidebar-contagem">@contagem</span>
+                            }
+
+                        </a>
+                    </li>
+                }
+            }
+
+            else if (Model.Tipo.Equals("LandingPages"))
+            {
+                foreach (var marca in Model.ListaMarcas.ListMarca)
+                {
+                    var contagem = marca.Contagem > 0 ? @marca.Contagem.ToString() : "";
+
+
+                    <li>
+                        <a href="@Html.Domain()/@Model.BannerCategoria.NomeCategoria@marca.Link">
+
+                            @if (marca.Icone != "")
+                            {
+                                <img src="@Html.Domain()/assets/img/lazy.png" alt="@marca.Alt_Icone" title="@marca.Alt_Icone" data-src-lazy="@_static/marcas/@marca.Icone">
+
+                            }
+                            @marca.Marca
+                            @if (contagem != "")
+                            {
+                                <span class="dg-categoria-sidebar-contagem">@contagem</span>
+                            }
+
+                        </a>
+                    </li>
+                }
+            }
+            
+            else
+            {
+                foreach (var marca in Model.ListaMarcas.ListMarca)
+                {
+                    var contagem = marca.Contagem > 0 ? @marca.Contagem.ToString() : "";
+
+
+                    <li>
+                        <a href="@Html.Domain()/@marca.Link">
+
+                            @if (marca.Icone != "")
+                            {
+                                <img src="@Html.Domain()/assets/img/lazy.png" alt="@marca.Alt_Icone" title="@marca.Alt_Icone" data-src-lazy="@_static/marcas/@marca.Icone">
+
+                            }
+                            @marca.Marca
+                            @if (contagem != "")
+                            {
+                                <span class="dg-categoria-sidebar-contagem">@contagem</span>
+                            }
+
+                        </a>
+                    </li>
+                }
+
+            }
+        </ul>
+    </div>
+}
+
+@{
+    Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Categoria.css", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Categorias.js", false);
+}

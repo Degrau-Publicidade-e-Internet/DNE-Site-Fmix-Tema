@@ -1,0 +1,127 @@
+﻿@{
+    ViewData["BodyID"] = "institucional-politica-de-reembolso-e-devolucao-pg";
+}
+
+<!--Conteudo-->
+<div class="container">
+    @* BreadCrumb *@
+    <ul class="dg-institucional-breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
+
+
+        <li property="itemListElement" typeof="ListItem" itemscope itemtype="https://schema.org/ListItem">
+            <a href="@Html.Domain()/" property="item" typeof="WebPage">
+                <span property="name">Home</span>
+            </a>
+            <meta property="position" content="1">
+            <meta property="name" content="Home">
+        </li>
+               
+        <li property="itemListElement" typeof="ListItem" itemscope itemtype="https://schema.org/ListItem">
+            <a href="@ViewBag.UrlBreadcrumb" property="item" typeof="WebPage">
+                <span property="name">Política de Devolução</span>
+            </a>
+            <meta property="position" content="2">
+            <meta property="name" content="Política de Devolução">
+        </li>
+
+    </ul>
+    @* /BreadCrumb *@
+
+
+    <h1 class="dg-institucional-titulo">Política de <strong>Devolução</strong></h1>
+    <main id="main" class="dg-institucional">
+
+
+        <p><strong>Arrependimento: </strong>o prazo para devolução é de até 7 (sete) dias corridos, a contar da data do recebimento do pedido.</p>
+        <p>
+            <strong>Medicamentos em geral, medicamentos controlados, Antibióticos, nutriconcentrados e Refrigerados:</strong> devido às normas da Anvisa, não aceitamos devoluções.
+        </p>
+
+        <p>Dúvidas podem ser esclarecidas por meio de consulta à Portaria nº 344/1998 e RDC nº 20/2011, no site da Anvisa ou através do telefone da Ouvidoria da Vigilância Sanitária: 0800 61 1997.</p>
+        <p>Além disso, não atendemos pedidos de devoluções com as seguintes especificações:</p>
+
+        <li> Pedidos sob encomenda;</li><br>
+
+        <li> Leites, Alimentos e Suplementos Nutricionais;</li><br>
+
+        <li> Medicamentos de alta complexidade;</li><br>
+
+        <p> Para aceitarmos a devolução, será necessário que o pedido se encontre dentro dos padrões abaixo:</p>
+
+        <li> Na embalagem original; </li><br>
+
+        <li> Sem indícios de uso; </li><br>
+
+        <li> Sem violação do lacre original do fabricante;</li><br>
+
+        <li> Nota Fiscal do Produto; </li><br>
+
+        <li> Kits devem ser devolvidos por completo; </li><br>
+
+        <li> Brindes encaminhados no pedido; </li><br>
+
+
+        <li> Envio de e-mail ou contato via WhatsApp de cadastro justificando a solicitação de devolução.</li><br>
+
+
+        <p><strong>Observação:</strong> Se as exigências acima não forem cumpridas, nossa central de atendimento fará uma nova análise do caso. </p>
+
+        <p>
+            <strong>Nos reservamos ao direito de não aceitar qualquer devolução de produto diferente do encaminhado pela Farmácia Mix ou que apresente claros indícios de violação e/ou mau uso.</strong>
+
+            <h2>IMPORTANTE</h2>
+
+        <p>O cliente interessado na devolução de seu pedido deverá encaminhar o mesmo em sua embalagem original, sem indícios de uso, violação do lacre original do fabricante, acompanhado de Nota Fiscal, identificando o número do pedido, protocolo da solicitação fornecido pelo SAC e o CPF do titular, através de nossa caixa postal:</p>
+
+        <p>Farmácia Mix Ltda</p>
+
+        <p>Caixa Postal: 76469</p>
+
+        <p>02936-970 São Paulo – SP</p>
+
+        <p>Para a efetivação da Devolução é necessário entrar em contato com a nossa Central de Relacionamento, via Chat, WhatsApp ou telefone.</p>
+
+        <p>Produtos devolvidos sem essa comunicação, fora do prazo ou com ausência de itens/acessórios que o acompanham, serão devolvidos ao remetente sem consulta prévia.</p>
+
+        <h2>Procedimento para Ressarcimento de Valores</h2>
+
+        <p>Se optar pelo ressarcimento do valor do pedido ao invés da troca do produto, verifique abaixo, de acordo com a forma de pagamento selecionada no final do pedido, como será realizado o processo de devolução.</p>
+
+        <p><strong>Boleto Bancário, Pix, transferência ou depósito</strong></p>
+
+        <p>O reembolso do valor do pedido será feito por meio de depósito bancário.</p>
+
+        <p>Além disso, será efetuado na conta do titular e responsável pelo envio do pedido, no prazo de até 72 horas úteis após o recebimento da mercadoria devolvida e com os dados bancários já informados.</p>
+
+        <p>Se o cliente titular do pedido não possuir conta bancária, o ressarcimento será realizado por meio de cupom de desconto para compras futuras em nossa loja virtual. Em caso de dúvidas ou esclarecimentos, é necessário entrar em contato com nossa central de atendimento.</p>
+
+        <p><strong>Cartão de crédito</strong></p>
+
+        <p>Para devolução de valores dos pedidos pagos com cartão de crédito, será efetuado o estorno/cancelamento total ou parcial (se somente um dos produtos for devolvido) da transação junto à administradora do cartão de crédito.</p>
+
+        <p>Após a solicitação realizada por nossa empresa, o crédito será identificado pela operadora do cartão em até 7 dias úteis, dependendo também da data de fechamento da fatura do cliente.</p>
+
+        <p><strong>Gift Card (Cupom de Desconto)</strong></p>
+
+        <p>No caso de devolução do pedido, com a escolha da opção ressarcimento por meio de gift card, este se dará no prazo de 72 horas úteis, após o recebimento da mercadoria devolvida e emissão da Nota fiscal de devolução pela loja.</p>
+
+        <p><strong>E-mail:</strong> sac@farmaciamix.com.br</p>
+
+        <p><strong>Central de Relacionamento: @ViewBag.TelSac</strong></p>
+
+        <p>
+            <strong>Horário de Atendimento:</strong><br>
+            Segunda a Sexta das 8:00 às 18:00 | Sábado das 8:00 às 12:00 | Exceto domingos e feriados
+        </p>
+
+        <h3>Nossa loja virtual foi feita pensando em você. Portanto, fique à vontade para dar sua opinião, sugestão ou crítica.</h3>
+
+
+    </main>
+</div>
+@Html.Raw(@ViewBag.SEOOrganization)
+<!--Conteudo-->
+
+@{
+    Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Institucional.css", false);
+}

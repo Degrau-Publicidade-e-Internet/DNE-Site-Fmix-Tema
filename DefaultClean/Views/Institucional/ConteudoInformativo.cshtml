@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["BodyID"] = "institucional-conteudo-informativo-pg";
+}
+
+<!--Conteudo-->
+<div class="container">
+    @* BreadCrumb *@
+    <ul class="dg-institucional-breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
+
+        <li property="itemListElement" typeof="ListItem" itemscope itemtype="https://schema.org/ListItem">
+            <a href="@Html.Domain()/" property="item" typeof="WebPage">
+                <span property="name">Home</span>
+            </a>
+            <meta property="position" content="1">
+            <meta property="name" content="Home">
+        </li>
+
+
+
+        <li property="itemListElement" typeof="ListItem" itemscope itemtype="https://schema.org/ListItem">
+            <a href="@ViewBag.UrlBreadcrumb" property="item" typeof="WebPage">
+                <span property="name">Conteúdo Informativo</span>
+            </a>
+            <meta property="position" content="2">
+            <meta property="name" content="Conteúdo Informativo">
+        </li>
+
+
+
+    </ul>
+    @* /BreadCrumb *@
+
+
+    <h1 class="dg-institucional-titulo">Conteúdo <strong>Informativo</strong></h1>
+    <main id="main" class="dg-institucional">
+        <p>
+            As bulas oficiais de qualquer medicamento são aquelas que acompanham os produtos na hora da compra. Isso porque os textos reproduzidos nas bulas contidas no site são apenas resumos e devem ser utilizadas apenas como referência secundária, como dúvidas confirmadas primariamente em fontes oficiais, laboratórios farmacêuticos e fabricantes do produto em mãos.
+        </p>
+
+        <h2>No site, pode haver bulas atuais e antigas, dado que estas informações devem ser utilizadas com esta premissa.</h2>
+
+        <p>
+            As informações contidas aqui são fornecidas sem garantias de qualquer natureza. Com isso, a Farmácia Mix Ltda isenta-se de qualquer responsabilidade expressa ou implícita, incluindo a utilização para qualquer fim. Em nenhum momento poderão a Farmácia Mix ou seus distribuidores serem processados por qualquer dano direto ou indireto derivado dos dados aqui contidos. A interpretação bem como o uso destas contidas no produto, quando colocarem em risco a vida humana, ou puderem causar qualquer dano à pessoa, devem ser confirmadas por um profissional de saúde em outras fontes e tomadas como corretas apenas quando o profissional estiver certo sobre a forma de utilização, dosagem e indicação do medicamento.
+        </p>
+
+        <h2>Lembramos que o profissional apto à indicação de medicamentos é o médico. Não faça automedicação e, em caso de qualquer sintoma, procure seu médico.</h2>
+    </main>
+</div>
+@Html.Raw(@ViewBag.SEOOrganization)
+<!--Conteudo-->
+@{
+    Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Institucional.css", false);
+}

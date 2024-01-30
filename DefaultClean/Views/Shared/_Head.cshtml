@@ -1,0 +1,197 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor httpContextAccessor
+@inject IWebHelper iWebHelper
+@using DNE.Site.ViewServices;
+@using DNE.Models.Generic;
+@using Microsoft.AspNetCore.Http;
+@inject DNE.Site.ViewServices.HeadView oHeadView
+
+@{
+    var tipo = ViewData["BodyID"] != null ? ViewData["BodyID"].ToString() : "";
+    var qtdPgs = ViewData["QtdfPags"] != null ? Convert.ToInt32(ViewData["QtdfPags"]) : 1;
+    var description = ViewData["Description"] != null ? ViewData["Description"].ToString() : "";
+    var title = ViewData["Title"] != null ? ViewData["Title"].ToString() : "";
+    var isNoIndex = ViewData["isNotIndex"] != null ? true : false;
+
+
+    HeaderSeo headerSeo = new HeaderSeo();
+
+    headerSeo.Tipo = tipo;
+    headerSeo.QtdPgs = qtdPgs;
+    headerSeo.Description = description;
+    headerSeo.Title = title;
+    headerSeo.isNotIndex = isNoIndex;
+
+    var OHeader = oHeadView.GetHead(headerSeo);
+
+
+}
+
+<head prefix="og: https://ogp.me/ns#">
+    <META http-equiv=Content-Type content="text/html; charset=utf-8">
+    <title>@Html.Raw(OHeader.Title)</title>
+
+    <meta name="description" content="@Html.Raw(@OHeader.Description)" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="ROBOTS" content="@OHeader.Robots" />
+    <meta name="AUTHOR" content="Degrau Publicidade e Internet" />
+    <meta name="language" content="pt-br" />
+    <meta name="resource-type" content="document" />
+    <meta name="google-site-verification" content="wQRrIpbMBg9Ld4hf2g29582KU9tqFSwUAaK4t5ltdlA" />
+    <meta name="y_key" content="9567403540751a34">
+    @* <meta name="viewport" content="width=device-width, initial-scale=1.0"> *@
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="canonical" href="@OHeader.Canonical" />
+
+    @Html.Raw(@OHeader.RelPrev)
+    @Html.Raw(@OHeader.RelNext)
+
+
+    <!-- Social Media -->
+
+    <meta property="og:title" content="@Html.Raw(@OHeader.TitleSocialMidia)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="@OHeader.UrlSocialMidia" />
+    <meta property="og:image" content="@OHeader.ImageSocialMidia" />
+    <meta property="og:description" content="@Html.Raw(@OHeader.DescriSocialMidia)" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@@farmaciamix">
+    <meta property="twitter:url" content="@OHeader.UrlSocialMidia">
+    <meta property="twitter:title" content="@Html.Raw(@OHeader.TitleSocialMidia)">
+    <meta property="twitter:description" content="@Html.Raw(@OHeader.DescriSocialMidia)">
+    <meta property="twitter:image" content="@OHeader.ImageSocialMidia">
+
+    <meta itemprop="name" content="@Html.Raw(@OHeader.TitleSocialMidia)">
+    <meta itemprop="description" content="@Html.Raw(@OHeader.DescriSocialMidia)">
+    <meta itemprop="image" content="@OHeader.ImageSocialMidia">
+
+    <!-- FAVICON -->
+    <!-- favicon -->
+    <!--[if IE]><link rel="shortcut icon" href="@Html.Domain()/assets/img/favicon/favicon.ico"><![endif]-->
+    <link rel="shortcut icon" href="@Html.Domain()/Themes/DefaultClean/Content/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="@Html.Domain()/Themes/DefaultClean/Content/img/favicon.ico" />
+
+    <!-- fonts -->
+    <link
+    rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+        type="text/css"
+    />
+    </noscript>
+
+    @* <!-- Icones -->
+    <link href="@Html.Domain()/assets/icones/styles.css?v=1.0.1" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link href="@Html.Domain()/assets/css/jquery-ui.min.css?v=0.0.1" rel="stylesheet" /> *@
+    <link href="@Html.Domain()/assets/css/Core.css?v5" rel="stylesheet" asp-append-version="true"/>
+    @* <link href="@Html.Domain()/assets/css/todos.css" rel="stylesheet" asp-append-version="true"/> *@
+
+    @Html.CssFiles(ResourceLocation.Head, true)
+    @Html.ScriptsFiles(ResourceLocation.Head, true)
+
+    <link href="@Html.Domain()/Themes/DefaultClean/Content/css/app.css?v1" rel="stylesheet" asp-append-version="true"/>
+    
+    @* removido a pedido do kili 17-11-21 mas vai voltar depois de terminar o dev*@
+    @if (!string.IsNullOrEmpty(OHeader.Layout.Url_File))
+    {
+        @Html.Raw(@OHeader.Layout.Url_File);
+
+        if (OHeader.Layout.IsCronometro)
+        {
+            <script>document.querySelector('html').setAttribute('tem-cronometro', 'true');</script>
+            <script>
+                var saidaEventoCronometro = "@OHeader.Layout.SaidaCronometroString";
+                var EventoCronometroTitulo = "@OHeader.Layout.TitleCronometro";
+            </script>
+        }
+
+        @* <script>
+            var intervalForFunctionCounter = 0;
+            var intervalForFunction = setInterval(function() {
+                intervalForFunctionCounter++;
+                console.log(intervalForFunctionCounter);
+            }, 1000);
+        </script> *@
+    }
+
+    <script>
+
+    </script>
+
+    <!--Teste aqui-->
+    <!-- Cor da status bar mobile -->
+    <meta name="theme-color" content="#0b3277" />
+    <meta name="msapplication-navbutton-color" content="#0b3277" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#0b3277" />
+
+
+    <script>
+        _udn = ".@OHeader.Dominioudn";
+        _utcp = "";
+    </script>
+
+    @* <script type="text/javascript" defer>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-16026834-1', 'auto', { 'cookieDomain': 'drogarianovaesperanca.com.br' });
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');
+
+        ga("require", "ec");
+    </script> *@
+
+    <!--CÓDIGO ANALYTICS-->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-N67N181BKS"></script>
+    <script defer>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N67N181BKS');
+    </script>
+
+    <script>
+        function ga() {
+            
+        }
+    </script>
+    <!--FIM CÓDIGO ANALYTICS-->
+
+    @* <script defer src='https://www.google.com/recaptcha/api.js'></script> *@
+
+    <script>
+        var dataLayer = dataLayer || [];
+        dataLayer.push({
+            crto: {
+                email: "@Html.Raw(OHeader.DataLayerEmailCliente)" //can be empty string if email not known
+            }
+        });
+        dataLayer.push({ "ecomm_email": "@Html.Raw(OHeader.DataLayerEmailCliente)" });
+
+    </script>
+    <script>
+        var dataLayer = dataLayer || [];
+    </script>
+    
+    @if (iWebHelper.NotIsNull(httpContextAccessor.HttpContext.Session.GetString("AvisoCadConfirm")) == "AvisoCadConfirm")
+    {
+        <text>
+            <script>jQuery(document).ready(function () { ReqAlertConfirmClientCad(); });</script>
+        </text>
+
+        httpContextAccessor.HttpContext.Session.Set("AvisoCadConfirm", "");
+
+    }
+   
+</head>

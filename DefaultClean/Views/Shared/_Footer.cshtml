@@ -1,0 +1,763 @@
+﻿@inject DNE.Site.ViewServices.HeaderView oHeaderView
+@inject DNE.Site.Infrastructure.FunctionsProject oFunction
+@{
+    var isMobile = oFunction.IsMobile();
+    var farmaceutico = oFunction.GetFarmaceuticos();
+
+
+}
+
+<footer class="dg-footer">
+    <div class="container">
+        @* <li><a href="@Html.Domain()/termo-de-uso/">Termos de Uso</a></li>
+        <li><a href="@Html.Domain()/mapa-do-site/">Mapa do site</a></li>
+        <li><a href="#">Portal da Indústria</a></li>
+
+        <li><a href="@Html.Domain()/central-de-atendimento/">Central de atendimento</a></li>
+        <li class="dg-mobile-hide"><a href="@Html.Domain()/como-comprar/">Como comprar</a></li>
+        <li><a href="javascript:void(0)" onclick="abrirModal({id:'templateFaleComFarmaceutico', titulo:'Fale com o <strong>Farmacêutico</strong>', startFunction: modalFarmaceutico})">Fale com o Farmacêutico</a></li>
+        <li><a href="@Html.Domain()/programas-laboratorios/">Programa dos Laboratórios</a></li> *@
+
+        <ul class="links-nav-list dg-order2-mobile dg-order1-desktop">
+            <li class="title" role="heading">Sobre a Farmácia Mix</li>
+            <li><a href="/nossa-historia/">Nossa História</a></li>
+            <li><a href="/trabalhe-conosco/">Trabalhe Conosco</a></li>
+            <li><a href="javascript:void(0)" onclick="abrirModal({id:'templateIndiqueUmAmigo',titulo:'Indique a Farmácia Mix a um <strong>amigo</strong>', startFunction: modalIndiqueAmigo})">Indique Nossa Loja</a></li>
+            @* <li><a href="/nossas-lojas/">Localização</a></li> *@
+            <li><a href="/conteudo-informativo/">Conteúdo Informativo</a></li>
+        </ul>
+        <ul class="links-nav-list dg-order3-mobile dg-order2-desktop">
+            <li class="title" role="heading">Serviços</li>
+            <li><a href="/pagamentos/">Pagamentos</a></li>
+            <li><a href="/politica-de-cookies/">Política de Cookies</a></li>
+            <li><a href="/politica-de-seguranca/">Política de Segurança</a></li>
+            <li><a href="/politica-de-privacidade/">Política de Privacidade</a></li>
+            <li><a href="/frete-e-entrega/">Política de Frete e Entrega</a></li>
+            <li><a href="/politica-de-reembolso-e-devolucao/">Política de Devolução</a></li>
+        </ul>
+        <ul class="links-nav-list dg-order4-mobile dg-order3-desktop">
+            <li class="title" role="heading">Relacionamento</li>
+            <li><a href="/central-do-cliente/?url=meusPedidos">Meus Pedidos</a></li>
+            <li><a href="/como-comprar/">Como Comprar</a></li>
+            <li><a href="/central-de-atendimento/">Central de Atendimento</a></li>
+            <li><a href="javascript:void(0)" onclick="abrirModal({id:'templateFaleComFarmaceutico', titulo:'Fale com o <strong>Farmacêutico</strong>', startFunction: modalFarmaceutico})">Fale com o farmacêutico</a></li>
+        </ul>
+        <div class="dg-footer-news dg-order1-mobile dg-order4-desktop">
+            <div class="title">Receba ofertas e novidades por e-mail</div>
+
+            <form class="dg-footer-news-form" id="FormNewsletter">
+                <div class="dg-footer-news-nome">
+                    <input id="NewsNome" name="NewsNome" type="text" class="dg-footer-news-input" required validar>
+                    <label for="NewsNome" class="dg-footer-news-label">Digite seu nome</label>
+                </div>
+
+                <div class="dg-footer-news-email">
+                    <div class="dg-relative">
+                        <input id="NewsEmail" name="NewsEmail" type="email" mascara="lowercase" class="dg-footer-news-input" required validar>
+                        <label for="NewsEmail" class="dg-footer-news-label">Digite seu e-mail</label>
+                    </div>
+                    <button aria-label="Buscar" role="button" class="dg-footer-news-btn">
+                        Enviar
+                    </button>
+                </div>
+                
+            </form>
+        </div>
+        <div class="dg-footer-info-extra dg-footer-info-extra-1 dg-order7-mobile dg-order5-desktop">
+            <div class="title">
+                <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/call-calling.svg" />Televendas
+            </div>
+            <p>
+                (11) 3990-7450<br>
+                <span class="small">
+                    Segunda a Sexta, das 8h às 18h.<br>
+                    Sábado das 8h às 12h.
+                </span>
+            </p>
+        </div>
+        <div class="dg-footer-info-extra dg-footer-info-extra-2 dg-order6-mobile dg-order6-desktop">
+            <div class="title">
+                <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/Wavy.svg" />Selos e Certificados
+            </div>
+            <div class="dg-footer-selos-lista">
+                @* <div class="dg-footer-selos-ebit">
+                    <a href="https://www.ebit.com.br/farmacia-mix" target="_blank">
+                        <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/ebit.png" alt="Selo E-bit - Excelente" loading="lazy">
+                    </a>
+                </div> *@
+                <div class="dg-footer-selos-secure">
+                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/secure.png" alt="Selo 100% Secure" loading="lazy">
+                </div>
+
+                <div class="dg-footer-selos-reclameaqui">
+                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/reclameaqui.png" alt="Selo Reclame Aqui" loading="lazy">
+                </div>
+
+                <div class="dg-footer-selos-pci">
+                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/pci.png" alt="Selo PCI DDS Certified" loading="lazy">
+                </div>
+            </div>
+        </div>
+        <div class="dg-footer-info-extra dg-footer-info-extra-3 dg-order5-mobile dg-order7-desktop">
+            <div class="title">
+                <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/messages.svg" />SAC
+            </div>
+            <p>
+                (11) 3990-5089 ou sac@farmaciamix.com.br<br>
+                <span class="small">
+                    Segunda a Sexta, das 8h às 18h.<br>
+                    Sábado das 8h às 12h.
+                </span>
+            </p>
+        </div>
+        <div class="dg-footer-info-extra dg-footer-info-extra-4 dg-order8-mobile dg-order9-desktop">
+            <div class="title">
+                A FMIX apoia:
+            </div>
+            <div class="dg-footer-linha2-instituicoes-lista">
+                <a href="https://www.graacc.org.br/" target="_blank">
+                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/graacc.png" alt="Graac - Combatendo e vencendo o câncer infantil" loading="lazy">
+                </a>
+                <a href="https://ibcc.org.br/sobre-o-ibcc/o-cancer-de-mama-no-alvo-da-moda/" target="_blank">
+                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/cancer-mama.png" alt="Campanha Câncer de Mama no alvo da Moda" loading="lazy">
+                </a>
+
+                <a href="https://institutoayrtonsenna.org.br/pt-br.html" target="_blank">
+                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/ayrton-senna.png" alt="Instituto Ayrton Senna" loading="lazy">
+                </a>
+
+            </div>
+        </div>
+        <div class="dg-footer-info-extra dg-footer-info-extra-5 dg-order9-mobile dg-order10-desktop">
+            <div class="title">
+                Siga-nos
+            </div>
+            <div class="dg-footer-linha2-lista">
+                <a href="https://www.instagram.com/farmaciamixoficial/" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Instagram">
+                    <span class="dg-icon dg-icon-insta"></span>
+                    <span class="dg-tooltip">Instagram</span>
+                </a>
+
+                <a href="https://www.facebook.com/farmaciamix/" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Facebook">
+                    <span class="dg-icon dg-icon-fb"></span>
+                    <span class="dg-tooltip">Facebook</span>
+                </a>
+
+                @* <a href="https://www.youtube.com/channel/UC0jmeYyaBF0w1rbGH1zYIkA/featured" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Youtube">
+                    <span class="dg-icon dg-icon-yt"></span>
+                    <span class="dg-tooltip">Youtube</span>
+                </a> *@
+
+                <a href="https://www.linkedin.com/company/farmacia-mix/about/?viewAsMember=true" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Linkedin">
+                    <span class="dg-icon dg-icon-linkedin"></span>
+                    <span class="dg-tooltip">Linkedin</span>
+                </a>
+
+                @* <a href="https://twitter.com/drogariadne" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Twitter">
+                    <span class="dg-icon dg-icon-twitter"></span>
+                    <span class="dg-tooltip">Twitter</span>
+                </a> *@
+            </div>
+        </div>
+        <div class="dg-footer-info-extra dg-footer-info-extra-6 dg-order10-mobile dg-order11-desktop">
+            <div class="title">
+                <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/wallet-2.svg" />Formas de pagamento
+            </div>
+            <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/Themes/DefaultClean/Content/img/footer/pagamento.png" alt="Imagem ícones bandeira de cartões" loading="lazy">
+        </div>
+        <div class="dg-footer-info-extra_2 dg-order11-mobile dg-order8-desktop">
+            <img src="@Html.Domain()/Themes/DefaultClean/Content/img/footer/logo-fmix.svg" alt="Logo FMIX">
+            <p>Todas as informações contidas neste site não devem ser usadas para automedicação. Ao persistirem os sintomas um médico deverá ser consultado.</p>
+            <p class="dg-desenvolvido">
+                Desenvolvido por Degrau Publicidade<img src="@Html.Domain()/Themes/DefaultClean/Content/img/footer/logo-degrau.svg" alt="Logo Degrau Publicidade">
+            </p>
+        </div>
+        @* <div class="dg-footer-selos">
+            <div class="title">
+                Selos e certificados
+            </div>
+
+            <div class="dg-footer-selos-lista">
+                <div class="dg-footer-selos-ebit">
+                    <a href="https://www.ebit.com.br/Drogaria-Nova-Esperanca" target="_blank">
+                        <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/ebit.png" alt="Selo E-bit - Excelente" loading="lazy">
+                    </a>
+                </div>
+
+
+
+                <div class="dg-footer-selos-secure">
+                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/secure.png" alt="Selo 100% Secure" loading="lazy">
+                </div>
+
+                <div class="dg-footer-selos-reclameaqui">
+                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/reclameaqui.png" alt="Selo Reclame Aqui" loading="lazy">
+                </div>
+
+                <div class="dg-footer-selos-pci">
+                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/pci.png" alt="Selo PCI DDS Certified" loading="lazy">
+                </div>
+
+            </div>
+        </div> *@
+
+
+        @* <div class="dg-footer-news">
+            <div class="title">
+                Receba ofertas e novidades por e-mail
+            </div>
+
+            <form class="dg-footer-news-form" id="FormNewsletter">
+                <div class="dg-footer-news-nome">
+                    <input id="NewsNome" name="NewsNome" type="text" class="dg-footer-news-input" required validar>
+                    <label for="NewsNome" class="dg-footer-news-label">Digite seu nome</label>
+                </div>
+
+                <div class="dg-footer-news-email">
+                    <input id="NewsEmail" name="NewsEmail" type="email" mascara="lowercase" class="dg-footer-news-input" required validar>
+                    <label for="NewsEmail" class="dg-footer-news-label">Digite seu e-mail</label>
+
+                    <!-- Usei button por semântica, mas pode trocar por "a" se preferir -->
+                    <button aria-label="Buscar" role="button" class="dg-footer-news-btn">
+                        Enviar
+                    </button>
+                </div>
+            </form>
+
+        </div> *@
+        @* <div class="dg-footer-topo">
+
+        </div> *@
+        @* <div class="dg-footer-linha1-infos">
+            <div class="dg-footer-linha1-informacao">
+                <div class="dg-icon dg-icon-sac"></div>
+
+                <div class="dg-txt">
+                    <strong>
+                        SAC: (11) 3990-5089 ou
+                        <a href="mailto:sac@drogarianovaesperanca.com.br" target="_blank">sac@drogarianovaesperanca.com.br</a>
+                    </strong>
+
+                    Segunda a Sexta, das 8h às 18h.<br>
+                    Sábado das 8h às 12h.
+                </div>
+            </div>
+            <div class="dg-footer-linha1-informacao">
+                <div class="dg-icon dg-icon-televendas"></div>
+
+                <div class="dg-txt">
+                    <strong>Televendas: (11) 3990-7450</strong>
+
+                    Segunda a Sexta, das 8h às 18h.<br>
+                    Sábado das 8h às 12h.
+                </div>
+            </div>
+
+            <a href="https://laboratorios.drogarianovaesperanca.com.br/" target="_blank" class="dg-footer-linha1-btn dg-footer-linha1-btn-historia">
+                <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/marcao.png" alt="Mascote DNE" role="presentation" loading="lazy">
+
+                <strong>Acesso para<br>Laboratórios</strong>
+            </a>
+            <a href="https://blog.drogarianovaesperanca.com.br/" target="_blank" class="dg-footer-linha1-btn dg-footer-linha1-btn-blog">
+                <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/alem-da-bula.png" alt="Logotipo Além da Bula" role="presentation" loading="lazy">
+
+                <strong>Visite o blog Além da Bula!</strong>
+            </a>
+        </div> *@
+        @* <div class="dg-footer-linha1-menus">
+            <nav>
+                <div class="title">
+                    Área  Institucional
+                </div>
+
+                <ul>
+                    <li><a href="@Html.Domain()/nossa-historia/">Nossa história</a></li>
+                    <li><a href="@Html.Domain()/trabalhe-conosco/">Trabalhe conosco</a></li>
+                    <li><a href="@Html.Domain()/politica-de-privacidade/">Política de Privacidade</a></li>
+                    <li><a href="@Html.Domain()/politica-de-cookies/">Política de Cookie</a></li>
+                    <li><a href="@Html.Domain()/politica-de-seguranca/">Política de Segurança</a></li>
+                    <li><a href="@Html.Domain()/termo-de-uso/">Termos de Uso</a></li>
+                    <li><a href="@Html.Domain()/conteudo-informativo/">Conteúdo informativo</a></li>
+                    <li><a href="@Html.Domain()/mapa-do-site/">Mapa do site</a></li>
+                    <li><a href="#">Portal da Indústria</a></li>
+                </ul>
+            </nav>
+
+
+            <nav>
+                <div class="title">
+                    Área  de Atendimento
+                </div>
+
+                <ul>
+                    <li><a href="@Html.Domain()/central-de-atendimento/">Central de atendimento</a></li>
+                    <li class="dg-mobile-hide"><a href="@Html.Domain()/como-comprar/">Como comprar</a></li>
+                    <li><a href="javascript:void(0)" onclick="abrirModal({id:'templateFaleComFarmaceutico', titulo:'Fale com o <strong>Farmacêutico</strong>', startFunction: modalFarmaceutico})">Fale com o Farmacêutico</a></li>
+                    <li><a href="@Html.Domain()/frete-e-entrega/">Frete e entrega</a></li>
+                    <li><a href="@Html.Domain()/politica-de-reembolso-e-devolucao/">Política de Reembolso e Devolução</a></li>
+                    <li><a href="@Html.Domain()/pagamentos/">Pagamentos</a></li>
+                    <li><a href="@Html.Domain()/nossas-lojas/">Nossas Lojas</a></li>
+                    <li><a href="@Html.Domain()/programas-laboratorios/">Programa dos Laboratórios</a></li>
+                    <li><a href="javascript:void(0)" onclick="abrirModal({id:'templateIndiqueUmAmigo',titulo:'Indique a Farmácia Mix a um <strong>amigo</strong>', startFunction: modalIndiqueAmigo})">Indique um Amigo</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="dg-footer-linha1">
+        </div>
+        <div class="dg-footer-linha2-ondeestamos">
+            <div class="title">
+                Siga-nos nas redes sociais
+            </div>
+
+            <div class="dg-footer-linha2-lista">
+                <a href="https://www.facebook.com/DrogariaNovaEsperanca/" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Facebook">
+                    <span class="dg-icon dg-icon-fb"></span>
+                    <span class="dg-tooltip">Facebook</span>
+                </a>
+
+                <a href="https://www.instagram.com/drogarianovaesperancaoficial/" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Instagram">
+                    <span class="dg-icon dg-icon-insta"></span>
+                    <span class="dg-tooltip">Instagram</span>
+                </a>
+
+                <a href="https://www.youtube.com/channel/UC0jmeYyaBF0w1rbGH1zYIkA/featured" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Youtube">
+                    <span class="dg-icon dg-icon-yt"></span>
+                    <span class="dg-tooltip">Youtube</span>
+                </a>
+                <a href="https://www.linkedin.com/company/drogaria-nova-esperanca/?originalSubdomain=br" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Linkedin">
+                    <span class="dg-icon dg-icon-linkedin"></span>
+                    <span class="dg-tooltip">Linkedin</span>
+                </a>
+
+                <a href="https://twitter.com/drogariadne" target="_blank" class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Twitter">
+                    <span class="dg-icon dg-icon-twitter"></span>
+                    <span class="dg-tooltip">Twitter</span>
+                </a>
+
+            </div>
+        </div>
+        <div class="dg-footer-linha2-pagamento">
+            <div class="title">
+                Formas de pagamento
+            </div>
+
+            <div class="dg-footer-linha2-lista">
+                <span class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="MasterCard">
+                    <span class="dg-icon dg-icon-mastercard"></span>
+                    <span class="dg-tooltip">MasterCard</span>
+                </span>
+                <span class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Visa">
+                    <span class="dg-icon dg-icon-visa"></span>
+                    <span class="dg-tooltip">Visa</span>
+                </span>
+                <span class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="American Express">
+                    <span class="dg-icon dg-icon-american-express"></span>
+                    <span class="dg-tooltip">American Express</span>
+                </span>
+                <span class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Elo">
+                    <span class="dg-icon dg-icon-elo"></span>
+                    <span class="dg-tooltip">Elo</span>
+                </span>
+                <span class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Boleto">
+                    <span class="dg-icon dg-icon-boleto"></span>
+                    <span class="dg-tooltip">Boleto</span>
+                </span>
+
+                <span class="dg-tooltip-hover dg-footer-linha2-lista-item" role="img" aria-label="Pix">
+                    <span class="dg-icon dg-icon-pix"></span>
+                    <span class="dg-tooltip">Pix</span>
+                </span>
+
+            </div>
+        </div>
+        <div class="dg-footer-linha2-instituicoes">
+            <div class="title">
+                A Farmácia Mix apoia essas instituições:
+            </div>
+
+            <div class="dg-footer-linha2-instituicoes-lista">
+                <a href="https://www.graacc.org.br/" target="_blank">
+                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/graacc.png" alt="Graac - Combatendo e vencendo o câncer infantil" loading="lazy">
+                </a>
+                <a href="https://ibcc.org.br/sobre-o-ibcc/o-cancer-de-mama-no-alvo-da-moda/" target="_blank">
+                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/cancer-mama.png" alt="Campanha Câncer de Mama no alvo da Moda" loading="lazy">
+                </a>
+
+                <a href="https://institutoayrtonsenna.org.br/pt-br.html" target="_blank">
+                    <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/footer/ayrton-senna.png" alt="Instituto Ayrton Senna" loading="lazy">
+                </a>
+
+            </div>
+        </div>
+        <div class="dg-footer-linha2">
+        </div>
+        <div class="dg-footer-final">
+            <strong>Todas as informações contidas neste site não devem ser usadas para auto medicação. Ao persistirem os sintomas o médico deverá ser consultado.</strong>
+
+            <p itemtype="https://schema.org/Pharmacy">
+                O nome <span itemprop="name">Farmácia Mix</span> e o domínio www.drogarianovaesperanca.com.br são marcas registradas por Farmácia Mix LTDA sob o C.N.P.J: 43.575.877/0004-66 – Inscrição Estadual: 128.938.421.115 - situada na <span itemtype="https://schema.org/PostalAddress" itemscope="" itemprop="address"><span itemprop="streetAddress">Av. Major Paladino no 128</span>, <span itemprop="addressLocality">Vila Leopoldina - São Paulo</span> / <span itemprop="addressRegion">SP</span> - <span itemprop="postalCode">CEP: <a href="javascript:void(0)">05307-000</a></span></span>, Licença Municipal para funcionamento: 2023/01093-00 – ANVISA Autorização / MS 7729517 - COVISA Autorização 355030801477011887-1-2 - Farmacêuticos: @farmaceutico. As receitas médicas devem ser apresentadas para o e-mail: <span itemprop="email">farmaceutico@drogarianovaesperanca.com.br</span>. Copyright<span class="jsAnoAtual"></span> Farmácia Mix.
+            </p>
+
+            <meta itemprop="telephone" content="(11) 3990-5089"  />
+            <meta itemprop="image" style='display: none' content="https://www.drogarianovaesperanca.com.br/imagens/400x300/logo-dne-original.png" />
+            <span itemprop="paymentAccepted" style='display: none'>cash, check, credit card</span>
+            <meta itemprop="openingHours" style='display: none' datetime="Mo,Tu,We,Th,Fr,Sa 07:00-20:00" />
+            <span itemtype="https://schema.org/GeoCoordinates" itemscope="" itemprop="geo">
+                <meta itemprop="latitude" content="-23.4863725" />
+                <meta itemprop="longitude" content="-46.717188" />
+            </span>
+
+            <p class="dg-footer-final-degrau">
+                Designed by: <a href="https://degraupublicidade.com.br/" target="_blank">Degrau Publicidade e Internet</a>
+            </p>
+        </div> *@
+    </div>
+</footer>
+
+
+
+     @await Component.InvokeAsync("BannersFooter")
+
+
+<p class="dg-copyright container">
+    O nome Farmácia MIX e o domínio www.farmaciamix.com.br são marcas registradas por Farmácia Mix Eireli, fundada em 1972 sob o C.N.P.J: 43.575.877/0005-47 - Inscrição Estadual: 130.441.051.118 - situada na Av. Pacaembú nº 1202/1208, Pacaembú - São Paulo / SP - CEP: 01234-000 - Licença municipal para funcionamento: 20210010104803 - ANVISA Autorização / MS 7805415 - CMVS - 355030801-477-012446-1-2 - Farmacêuticos: Dr. Julio Cesar de Souza Silva - CRF: 102533, Dr. Bruno Henrique Medeiros Diniz - CRF 102369, Dra. Gisele Boccati Tomita - CRF 44580. As receitas médicas devem ser apresentadas pelo FAX: (11) 3990-7730 ou para o e-mail receita@farmaciamix.com.br.
+</p>
+
+<div class="dg-mascote-loja">
+    @await Component.InvokeAsync("Mascote")
+</div>
+
+<script>
+    var DominioAjax = '@Html.Domain()';
+    var _id_site = parseInt(@Html.GetIDSite());
+</script>
+
+@* Jquery *@
+<script src="/assets/js/Core.js?v1" type="text/javascript" asp-append-version="true" defer></script>
+<script src="/assets/js/Funcoes.js?v1" type="text/javascript" asp-append-version="true" defer></script>
+<script src="/assets/js/HeaderFooter.js?v1" type="text/javascript" asp-append-version="true" defer></script>
+<script src="/assets/js/Carrinho_BoxProduto.js?v1" type="text/javascript" asp-append-version="true" defer></script>
+<script src="/assets/js/Ajax_Cliente.js?v1" type="text/javascript" asp-append-version="true" defer></script>
+
+@Html.CssFiles(ResourceLocation.Footer, true)
+
+<script type="to-defer">
+@Html.ScriptsFiles(ResourceLocation.Footer, true)
+</script>
+
+<script defer>
+    var scriptsToDefer = document.querySelector('[type="to-defer"]').innerHTML;
+ 
+    function insertHTML(html, dest, append=false){
+    // if no append is requested, clear the target element
+        if(!append) dest.innerHTML = '';
+        // create a temporary container and insert provided HTML code
+        var container = document.createElement('div');
+        container.innerHTML = html;
+        // cache a reference to all the scripts in the container
+        var scripts = container.querySelectorAll('script');
+        // get all child elements and clone them in the target element
+        var nodes = container.childNodes;
+        for(var i = 0; i < nodes.length; i++) dest.appendChild( nodes[i].cloneNode(true) );
+        // force the found scripts to execute...
+        for(var i = 0; i < scripts.length; i++){
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            if( scripts[i].hasAttribute('src') ) script.src = scripts[i].src;
+            script.innerHTML = scripts[i].innerHTML;
+            document.head.appendChild(script);
+            document.head.removeChild(script);
+        }
+        // done!
+        return true;
+    }
+
+    var waitForJquery = setInterval(function() {
+        if (typeof window.$ !== 'undefined' && typeof window.$ !== undefined) {
+            insertHTML(scriptsToDefer, document.body, true);
+            clearTimeout(waitForJquery);
+        }
+    }, 100);
+
+    window.onload = function() {
+        setTimeout(function() {
+            $("*:-webkit-autofill").each(function(){
+                $(this).addClass('dg-ativo');
+            })
+        }, 1);
+        
+        if ($('.jsIsDesktop').is(':visible')) {
+            @* $('body').append('<script id="monitoramento_gvp_chat_flutuante" type="text/javascript" lang="javascript" src="https://webapp.ideacrm.com.br/monitoramento.js.aspx?idc=7554&floatingchat=1" />'); *@
+            $('body').append('<script fetchpriority="low" type="text/javascript" src="https://app.dialugo.com/embed/monitoramentoChatHumano.js" />');
+
+            $('.jsAbrirChat').off('click');
+            $('.jsAbrirChat').click(function () {
+                if ($(this).hasClass("dg-loading")) {
+                    console.log("Aguarde o chat abrir");
+                } else {
+                    abreClickChatFlutuanteGVP('iHJO4ElJkkMQ551MIOP9X/AISbxWm9eQ_o1s5/BYPkVE=_ZeBm0mD5x3I=');
+                    $(this).addClass("dg-loading");
+                    setTimeout(function () {
+                        $('.jsAbrirChat').removeClass("dg-loading");
+                    }, 3000);
+                }
+            });
+        }
+
+        $('body').off('click', '.jsModalAviseMe');
+        $('body').on('click', '.jsModalAviseMe', function () {
+            var ID = $(this).attr("rel");
+            $("#ID_SubProduto-Aviso").val(ID);
+            
+            var resultado = TrimPath.processDOMTemplate("#template-avise", { response: ID });
+            
+            abrirModal({
+                titulo: "Avise-me <strong>quando chegar</strong>",
+                id: "templateAvise",
+                txt: resultado
+            });
+
+            insereCaptcha('aviseme');
+
+            $(".dg-modal-id-templateAvise input").each(function(){
+
+                if($(this).attr("type") !== "checkbox" && $(this).attr("type") !== "radio") {
+                    if($(this).val() === "") {
+                        $(this).removeClass("dg-ativo");
+                    } else {
+                        $(this).addClass("dg-ativo");
+                    }
+                }
+
+                $(this).keyup(function(){
+                    if($(this).attr("type") !== "checkbox" && $(this).attr("type") !== "radio") {
+                        if($(this).val() === "") {
+                            $(this).removeClass("dg-ativo");
+                        } else {
+                            $(this).addClass("dg-ativo");
+                        }
+                    }
+                });
+            });
+        });
+    }
+
+</script>
+
+<script src="/Themes/DefaultClean/Content/js/Ajax_Cliente.js?v1" type="text/javascript" asp-append-version="true" defer></script>
+<script src="/Themes/DefaultClean/Content/js/HeaderFooter.js?v2" type="text/javascript" asp-append-version="true" defer></script>
+
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TX2548T" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+</noscript>
+<script defer>
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-TX2548T');
+</script>
+
+<script type="application/ld+json">
+    {
+    "@@context": "https://schema.org",
+    "@@type": "WebSite",
+    "url": "@Html.Domain()",
+    "potentialAction":
+    {
+    "@@type": "SearchAction",
+    "target": "@Html.Domain()/busca/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+    }
+    }
+</script>
+
+<script id="templateCadastrarSmsEmail" type="text/x-jquery-tmpl">
+    <p>
+        Para garantir sua segurança, precisamos fazer agora uma verificação dos seus dados.
+    </p>
+    <p>
+        Poderia nos informar como prefere fazer isso? Pode ser via <strong>E-mail</strong> ou <strong>SMS</strong>.
+    </p>
+
+    <span class="dg-msg-error-envio-conf" style="display:none"></span>
+
+    <div class="dg-modal-templateCadastrar-btns">
+        <a href="javascript:void(0)" class="dg-modal-templateCadastrar-btn dg-email">E-MAIL</a>
+        <a href="javascript:void(0)" class="dg-modal-templateCadastrar-btn dg-sms">SMS</a>
+    </div>
+
+    <div class="dg-modal-templateCadastrar-email">
+        <p>
+            Enviamos um e-mail para sua confirmação. Caso não receba o mesmo, <a href="javascript:void(0)" class="problemaenvio-email">clique aqui</a>.
+        </p>
+    </div>
+
+    <div class="dg-modal-templateCadastrar-sms">
+        <p>
+            Enviamos seu código para o seu telefone, caso você não receba, <a class="dg-reenvio-sms" href="javascript:void(0)">clique aqui</a>.
+        </p>
+
+
+        <form class="dg-modal-templateCadastrar-sms-form">
+            <div class="dg-titulo">Validar código:</div>
+            <div class="dg-msg-error-cod" style="display:none"></div>
+            <div class="">
+                <input type="text" name="SMSCode" id="SMSCode" value="" required validar>
+                <label for="SMSCode">
+                    Código para validação
+                </label>
+            </div>
+
+            <a href="javascript:void(0)" class="dg-modal-templateCadastrar-sms-form-btn btConfirma_enviasms">
+                Confirmar
+            </a>
+        </form>
+
+    </div>
+</script>
+
+
+
+
+<script id="templateIndiqueUmAmigo" type="text/x-jquery-tmpl">
+    <p>
+        Compartilhe esta economia com seus amigos. Indique-nos e ajude-os a poupar.
+    </p>
+
+    <form class="dg-modal-templateIndiqueUmAmigo jsMoveLabelInput">
+        <div class="dg-modal-templateIndiqueUmAmigo-box">
+            <div>
+                <input type="text" name="MeuNome" id="MeuNome" value="" required validar>
+                <label for="MeuNome">
+                    Seu Nome
+                </label>
+            </div>
+
+            <div>
+                <input type="email" mascara="lowercase" name="MeuEmail" id="MeuEmail" value="" required validar>
+                <label for="MeuEmail">
+                    Seu E-mail
+                </label>
+            </div>
+        </div>
+
+        <div class="dg-modal-templateIndiqueUmAmigo-box">
+            <div>
+                <input type="text" name="NomeAmigo" id="NomeAmigo" value="" required validar>
+                <label for="NomeAmigo">
+                    Nome do Amigo
+                </label>
+            </div>
+
+            <div>
+                <input type="email" name="EmailAmigo" id="EmailAmigo" mascara="lowercase" value="" required validar>
+                <label for="EmailAmigo">
+                    E-mail do Amigo
+                </label>
+            </div>
+        </div>
+
+
+        <div class="dg-modal-templateIndiqueUmAmigo-box-indicar">
+            <div id="indiqueamigo-vcg" class="dg-avise-recaptcha"></div>
+            <a href="javascript:void(0)" class="dg-jsIndiqueAmigo">
+                Indicar agora
+            </a>
+        </div>
+
+    </form>
+</script>
+
+<script id="templateFaleComFarmaceutico" type="text/x-jquery-tmpl">
+    <div class="dg-modal-farmaceutico jsMoveLabelInput">
+        <p>Você pode solicitar informações sobre qualquer medicamento para o farmacêutico da Farmácia Mix. As respostas serão enviadas em até 02 dias úteis e não deverão ser usadas para auto medicação.</p>
+        <div class="dg-modal-farmaceutico-wrapper">
+            <div>
+                <h4>Através do <b>Email</b></h4>
+                <div>
+                    <a href="mailto:farmaceutico@farmaciamix.com.br">farmaceutico@farmaciamix.com.br</a>
+                </div>
+            </div>
+            <form id="FormFamarceutico" onsubmit="return false">
+                <h4>Através do <b>Formulário</b></h4>
+                <div class="dg-form-row">
+                    <div class="dg-form-control dg-form-control--full">
+                        <div class="dg-relative">
+                            <input class="dg-input" type="text" name="NomeFarma" id="NomeFarma" required validar>
+                            <label class="dg-label">Nome:</label>
+                        </div>
+                    </div>
+                    <div class="dg-form-control">
+                        <div class="dg-relative">
+                            <input class="dg-input" type="email" mascara="lowercase" name="EmailFarma" id="EmailFarma" required validar>
+                            <label class="dg-label">Email:</label>
+                        </div>
+                    </div>
+                    <div class="dg-form-control">
+                        <div class="dg-relative">
+                            <input class="dg-input" type="tel" name="TelefoneFarma" id="TelefoneFarma" mascara="telefone" required validar>
+                            <label class="dg-label">Telefone:</label>
+                        </div>
+                    </div>
+                    <div class="dg-form-control dg-form-control--full">
+                        <label class="dg-label-comum">Anexo:</label>
+                        <input type="file" id="AnexoModalFarmaceutico" name="AnexoModalFarmaceutico" accept="image/jpg,image/jpeg,image/png,image/gif">
+                        <input type="hidden" name="AnexoArquivoModalFarmaceutico" id="AnexoArquivoModalFarmaceutico">
+                        <div class="mensagem-anexo"></div>
+                    </div>
+                    <div class="dg-form-control dg-form-control--full dg-modal-farmaceutico--textarea-control">
+                        <div class="dg-relative">
+                            <label class="dg-label-comum">Mensagem:</label>
+                            <textarea id="MensagemFarma" name="MensagemFarma" required validar></textarea>
+                        </div>
+                    </div>
+                    <div class="dg-form-control dg-form-control--full">
+                        <div class="dg-form-control-flex">
+                            <div id="farmaceutico-vcg" class="dg-avise-recaptcha"></div>
+                            <button type="button" id="EnviarFarmaceutico" class="btn btn-submit-form">Enviar Formulário</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</script>
+
+<script id="templateModalMudaTema" type="text/x-jquery-tmpl">
+    <div class="dg-modal-muda-tema" onclick="fecharModal(this)">
+        <p>
+            <span>Acenda a luz do site.</span> Clique na lâmpada e utilize a versão clara do site a qualquer momento.
+        </p>
+    </div>
+</script>
+
+<script id="template-avise" type="text/x-jquery-tmpl">
+    <div class="template-avise">
+        <p class="dg-txt">Preencha o formulário abaixo para receber uma notificação via e-mail quando o estoque deste item estiver normalizado.</p>
+        <form id="FormAvise">
+            <div>
+                <div>
+                    <input type="text" name="NomeAvise" id="NomeAvise" required validar />
+                    <label for="NomeAvise">Nome:</label>
+                </div>
+                <div>
+                    <input type="email" name="EmailAvise" id="EmailAvise" mascara="lowercase" required validar/>
+                    <label for="EmailAvise">Email:</label>
+                </div>
+                <div class="template-avise__recaptcha-submit">
+                    <div id="aviseme-vcg" class="dg-avise-recaptcha"></div>
+                    <button type="button" class="btn btn-form-avise" data-idsubproduto="${response}" onclick="AvisoProdutoIndisponivel(this);">
+                        Quero receber o aviso
+                        <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/aviso-btn.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </form>
+        <a href="javascript:void(0)" class="fechar"><i class="icon-fechar"></i></a>
+    </div>
+</script>
