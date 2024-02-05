@@ -7,7 +7,7 @@
 
 @if (Model.ListaMarcas.ListMarca.Count > 0)
 {
-    <h4 class="dg-titulo" data-tipo-titulo="marca">
+    <div class="dg-titulo" data-tipo-titulo="marca">
         Filtre por <strong>marca</strong>:
         @if (Model.request.idmarca > 0)
         {
@@ -42,7 +42,7 @@
             }
         }
 
-    </h4>
+    </div>
     <div class="dg-categoria-sidebar-listagem-wrapper">
         <ul class="dg-categoria-sidebar-listagem dg-categoria-sidebar-listagem-marca">
 

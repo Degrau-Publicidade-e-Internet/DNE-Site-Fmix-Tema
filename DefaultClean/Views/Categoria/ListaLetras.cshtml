@@ -20,7 +20,7 @@
         if (Model.Tipo.Equals("PrincipioAtivo"))
         {
 
-            <h4 class="dg-titulo" data-tipo-titulo="letra">
+            <div class="dg-titulo" data-tipo-titulo="letra">
                 Filtre por <strong>letra</strong>:
                 @if (Model.request.idletra != null && Model.request.idletra != "")
                 {
@@ -32,7 +32,7 @@
                         </span>
                     </a>
                 }
-            </h4>
+            </div>
 
             <ul class="dg-categoria-sidebar-letras">
 
@@ -55,7 +55,7 @@
         if (Model.Tipo.Equals("Busca"))
         {
 
-            <h4 class="dg-titulo" data-tipo-titulo="letra">
+            <div class="dg-titulo" data-tipo-titulo="letra">
                 Filtre por <strong>letra</strong>:
                 @if (Model.request.idletra != null && Model.request.idletra != "")
                 {
@@ -66,7 +66,7 @@
                         </span>
                     </a>
                 }
-            </h4>
+            </div>
 
             <ul class="dg-categoria-sidebar-letras">
 
@@ -91,7 +91,7 @@
         if (Model.Tipo.Equals("LandingPages"))
         {
 
-            <h4 class="dg-titulo" data-tipo-titulo="letra">
+            <div class="dg-titulo" data-tipo-titulo="letra">
                 Filtre por <strong>letra</strong>:
                 @if (Model.request.idletra != null && Model.request.idletra != "")
                 {
@@ -103,7 +103,7 @@
                         </span>
                     </a>
                 }
-            </h4>
+            </div>
 
             <ul class="dg-categoria-sidebar-letras">
 
@@ -125,7 +125,7 @@
 
         else if (!Model.Tipo.Equals("Busca") && !Model.Tipo.Equals("PrincipioAtivo"))
         {
-            <h4 class="dg-titulo" data-tipo-titulo="letra">
+            <div class="dg-titulo" data-tipo-titulo="letra">
                 Filtre por <strong>letra</strong>:
                 @if (Model.request.idletra != null && Model.request.idletra != "")
                 {
@@ -137,7 +137,7 @@
                         </span>
                     </a>
                 }
-            </h4>
+            </div>
 
 
             <ul class="dg-categoria-sidebar-letras">
