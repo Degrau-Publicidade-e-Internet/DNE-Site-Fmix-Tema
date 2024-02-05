@@ -20,7 +20,7 @@
         if (priceMax > 0 && isNotRangePreco == false)
         {
     
-            <h4 class="dg-titulo" data-tipo-titulo="preco">
+            <div class="dg-titulo" data-tipo-titulo="preco">
                 Filtre por <strong>faixa de preço</strong>:
                 <a href="@Html.Domain()/@Url/?@Link" aria-label="Limpar Filtro" class="dg-categoria-sidebar-limpar jsCategoriaSidebarLimparPreco dg-tooltip-hover dg-hide">
                     <span class="dg-icon dg-icon-x"></span>
@@ -28,7 +28,7 @@
                         Limpar Filtro
                     </span>
                 </a>
-            </h4> 
+            </div> 
             <div class="dg-categoria-sidebar-preco-range">
                 <div class="dg-categoria-sidebar-preco-range-valor jsProductPriceRangeSliderLow"></div>
                 <div class="jsProductPriceRangeSlider" data-base-url="@Html.Domain()/@Url/?fv={valoresAtuais}@Link" data-min-price="@minPrice" data-max-price="@priceMax" ></div>
