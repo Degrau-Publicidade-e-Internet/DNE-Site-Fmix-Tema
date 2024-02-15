@@ -1,0 +1,1117 @@
+@*@model DNE.Models.Views.vCentralClienteModel*@
+
+@model DNE.Site.Models.ListaDeProdutosModel
+
+<input type="hidden" value="@Model.ID_Cliente" id="ID_Cliente" />
+
+<div class="container">
+    <div class="dg-usuario">
+        <aside class="dg-usuario-sidebar">
+            <h1 class="dg-titulo">Central do <strong>cliente:</strong></h1>
+            <nav class="dg-usuario-sidebar-lista">
+                <ul>
+                    <li>
+                        <a href="javascript:void(0)" usuario-aba="cartoesCadastrados">
+                            <span icon-aba="cartoesCadastrados" class="dg-usuario-sidebar-icon"></span> Cartões <strong>Cadastrados</strong><span class="dg-only-visible-inside">:</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0)" usuario-aba="meusPedidos" data-pagina="1">
+                            <span icon-aba="meusPedidos" class="dg-usuario-sidebar-icon"></span> <strong>Meus pedidos</strong><span class="dg-only-visible-inside">:</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" usuario-aba="editarDados">
+                            <span icon-aba="editarDados" class="dg-usuario-sidebar-icon"></span> Editar <strong>dados pessoais</strong><span class="dg-only-visible-inside">:</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" usuario-aba="editarEnderecos" class="jsClickFalseEditarEndereco">
+                            <span icon-aba="editarEnderecos" class="dg-usuario-sidebar-icon"></span> Editar <strong>endereços</strong><span class="dg-only-visible-inside">:</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" usuario-aba="produtosFavoritos">
+                            <span icon-aba="produtosFavoritos" class="dg-usuario-sidebar-icon"></span> Produtos <strong>favoritos</strong><span class="dg-only-visible-inside">:</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0)" usuario-aba="editarConsentimentos">
+                            <span icon-aba="editarConsentimentos" class="dg-usuario-sidebar-icon"></span> Editar <strong>consentimentos</strong><span class="dg-only-visible-inside">:</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0)" usuario-aba="alterarSenha">
+                            <span icon-aba="alterarSenha" class="dg-usuario-sidebar-icon"></span> Alterar <strong>senha</strong><span class="dg-only-visible-inside">:</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:void(0)" class="btn-logOut-Cliente">
+                            <span class="dg-icon dg-icon-sair"></span> Sair
+                        </a>
+                    </li>
+
+
+                </ul>
+            </nav>
+        </aside>
+
+        <main id="main" class="dg-usuario-main">
+            @* <button class="dg-usuario-main-close jsFecharAbaCentral dg-desktop-hide"><span class="dg-icon dg-icon-arrow01-left"></span>Voltar</button> *@
+            <h2 class="dg-titulo"></h2>
+
+            <div class="dg-usuario-template"></div>
+
+        </main>
+
+    </div>
+</div>
+
+<div class="dg-desativado">
+    <div id="HtmlUsuarioFavLista" style="display: none">
+        <div class="dg-usuario-conteudo">
+            <div class="dg-favoritos-boxproduto-lista">
+
+                @if (Model.SubProduto.Count() > 0)
+                {
+                    ViewData["fromSlider"] = "fromSlider";
+
+                    @await Html.PartialAsync("_TemplateBoxProduto")
+
+                } else
+                {
+                    <div class="dg-usuario-favoritos-vazio">
+                        Gostou de algum produto? Marque o como favorito e o salve aqui nesta lista! Você será notificado caso seus favoritos fiquem em promoção ou quando voltarem ao estoque.
+                    </div>
+                }
+
+            </div>
+        </div>
+        <div class="dg-usuario-footer">
+            <div class="dg-categoria-paginacao dg-categoria-paginacao-footer">
+                <ul class="pageFooter pageFooter-Favorito">
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script id="cartoesCadastrados" type="text/x-jquery-tmpl">
+    <div class="dg-usuario-conteudo-cartoes-titulo">
+        Consulte e exclua os <strong>cartões cadastrados:</strong>
+    </div>
+    <div class="dg-usuario-conteudo dg-usuario-conteudo--cartoes">
+        <table class="dg-usuario-conteudo-cartoes-table">
+            <thead>
+                <tr>
+                    <th>Nº do cartão</th>
+                    <th>Bandeira</th>
+                    <th>Cartão principal</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+            {for card in Cartoes }
+                <!-- item cartão -->
+                <tr class="dg-usuario-conteudo-cartoes-simulacao" id="cartao_${card.ID_ClientesCartaoToken}" bandeira="${imgBandeiraCartaoUsuario(card.CardNumber)}">
+                    <td>${FormatarNumeroCartao(card.CardNumber)}</td>
+                    <td>
+                         <div class="dg-usuario-conteudo-cartoes-simulacao-frente-img" style="background-image: url(@Html.Domain()/assets/img/lazy.png)"></div
+                    </td>
+                    <td>
+                        {if card.IsPrincipal == true}
+                            <span class="dg-usuario-conteudo-cartoes-btn-marcar is-marcado"><span class="dg-icon dg-icon-cheeck"></span>Principal</span>
+                        {else}
+                            <a href="javascript:void(0)" aria-label="Marcar como principal" class="jsCartaoPrincipal dg-usuario-conteudo-cartoes-btn-marcar" onclick="ClienteCentral.tornarCartaoPrincipal(${card.ID_ClientesCartaoToken})">
+                                Marcar
+                            </a>
+                        {/if}
+                    </td>
+                    <td>
+                        <a href="javascript:void(0)" aria-label="Excluir cartão" class="dg-usuario-conteudo-cartoes-btn-deletar jsApagarCartao" onclick="ClienteCentral.apagarCartao(${card.ID_ClientesCartaoToken})">
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+                @* <tr class="dg-usuario-conteudo-cartoes-simulacao" id="cartao_${card.ID_ClientesCartaoToken}" bandeira="${imgBandeiraCartaoUsuario(card.CardNumber)}">
+                    <td>${FormatarNumeroCartao(card.CardNumber)}</td>
+                    <td>
+                         <div class="dg-usuario-conteudo-cartoes-simulacao-frente-img" style="background-image: url(@Html.Domain()/assets/img/lazy.png)"></div
+                    </td>
+                    <td>
+                        {if card.IsPrincipal == true}
+                             <a href="javascript:void(0)" aria-label="Marcar como principal" class="jsCartaoPrincipal dg-usuario-conteudo-cartoes-btn-marcar" onclick="ClienteCentral.tornarCartaoPrincipal(${card.ID_ClientesCartaoToken})">
+                                Marcar
+                            </a>
+                        {else}
+                            <a href="javascript:void(0)" aria-label="Marcar como principal" class="jsCartaoPrincipal dg-usuario-conteudo-cartoes-btn-marcar" onclick="ClienteCentral.tornarCartaoPrincipal(${card.ID_ClientesCartaoToken})">
+                                Marcar
+                            </a>
+                        {/if}
+                    </td>
+                    <td>
+                        <a href="javascript:void(0)" aria-label="Excluir cartão" class="jsApagarCartao dg-usuario-conteudo-cartoes-btn-deletar" onclick="ClienteCentral.apagarCartao(${card.ID_ClientesCartaoToken})">
+                            Excluir
+                        </a>
+                    </td>
+                </tr>
+                 *@
+    @* Aqui precisaremos adicionar nas classes uma condição se é o cartão principal ou nao 'dg-isCartaoPrincipal' *@
+
+                @* {if card.IsPrincipal == true}
+                    <div class="dg-usuario-conteudo-cartoes-simulacao dg-isCartaoPrincipal" id="cartao_${card.ID_ClientesCartaoToken}" bandeira="${imgBandeiraCartaoUsuario(card.CardNumber)}">
+                {else}
+                    <div class="dg-usuario-conteudo-cartoes-simulacao" id="cartao_${card.ID_ClientesCartaoToken}" bandeira="${imgBandeiraCartaoUsuario(card.CardNumber)}">
+                {/if} *@
+
+
+@* 
+                    <div class="dg-usuario-conteudo-cartoes-simulacao-card">
+                        <div class="dg-usuario-conteudo-cartoes-simulacao-frente-img" style="background-image: url(@Html.Domain()/assets/img/lazy.png)"></div>
+                        <div class="dg-usuario-conteudo-cartoes-simulacao-frente-numero">${FormatarNumeroCartao(card.CardNumber)}</div>
+                        <div class="dg-usuario-conteudo-cartoes-simulacao-frente-titular">
+                            <div class="dg-mobile-hide">${card.Nome}</div>
+                            <div class="dg-desktop-hide"><span class="dg-capitalize">${imgBandeiraCartaoUsuario(card.CardNumber)}</span> - Crédito</div>
+                        </div>
+                        <div class="dg-usuario-conteudo-cartoes-simulacao-frente-vencimento">${card.ExpirationDate}</div>
+                        <a href="javascript:void(0)" aria-label="Apagar cartão" class="dg-mobile-hide dg-usuario-conteudo-cartoes-simulacao-apagar dg-tooltip-hover jsApagarCartao" onclick="ClienteCentral.apagarCartao(${card.ID_ClientesCartaoToken})">
+                            <span class="dg-icon dg-icon-lixo"></span>
+                            <span class="dg-tooltip">Apagar Cartão</span>
+                        </a>
+                        <a href="javascript:void(0)" aria-label="Marcar como principal" class="dg-mobile-hide dg-usuario-cartoes-simulacao-frente-principal dg-tooltip-hover jsCartaoPrincipal" onclick="ClienteCentral.tornarCartaoPrincipal(${card.ID_ClientesCartaoToken})">
+                            <span class="dg-icon dg-icon-cheeck"></span>
+                            <span class="dg-tooltip dg-tooltip--1">Marcar como Cartão Principal</span>
+                            <span class="dg-tooltip dg-tooltip--2">Cartão Principal</span>
+                        </a>
+                        <a href="javascript:void(0)" class="dg-desktop-hide dg-usuario-editar-cartao-opcoes dg-tooltip-hover mostraItens" aria-label="Opções">
+                            <span class="dg-icon dg-icon-dots-edit" role="presentation"></span>
+                            <span class="dg-tooltip">Opções</span>
+                        </a>
+                        <div class="dg-usuario-editar-cartao-opcoes-menu dg-desktop-hide">
+                             <a href="javascript:void(0)" aria-label="Apagar cartão" class="dg-usuario-conteudo-cartoes-simulacao-apagar dg-tooltip-hover jsApagarCartao" onclick="ClienteCentral.apagarCartao(${card.ID_ClientesCartaoToken})">
+                                <span class="dg-icon dg-icon-lixo"></span>
+                                <span class="dg-tooltip">Apagar Cartão</span>
+                            </a>
+                            <a href="javascript:void(0)" aria-label="Marcar como principal" class="dg-usuario-cartoes-simulacao-frente-principal dg-tooltip-hover jsCartaoPrincipal" onclick="ClienteCentral.tornarCartaoPrincipal(${card.ID_ClientesCartaoToken})">
+                                <span class="dg-icon dg-icon-cheeck"></span>
+                                <span class="dg-tooltip dg-tooltip--1">Marcar como Cartão Principal</span>
+                                <span class="dg-tooltip dg-tooltip--2">Cartão Principal</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>*@
+                <!-- item cartão -->
+            {/for}
+            </tbody>
+        </div>
+    </table>
+</script>
+
+<div id="divCartoesCadastrados"></div>
+
+<div id="templatePedidos"></div>
+
+
+<script id="templatePedidosDinamicoConteudo" type="text/x-jquery-tmpl">
+    <div class="dg-usuario-titulo-extra jsTituloExtra">
+
+    </div>
+    <div class="dg-usuario-conteudo-wrapper jsPedido">
+        <div class="dg-usuario-title-right">
+            {if RetornoPedido.NrCupomFiscal != ""}
+            <a href="#" class="dg-usuario-conteudo-pedidos-btn dg-usuario-conteudo-pedidos-btn--titulo btn-conteudo-pedidos-nota" onclick="ClienteCentral.BaixaNfCliente(this)" data-id_nota="${RetornoPedido.NrCupomFiscal}" data-id_pedido="${RetornoPedido.ID_Pedido}">
+                <span class="dg-icon dg-icon-imprimir"></span>
+                Imprimir Nota Fiscal
+            </a>
+            {/if}
+            {if (RetornoPedido.TipoPagamento == 421 || RetornoPedido.ID_OpcaoPagamento == 1) && RetornoPedido.Pagamento.UrlBoleto != ""}
+            <a href="javascript:void(0)" class="dg-usuario-conteudo-pedidos-btn dg-usuario-conteudo-pedidos-btn--titulo dg-usuario-conteudo-pedidos-btn--pix" onclick="ClienteCentral.OpenJanelaBoleto('${RetornoPedido.ID_Pedido}')">
+                <span class="dg-icon dg-icon-boleto"></span>
+                2ª via do boleto
+            </a>
+            {/if}
+            {if RetornoPedido.TipoPagamento == "pix" && RetornoPedido.Pagamento.BtnPagamento == "pix"}
+            <a href="javascript:void(0)" class="dg-usuario-conteudo-pedidos-btn dg-usuario-conteudo-pedidos-btn--titulo dg-usuario-conteudo-pedidos-btn--pix" onclick="ClienteCentral.OpenModalPix('${RetornoPedido.ID_Pedido}')">
+                <span class="dg-icon dg-icon-pix"></span>
+                Clique para pagar com PIX
+            </a>
+            {/if}
+        </div>
+        {if RetornoPedido.TipoPagamento == "pix"}
+        <div class="dg-modal-pix jsFecharModalPixa">
+            <div class="dg-modal-pix-content">
+                <a class="dg-modal-pix-fechar jsFecharModalPixa" href="javascript:void(0)"></a>
+                <div class="dg-modal-pix-title">Escaneie este código <b>para pagar:</b></div>
+                <div class="dg-modal-pix-content-flex">
+                    <img class="dg-img-qrcode" src="https://pix.drogarianovaesperanca.com.br/api/qrcode/${RetornoPedido.ID_Pedido}/${RetornoPedido.ChavePixService}.png" />
+                    <ol>
+                        <li class="dg-modal-pix-flex">
+                            <strong>1.</strong>
+                            <p>Acesse seu Internet Banking ou app de pagamentos.</p>
+                        </li>
+                        <li class="dg-modal-pix-flex">
+                            <strong>2.</strong>
+                            <p>Escolha pagar via Pix.</p>
+                        </li>
+                        <li class="dg-modal-pix-flex">
+                            <strong>3.</strong>
+                            <p>Escaneie o código ao lado:</p>
+                        </li>
+                        <li class="dg-verde">
+                            Pague e será creditado na hora
+                        </li>
+                    </ol>
+                </div>
+                <form class="dg-modal-pix-codigo-copiar dg-is-small">
+                    <button class="dg-btn-imprimir dg-btn-copiar dg-pulse-delay" type="button">Copiar linha digitável</button>
+                    <button type="button" class="dg-modal-pix-codigo jsCodigoPixTexto">Visualizar chave PIX</button>
+                    <input type="hidden" value="${RetornoPedido.QRCodePIX}" id="copiarcodpix" />
+                    <div>
+                        <textarea>${RetornoPedido.QRCodePIX}</textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {elseif (RetornoPedido.TipoPagamento == 421 || RetornoPedido.ID_OpcaoPagamento == 1) && RetornoPedido.Pagamento.UrlBoleto != ""}
+        <div class="dg-modal-pix">
+            <div class="dg-modal-pix-content">
+                <div class="dg-modal-pix-title">Pagamento via <b>Boleto Bancário:</b></div>
+                <div class="dg-modal-pix-content-flex">
+                    <img src="/assets/img/checkout/recibo/boleto-2x.png" />
+                </div>
+                <p class="dg-modal-pix-codigo">
+                    ${RetornoPedido.Pagamento.HtmlDinamicoFP}
+                </p>
+                <div class="dg-modal-pix-codigo-copiar">
+                    <a href="javascript:void(0)" class="dg-btn-imprimir gerarBoleto" onclick="ClienteCentral.OpenJanelaBoleto('${RetornoPedido.ID_Pedido}')" rel="${RetornoPedido.ID_Pedido}">
+                        Imprimir Boleto
+                    </a>
+                </div>
+            </div>
+        </div>
+        {/if}
+
+        <div class="dg-usuario-conteudo dg-usuario-conteudo-pedido">
+            <div class="dg-usuario-conteudo-pedido-info">
+                <div class="dg-usuario-conteudo-pedido-item">
+                    <div class="dg-usuario-conteudo-pedido-titulo jsMostrarDadosRecibo">Dados do Frete</div>
+                    <ul class="dg-usuario-conteudo-pedido-lista">
+                        <li><span>Forma de envio:</span><span>${RetornoPedido.Frete.Frete}</span></li>
+                        <li><span>Tempo de Entrega:</span><span>
+                            {var valorFrete = 0}
+                            {if RetornoPedido.Frete.IsRetiradaLoja == false}
+
+                            {if RetornoPedido.Frete.ID_Frete == 49}
+                                    Entrega no mesmo dia
+                                {else}
+                                    {if RetornoPedido.Frete.PrazoEntrega <= 0}
+                                    ${RetornoRecibo.Frete.PrazoEntregaHora}
+                                    {else}
+                                    ${RetornoPedido.Frete.PrazoEntrega} {if RetornoPedido.Frete.PrazoEntrega <= 1}dia útil{else}dias úteis{/if}
+                                    {/if}
+                                {/if}
+                            {else}
+                            Tempo estimado para retirada em 1 hora
+                            {/if}                            
+                        </span></li>
+                        <li><span>Valor:</span><span>
+                            {if RetornoPedido.Frete.Valor == '0'}
+                            {var valorFrete = 'Grátis'}
+                            ${valorFrete}
+                            {else}
+                            {var valorFrete = RetornoPedido.Frete.Valor.FormatCurrency()}
+                            R$ ${valorFrete}
+                            {/if}                        
+                        </span></li>
+                    </ul>
+                </div>
+                <div class="dg-usuario-conteudo-pedido-item">
+                    <div class="dg-usuario-conteudo-pedido-titulo jsMostrarDadosRecibo">Dados da Entrega</div>
+                    <ul class="dg-usuario-conteudo-pedido-lista">
+                        <li class="dg-no-push"><span>Tipo de endereço:</span><span>${RetornoPedido.NomeEndereco}</span></li>
+                        <li class="dg-no-push"><span>CEP:</span><span>${RetornoPedido.CEP}</span></li>
+                        <li class="dg-no-push"><span>Endereço:</span><span>${RetornoPedido.Endereco}, ${RetornoPedido.Numero} ${RetornoPedido.Compl} - ${RetornoPedido.Bairro}</span></li>
+                        <li class="dg-no-push"><span>${RetornoPedido.Cidade}/${RetornoPedido.Estado}</span></li>
+                    </ul>
+                </div>
+                <div class="dg-usuario-conteudo-pedido-item">
+                    <div class="dg-usuario-conteudo-pedido-titulo jsMostrarDadosRecibo">Dados do Pagamento</div>
+                    <ul class="dg-usuario-conteudo-pedido-lista">
+                        <li><span>Pagamento escolhido:</span><span>${RetornoPedido.Pagamento.FormaPagamento}</span></li>
+                        <li>
+                            <span>Forma de Pagamento:</span><span>
+                                ${RetornoPedido.Pagamento.OpcaoPagamento}
+                                {if RetornoPedido.ValorParcela > 0}
+                                R$ ${String((RetornoPedido.ValorParcela).toFixed(2)).replace('.', ',')}
+                                {/if}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dg-usuario-conteudo-pedido-item">
+                    <div class="dg-usuario-conteudo-pedido-titulo jsMostrarDadosRecibo">Dados do Pedido</div>
+                    <ul class="dg-usuario-conteudo-pedido-lista">
+                        <li class="dg-no-push"><span>Data:</span><span>${RetornoPedido.Data} - Hora: ${ClienteCentral.FormataHora(RetornoPedido.Hora)}</span></li>
+                        <li class="dg-no-push"><span>Desconto por Forma de Pagamento:</span><span>R$ ${String((RetornoPedido.ValorTotalDesconto).toFixed(2)).replace('.', ',')}</span></li>
+                        <li class="dg-no-push"><span>Valor dos Produtos:</span><span>R$ ${String((RetornoPedido.SubTotal).toFixed(2)).replace('.', ',')}</span></li>
+                        <li class="dg-no-push"><span>Valor do Frete:</span><span>R$ ${String((RetornoPedido.Frete.Valor).toFixed(2)).replace('.', ',')}</span></li>
+                        <li class="dg-no-push"><span><b>Total do Pedido</b>:</span><span><b>R$ ${String((RetornoPedido.TotalGeralJuros).toFixed(2)).replace('.', ',')}</b></span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="dg-usuario-conteudo-pedido-status jsMeuPedidoBarra" data-progresso="${RetornoPedido.NewOrdem}">
+                <div class="dg-usuario-conteudo-pedido-status-barra">
+                    <div class="dg-usuario-conteudo-pedido-status-barra-progresso jsMeuPedidoBarraProgresso"></div>
+                </div>
+                <div class="dg-usuario-conteudo-pedido-status_wrapper jsMeuPedidoBarraLista" id="MeuPedidoBarraLista"></div>
+
+                {if RetornoPedido.PedidosRastreios.URL_Rastreio != "" }
+                <div class="dg-usuario-conteudo-pedido-rastreio">
+                    Acompanhe o deslocamento de seu pedido aqui. <a href="${RetornoPedido.PedidosRastreios.URL_Rastreio}" target="_blank">Rastrear pedido</a>
+                </div>
+                {/if}
+            </div>
+            <div class="dg-usuario-conteudo-pedido-tabela-alerta">
+                {if RetornoPedido.Frete.ID_Frete == 49 }
+                <div data-tipo="SUPER EXPRESSO">
+                    <b class="jsAbrirInfoAlerta">Informações sobre Super Expresso:</b>
+                    <span>
+                        O prazo de envio começa a contar 30 minutos após a confirmação de pagamento e o código de rastreio ficará disponível assim que o pedido for coletado pela transportadora. Lembre-se: podem ocorrer atrasos devido ao sistema da transportadora ou condições adversas que interfiram na entrega do pedido.
+                        <strong>Essa modalidade de frete funciona apenas para pagamentos feitos com cartão de crédito ou PIX.</strong>
+                    </span>
+                </div>
+                {elseif RetornoPedido.Frete.ID_Frete == 8 || RetornoPedido.Frete.ID_Frete == 50 || RetornoPedido.Frete.ID_Frete == 56 || RetornoPedido.Frete.Frete == "Padrão"}
+                <div data-tipo="TRANSPORTADORA">
+                    <b class="jsAbrirInfoAlerta">Informações sobre Transportadora:</b>
+                    <span>Em até 1 dia útil após a confirmação do pagamento, nós realizaremos a postagem do seu pedido. O código de rastreio ficará disponível após a postagem. Lembre-se: podem ocorrer atrasos devido ao sistema da transportadora.</span>
+                </div>
+                {elseif RetornoPedido.Frete.ID_Frete == 3 || RetornoPedido.Frete.ID_Frete == 5}
+                <div data-tipo="SEDEX e PAC">
+                    <b class="jsAbrirInfoAlerta">Informações sobre SEDEX e PAC:</b>
+                    <span>Em até 1 dia útil após a confirmação do pagamento, nós realizaremos a postagem do seu pedido. O código de rastreio ficará disponível após a postagem. Lembre-se: podem ocorrer atrasos devido ao sistema da transportadora.</span>
+                </div>
+                {elseif RetornoPedido.Frete.ID_Frete == 1}
+                <div data-tipo="RETIRADA PACAEMBU">
+                    <b class="jsAbrirInfoAlerta">Informações sobre Retirada na loja de Pacaembu:</b>
+                    <span>
+                        Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.
+                        É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados.
+                        Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.
+                        <strong>Essa modalidade de frete funciona apenas para pagamentos feitos com cartão de crédito ou PIX.</strong>
+                        Endereço: Av. Pacaembu, 1202 – Pacaembu – São Paulo/SP – CEP: 1234-000
+                    </span>
+                </div>
+                {elseif RetornoPedido.Frete.ID_Frete == 2}
+                <div data-tipo="RETIRADA PIRITUBA">
+                    <b class="jsAbrirInfoAlerta">Informações sobre Retirada na loja de Pirituba:</b>
+                    <span>
+                        Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.
+                        É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados.
+                        Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.
+                        <strong>Essa modalidade de frete funciona apenas para pagamentos feitos com cartão de crédito ou PIX.</strong>
+                        Endereço: Av. Cabo Adão Pereira, 82/88 – Pirituba – São Paulo/SP – CEP: 02936-010
+                    </span>
+                </div>
+                {elseif RetornoPedido.Frete.ID_Frete == 6}
+                <div data-tipo="RETIRADA PLANALTO">
+                    <b class="jsAbrirInfoAlerta">Informações sobre Retirada na loja de Planalto Paulista:</b>
+                    <span>
+                        Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.
+                        É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados.
+                        Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.
+                        <strong>Essa modalidade de frete funciona apenas para pagamentos feitos com cartão de crédito ou PIX.</strong>
+                        Endereço: Av. José Maria Whitaker, 1366 - Planalto Paulista, São Paulo - SP CEP: 04057-000
+                    </span>
+                </div>
+                {/if}
+    @* <div data-tipo="INFORMAÇÕES NO RECIBO SOBRE RETIRADA EM LOJA">
+        <b class="jsAbrirInfoAlerta">Informações sobre retirada em loja:</b>
+        <span>
+        Para evitar filas de espera em nossa loja, sugerimos que você aguarde o recebimento do e-mail ou SMS com aviso de que seu pedido pode ser retirado.
+        É necessário apresentar um documento de identificação com foto e o comprovante do pedido enviado por e-mail. Fique tranquilo, caso precise, outro responsável poderá retirar o pedido em seu nome, desde que esteja portando os documentos mencionados.
+        Quando chegar em nossa loja, aproxime-se do balcão de atendimento e avise que gostaria de retirar o seu pedido.
+        </span>
+        </div> *@
+            </div>
+        </div>
+        <div class="dg-usuario-conteudo-pedido-tabela-titulo dg-desktop-hide">Produtos:</div>
+        <table class="dg-usuario-conteudo-pedido-tabela">
+            <thead class="dg-mobile-hide">
+                <tr>
+                    <th></th>
+                    <th>Produto</th>
+                    <th>Valor Und.</th>
+                    <th>Qtd.</th>
+                    <th>Sub Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {for itens in RetornoPedido.Itens}
+                <tr>
+                    <td class="dg-mobile-hide">
+                        <img class="dg-produto-img" src="https://www.drogarianovaesperanca.com.br/imagens/51x51/${itens.Foto}">
+                    </td>
+                    <td>
+                        <div class="dg-usuario-conteudo-pedido-tabela-flex">
+                            <div>
+                                <div class="dg-produto-nome">${itens.Produto} ${itens.ComplementoBrindes}</div>
+                                <div class="dg-produto-marca">Fabricado por: <b>${itens.Marca}<b></div>
+                                <div class="dg-produto-codigo">Cód. do produto: ${itens.ID_SubProduto}</div>
+                                <div class="dg-desktop-hide dg-usuario-conteudo-pedido-tabela-valores">
+                                    <div>
+                                        <b>Valor Und.</b>
+                                        <div>${itens.Valor.FormatCurrency()}</div>
+                                    </div>
+                                    <div>
+                                        <b>Qtd.</b>
+                                        <div>${itens.Qtd}</div>
+                                    </div>
+                                    <div>
+                                        <b>Sub Total</b>
+                                        <div>R$ ${String((itens.ValorTotal).toFixed(2)).replace('.', ',')}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="dg-produto-img dg-desktop-hide" src="https://www.drogarianovaesperanca.com.br/imagens/75x75/${itens.Foto}" alt="${itens.Produto}">
+                        </div>
+                    </td>
+                    <td class="dg-mobile-hide dg-valor-und">R$ ${String((itens.Valor).toFixed(2)).replace('.', ',')}</td>
+                    <td class="dg-mobile-hide dg-qtd">${itens.Qtd}</td>
+                    <td class="dg-mobile-hide dg-valor-total">R$ ${String((itens.ValorTotal).toFixed(2)).replace('.', ',')}</td>
+                </tr>
+                {/for}
+            </tbody>
+        </table>
+    </div>
+</script>
+
+<script id="templateBarraMeuPedidoCancelado" type="text/x-jquery-tmpl">
+    <div class="dg-usuario-conteudo-pedido-status_item" id="pdCancelado">Pedido cancelado<div class="dg-claro">${Data}</div></div>
+</script>
+
+<script id="templateBarraMeuPedido" type="text/x-jquery-tmpl">
+     <div class="dg-usuario-conteudo-pedido-status_item" id="pdConfirmado">
+        <div id="pdConfirmadoSt"></div>
+        <div class="dg-claro" id="pdConfirmadoDT"></div>
+    </div>
+    <div class="dg-usuario-conteudo-pedido-status_item" id="pdEmSeparacao">
+        <div>Em separação</div>
+        <div class="dg-claro" id="pdEmSeparacaoDT"></div>
+    </div>
+    <div class="dg-usuario-conteudo-pedido-status_item" id="pdNf">
+        <div>Nota Fiscal Emitida</div>
+        <div class="dg-claro" id="pdNfDT"></div>
+    </div>
+    <div class="dg-usuario-conteudo-pedido-status_item" id="pdDespachado">
+
+            <div id="pdDespachadoSt"></div>
+        <div class="dg-claro" id="pdDespachadoDT"></div>
+    </div>
+    <div class="dg-usuario-conteudo-pedido-status_item" id="pdEntregue">
+        <div>Entregue</div>
+        <div class="dg-claro" id="pdEntregueDT"></div>
+    </div>
+</script>
+
+<script id="templatePedidosConteudo" type="text/x-jquery-tmpl">
+    <div class="dg-usuario-conteudo dg-usuario-conteudo-pedidos">
+        <h3 class="dg-subtitulo">
+            Aqui você pode verificar o andamento de seus pedidos e gerar 2º via de boletos ou notas fiscais.
+        </h3>
+        <div style="overflow:auto">
+            <table class="dg-usuario-conteudo-pedidos-table">
+                <thead>
+                    <tr>
+                        <th class="white-space">Nº Pedido</th>
+                        <th class="white-space">Data</th>
+                        <th class="white-space">Valor total</th>
+                        <th>Status</th>
+                        <th class="dg-mobile-hide">Forma de Pagamento</th>
+                        <th class="dg-mobile-hide">Nota Fiscal</th>
+                        <th style="width: 72px">
+                            <span class="dg-mobile-hide">Ver Pedido</span>
+                            <span class="dg-desktop-hide">Ver</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {for vp in RetornoPedidos}  
+                        <tr>
+                            <td>${vp.ID_Pedido}</td>
+                            <td>${vp.Data}</td>
+                            <td class="white-space">R$ ${vp.TotalGeralJuros.FormatCurrency()}</td>
+                            <td>${vp.SubStatus}</td>
+                            <td class="dg-mobile-hide">
+                                {if vp.Pagamento.TipoPagamento == "pix"}
+                                <span class="dg-usuario-conteudo-pedidos-flag" data-tipo-pagamento="${vp.Pagamento.FormaPagamento}"></span>
+                                {else}
+                                <span class="dg-usuario-conteudo-pedidos-flag" data-tipo-pagamento="${vp.Pagamento.TipoPagamento}"></span>
+                                {/if}
+
+                                {if vp.Pagamento.TipoPagamento == "cartao"}
+                                <p>Cartão de Crédito</p>
+                                {else}
+                                ${vp.Pagamento.FormaPagamento}
+                                {/if}
+
+
+                                {if vp.Pagamento.TipoPagamento == "boleto" && vp.Pagamento.UrlBoleto != ""}
+                                <div class="dg-usuario-conteudo-pedidos-imprimir">
+                                    <a href="javascript:void(0)" class="dg-usuario-conteudo-pedidos-btn" onclick="ClienteCentral.OpenJanelaBoleto('${vp.ID_Pedido}')">
+                                        <span class="dg-icon dg-icon-imprimir"></span>
+                                        Imprimir
+                                    </a>
+                                </div>
+                                {/if}
+                            </td>
+                            <td class="dg-mobile-hide">
+                                {if vp.PdfNota  != ""}
+                                <a href="#" class="dg-usuario-conteudo-pedidos-btn btn-conteudo-pedidos-nota" onclick="ClienteCentral.BaixaNfCliente(this)" data-ID_Nota="${vp.PdfNota}" data-id_pedido="${vp.ID_Pedido}">
+                                    Nº ${vp.PdfNota}
+                                </a>
+                                {else}
+                                <a href="javascript:void(0)" class="dg-usuario-conteudo-pedidos-btn btn-conteudo-pedidos-nota dg-isDisabled">
+                                    -
+                                </a>
+                                {/if}
+                            </td>
+                            <td>
+
+                                <a href="javascript:void(0)" usuario-aba="verPedidos" data-pedido="${vp.ID_Pedido}" class="dg-usuario-conteudo-pedidos-btn">
+                                    <span class="dg-icon dg-icon-eye"></span>
+                                    Recibo do pedido <strong>${vp.ID_Pedido}:</strong>
+
+                                </a>
+
+                            </td>
+                        </tr>
+                    {/for}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="dg-usuario-footer">
+        <div class="dg-categoria-paginacao dg-categoria-paginacao-footer">
+            <ul class="pageFooter">
+
+            </ul>
+        </div>
+    </div>
+
+
+
+</script>
+
+
+<script id="editarDados" type="text/x-jquery-tmpl">
+    <div class="dg-usuario-conteudo">
+        <form action="" class="dg-usuario-conteudo-form">
+            <div class="dg-usuario-conteudo-form-50">
+                <div>
+                    <input type="text" id="Nome" value="" required validar>
+                    <label for="Nome">
+                        Nome
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="dg-usuario-conteudo-form-50">
+                <div>
+                    <input type="text" value="" id="Sobrenome" required validar>
+                    <label for="Sobrenome">
+                        Sobrenome
+                    </label>
+                </div>
+            </div>
+
+            <div class="dg-usuario-conteudo-form-50">
+                <div>
+                    <input type="tel" value="" id="CPF" mascara="cpf" disabled>
+                    <label for="CPF">
+                        CPF
+                    </label>
+                </div>
+            </div>
+
+            <div class="dg-usuario-conteudo-form-50">
+                <div>
+                    <input type="email" value="" id="Email" disabled>
+                    <label for="Email">
+                        E-mail
+                    </label>
+                    <button type="button" class="dg-usuario-editar-btn jsEditarCampo" data-campo="Email">
+                        <span class="dg-icon dg-icon-editar" role="presentation"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="dg-usuario-conteudo-form-50">
+                <div>
+                    <input type="tel" value="" id="TelRes" mascara="telefone" validar>
+                    <label for="TelRes">
+                        Telefone Residencial
+                    </label>
+                </div>
+            </div>
+
+            <div class="dg-usuario-conteudo-form-50">
+                <div>
+                    <input type="tel" value="" id="TelCel" mascara="telefone" disabled>
+                    <label for="TelCel">
+                        Telefone Celular
+                    </label>
+                    <button type="button" class="dg-usuario-editar-btn jsEditarCampo" data-campo="TelCel">
+                        <span class="dg-icon dg-icon-editar" role="presentation"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="dg-usuario-conteudo-form-50">
+                <div>
+                    <input type="tel" value="" id="TelCom" mascara="telefone" validar>
+                    <label for="TelCom">
+                        Telefone Comercial
+                    </label>
+                </div>
+            </div>
+
+            <div class="dg-usuario-conteudo-form-50">
+                <div>
+                    <input type="tel" value="" id="DataNascimento" mascara="data" required validar>
+                    <label for="DataNascimento">
+                        Data de nascimento
+                    </label>
+                </div>
+            </div>
+
+            <div class="dg-usuario-conteudo-form-radio dg-usuario-conteudo-form-50">
+                <h4 class="dg-subtitulo">
+                    Gênero:
+                </h4>
+
+                <div>
+                    <input type="radio" name="Sexo" id="sexo-m" value="M" >
+                    <label for="sexo-m">
+                        Masculino
+                    </label>
+                </div>
+
+                <div>
+                    <input type="radio" name="Sexo" id="sexo-f" value="F">
+                    <label for="sexo-f">
+                        Feminino
+                    </label>
+                </div>
+
+                <div>
+                    <input type="radio" name="Sexo" id="sexo-0" value="I">
+                    <label for="sexo-0">
+                        Não identificar
+                    </label>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="dg-usuario-footer">
+        <a href="javascript:void(0)" class="dg-usuario-footer-btn" onclick="ClienteCentral.salvarDadosCentralDoCliente()">
+            Salvar dados
+        </a>
+    </div>
+</script>
+
+<script id="editarEnderecos" type="text/x-jquery-tmpl">
+    <div class="dg-usuario-conteudo">
+
+        <div class="dg-usuario-editar-enderecos">
+            {for Endereco in Enderecos}
+                {if Endereco.EndPrincipal == false}
+                    {var nomePrincipal = '<span>' + Endereco.Nome + '</span>'}
+                    @* {var iconePrincial = ""} *@
+                {else}
+                    {var nomePrincipal = '<span class="dg-endereco-principal"><span style="color:#00D19D">' + Endereco.Nome + '</span><span class="dg-icon-endereco-principal">Endereço Principal</span></span>'}
+                    @* {var iconePrincial = 'Endereço Principal'} *@
+                {/if}
+
+                <div class="dg-usuario-editar-enderecos-item dg-ativo" id="ID_Endereco_${Endereco.ID_Endereco}">
+                    @* ${iconePrincial} *@
+                    <a href="javascript:void(0)" class="dg-usuario-editar-enderecos-escolha">
+                        <strong>${nomePrincipal}</strong>
+                        <div class="dg-usuario-editar-enderecos-item__info">
+                            <div>
+                                <strong>${Endereco.Endereco} ${Endereco.Numero}</strong>
+                                <span>${Endereco.Bairro}, ${Endereco.Cidade} - ${Endereco.Estado}</span>
+                                <span>${Endereco.CEP}</span>
+                            </div>
+                            <div class="dg-usuario-editar-enderecos-opcoes-menu">
+                                <button type="button" class="dg-usuario-editar-enderecos-editar dg-tooltip-hover editarEndereco" onclick="ClienteCentral.editarEnderecoCliente(${Endereco.ID_Endereco})" rel="${Endereco.ID_Endereco}" aria-label="Editar Endereço">
+                                    
+                                    <svg width="28" height="29" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="0.344828" y="0.344828" width="27.3103" height="27.5862" rx="6.55172" stroke="#CFCFCF" stroke-width="0.689655"/>
+                                    <path d="M15.8091 20.625H12.1884C8.91172 20.625 7.51172 19.225 7.51172 15.9483V12.3276C7.51172 9.05088 8.91172 7.65088 12.1884 7.65088H13.3953C13.6428 7.65088 13.8479 7.85605 13.8479 8.10347C13.8479 8.35088 13.6428 8.55605 13.3953 8.55605H12.1884C9.40655 8.55605 8.41689 9.54571 8.41689 12.3276V15.9483C8.41689 18.7302 9.40655 19.7198 12.1884 19.7198H15.8091C18.591 19.7198 19.5807 18.7302 19.5807 15.9483V14.7414C19.5807 14.494 19.7859 14.2888 20.0333 14.2888C20.2807 14.2888 20.4859 14.494 20.4859 14.7414V15.9483C20.4859 19.225 19.0859 20.625 15.8091 20.625Z" fill="#CFCFCF"/>
+                                    <path d="M11.8873 17.5716C11.5192 17.5716 11.1812 17.4388 10.9338 17.1975C10.6381 16.9018 10.5114 16.4733 10.5778 16.0207L10.8373 14.2044C10.8855 13.8544 11.1149 13.4018 11.3623 13.1544L16.1174 8.39918C17.3183 7.19832 18.5373 7.19832 19.7381 8.39918C20.3959 9.05694 20.6916 9.72677 20.6312 10.3966C20.5769 10.9397 20.2873 11.4707 19.7381 12.0138L14.983 16.769C14.7355 17.0164 14.283 17.2457 13.933 17.294L12.1166 17.5535C12.0381 17.5716 11.9597 17.5716 11.8873 17.5716ZM16.7571 9.03884L12.0019 13.794C11.8873 13.9087 11.7545 14.1742 11.7304 14.3311L11.4709 16.1475C11.4468 16.3225 11.483 16.4673 11.5735 16.5578C11.664 16.6483 11.8088 16.6845 11.9838 16.6604L13.8002 16.4009C13.9571 16.3768 14.2286 16.244 14.3373 16.1294L19.0924 11.3742C19.4847 10.9819 19.6899 10.6319 19.72 10.3061C19.7562 9.91384 19.5511 9.49746 19.0924 9.0328C18.1269 8.06729 17.4631 8.33884 16.7571 9.03884Z" fill="#CFCFCF"/>
+                                    <path d="M18.7368 12.8285C18.6945 12.8285 18.6523 12.8224 18.6161 12.8103C17.029 12.3638 15.7678 11.1026 15.3213 9.51552C15.2549 9.27414 15.3937 9.02673 15.6351 8.95431C15.8764 8.88793 16.1238 9.02673 16.1902 9.26811C16.5523 10.5535 17.5721 11.5733 18.8575 11.9353C19.0988 12.0017 19.2376 12.2552 19.1713 12.4966C19.1169 12.7017 18.9359 12.8285 18.7368 12.8285Z" fill="#CFCFCF"/>
+                                    </svg>
+
+                                    <span class="dg-tooltip">Editar Endereço</span>
+                                </button>
+
+                                <button type="button" class="dg-usuario-editar-enderecos-apagar dg-tooltip-hover excluirEndereco" onclick="ClienteCentral.apagarEnderecoCliente(${Endereco.ID_Endereco})" rel="${Endereco.ID_Endereco}" aria-label="Apagar Endereço">
+                                    
+                                    <svg width="28" height="29" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="0.321317" y="0.321317" width="27.3574" height="27.6332" rx="6.10502" stroke="#CFCFCF" stroke-width="0.642633"/>
+                                    <path d="M17.9928 10.2822H10.2812V19.2791C10.2812 19.634 10.569 19.9217 10.9239 19.9217H17.3502C17.7051 19.9217 17.9928 19.634 17.9928 19.2791V10.2822Z" stroke="#CFCFCF" stroke-width="0.96395" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8.99609 10.2822H19.2782" stroke="#CFCFCF" stroke-width="0.96395" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16.0668 8.35425H12.211C11.8561 8.35425 11.5684 8.64196 11.5684 8.99688V10.2821H16.7094V8.99688C16.7094 8.64196 16.4217 8.35425 16.0668 8.35425Z" stroke="#CFCFCF" stroke-width="0.96395" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+
+                                    <span class="dg-tooltip">Apagar Endereço</span>
+                                </button>
+                            </div>
+                        </div>
+                    </a>
+                    @* <a href="javascript:void(0)" class="dg-usuario-editar-enderecos-editar dg-tooltip-hover" aria-label="Editar Endereço" onclick="ClienteCentral.editarEnderecoCliente(${Endereco.ID_Endereco})">
+                        <span class="dg-icon dg-icon-editar" role="presentation"></span>
+                        <span class="dg-tooltip">Editar Endereço</span>
+                    </a>
+                    <a href="javascript:void(0)" class="dg-usuario-editar-enderecos-apagar dg-tooltip-hover" onclick="ClienteCentral.apagarEnderecoCliente(${Endereco.ID_Endereco})" aria-label="Apagar Endereço">
+                        <span class="dg-icon dg-icon-lixo" role="presentation"></span>
+                        <span class="dg-tooltip">Apagar Endereço</span>
+                    </a>
+                    <a href="javascript:void(0)" class="dg-usuario-editar-enderecos-opcoes dg-tooltip-hover mostraItens dg-desktop-hide" aria-label="Opções">
+                        <span class="dg-icon dg-icon-dots-edit" role="presentation"></span>
+                        <span class="dg-tooltip">Opções</span>
+                    </a> *@
+                    
+                </div>
+            {/for}
+        </div>
+    </div>
+    <div class="dg-usuario-footer dg-usuario-footer-editarenderecos">
+        <a href="javascript:void(0)" onclick="ClienteCentral.editarEnderecoCliente(0)" class="dg-usuario-footer-btn" usuario-aba="inserirEndereco">
+            <span class="dg-icon dg-icon-novoendereco">+</span> <span id="newEnd">Cadastrar <strong>novo endereço</strong><span class="dg-only-visible-inside">:</span></span>
+        </a>
+    </div>
+</script>
+
+<script id="inserirEndereco" type="text/x-jquery-tmpl" charset="UTF-8">
+    <div class="dg-usuario-conteudo js-isEditarEndereco dg-usuario-editar-endereco">
+        <form action="" class="dg-usuario-conteudo-form">
+
+
+            <input type="hidden" id="IbgeUF" name="IbgeUF" />
+            <input type="hidden" id="IbgeCidade" name="IbgeCidade" />
+            <input type="hidden" id="ID_Endereco" name="ID_Endereco" value="0" />
+
+            <div class="dg-usuario-conteudo-form-25">
+                <div>
+                    <input type="tel" id="cep" oninput="CompletaEndereco()" mascara="cep" validar required>
+                    <label for="cep">
+                        CEP:
+                    </label>
+                    <a href="javascript:void(0)" class="dg-finalizar-buscarendereco dg-tooltip-hover" ordem-enter="2" aria-label="Buscar Endereço através do CEP" onclick="CompletaEndereco()">
+                        <span class="dg-tooltip">Buscar Endereço</span> <span class="dg-icon dg-icon-search"></span>
+                    </a>
+                </div>
+            </div>
+
+
+
+            <div class="dg-usuario-conteudo-form-75">
+                <div>
+                    <input type="text" id="endereco" validar required>
+                    <label for="endereco">
+                        Endereço:
+                    </label>
+                </div>
+            </div>
+
+            <div class="dg-usuario-conteudo-form-25">
+                <div>
+                    <input type="tel" id="numero" mascara="numero" validar required>
+                    <label for="numero">
+                        Número:
+                    </label>
+                </div>
+            </div>
+
+            <div class="dg-usuario-conteudo-form-25">
+                <div>
+                    <input type="text" id="complemento"  >
+                    <label for="complemento">
+                        Complemento:
+                    </label>
+                </div>
+            </div>
+
+
+
+            <div class="dg-usuario-conteudo-form-50">
+                <div>
+                    <input type="text" id="cidade" validar required>
+                    <label for="cidade">
+                        Cidade:
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="dg-usuario-conteudo-form-25">
+                <div>
+                    <input type="text" id="estado" validar required>
+                    <label for="estado">
+                        Estado:
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="dg-usuario-conteudo-form-25">
+                <div>
+                    <input type="text" id="bairro" validar required>
+                    <label for="bairro">
+                        Bairro:
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="dg-usuario-conteudo-form-50">
+                <div>
+                    <input type="text" id="identificacao" validar maxlength="12">
+                    <label for="identificacao">
+                        Identificação: Ex: Casa, trabalho, etc..
+                    </label>
+                </div>
+            </div>
+
+            <div class="dg-usuario-conteudo-form-radio">
+                <div>
+                    <div>
+                        <input type="checkbox" id="EndPrincipal">
+                        <label for="EndPrincipal">
+                            Endereço Principal?
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+    <div class="dg-usuario-footer">
+
+        <a href="javascript:void(0)" usuario-clickfalse=".jsClickFalseEditarEndereco" class="dg-usuario-footer-cancelar-btn">
+            Voltar para endereços
+        </a>
+
+
+        <a href="javascript:void(0)" class="dg-usuario-footer-btn" onclick="ClienteCentral.salvarEnderecoCliente()">
+            Salvar dados
+        </a>
+    </div>
+</script>
+
+<script id="editarConsentimentos" type="text/x-jquery-tmpl">
+    <div class="dg-usuario-conteudo dg-usuario-conteudo-consentimentos">
+        <div class="dg-usuario-conteudo-consentimentos-box">
+    @* <div class="dg-usuario-conteudo-consentimentos-titulo">
+        <p><strong>Permissões</strong><br>
+        Edite aqui suas permissões</p>
+        </div> *@
+            <form action="" class="dg-usuario-conteudo-form">
+
+                <div class="dg-usuario-conteudo-form-radio">
+                    <h4 class="dg-subtitulo">
+                        Receba novidades, promoções e ofertas personalizadas!
+                    </h4>
+
+                    <div>
+                        <input type="checkbox" id="ofertaEmail" >
+                        <label for="ofertaEmail">
+                            E-mail
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="ofertaSms">
+                        <label for="ofertaSms">
+                            SMS
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="ofertaRedesSociais">
+                        <label for="ofertaRedesSociais">
+                            Redes Sociais
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="ofertaWhatsapp">
+                        <label for="ofertaWhatsapp">
+                            WhatsApp
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </div>
+     </div>
+    <div class="dg-usuario-footer">
+        <a href="javascript:void(0)" class="dg-usuario-footer-btn" onclick="ClienteCentral.salvarConsentimentos()">
+            Salvar dados
+        </a>
+    </div>
+</script>
+
+
+<script id="alterarSenha" type="text/x-jquery-tmpl">
+    <div class="dg-usuario-conteudo">
+        <form action="" class="dg-usuario-conteudo-form">
+            <div>
+                <div>
+                    <input type="password" id="senhaAtual" class="jsIsPassword" required validar>
+                    <label for="senhaAtual">
+                        Senha atual
+                    </label>
+                </div>
+            </div>
+
+            <div class="dg-usuario-conteudo-form-50">
+                <div>
+                    <input type="password" id="novaSenha" class="jsIsPassword" required validar>
+                    <label for="novaSenha">
+                        Nova senha
+                    </label>
+                    <a href="javascript:void(0)" class="dg-usuario-conteudo-versenha" aria-label="Deixa campo de senha visível"><span class="dg-icon dg-icon-eye"></span></a>
+                </div>
+            </div>
+
+            <div class="dg-usuario-conteudo-form-50">
+                <div>
+                    <input type="password" id="confirmNovaSenha" class="jsIsPassword" required validar>
+                    <label for="confirmNovaSenha">
+                        Confirmar nova senha
+                    </label>
+                    <a href="javascript:void(0)" class="dg-usuario-conteudo-versenha" aria-label="Deixa campo de senha visível"><span class="dg-icon dg-icon-eye"></span></a>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+    <div class="dg-usuario-footer">
+        <a href="javascript:void(0)" class="dg-usuario-footer-btn" onclick="ClienteCentral.alterarSenhaCliente()">
+            Salvar dados
+        </a>
+    </div>
+</script>
+
+
+<script id="templateFavoritosConteudo" type="text/x-jquery-tmpl">
+
+</script>
+
+
+<script id="templateRastreioCorreios" type="text/x-jquery-tmpl">
+
+    <ul>
+        {for item in Item}
+            <li>${item}</li>
+        {/for}
+    </ul>
+
+</script>
+
+<script id="template-editarCampo" type="text/x-jquery-tmpl" charset="UTF-8">
+    <form id="editarCampoForm">
+        <div class="jsStep1Editar">
+            {if campo == "Email"}
+                <h3 class="dg-titulo">Editar E-mail</h3>
+            {elseif campo == "TelCel"}
+                <h3 class="dg-titulo">Editar Celular</h3>
+            {/if}
+            <div class="dg-editar-campo-atual">
+                <div class="dg-editar-campo-atual-label">
+                    {if campo == "Email"}
+                        E-mail atual
+                    {elseif campo == "TelCel"}
+                        Celular atual
+                    {/if}
+                </div>
+                <div class="dg-editar-campo-atual-valor">
+                    {if campo == "Email"}
+                        <input type="hidden" id="AtualEmail" value="${campoEmail}">${campoEmail}
+                    {elseif campo == "TelCel"}
+                        <input type="hidden" id="AtualTelCel" value="${campoCelular}">${campoCelular}
+                    {/if}
+                </div>
+            </div>
+            <div class="dg-editar-campo-flex">
+                <div class="dg-relative">
+                    {if campo == "Email"}
+                        <input class="dg-form-control" type="email" id="EditarEmail" required validar>
+                        <label for="EditarEmail">Novo e-mail</label>
+                    {elseif campo == "TelCel"}
+                        <input class="dg-form-control" type="tel" id="EditarTelCel" mascara="telefone" required validar>
+                        <label for="EditarTelCel">Novo celular</label>
+                    {/if}
+                </div>
+            
+                <div class="dg-relative">
+                    {if campo == "Email"}
+                        <input class="dg-form-control" type="email" id="ConfirmarEditarEmail" required validar>
+                        <label for="ConfirmarEditarEmail">Confirmar novo e-mail</label>
+                    {elseif campo == "TelCel"}
+                        <input class="dg-form-control" type="tel" id="ConfirmarEditarTelCel" mascara="telefone" required validar>
+                        <label for="ConfirmarEditarTelCel">Confirmar novo celular</label>
+                    {/if}
+                </div>
+            </div>
+
+            <div style="text-align:right">
+                <button type="submit" class="dg-btn">Continuar</button>
+            </div>
+        </div>
+        <div class="jsStep2Editar" style="display:none">
+            <h3 class="dg-titulo">Insira o código de verificação</h3>
+            <p>
+                {if campo == "Email"}
+                    Um código de 6 digitos foi enviado por SMS para o número <strong>${campoCelular}<strong>.
+                {elseif campo == "TelCel"}
+                    Um código de 6 digitos foi enviado para o e-mail <strong>${campoEmail}<strong>.
+                {/if}
+            </p>
+            <div class="dg-input-wrapper">
+                <input type="text" maxlength="1" class="jsCodigoSmsInputEditarCampo" name="smsCodigo[]" />
+                <input type="text" maxlength="1" class="jsCodigoSmsInputEditarCampo" name="smsCodigo[]" />
+                <input type="text" maxlength="1" class="jsCodigoSmsInputEditarCampo" name="smsCodigo[]" />
+                <input type="text" maxlength="1" class="jsCodigoSmsInputEditarCampo" name="smsCodigo[]" />
+                <input type="text" maxlength="1" class="jsCodigoSmsInputEditarCampo" name="smsCodigo[]" />
+                <input type="text" maxlength="1" class="jsCodigoSmsInputEditarCampo" name="smsCodigo[]" />
+            </div>
+            <div style="text-align:center">
+                <button type="button" class="jsReenviarCodigoEditarCampo dg-reenviar-codigo">Reenviar código <span class="jsReenviarCodigoEditarCampoTimer"></span></button>
+            </div>
+            <div style="text-align:right">
+                <button type="submit" class="dg-btn">Continuar</button>
+            </div>
+        </div>
+    </form>
+</script>
+
+@*@Html.Raw(@Model.SEOOrganization)*@
+
+@{
+    Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/CentralCliente.css", false);
+    Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/tiny-slider.css", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/slick.js", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/CentralClienteV6.js", false);
+}

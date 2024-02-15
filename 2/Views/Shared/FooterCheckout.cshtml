@@ -1,0 +1,423 @@
+﻿@inject DNE.Site.Infrastructure.FunctionsProject oFunction
+@{
+    var farmaceutico = oFunction.GetFarmaceuticos();
+}
+
+
+<footer class="dg-checkout-footer">
+    <div class="container">
+        <div class="dg-checkout-footer-topo">
+            <div class="dg-checkout-footer-selos">
+                <h3 class="dg-checkout-footer-titulo">
+                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/Wavy.svg" />
+                    Selos e certificados
+                </h3>
+
+                <div class="dg-checkout-footer-selos-lista">
+                    <div class="dg-checkout-footer-selos-ebit">
+                            <img src="@Html.Domain()/ckeckout/assets/img/footer/ebit.png" alt="Selo E-bit - Excelente">
+                    </div>
+
+                    <div class="dg-checkout-footer-selos-secure">
+                        <img src="@Html.Domain()/ckeckout/assets/img/footer/secure.png" alt="Selo 100% Secure">
+                    </div>
+
+                    <div class="dg-checkout-footer-selos-reclameaqui">
+                            <img src="@Html.Domain()/ckeckout/assets/img/footer/reclameaqui.png" alt="Selo Reclame Aqui">
+                    </div>
+
+                    <div class="dg-checkout-footer-selos-pci">
+                            <img src="@Html.Domain()/ckeckout/assets/img/footer/pci.png" alt="Selo PCI DDS Certified">
+                    </div>
+
+                </div>
+            </div>
+            <div class="dg-checkout-footer-pagamento">
+                <h3 class="dg-checkout-footer-titulo">
+                     <img src="@Html.Domain()/Themes/DefaultClean/Content/img/icones/wallet-2.svg" />
+                    Formas de pagamento
+                </h3>
+
+                <div class="dg-checkout-footer-lista">
+                    @* <span class="dg-tooltip-hover dg-checkout-footer-lista-item" aria-label="MasterCard">
+                        <span class="dg-icon dg-icon-mastercard"></span>
+                        <span class="dg-tooltip">MasterCard</span>
+                    </span>
+                    <span class="dg-tooltip-hover dg-checkout-footer-lista-item" aria-label="Visa">
+                        <span class="dg-icon dg-icon-visa"></span>
+                        <span class="dg-tooltip">Visa</span>
+                    </span>
+                    <span class="dg-tooltip-hover dg-checkout-footer-lista-item" aria-label="American Express">
+                        <span class="dg-icon dg-icon-american-express"></span>
+                        <span class="dg-tooltip">American Express</span>
+                    </span>
+                    <span class="dg-tooltip-hover dg-checkout-footer-lista-item" aria-label="Elo">
+                        <span class="dg-icon dg-icon-elo"></span>
+                        <span class="dg-tooltip">Elo</span>
+                    </span>
+                    <span class="dg-tooltip-hover dg-checkout-footer-lista-item" aria-label="Boleto">
+                        <span class="dg-icon dg-icon-boleto"></span>
+                        <span class="dg-tooltip">Boleto</span>
+                    </span>
+                    <span class="dg-tooltip-hover dg-checkout-footer-lista-item" aria-label="Pix">
+                        <span class="dg-icon dg-icon-pix"></span>
+                        <span class="dg-tooltip">Pix</span>
+                    </span> *@
+                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/footer/pagamento.png" alt="Imagem ícones bandeira de cartões" loading="lazy">
+                </div>
+            </div>
+
+            <a href="@Html.Domain()/nossa-historia/" target="_blank" class="dg-checkout-footer-linha1-btn dg-checkout-footer-linha1-btn-historia">
+                @* <img src="@Html.Domain()/ckeckout/assets/img/footer/marcao.png" alt="Mascote DNE" role="presentation"> *@
+
+                <strong>Conheça um pouco sobre a nossa história</strong>
+            </a>
+        </div>
+        <div class="dg-checkout-footer-final">
+            <strong>Todas as informações contidas neste site não devem ser usadas para automedicação. Ao persistirem os sintomas um médico deverá ser consultado. **O valor poderá sofrer acréscimo de juros da operadora do cartão de crédito.</strong>
+
+
+            <p class="dg-checkout-footer-final-degrau">
+                Designed by: <a href="https://degraupublicidade.com.br/" target="_blank">Degrau Publicidade e Internet</a>
+            </p>
+        </div>
+    </div>
+</footer>
+<div class="container">
+    <p class="dg-footer-mensagem-drogaria">
+        O nome Farmácia MIX e o domínio www.farmaciamix.com.br são marcas registradas por Drogaria Nova Esperança Eireli, fundada em 1972 sob o C.N.P.J: 43.575.877/0001-13 – Inscrição Estadual: 108.951.575.114 - situada na Av. Cabo Adão Pereira no 82/88, Pirituba - São Paulo / SP - CEP: 02936-010 - Licença municipal para funcionamento: 000.895.893-9 – ANVISA Autorização / MS 0.13492.7 - COVISA Autorização 5.09670.7 - Farmacêuticos: @farmaceutico As receitas médicas devem ser apresentadas para o e-mail: farmaceutico@drogarianovaesperanca.com.br. Copyright@@<span class="jsAnoAtual"></span> Drograria Nova Esperança.
+    </p>
+</div>
+
+<div class="dg-mobile-hide jsIsDesktop"></div>
+<div class="dg-desktop-hide jsIsMobile"></div>
+
+<!-- Javascript -->
+
+<script>
+    var DominioAjax = '@Html.Domain()';
+    var afiliacao = 'FMIX';
+</script>
+
+
+<script src="/ckeckout/assets/modules/mascara.js" type="text/javascript" asp-append-version="true"></script>
+
+<script type="text/javascript" src="https://app.dialugo.com/embed/monitoramentoChatHumano.js"></script>
+
+<script>
+    function GetCarrinho(Feedbacks) {
+    //var headers = {};    
+    if (paginaAtual === 'Checkout') {
+        loadingContentBoth(true);
+        addLoadingTemplate();
+    }
+    
+    var item = {}
+    $.ajax({
+        type: 'POST',
+        url: '/api/GetCarrinho?impressao=ok',
+        data: JSON.stringify(item),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        headers: addAntiForgeryToken({}), //<< obrigatorio pessoal
+        success: function (response) {
+
+            var Resultado = TrimPath.processDOMTemplate("#templateCarrinhoItens", { Carrinho: response });
+            $(".ReultCarrinhoItens").html(Resultado);
+
+            var ResultadoJsonCarrinhoEnd = null;
+            if (response.End != null) {                
+                ResultadoJsonCarrinhoEnd = response.End;
+            }
+
+            var retCookie = { "CEP": response.CEP, "ID_Endereco": response.ID_Endereco, "SubTotal": response.SubTotal, "ValorFrete": response.ValorFrete, "ValorTotalCarrinho": response.ValorTotalCarrinho, "End": ResultadoJsonCarrinhoEnd};
+           
+            $.cookie('carrinhoJS', JSON.stringify(retCookie), { expires: 1, path: '/' });
+
+            if (paginaAtual === 'Checkout') {
+                removeLoadingTemplate();
+
+                if ($('.ReultCarrinhoItens').length > 0) {
+                    $('.dg-checkout-main-bloco-topo .dg-titulo strong').html('no carrinho <span>(' + $('.dg-checkout-main-carrinho-item').length + ')</span>')
+                }
+            }
+
+            var carregaTotalizador = true;
+            if (response.ItensCart.length === 0) {
+                $('.dg-checkout-main').addClass('dg-unable-to-buy');
+                carregaTotalizador = false;
+            } else {
+                $('.dg-checkout-main').removeClass('dg-unable-to-buy');
+            }
+
+            if ($(".titlecountcart").length > 0) {
+                $(".titlecountcart").attr("aria-label", $(".titlecountcart").attr("dataformat").format(response.ItensCart.length)).find(".dg-header-carrinho-numero").text(response.ItensCart.length);
+            }
+
+            ResultadoJsonCarrinho = response;
+            var carregaFrete = false;
+
+            if (Feedbacks !== null && Feedbacks !== '') {
+
+                Feedbacks.forEach(function (elemento) {
+                    var el = $('#Qtd_' + Feedbacks.ID_SubProduto).parent();
+
+
+                    if (elemento.ID_Status === 1) IsGetCart = true;
+
+                    if (elemento.ID_Status === 7) {
+                        console.log(elemento.ID_Status)
+                        el.find('.sem_estoque').removeClass('dg-hide');
+                        el.find('.sem_estoque dg-erro-sem-estoque').remove();
+                        el.append('<div class="sem_estoque dg-erro-sem-estoque">' + elemento.Status + '</div>')
+
+
+                    } else if (elemento.ID_Status === 6) {
+                        // $.alertpadrao({ type: 'html', text: elemento.Status, addClass: "dg-negativo" });
+                        if (el.find('.sem_estoque').length > 0) {
+                            el.find('.sem_estoque').removeClass('dg-hide');
+                            el.find('.jsEstoqueValor').text(elemento.Estoque);
+                        } else {
+                            el.find('.sem_estoque').removeClass('dg-hide');
+                            el.append('<div class="sem_estoque dg-erro-sem-estoque">Quantidade em estoque: <span class="jsEstoqueValor">' + elemento.Estoque + '</span></div>')
+                        }
+
+                    }
+                });
+
+                if (Feedbacks.Action == "Mais" || Feedbacks.Action == "Menos") {
+                    carregaFrete = true;
+                }
+            }
+
+            if (response.CEP != null && response.CEP !== '' && chamadaFrete == "") {
+                carregaFrete = true;
+            }
+
+            if (carregaFrete) {
+                $("#checkoutCEPCarrinho").val(response.CEP).trigger("change");
+
+                if (typeof hash !== 'undefined') {
+                    if ($("#checkoutCEPCarrinho").val() != "" && hash != "checkout") {
+                        GetFrete($("#checkoutCEPCarrinho").val(), "carregaTotalizador");
+                        carregaTotalizador = false;
+                    }
+                }
+
+            }
+            
+            if ($('.compretambem').length < 2) {                
+                $('.dg-checkout-main-carrinho-compre').html($('.compretambem').html());
+                $(".dg-checkout-main-carrinho-compre .compretambem").show();
+                $('.dg-checkout-main').append($('.compretambem').clone());                                
+
+            } else {                
+                if ($('.dg-checkout-main-carrinho-compre').children().length === 0) {
+
+                    $('.dg-checkout-main-carrinho-compre').html($('.compretambem').html());
+                    $(".dg-checkout-main-carrinho-compre .compretambem").show();
+
+                }  
+            }
+            if ($('.dg-checkout-main-carrinho-compre-lista .dg-boxproduto').length <= 0) {
+                $(".dg-checkout-main-carrinho-compre .dg-titulo").hide();
+            }
+
+            $('.dg-boxproduto [data-src-lazy]').each(function () {
+                $(this).attr('src', $(this).attr("data-src-lazy"));
+                $(this)[0].removeAttribute('width');
+                $(this)[0].removeAttribute('height');
+            });
+
+            var IsNotifiqueItensModificado = false;
+            var AlertProdIndisponivel = false;
+            var AlertProdIndisponivelItens = [];
+            var ItensMSG = response.Messages;
+  
+            $.each(ItensMSG, function (c, itemMSG) {
+
+                if (itemMSG.Code === 1 || itemMSG.Code === 2 || itemMSG.Code === 3) {
+
+                    var el = $('#Qtd_' + itemMSG.ID_SubProduto).parent();
+                    el.find('.sem_estoque').removeClass('dg-hide');
+                    el.find('.sem_estoque dg-erro-sem-estoque').remove();
+                    el.append('<div class="sem_estoque dg-erro-sem-estoque">' + itemMSG.Message + '</div>')
+
+                }
+
+                /// regra de negocio apartada das MSG manter...
+
+                if (itemMSG.Code === 4) {
+                    AlertProdIndisponivel = true;
+                    AlertProdIndisponivelItens.push(itemMSG.Message);
+                }
+
+            });
+
+            if (AlertProdIndisponivel) {
+                
+                var shtml = "";
+                $.each(AlertProdIndisponivelItens, function (c, item) {
+                    shtml += AlertProdIndisponivelItens[c] + "<br>";
+                });
+                
+                $.alertpadrao({ text: shtml, mode: "alert", addClass: "dg-positivo" });
+
+            }
+           
+            if ($(".dg-checkout-main-carrinho-item-crm").length > 0) {
+                var Itens = response.ItensCart;
+                $.each(Itens, function (c, item) {
+
+                    if ($(".inputEditCrm_" + Itens[c].ID_SubProduto).val() !== '') {
+                        $(".inputEditCrm_" + Itens[c].ID_SubProduto).addClass('is-selected');
+                    }
+
+                    $(".inputEditCrm_" + Itens[c].ID_SubProduto).on('input', function () {
+                        $(this).removeClass('is-selected');
+                    });
+
+                    $(".inputEditCrm_" + Itens[c].ID_SubProduto).autocomplete({
+                        source: "/api/GetCRMAutoComplete",
+                        minLength: 2,
+                        delay: 200,
+                        appendTo: "",
+                        select: function (event, ui) {
+
+                            var selectedObj = ui.item;
+                            var ItemSelectCRM = {};
+                            ItemSelectCRM.NomeMedico = selectedObj.NomeMedico;
+                            ItemSelectCRM.CRM = selectedObj.CRM;
+                            ItemSelectCRM.CRM_UF = selectedObj.CRM_UF;
+
+                            SetCRMCart(Itens[c].ID_SubProduto, selectedObj.CRM);
+
+                            $(".inputEditCrm_" + Itens[c].ID_SubProduto).val(selectedObj.CRM);
+                            $(".inputEditCrm_" + Itens[c].ID_SubProduto).addClass('is-selected');
+                            return false;
+                        },
+                        create: function () {
+                            $(this).data('ui-autocomplete')._renderItem = function (ul, item) {
+                                var valor = item.CRM;
+                                return $('<li>')
+                                    .append(item.NomeMedico + " - " + item.CRM + " - " + item.CRM_UF)
+                                    .appendTo(ul);
+
+                            };
+                        }
+                    });
+
+                });
+
+            }
+
+            if (IsNotifiqueItensModificado) {
+                alertdisponibilidade();
+            }
+
+            $('#checkoutObservacoesCarrinho').val(response.ObsCliente);
+
+            if (carregaTotalizador) {
+                GetTotalizadoresCarrinho();
+            }
+            
+            if (paginaAtual === 'Checkout') {
+                removeLoadingTemplate(); 
+
+                var gaItens = [];
+
+                for (var i = 0; i < response.ItensCart.length; i++) {
+                    var product = response.ItensCart[i];
+
+                    var objProduct = {
+                        item_id: '' + product.ID_SubProduto,
+                        item_name: product.NomeProduto,
+                        index: i,
+                        item_brand: product.Marca,
+                        item_category: product.Categoria,
+                        price: product.ValorUnitario,
+                        quantity: product.Qtd
+                    };
+
+                    ga('ec:addProduct', {
+                        'id': product.ID_SubProduto,
+                        'name': product.NomeProduto,
+                        'category': product.Categoria,
+                        'subcategory': product.SubCategoria,
+                        'brand': product.Marca,
+                        'price': product.ValorUnitario,
+                        'quantity': product.Qtd
+                    });
+
+                    gaItens.push(objProduct);
+                }
+
+                globalCartListRef.value = response.ValorTotalCarrinho,
+                globalCartListRef.items = gaItens;
+                
+                if (!carrinhoPageView) {
+                    ga('ec:setAction', 'checkout', { 'step': 1 });
+                    ga('send', 'event', 'Checkout', 'Mudar Estágio', 'Carrinho');
+
+                    gtag('event', 'step_1');
+                    carrinhoPageView = true;
+                }
+                
+                gtag('event', 'view_cart', globalCartListRef);
+            }
+
+            $(".dg-checkoug-main-carrinho-item-qtd-input").keyup(function () {
+                var $this = this;
+                clearTimeout($.data(this, 'timer'));
+                var wait = setTimeout(function () { SetCarrinho($this, 'Update'); }, 2000);
+                $(this).data('timer', wait);
+            });
+        },
+        failure: function (msg) {
+            $.alertpadrao({ type: 'html', text: msg, addClass: "dg-negativo" });
+            // alert(msg);
+            if (paginaAtual === 'Checkout') {
+                loadingContentBoth(false);
+            }
+        }
+    });
+
+}
+</script>
+
+<script>
+    window.onload = function() {
+        setTimeout(function() {
+            $("*:-webkit-autofill").each(function(){
+                $(this).addClass('dg-ativo');
+            })
+        }, 500);
+        
+        if ($('.jsIsDesktop').is(':visible')) {
+            @* $('body').append('<script id="monitoramento_gvp_chat_flutuante" type="text/javascript" lang="javascript" src="https://webapp.ideacrm.com.br/monitoramento.js.aspx?idc=7554&floatingchat=1" />'); *@
+
+            $('.jsAbrirChat').off('click');
+            $('.jsAbrirChat').click(function () {
+                if ($(this).hasClass("dg-loading")) {
+                    console.log("Aguarde o chat abrir");
+                } else {
+                    abreClickChatFlutuanteGVP('iHJO4ElJkkMQ551MIOP9X/AISbxWm9eQ_o1s5/BYPkVE=_ZeBm0mD5x3I=');
+                    $(this).addClass("dg-loading");
+                    setTimeout(function () {
+                        $('.jsAbrirChat').removeClass("dg-loading");
+                    }, 3000);
+                }
+            });
+        }
+    }
+    function textToClipboard (text) {
+        var dummy = document.createElement("textarea");
+        document.body.appendChild(dummy);
+        dummy.value = text;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+        
+        $.alertpadrao({ type: 'html', text: "Copiado para área de transferência.", addClass: "dg-positivo" });
+    }
+</script>

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<!--Head-->
+<meta charset="utf-8">
+@await Html.PartialAsync("_Head")
+<!--Head-->
+
+
+<body itemscope="" itemtype="https://schema.org/Pharmacy" id="@ViewData["bodyID"]" class="">
+
+    @await Html.PartialAsync("_Header")
+
+    @RenderBody()
+
+    <!-- /Menu de Filtros -->
+    <div class="jsIsMobile dg-desktop-hide"></div>
+    <div class="jsIsDesktop dg-mobile-hide"></div>
+
+    @await Html.PartialAsync("_Footer")
+
+    @if (ViewData["BodyID"] == "produto-pg") {
+        <script>
+
+            jQuery(document).ready(function () {
+                if ($('.dg-mobilehide').is(":visible")) {
+                    $('.img-zoom').zoom({
+                        url: '@Html.Domain()/imagens-complete/1000x1000/@ViewData["PageProduto_Foto"]'
+                    });
+                }
+
+                $("#QTD").keyup(function () {
+		            var Total = $("#QTD").val();
+		            var id = $("#ID_SubProduto").val();
+		            GetSubTotalProduto(id, Total);
+	            });
+            });
+
+            dataLayer.push(@Html.Raw(@ViewData["DataLayerProd"]));
+            //console.log(dataLayer);
+            jQuery(document).ready(function () {
+                $.each(dataLayer, function (c, item) {
+                    if (dataLayer[c].google_tag_params != null) {
+                        var dat = dataLayer[c].google_tag_params.ItemImpression;
+                        console.log(dat);
+                        ga('ec:addProduct', {             
+                            'id': dat.id,                     
+                            'name': dat.name,             
+                            'category': dat.category,     
+                            'brand': dat.brand
+                        });
+                        ga('ec:setAction', 'detail');
+                    }
+
+                });
+            });
+            dataLayer.push({
+                event: 'crto_productpage',
+                crto: {
+                    products: ['@ViewData["ID_SubProduto"]']
+                }
+            });
+
+        </script>
+    }
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+﻿@{
+    Layout = "_LayoutCheckOut";
+}
+<!-- ####  Fim do header  ####-->
+
+
+<main>
+    <div class="container">
+
+        <div class="dg-checkout-main-bloco-topo dg-checkout-main" paginaAtual="">
+            <h1 class="dg-titulo"></h1>
+
+            <div class="dg-checkout-main-bloco-passo" progresso="1">
+                <div class="dg-checkout-main-bloco-progresso"><b>Passo</b> <span></span> de 5</div>
+
+                @* <div class="dg-checkout-main-bloco-proximopasso">
+                    Próximo passo: <strong></strong>
+
+                    <div class="dg-checkout-main-bloco-barra">
+                        <div class="dg-checkout-main-bloco-barra-interna"></div>
+                    </div>
+                </div> *@
+            </div>
+        </div>
+
+        <div class="dg-checkout-main" paginaAtual="">
+
+            <!-- BLOCO PRINCIPAL -->
+            <section class="dg-checkout-main-bloco">
+
+                <div class="dg-checkout-main-bloco-conteudo jsCheckoutConteudo dg-loading @ViewBag.OrientacaoCart"></div>
+
+                <input type="hidden" name="ChaveRecibo" id="ChaveRecibo" value="@ViewBag.ChaveRecibo" />
+
+            </section>
+
+            <!-- Acessibilidade -->
+            <a href="#pagamentoContinuar" class="dg-ac-irpara">
+                Pular resumo e ir para Continuar
+            </a>
+            <!-- /Acessibilidade -->
+            <!-- Sidebar -->
+            <aside class="dg-checkout-main-side dg-loading"></aside>
+
+        </div>
+
+    </div>
+    <input type="hidden" name="FW" id="FW" value="@ViewBag.FW" />
+</main>
+
+
+

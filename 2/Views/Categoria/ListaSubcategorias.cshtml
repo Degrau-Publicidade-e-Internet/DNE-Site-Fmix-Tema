@@ -1,0 +1,187 @@
+﻿@model DNE.Site.Models.ListaDeProdutosModel
+
+@{
+    var oModel = Model;
+
+
+
+}
+
+@if (Model.PageCategorias.ListSub != null)
+{
+    @if (Model.PageCategorias.ListSub.Count() > 0)
+    {
+        <div class="dg-titulo" data-tipo-titulo="categoria">
+
+            @if (oModel.Tipo == "Favoritos")
+            {
+                <h2>Meus favoritos</h2>
+            }
+            else if (oModel.Tipo == "Busca")
+            {
+                <h2>Resultados encontrados em <strong>@oModel.PalavraBusca</strong></h2>
+            }
+            else if (oModel.Tipo.Equals("Pagina Ofertas") || oModel.Tipo.Equals("PaginaLpHome"))
+            {
+                <h2><strong>@oModel.CategoriaTitle</strong> em: </h2>
+            }
+            else if (oModel.Tipo.Equals("Familia"))
+            {
+                <h2>Categorias em <strong>@oModel.CategoriaTitle</strong></h2>
+            }
+            else if (oModel.Tipo.Equals("Promocao"))
+            {
+                <h2>Categoria em <strong>@Model.PageCategorias.Titulo</strong></h2>
+            }
+            else if (oModel.Tipo.Equals("Marcas"))
+            {
+                <h2>Categoria em <strong>@Html.Raw(oModel.CategoriaTitle)</strong></h2>
+            }
+            else if (oModel.Tipo.Equals("LandingPages"))
+            {
+                <h2>Categoria em <strong>@ViewBag.Breadcrumbs_Name0</strong></h2>
+            }
+            else if (oModel.Tipo.Equals("PrincipioAtivo"))
+            {
+                <h2>Composto ativo em <strong>@ViewBag.Breadcrumbs_Composto</strong></h2>
+            }
+            else
+            {
+                <h2>Categoria em <strong>@Model.PageCategorias.Titulo</strong></h2>
+
+            }
+
+        </div>
+               
+
+        if (oModel.Tipo.Equals("PrincipioAtivo"))
+        {
+            if (Model.request.idsub > 0)
+            {
+                <div class="dg-titulo dg-titulo-subcategoria" data-tipo-titulo="subcategoria">
+                    Filtre por <strong>subcategoria</strong>:
+                    <a href="@Html.Domain()@Model.PageCategorias.URL" aria-label="Limpar Filtro" class="dg-categoria-sidebar-limpar dg-tooltip-hover">
+                        <span class="dg-icon dg-icon-x"></span>
+                        <span class="dg-tooltip">
+                            Limpar Filtro
+                        </span>
+                    </a>
+                </div>
+            }            
+            <div class="dg-categoria-sidebar-listagem-wrapper">
+                <ul class="dg-categoria-sidebar-listagem">
+
+
+
+
+
+                    @foreach (var sub in Model.PageCategorias.ListSub)
+                    {
+
+                        var contagem = sub.Contagem > 0 ? sub.Contagem.ToString() : "";
+
+                        <li>
+                            <a href="@Html.Domain()@sub.Link">
+
+                                @sub.SubCategoria
+                                @if (contagem != "")
+                                {
+                                    <span class="dg-categoria-sidebar-contagem">@contagem</span>
+                                }
+
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+        }
+        else if(oModel.Tipo.Equals("LandingPages"))
+        {
+            if (Model.request.idsub > 0)
+            {
+                <div class="dg-titulo dg-titulo-subcategoria" data-tipo-titulo="subcategoria">
+                    Filtre por <strong>subcategoria</strong>:
+                    <a href="@Html.Domain()@Model.PageCategorias.URL" aria-label="Limpar Filtro" class="dg-categoria-sidebar-limpar dg-tooltip-hover">
+                        <span class="dg-icon dg-icon-x"></span>
+                        <span class="dg-tooltip">
+                            Limpar Filtro
+                        </span>
+                    </a>
+                </div>
+            }
+
+            <div class="dg-categoria-sidebar-listagem-wrapper">
+                <ul class="dg-categoria-sidebar-listagem">
+
+
+                    @foreach (var sub in Model.PageCategorias.ListSub)
+                    {
+
+                        var contagem = sub.Contagem > 0 ? sub.Contagem.ToString() : "";
+
+                        <li>
+                            @*<a href="@Html.Domain()/@oModel.BannerCategoria.NomeCategoria/?idsub=@sub.ID_SubCategoria">*@
+                                <a href="@Html.Domain()/@oModel.BannerCategoria.NomeCategoria@sub.Link">
+
+                                @sub.SubCategoria
+                                @if (contagem != "")
+                                {
+                                    <span class="dg-categoria-sidebar-contagem">@contagem</span>
+                                }
+
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+       
+        else
+        {
+            if (Model.request.idsub > 0)
+            {
+                <div class="dg-titulo dg-titulo-subcategoria" data-tipo-titulo="subcategoria">
+                    Filtre por <strong>subcategoria</strong>:
+                    <a href="@Html.Domain()/@Model.PageCategorias.URL" aria-label="Limpar Filtro" class="dg-categoria-sidebar-limpar dg-tooltip-hover">
+                        <span class="dg-icon dg-icon-x"></span>
+                        <span class="dg-tooltip">
+                            Limpar Filtro
+                        </span>
+                    </a>
+                </div>
+            }
+
+            <div class="dg-categoria-sidebar-listagem-wrapper">
+                <ul class="dg-categoria-sidebar-listagem">
+
+
+                    @foreach (var sub in Model.PageCategorias.ListSub)
+                    {
+
+                        var contagem = sub.Contagem > 0 ? sub.Contagem.ToString() : "";
+
+                        <li>
+                            <a href="@Html.Domain()/@sub.Link">
+
+                                @sub.SubCategoria
+                                @if (contagem != "")
+                                {
+                                    <span class="dg-categoria-sidebar-contagem">@contagem</span>
+                                }
+
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+
+        }
+    }
+
+}
+
+@{
+    Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Categoria.css", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Categorias.js", false);
+}

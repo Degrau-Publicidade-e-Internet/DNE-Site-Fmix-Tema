@@ -1,0 +1,661 @@
+﻿@model DNE.Site.Models.ListaDeProdutosModel
+
+@{
+
+    var oModel = Model;
+    string classTipo = string.Empty;
+    var ULTP = "";
+
+    ViewData["BodyID"] = "categoria-pg";
+    ViewData["QtdfPags"] = oModel.PageCount;
+    ViewData["compretambemCheckout"] = null;
+    ViewData["Description"] = oModel.MetaTagsSeo.Seo_Description;
+    ViewData["Title"] = oModel.MetaTagsSeo.Seo_Title;
+
+    string corFaixa = "#C6E3E1";
+
+    var textoEscuro = Model.HederCategoria.TextoEscuroFaixa ? "dg-categoria-topo-txtEscuro" : "dg-categoria-topo-txtClaro";
+    corFaixa = Model.HederCategoria.CorFaixa == "#000000" ? "#C6E3E1" : @Model.HederCategoria.CorFaixa;
+    corFaixa = oModel.IsBuscaNotFound ? Model.HederCategoria.CorFaixaSemResultado : corFaixa;
+
+    var tipoPg = Model.Tipo;
+
+    if (tipoPg == "Familia")
+    {
+        classTipo = "dg-familia";
+        ViewData["Description"] = $"Comprar toda a linha {oModel.PalavraBusca} com melhor preço, compare os preços de {oModel.PalavraBusca} na Farmácia Mix. Comprar online com entrega em todo o Brasil. 11 3990-7450";
+        ViewData["Title"] = oModel.CategoriaTitle.Trim() + " | Farmácia Mix";
+    }
+    if (tipoPg == "Categorias")
+    {
+        classTipo = "dg-categoria";
+        ViewData["Description"] = $"Comprar {oModel.CategoriaTitle.Trim()} online na Farmácia Mix em até 3X sem juros. Desde 1972 promovendo saúde. Entregamos em todo o Brasil - 11 3990-7450";
+        ViewData["Title"] = $"Comprar {oModel.CategoriaTitle.Trim()} online | Farmácia Mix";
+    }
+    var tipoPagColunas = "dg-3";
+
+    if (Model.Tipo == "Favoritos")
+    {
+        tipoPagColunas = "dg-4";
+    }
+    if (Model.Tipo == "Pagina Ofertas")
+    {
+        ViewData["BodyID"] = "Pagina-Ofertas-pg";
+    }
+
+    if (tipoPg == "Busca")
+    {
+        ViewData["BodyID"] = "busca-pg";
+    }
+
+}
+
+@if (@Model.QTDResultTotal == 0 && tipoPg != "Busca" && tipoPg != "Favoritos")
+{
+    @await Html.PartialAsync("_404")
+}
+
+else if (@Model.QTDResultTotal == 0 && tipoPg == "Favoritos")
+{
+    <div class="container">
+        <main id="main" class="dg-categoria-semfavoritos">
+            <h1 class="dg-titulo">Gostou de algum produto? Marque o como favorito e o salve aqui nesta lista! Você será notificado caso seus favoritos fiquem em promoção ou quando voltarem ao estoque.</h1>
+        </main>
+    </div>
+}
+
+
+@*Essa parte vai deixar de existir*@
+else if (@Model.QTDResultTotal == 0 && tipoPg == "Busca" && Model.IsBuscaNotFound == false)
+{
+
+    <section class="dg-categoria-topo dg-categoria-topo-txtClaro" nome-categoria="" nome-tipo="Busca">
+        <div class="dg-categoria-topo-wrapper" style="background-image: url(/assets/img/categoria/busca-fundo.png), linear-gradient(@Model.HederCategoria.CorFaixaSemResultado, @Model.HederCategoria.CorFaixaSemResultado)">
+            <div class="container">
+                <ul class="dg-categoria-breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
+                    <li property="itemListElement" typeof="ListItem">
+                        <a href="@Html.Domain()/">Home</a>
+                        <meta property="position" content="1">
+                        <meta property="name" content="Home">
+                    </li>
+                    <li property="itemListElement" typeof="ListItem">
+                        <span>Busca</span>
+                        <meta property="position" content="2">
+                        <meta property="name" content="Busca">
+                    </li>
+                </ul>
+
+
+                <div class="dg-categoria-intro">
+                    @* Resultado busca *@
+                    <div class="dg-categoria-titulo">
+                        <div class="dg-categoria-titulo-img">
+                            <!--TODO imagem-->
+                            <img src="@Html.Domain()/assets/img/categoria/@Model.HederCategoria.ImagemCategoria" alt="@Model.HederCategoria.Alt_Imagem" title="@Model.HederCategoria.Alt_Imagem" loading="lazy">
+                        </div>
+
+                    </div>
+                    <h1 class="dg-categoria-desc">
+                        Sua busca por <strong>"@Html.Display("Busca")"</strong> não encontrou nenhum resultado. Faça uma nova busca ou
+                        navegue pelas categorias.
+                    </h1>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+}
+
+else
+{
+    <section class="dg-categoria-topo @textoEscuro dg-landing-banner-topo" nome-categoria="@Html.Raw(@ViewBag.Breadcrumbs_Name0)" nome-tipo="@tipoPg">
+        <div class="dg-categoria-topo-wrapper" style="">
+            <div class="container">
+                @* BreadCrumb *@
+                <ul class="dg-categoria-breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
+
+                    <li property="itemListElement" typeof="ListItem" itemscope itemtype="https://schema.org/ListItem">
+                        <a href="@Html.Domain()/" property="item" typeof="WebPage">
+                            <span property="name">Home</span>
+                        </a>
+                        <meta property="position" content="1">
+                        <meta property="name" content="Home">
+                    </li>
+
+                    @if (@ViewBag.Breadcrumbs_Name0.ToString().Length > 0 || ViewBag.Breadcrumbs_Name1.ToString().Length > 0)
+                    {
+
+                        <li property="itemListElement" typeof="ListItem">
+                            @if (@ViewBag.Breadcrumbs_Name1.ToString().Length > 0)
+                            {
+                                if (tipoPg == "Marcas")
+                                {
+                                    <a href="@Model.UrlBreadcrumb" property="item" typeof="WebPage">
+                                        <span property="name" content="@Html.Raw(@ViewBag.Breadcrumbs_Name0)">@Html.Raw(@ViewBag.Breadcrumbs_Name0)</span>
+                                    </a>
+
+                                }
+                                else
+                                {
+                                    <a href="@Html.Domain()/@Html.Raw(@ViewBag.Breadcrumbs_Name0)/" property="item" typeof="WebPage">
+                                        <span property="name" content="@Html.Raw(@ViewBag.Breadcrumbs_Name0)">@Html.Raw(@ViewBag.Breadcrumbs_Name0)</span>
+                                    </a>
+                                }
+
+
+                            }
+                            else
+                            {
+
+                                <a href="@Model.UrlBreadcrumb" property="item" typeof="WebPage">
+                                    <span property="name" content="@Html.Raw(@ViewBag.Breadcrumbs_Name0)">@Html.Raw(@ViewBag.Breadcrumbs_Name0)</span>
+                                </a>
+
+
+                            }
+                            <meta property="position" content="2">
+                        </li>
+                        @if (@ViewBag.Breadcrumbs_Name1.ToString().Length > 0 && tipoPg != "Marcas")
+                        {
+                            <li property="itemListElement" typeof="ListItem">
+                                <a href="@Model.UrlBreadcrumb" property="item" typeof="WebPage">
+                                    <span property="name" content="@Html.Raw(@ViewBag.Breadcrumbs_Name1)">@Html.Raw(@ViewBag.Breadcrumbs_Name1)</span>
+                                </a>
+                                <meta property="position" content="3">
+                            </li>
+                        }
+                    }
+
+
+                </ul>
+
+
+
+                <div class="dg-landing-banner @classTipo">
+                    
+                    @if (oModel.HederCategoria.BannerPrincipal != "")
+                    {
+                        <img src="https://static.drogarianovaesperanca.com.br/banners/fmix/@oModel.HederCategoria.BannerPrincipal">
+                    } 
+                </div>
+
+                <div class="dg-landing-banner-fundo @classTipo">
+                    @if (@oModel.HederCategoria.ImagemFundo != "")
+                    {
+                        <style>
+                            body {
+                                background: url(https://static.drogarianovaesperanca.com.br/banners/dne/@oModel.HederCategoria.ImagemFundo) no-repeat top center fixed;
+                                -webkit-background-size: cover;
+                                -moz-background-size: cover;
+                                -o-background-size: cover;
+                                background-size: cover;
+                            }
+                        </style>
+                    }
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    @* /Topo *@
+
+    @if ((Model.Pagina == 1 || Model.Pagina == 0) && ViewBag.TextoSeroCat.Length > 10)
+    {
+
+        <section class="dg-categoria-subtexto">
+            <div class="container">
+                <p>@Html.Raw(@ViewBag.TextoSeroCat)</p>
+                <a href="javascript:void(0)" class="jsBtnSeoCategoriaVermais">
+                    Ver mais
+                </a>
+            </div>
+        </section>
+    }
+    else if ((Model.Pagina == 1 || Model.Pagina == 0) || ViewBag.TextoSeroCat.Length < 10)
+    {
+        <section class="dg-categoria-subtexto">
+            <div class="container">
+                <p>@Html.Raw(@ViewBag.TextoSeroCat)</p>
+            </div>
+        </section>
+    }
+
+    @* conteudo *@
+    <div class="container">
+
+        @* Menu mobile *@
+        <nav class="dg-categoria-menumobile">
+            <ul>
+                <li>
+                    <a href="javascript:void(0)" class="jsAbrirOrdenar">
+                        <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/categoria/ordenar.svg" role="presentation" alt="Ícone Ordenar" loading="lazy">
+                        Ordenar
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript:void(0)" class="jsAbrirFiltrar">
+                        <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Html.Domain()/assets/img/categoria/filter.svg" role="presentation" alt="Ícone SVG" loading="lazy">
+                        Filtrar
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        @* /Menu mobile *@
+
+
+
+
+
+        <section class="dg-categoria">
+
+            @if (tipoPg != "Favoritos")
+            {
+                @* Sidebar *@
+                <aside class="dg-categoria-sidebar">
+                <div class="dg-categoria-sidebar-wrapper">
+                    <div class="dg-categoria-header-wrapper dg-header-menu-login dg-desktop-hide">
+                        <div class="dg-header-copy">
+                            <div class="dg-header-logo">
+                                <a href="@Html.Domain()/" class="dg-add-loading">
+                                    <img src="@Html.Domain()/Themes/DefaultClean/Content/img/header/logo-white.svg" alt="Farmácia Mix - Logotipo" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="dg-header-carrinho">
+                                <a href="@Html.Domain()/checkout/" class="titlecountcart" aria-label="Ir para o carrinho" dataformat="Ir para o carrinho ({0} itens)" title="Ir para o carrinho">
+                                    <span class="dg-icon dg-icon-cart"></span>
+                                    <div class="dg-header-carrinho-numero ContadorItensCart"></div>
+                                </a>
+                                <div class="dg-counter-carrinho">+ 1</div>
+                            </div>
+                            <a href="javascript:void(0)" class="dg-categoria-sidebar-voltar jsAbrirFiltrar"></a>
+                        </div>
+                        <div class="templateLogadoLogadoCont"></div>
+                    </div>
+
+                    <div class="dg-categoria-filtro-wrapper">
+                        <div class="dg-categoria-sidebar-titulo">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.9298 22.75C10.4498 22.75 9.96985 22.63 9.52985 22.39C8.63985 21.89 8.1098 21 8.1098 19.99V14.64C8.1098 14.13 7.77979 13.38 7.46979 12.99L3.6698 9.00003C3.0398 8.37003 2.5498 7.27002 2.5498 6.46002V4.14005C2.5498 2.53005 3.76982 1.27002 5.31982 1.27002H18.6598C20.1898 1.27002 21.4298 2.51004 21.4298 4.04004V6.26004C21.4298 7.31004 20.7998 8.52002 20.1998 9.11002C19.9098 9.40002 19.4298 9.40002 19.1398 9.11002C18.8498 8.82002 18.8498 8.34002 19.1398 8.05002C19.5098 7.68002 19.9298 6.85004 19.9298 6.26004V4.04004C19.9298 3.34004 19.3598 2.77002 18.6598 2.77002H5.31982C4.60982 2.77002 4.0498 3.37005 4.0498 4.14005V6.46002C4.0498 6.83002 4.34981 7.56004 4.73981 7.95004L8.58984 12C9.09984 12.63 9.59979 13.69 9.59979 14.64V19.99C9.59979 20.65 10.0498 20.97 10.2498 21.08C10.6798 21.32 11.1898 21.31 11.5898 21.07L12.9898 20.17C13.2798 20 13.5598 19.45 13.5598 19.08C13.5598 18.67 13.8998 18.33 14.3098 18.33C14.7198 18.33 15.0598 18.67 15.0598 19.08C15.0598 19.98 14.4998 21.01 13.7898 21.44L12.3998 22.34C11.9498 22.61 11.4398 22.75 10.9298 22.75Z" fill="#292D32"/>
+                            <path d="M16.0701 17.2701C13.8901 17.2701 12.1201 15.5001 12.1201 13.3201C12.1201 11.1401 13.8901 9.37012 16.0701 9.37012C18.2501 9.37012 20.0201 11.1401 20.0201 13.3201C20.0201 15.5001 18.2501 17.2701 16.0701 17.2701ZM16.0701 10.8701C14.7201 10.8701 13.6201 11.9701 13.6201 13.3201C13.6201 14.6701 14.7201 15.7701 16.0701 15.7701C17.4201 15.7701 18.5201 14.6701 18.5201 13.3201C18.5201 11.9701 17.4201 10.8701 16.0701 10.8701Z" fill="#292D32"/>
+                            <path d="M19.87 17.8701C19.68 17.8701 19.4901 17.8001 19.3401 17.6501L18.3401 16.6501C18.0501 16.3601 18.0501 15.8801 18.3401 15.5901C18.6301 15.3001 19.1101 15.3001 19.4001 15.5901L20.4001 16.5901C20.6901 16.8801 20.6901 17.3601 20.4001 17.6501C20.2601 17.7901 20.06 17.8701 19.87 17.8701Z" fill="#292D32"/>
+                            </svg>
+                            Ajuste os <strong>filtros:</strong>
+                        </div>
+
+                        @await Html.PartialAsync("ListaSubcategorias")
+
+                        @await Html.PartialAsync("ListaMarcas")
+
+                        @await Html.PartialAsync("ListaValores")
+
+                        @await Html.PartialAsync("ListaLetras")
+
+                        @if (Model.mostraControlado || Model.mostraGenerico || Model.mostraRefrigerado)
+                        {
+                            <div class="dg-titulo">
+                                Filtre por <strong>tipo</strong>:
+
+                            </div>
+                            <div class="dg-categoria-sidebar-listagem-wrapper">
+                                <ul class="dg-categoria-sidebar-listagem dg-categoria-sidebar-listagem-contrgenerico">
+                                    @{
+                                        if (Model.mostraGenerico)
+                                        {
+                                            <li>
+                                                <a href="@Html.Display("URLGenerico")"><span class="dg-icon dg-icon-generico"></span> Genéricos</a>
+
+                                                @if (Model.request.idgenerico != "" && Model.request.idgenerico != null)
+                                                {
+
+                                                    <a href="@Html.Display("URLLimparG")" aria-label="Limpar Filtro" class="dg-categoria-sidebar-limpar dg-tooltip-hover">
+                                                        <span class="dg-icon dg-icon-x"></span>
+                                                        <span class="dg-tooltip">
+                                                            Limpar Filtro
+                                                        </span>
+                                                    </a>
+                                                }
+                                            </li>
+                                        }
+
+                                        if (Model.mostraControlado)
+                                        {
+                                            <li>
+                                                <a href='@Html.Display("URLControlado")'><span class="dg-icon dg-icon-controlado"></span>Controlados</a>
+                                                @if (Model.request.idcontrolado != "" && Model.request.idcontrolado != null)
+                                                {
+
+                                                    <a href="@Html.Display("URLLimparC")" aria-label="Limpar Filtro" class="dg-categoria-sidebar-limpar dg-tooltip-hover">
+                                                        <span class="dg-icon dg-icon-x"></span>
+                                                        <span class="dg-tooltip">
+                                                            Limpar Filtro
+                                                        </span>
+                                                    </a>
+                                                }
+                                            </li>
+                                        }
+
+                                        if (Model.mostraRefrigerado)
+                                        {
+                                            <li>
+                                                <a href='@Html.Display("URLRefrigerado")'><span class="dg-icon dg-icon-refrigerado"></span>Refrigerado</a>
+
+                                                @if (Model.request.idrefrigerado != "" && Model.request.idrefrigerado != null)
+                                                {
+
+                                                    <a href="@Html.Display("URLLimparRG")" aria-label="Limpar Filtro" class="dg-categoria-sidebar-limpar dg-tooltip-hover">
+                                                        <span class="dg-icon dg-icon-x"></span>
+                                                        <span class="dg-tooltip">
+                                                            Limpar Filtro
+                                                        </span>
+                                                    </a>
+                                                }
+                                            </li>
+                                        }
+
+                                    }
+
+
+                                </ul>
+                            </div>
+                        }
+
+                        <div class="dg-categoria-sidebar-limpar-filtros">
+                            <a href="@Html.Domain()/@Model.request.URLCategoria/">
+                                Limpar Filtro
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                </aside>
+                @* /Sidebar *@
+            }
+
+            <div class="dg-categoria-produtos" tipopg="@tipoPg">
+
+                @if (@tipoPg != "Favoritos")
+                {
+
+                    @* Ordenação *@
+                    <section class="dg-categoria-ordenacao">
+                        <a href="javascript:void(0)" class="dg-categoria-ordenacao-voltar jsAbrirOrdenar">
+                            <span class="dg-icon dg-icon-arrow01-left"></span> Voltar
+                        </a>
+
+                        <span class="dg-categoria-ordenacao-titulo">
+                            Ordenar:
+                        </span>
+
+                        <a href="@oModel.UrlBreadcrumb?Ob=6@{
+                                                                        @Model.request.URLOb
+ }" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaisVendidos">
+                             <svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 7L12.6154 14.5L9.53846 11.375L4 17" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 13V7H14" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                            <span><span>Mais <br>vendidos</span></span>
+                        </a>
+
+                        <a href="@oModel.UrlBreadcrumb?Ob=5@{
+                                                                        @Model.request.URLOb
+ }" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaisRelevantes">
+                            <svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 20C12 20 3 14.9875 3 8.97234C3 2.95722 10 2.45597 12 7.16221C14 2.45597 21 2.95722 21 8.97234C21 14.9875 12 20 12 20Z" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                            <span><span>Mais <br>relevantes</span></span>
+                        </a>
+
+                        <a href="@oModel.UrlBreadcrumb?Ob=4@{
+                                                                        @Model.request.URLOb
+ }" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MenorPreco">
+                           <svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 5L12 19" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6 13L12 19L18 13" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+                            <span><span>Menor <br>preço</span></span>
+                        </a>
+
+                        <a href="@oModel.UrlBreadcrumb?Ob=3@{
+                                                                        @Model.request.URLOb
+ }" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaiorPreco">
+<svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 19L12 5" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6 11L12 5L18 11" stroke="#CFCFCF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+                            <span><span>Maior <br>preço</span></span>
+                        </a>
+
+
+                        <a href="@oModel.UrlBreadcrumb?Ob=7@{
+                                                                        @Model.request.URLOb
+ }" class="dg-categoria-ordenacao-item @Model.FiltrosCategoria.MaiorDesconto">
+<svg width="44" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 22.7498C11.37 22.7498 10.78 22.5099 10.34 22.0599L8.82001 20.5399C8.70001 20.4199 8.38 20.2899 8.22 20.2899H6.06C4.76 20.2899 3.70999 19.2398 3.70999 17.9398V15.7799C3.70999 15.6199 3.57999 15.2999 3.45999 15.1799L1.94 13.6599C1.5 13.2199 1.25 12.6298 1.25 11.9998C1.25 11.3698 1.49 10.7798 1.94 10.3398L3.45999 8.81979C3.57999 8.69979 3.70999 8.37981 3.70999 8.21981V6.0599C3.70999 4.7599 4.76 3.7098 6.06 3.7098H8.22C8.38 3.7098 8.70001 3.5798 8.82001 3.4598L10.34 1.93979C11.22 1.05979 12.78 1.05979 13.66 1.93979L15.18 3.4598C15.3 3.5798 15.62 3.7098 15.78 3.7098H17.94C19.24 3.7098 20.29 4.7599 20.29 6.0599V8.21981C20.29 8.37981 20.42 8.69979 20.54 8.81979L22.06 10.3398C22.5 10.7798 22.75 11.3698 22.75 11.9998C22.75 12.6298 22.51 13.2199 22.06 13.6599L20.54 15.1799C20.42 15.2999 20.29 15.6199 20.29 15.7799V17.9398C20.29 19.2398 19.24 20.2899 17.94 20.2899H15.78C15.62 20.2899 15.3 20.4199 15.18 20.5399L13.66 22.0599C13.22 22.5099 12.63 22.7498 12 22.7498ZM4.51999 14.1198C4.91999 14.5198 5.20999 15.2199 5.20999 15.7799V17.9398C5.20999 18.4098 5.59 18.7899 6.06 18.7899H8.22C8.78 18.7899 9.48001 19.0798 9.88 19.4798L11.4 20.9998C11.72 21.3198 12.28 21.3198 12.6 20.9998L14.12 19.4798C14.52 19.0798 15.22 18.7899 15.78 18.7899H17.94C18.41 18.7899 18.79 18.4098 18.79 17.9398V15.7799C18.79 15.2199 19.08 14.5198 19.48 14.1198L21 12.5998C21.16 12.4398 21.25 12.2298 21.25 11.9998C21.25 11.7698 21.16 11.5599 21 11.3999L19.48 9.87985C19.08 9.47985 18.79 8.77981 18.79 8.21981V6.0599C18.79 5.5899 18.41 5.2098 17.94 5.2098H15.78C15.22 5.2098 14.52 4.91986 14.12 4.51986L12.6 2.99984C12.28 2.67984 11.72 2.67984 11.4 2.99984L9.88 4.51986C9.48001 4.91986 8.78 5.2098 8.22 5.2098H6.06C5.59 5.2098 5.20999 5.5899 5.20999 6.0599V8.21981C5.20999 8.77981 4.91999 9.47985 4.51999 9.87985L3 11.3999C2.84 11.5599 2.75 11.7698 2.75 11.9998C2.75 12.2298 2.84 12.4398 3 12.5998L4.51999 14.1198Z" fill="#CFCFCF"/>
+<path d="M15.0002 16C14.4402 16 13.9902 15.55 13.9902 15C13.9902 14.45 14.4402 14 14.9902 14C15.5402 14 15.9902 14.45 15.9902 15C15.9902 15.55 15.5502 16 15.0002 16Z" fill="#CFCFCF"/>
+<path d="M9.01001 10C8.45001 10 8 9.55 8 9C8 8.45 8.45 8 9 8C9.55 8 10 8.45 10 9C10 9.55 9.56001 10 9.01001 10Z" fill="#CFCFCF"/>
+<path d="M8.99994 15.75C8.80994 15.75 8.61994 15.68 8.46994 15.53C8.17994 15.24 8.17994 14.7599 8.46994 14.4699L14.4699 8.46994C14.7599 8.17994 15.2399 8.17994 15.5299 8.46994C15.8199 8.75994 15.8199 9.24 15.5299 9.53L9.52994 15.53C9.37994 15.68 9.18994 15.75 8.99994 15.75Z" fill="#CFCFCF"/>
+</svg>
+
+                            <span><span>Maior <br>desconto</span></span>
+                        </a>
+
+                        <div class="dg-categoria-paginacao">
+                            <ul class="pageHeader">
+                                @{
+                                    int xx = 1;
+
+                                    if (Model.Pagina >= 3)
+                                    {
+                                        if (Model.PageCount > 3)
+                                        {
+
+                                            <li>
+                                                <a href="?Pagina=@xx@Html.Display("sQS")" class="number-pagination" rel="">1</a>
+                                            </li>
+
+                                            if ((Model.PageCount - 2) > xx)
+                                            {
+                                                <li>
+                                                    <span class="dg-categoria-paginacao-etc">...</span>
+                                                </li>
+                                            }
+                                        }
+
+                                    }
+                                }
+                                @foreach (var ItemPG in Model.Paginacao.Paginas)
+                                {
+
+
+                                    @if (ItemPG.IsSelecionado)
+                                    {
+                                        <li>
+                                            <span>@ItemPG.Pagina</span>
+                                        </li>
+                                    }
+                                    else
+                                    {
+                                        ULTP = "";
+                                        //Bebber
+                                        @* if (Model.PageCount == Model.Paginacao.Paginas.Count())
+                                        {
+                                            ULTP = "&ULTP=S";
+
+                                        } *@
+                                        <li>
+                                            <a href="?Pagina=@ItemPG.Pagina@Html.Display("sQS")@ULTP" class="number-pagination" rel="">@ItemPG.Pagina</a>
+                                        </li>
+
+                                    }
+
+                                    xx++;
+                                }
+
+                                @{
+
+                                    if (Model.PageCount > 3)
+                                    {
+                                        if (Model.Pagina > 1) { };
+
+                                        if ((Model.PageCount - 1) > Model.Pagina)
+                                        {
+                                            <li>
+                                                <span class="dg-categoria-paginacao-etc">...</span>
+                                            </li>
+
+                                            <li>
+                                                <a href="?Pagina=@Model.PageCount@Html.Display("sQS")&ULTP=S" class="number-pagination" rel="">@Model.PageCount</a>
+                                            </li>
+                                        }
+                                    }
+                                }
+
+                            </ul>
+                        </div>
+                    </section>
+                    @* /Ordenação *@
+                }
+                else
+                {
+                    <div class="dg-categoria-paginacao dg-hide">
+                        <ul class="pageHeader">
+                            @{
+                                int xx = 1;
+
+                                if (Model.Pagina >= 3)
+                                {
+                                    if (Model.PageCount > 3)
+                                    {
+
+                                        <li>
+                                            <a href="?Pagina=@xx@Html.Display("sQS")" class="number-pagination" rel="">1</a>
+                                        </li>
+
+                                        if ((Model.PageCount - 2) > xx)
+                                        {
+                                            <li>
+                                                <span class="dg-categoria-paginacao-etc">...</span>
+                                            </li>
+                                        }
+                                    }
+
+                                }
+                            }
+                            @foreach (var ItemPG in Model.Paginacao.Paginas)
+                            {
+
+
+                                @if (ItemPG.IsSelecionado)
+                                {
+                                    <li>
+                                        <span>@ItemPG.Pagina</span>
+                                    </li>
+                                }
+                                else
+                                {
+                                    ULTP = "";
+                                    if (Model.PageCount == Model.Paginacao.Paginas.Count())
+                                    {
+                                        ULTP = "&ULTP=S";
+
+                                    }
+                                    <li>
+                                        <a href="?Pagina=@ItemPG.Pagina@Html.Display("sQS")@ULTP" class="number-pagination" rel="">@ItemPG.Pagina</a>
+                                    </li>
+
+                                }
+
+                                xx++;
+                            }
+
+                            @{
+
+                                if (Model.PageCount > 3)
+                                {
+                                    if (Model.Pagina > 1) { };
+
+                                    if ((Model.PageCount - 1) > Model.Pagina)
+                                    {
+                                        <li>
+                                            <span class="dg-categoria-paginacao-etc">...</span>
+                                        </li>
+
+                                        <li>
+                                            <a href="?Pagina=@Model.PageCount@Html.Display("sQS")&ULTP=S" class="number-pagination" rel="">@Model.PageCount</a>
+                                        </li>
+                                    }
+                                }
+                            }
+
+                        </ul>
+                    </div>
+                }
+
+                <main id="main" class="dg-categoria-listagem">
+
+
+                    <div class="dg-boxproduto-lista @tipoPagColunas">
+                        @* Produtos *@
+                        @await Html.PartialAsync("_TemplateBoxProduto")
+                        <script>ga('ec:setAction', 'detail');</script>
+                        @* /Produtos *@
+
+                        <!-- Banner de Categoria -->
+                        <!-- Paginação -->
+                        @* <div class="dg-categoria-paginacao dg-categoria-paginacao-footer">
+                            <ul class="pageFooter">
+                            </ul>
+
+                            <div class="dg-categoria-bners">
+                                @await Component.InvokeAsync("BannersCategoria", Model.BannerCategoria)
+                            </div>
+
+                        </div> *@
+                </main>
+                @if (@oModel.QTDResultTotal > 20) {
+                    <div class="dg-categoria-carregar-mais">
+                        <div>
+                            <div>Você visualizou <span class="jsCarregarMaisQtd">20</span> de <span class="jsCarregarMaisTotal">@oModel.QTDResultTotal</span> produtos</div>
+                            <div class="dg-categoria-carregar-mais-barra">
+                                <div class="dg-categoria-carregar-mais-barra-progresso jsCarregarMaisProgresso"></div>
+                            </div>
+                        </div>
+                        <button type="button" class="jsCarregarMaisBtn" data-categoria="@Html.Raw(@ViewBag.Breadcrumbs_Name0)" data-subcategoria="@oModel.request.NomeSubCategoria" data-tipo="@tipoPg" role="button">
+                            <span>Carregar Mais</span>
+                            
+                        </button>
+                    </div>
+                }
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        var dataLayer = dataLayer || [];
+        dataLayer.push({
+            event: 'crto_listingpage',
+            crto: {
+                products: @Html.Raw(@ViewBag.IdsProdutos)
+                                                                    }
+        });
+
+    </script>
+    @Html.Raw(@ViewBag.retSEOJson)
+    @*@Html.Raw(@Model.SEOOrganization)*@
+}
+
+@{
+    Html.AddCssFileParts(ResourceLocation.Head, "~/assets/css/Categoria.css", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/assets/js/Categorias.js", false);
+    Html.AddScriptParts(ResourceLocation.Footer, "~/Themes/DefaultClean/Content/js/CategoriaV22.js", false);
+}
