@@ -307,10 +307,10 @@
             preco="@Valor.ToString("#,0.00")"
             id_subproduto="@SP.ID_SubProduto" itemscope itemtype="https://schema.org/Product">
 
-            <meta itemprop="Name" content="@SP.NomeProduto @SP.ComplementoBrindes" />
+            @* <meta itemprop="Name" content="@SP.NomeProduto @SP.ComplementoBrindes" />
             <span style="display: none" typeof="Brand">
                 <meta itemprop="Name" content="@marca" />
-            </span>
+            </span> *@
 
             @* Título *@
             @* <div class="dg-produto-info-titulo dg-desktop-hide">
@@ -330,7 +330,7 @@
             <section class="dg-produto-img @isFavorito">
                 <div class="dg-produto-img-box">
                     <figure class="dg-produto-img-principal">
-                        <img fetchpriority="high" itemprop="image" src="/imagens-complete/336x336/@SP.Foto" img-zoom="@SP.Foto" width="336" height="336" title="@(SP.Generico == false ? "COMPRAR " + SP.NomeProduto : "COMPRAR " + SP.NomeProduto + " - " + SP.Marca)" alt="@(SP.Generico == false ? "COMPRAR " + SP.NomeProduto : "COMPRAR " + SP.NomeProduto + " - " + SP.Marca)">
+                        <img fetchpriority="high" src="/imagens-complete/336x336/@SP.Foto" img-zoom="@SP.Foto" width="336" height="336" title="@(SP.Generico == false ? "COMPRAR " + SP.NomeProduto : "COMPRAR " + SP.NomeProduto + " - " + SP.Marca)" alt="@(SP.Generico == false ? "COMPRAR " + SP.NomeProduto : "COMPRAR " + SP.NomeProduto + " - " + SP.Marca)">
                         <span class="dg-produto-img-zoom"></span>
                     </figure>
 
@@ -453,14 +453,14 @@
                 }
 
                 <div class="dg-produto-info-side">
-                    <section itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                        <meta itemprop="url" content="@Urlcanonical" />
+                    <section>
+                        @* <meta itemprop="url" content="@Urlcanonical" />
                         <meta itemprop="availability" href="https://schema.org/@_seoProduct.offers.availability" />
                         <meta itemprop="itemCondition" href="https://schema.org/NewCondition" />
                         <meta itemprop="priceCurrency" content="BRL" />
-                        <meta itemprop="gtin" content="@SP.CodBarras" />
+                        <meta itemprop="gtin" content="@SP.CodBarras" /> *@
                         
-                        <h1 class="dg-produto-info-titulo dg-mobile-hide" itemprop="name">
+                        <h1 class="dg-produto-info-titulo dg-mobile-hide">
                             @SP.NomeProduto @if (SP.Generico) { @SP.Marca } @SP.ComplementoBrindes
                         </h1>
 
@@ -613,7 +613,7 @@
 
                             @if (FnProject.GetListWhiteIPsPageProduct().Where(x => x.IP == FnProject.GetIPCliente()).Count() > 0)
                             {
-                                        <li>C&oacute;digo EAN: <span itemprop="gtin13">@SP.CodBarras</span></li>
+                                        <li>C&oacute;digo EAN: <span>@SP.CodBarras</span></li>
                             }
 
                             @if (!string.IsNullOrEmpty(SP.RegistroMS))
@@ -701,7 +701,7 @@
 
             @* Info do produto *@
 
-            <section class="dg-produto-info" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <section class="dg-produto-info">
 
                 
                 <div class="dg-produto-info-titulo dg-desktop-hide">
@@ -718,12 +718,12 @@
                         {
 
                             <div class="dg-produto-info-preco-de">De: @ValorDe.ToString("#,0.00")</div>
-                            <div data-size="@Valor.ToString("#,0.00").Count()" class="dg-produto-info-preco-por" itemprop="price" content="@Valor.ToString().Replace(",", ".")">R$@Valor.ToString("#,0.00")</div>
+                            <div data-size="@Valor.ToString("#,0.00").Count()" class="dg-produto-info-preco-por">R$@Valor.ToString("#,0.00")</div>
 
                         }
                         else
                         {
-                            <div data-size="@Valor.ToString("#,0.00").Count()" class="dg-produto-info-preco-por" itemprop="price" content="@ValorTotal.ToString().Replace(",", ".")">R$@ValorTotal.ToString("#,0.00")</div>
+                            <div data-size="@Valor.ToString("#,0.00").Count()" class="dg-produto-info-preco-por">R$@ValorTotal.ToString("#,0.00")</div>
                         }
 
 
