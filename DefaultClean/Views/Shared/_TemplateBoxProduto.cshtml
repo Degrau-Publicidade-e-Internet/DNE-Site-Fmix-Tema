@@ -196,33 +196,34 @@
             <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Dominio/imagens/215x215/@Imagem" id="@ID_Imagem" alt="@sALT" title="@sALT" loading="lazy">
         </a>
 
-@if(isProdutoDestaqueMenu) {
-    <h2>isProdutoDestaqueMenu</h2>
-    
-}
-
-
         @if (horizontal) {
             @Html.Raw("<div class='dg-box-produto-horizontal-wrapper'>")
         }
         <!-- Dados -->
         <div class="dg-boxproduto-main">
 
-            @if (!isTemosTambem)
-            {
-                <h3 class="dg-boxproduto-titulo jsTituloHover">
-                    <a href="@sURL" title="@Produto" alt="@Produto" idImpression="@product.ID_SubProduto" lista="lista @ReplaceImpression" nome="@Produto" link="@sURL">@Produto  @if (product.Generico) { @product.Fabricante } @product.ComplementoBrindes
-            </a>
-                </h3>
+            @if(isProdutoDestaqueMenu) {    
+                <div class="dg-boxproduto-titulo jsTituloHover">
+                    @Produto  @if (product.Generico) { @product.Fabricante } @product.ComplementoBrindes
+                </div>
+            } else {
+                @if (!isTemosTambem)
+                {
+                    <h3 class="dg-boxproduto-titulo jsTituloHover">
+                        <a href="@sURL" title="@Produto" alt="@Produto" idImpression="@product.ID_SubProduto" lista="lista @ReplaceImpression" nome="@Produto" link="@sURL">@Produto  @if (product.Generico) { @product.Fabricante } @product.ComplementoBrindes
+                </a>
+                    </h3>
 
-            }
-            else
-            {
-                <h4 class="dg-boxproduto-titulo jsTituloHover">
-                    <a href="@sURL" title="@Produto" alt="@Produto" idImpression="@product.ID_SubProduto" lista="lista @ReplaceImpression" nome="@Produto" link="@sURL">@Produto @if (product.Generico) { @product.Fabricante } @product.ComplementoBrindes</a>
-                </h4>
+                }
+                else
+                {
+                    <h4 class="dg-boxproduto-titulo jsTituloHover">
+                        <a href="@sURL" title="@Produto" alt="@Produto" idImpression="@product.ID_SubProduto" lista="lista @ReplaceImpression" nome="@Produto" link="@sURL">@Produto @if (product.Generico) { @product.Fabricante } @product.ComplementoBrindes</a>
+                    </h4>
 
+                }
             }
+
             <div class="dg-boxproduto-tooltip">@Produto @product.ComplementoBrindes</div>
 
             <div class="dg-boxproduto-categoria">
