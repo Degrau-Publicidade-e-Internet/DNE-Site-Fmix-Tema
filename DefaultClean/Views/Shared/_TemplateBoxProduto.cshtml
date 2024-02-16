@@ -80,6 +80,8 @@
 
     }
 
+    var isProdutoDestaqueMenu = product.IsProdutoDestaqueMenu;
+
     var _saidaBoxProduto = product.SaidaBoxProduto != new DateTime() ? product.SaidaBoxProduto.ToString("dd/MM/yyyy hh:mm:ss") : "";
 
     string sURL = "";
@@ -181,6 +183,7 @@
         @Html.Raw("<div>")
     }
 
+
     <div class="dg-boxproduto jsBoxproduto @isFavorito @isIndisponivel @isControlado @_menorValorCF @isHorizontal" rel="@sURL" data-fav="@dataFavorito" data-SaidaBoxProduto="@_saidaBoxProduto"
          nome="@Produto"
          categoria="@product.Categoria"
@@ -199,21 +202,28 @@
         <!-- Dados -->
         <div class="dg-boxproduto-main">
 
-            @if (!isTemosTambem)
-            {
-                <h3 class="dg-boxproduto-titulo jsTituloHover">
-                    <a href="@sURL" title="@Produto" alt="@Produto" idImpression="@product.ID_SubProduto" lista="lista @ReplaceImpression" nome="@Produto" link="@sURL">@Produto  @if (product.Generico) { @product.Fabricante } @product.ComplementoBrindes
-            </a>
-                </h3>
+            @if(isProdutoDestaqueMenu) {    
+                <div class="dg-boxproduto-titulo jsTituloHover">
+                    @Produto  @if (product.Generico) { @product.Fabricante } @product.ComplementoBrindes
+                </div>
+            } else {
+                @if (!isTemosTambem)
+                {
+                    <h3 class="dg-boxproduto-titulo jsTituloHover">
+                        <a href="@sURL" title="@Produto" alt="@Produto" idImpression="@product.ID_SubProduto" lista="lista @ReplaceImpression" nome="@Produto" link="@sURL">@Produto  @if (product.Generico) { @product.Fabricante } @product.ComplementoBrindes
+                </a>
+                    </h3>
 
-            }
-            else
-            {
-                <h4 class="dg-boxproduto-titulo jsTituloHover">
-                    <a href="@sURL" title="@Produto" alt="@Produto" idImpression="@product.ID_SubProduto" lista="lista @ReplaceImpression" nome="@Produto" link="@sURL">@Produto @if (product.Generico) { @product.Fabricante } @product.ComplementoBrindes</a>
-                </h4>
+                }
+                else
+                {
+                    <h4 class="dg-boxproduto-titulo jsTituloHover">
+                        <a href="@sURL" title="@Produto" alt="@Produto" idImpression="@product.ID_SubProduto" lista="lista @ReplaceImpression" nome="@Produto" link="@sURL">@Produto @if (product.Generico) { @product.Fabricante } @product.ComplementoBrindes</a>
+                    </h4>
 
+                }
             }
+
             <div class="dg-boxproduto-tooltip">@Produto @product.ComplementoBrindes</div>
 
             <div class="dg-boxproduto-categoria">

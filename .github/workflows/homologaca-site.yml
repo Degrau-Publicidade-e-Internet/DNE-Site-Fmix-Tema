@@ -1,7 +1,7 @@
 on:
   push:
     branches:    
-      - 'producao'
+      - 'homologacao'
     paths: 
       - 'Themes/DefaultClean/**'
 name: 🚀 FTP Deploy
@@ -11,15 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
     
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
         server: 187.0.210.242
-        username: FarmaciaMix_FTP
-        password: ${{ secrets.FTP_PASSWORD_PROD_FMIX }}
-        local-dir: Themes/
+        username: FMX_HM_FTP
+        password: ${{ secrets.FTP_PASSWORD_HOMOLOG_FMIX }}
         server-dir: httpdocs/Themes/
-        timeout: 99999
-      
+        local-dir: Themes/
