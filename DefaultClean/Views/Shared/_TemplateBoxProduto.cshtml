@@ -80,6 +80,8 @@
 
     }
 
+    var isProdutoDestaqueMenu = product.IsProdutoDestaqueMenu;
+
     var _saidaBoxProduto = product.SaidaBoxProduto != new DateTime() ? product.SaidaBoxProduto.ToString("dd/MM/yyyy hh:mm:ss") : "";
 
     string sURL = "";
@@ -181,6 +183,7 @@
         @Html.Raw("<div>")
     }
 
+
     <div class="dg-boxproduto jsBoxproduto @isFavorito @isIndisponivel @isControlado @_menorValorCF @isHorizontal" rel="@sURL" data-fav="@dataFavorito" data-SaidaBoxProduto="@_saidaBoxProduto"
          nome="@Produto"
          categoria="@product.Categoria"
@@ -192,6 +195,12 @@
         <a class="dg-boxproduto-img" href="@sURL" title="@Produto" idImpression="@product.ID_SubProduto" lista="lista @origemBloco @ReplaceImpression" nome="@Produto" link="@sURL" alt="@Produto">
             <img src="@Html.Domain()/assets/img/lazy.png" data-src-lazy="@Dominio/imagens/215x215/@Imagem" id="@ID_Imagem" alt="@sALT" title="@sALT" loading="lazy">
         </a>
+
+@if(isProdutoDestaqueMenu) {
+    <h2>isProdutoDestaqueMenu</h2>
+    
+}
+
 
         @if (horizontal) {
             @Html.Raw("<div class='dg-box-produto-horizontal-wrapper'>")
