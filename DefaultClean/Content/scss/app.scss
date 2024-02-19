@@ -1927,8 +1927,14 @@ body {
         border-bottom: 0;
         padding-top: 8px;
     }
+    &.dg-login-cookie .dg-header form.dg-header-minhaconta-modal-cadastro a.dg-header-minhaconta-modal-cadastrar-footer-btn {
+        background-color: $corPrimaria;
+    }
+    &.dg-login-cookie .dg-header form.dg-header-minhaconta-modal-login .dg-header-minhaconta-modal-footer-btn {
+        background-color: $corComplementar;
+    }
     @media (min-width: 992px) {
-        .dg-login-cookie .dg-header .dg-header-minhaconta-modal-conteudo {
+        &.dg-login-cookie .dg-header .dg-header-minhaconta-modal-conteudo {
             padding-top: 6px;
         }
         .dg-header-minhaconta-modal {

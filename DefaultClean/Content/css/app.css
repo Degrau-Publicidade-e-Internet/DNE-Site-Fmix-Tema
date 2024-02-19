@@ -2287,8 +2287,16 @@ body.dg-login-cookie .dg-header form.dg-header-minhaconta-modal-cadastro {
   padding-top: 8px;
 }
 
+body.dg-login-cookie .dg-header form.dg-header-minhaconta-modal-cadastro a.dg-header-minhaconta-modal-cadastrar-footer-btn {
+  background-color: #0B1841;
+}
+
+body.dg-login-cookie .dg-header form.dg-header-minhaconta-modal-login .dg-header-minhaconta-modal-footer-btn {
+  background-color: #00D19D;
+}
+
 @media (min-width: 992px) {
-  body .dg-login-cookie .dg-header .dg-header-minhaconta-modal-conteudo {
+  body.dg-login-cookie .dg-header .dg-header-minhaconta-modal-conteudo {
     padding-top: 6px;
   }
   body .dg-header-minhaconta-modal {
