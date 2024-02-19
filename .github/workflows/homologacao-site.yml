@@ -3,7 +3,7 @@ on:
     branches:    
       - 'Homologacao'
     paths: 
-      - 'Themes/DefaultClean/**'
+      - 'DefaultClean/**'
 name: 🚀 FTP Deploy
 jobs:
   web-deploy:
@@ -17,7 +17,7 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
         server: 187.0.210.242
-        username: FMX_HM_FTP
+        username: FTP_devfarmaciamix
         password: ${{ secrets.FTP_PASSWORD_HOMOLOG_FMIX }}
-        server-dir: httpdocs/Themes/
-        local-dir: Themes/
+        server-dir: DefaultClean/
+        local-dir: DefaultClean/
