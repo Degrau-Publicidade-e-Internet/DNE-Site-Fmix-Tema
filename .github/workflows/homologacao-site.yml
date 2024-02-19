@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:    
+      - 'Homologacao'
+    paths: 
+      - 'DefaultClean/**'
+name: 🚀 FTP Deploy
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+    
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: 187.0.210.242
+        username: FMX_HM_FTP
+        password: ${{ secrets.FTP_PASSWORD_HOMOLOG_FMIX }}
+        server-dir: httpdocs/Themes/
+        local-dir: Themes/
