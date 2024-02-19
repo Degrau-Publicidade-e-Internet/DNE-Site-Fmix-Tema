@@ -1,7 +1,7 @@
 on:
   push:
     branches:    
-      - 'producao'
+      - 'Producao'
     paths: 
       - 'DefaultClean/**'
 name: 🚀 FTP Deploy
