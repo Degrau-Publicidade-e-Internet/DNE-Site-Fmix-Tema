@@ -19,5 +19,5 @@ jobs:
         server: 187.0.210.242
         username: FTP_devfarmaciamix
         password: ${{ secrets.FTP_PASSWORD_HOMOLOG_FMIX }}
-        server-dir: Themes/
-        local-dir: httpdocs/
+        server-dir: httpdocs/
+        local-dir: ./Themes/
