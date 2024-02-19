@@ -3,7 +3,7 @@ on:
     branches:    
       - 'Homologacao'
     paths: 
-      - 'DefaultClean2/**'
+      - 'DefaultClean/**'
 name: 🚀 FTP Deploy
 jobs:
   web-deploy:
