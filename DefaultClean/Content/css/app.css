@@ -2295,6 +2295,12 @@ body.dg-login-cookie .dg-header form.dg-header-minhaconta-modal-login .dg-header
   background-color: #00D19D;
 }
 
+body.dg-login-cookie .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer-voltar-style, body.dg-login-cookie .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer-btn {
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+}
+
 @media (min-width: 992px) {
   body.dg-login-cookie .dg-header .dg-header-minhaconta-modal {
     max-width: 673px;
