@@ -19,5 +19,5 @@ jobs:
         server: 187.0.210.242
         username: FMX_HM_FTP
         password: ${{ secrets.FTP_PASSWORD_HOMOLOG_FMIX }}
-        server-dir: httpdocs/Themes/
-        local-dir: DefaultClean/
+        server-dir: httpdocs/Themes/DefaultClean/
+        
