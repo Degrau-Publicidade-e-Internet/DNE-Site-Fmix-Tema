@@ -2288,11 +2288,11 @@ body.dg-login-cookie .dg-header form.dg-header-minhaconta-modal-cadastro {
 }
 
 body.dg-login-cookie .dg-header form.dg-header-minhaconta-modal-cadastro a.dg-header-minhaconta-modal-cadastrar-footer-btn {
-  background-color: #0B1841;
+  background-color: #00D19D;
 }
 
 body.dg-login-cookie .dg-header form.dg-header-minhaconta-modal-login .dg-header-minhaconta-modal-footer-btn {
-  background-color: #00D19D;
+  background-color: #002399;
 }
 
 body.dg-login-cookie .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer-voltar-style, body.dg-login-cookie .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer-btn {
