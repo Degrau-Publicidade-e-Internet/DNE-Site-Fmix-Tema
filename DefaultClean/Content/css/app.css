@@ -2288,6 +2288,9 @@ body.dg-login-cookie .dg-header form.dg-header-minhaconta-modal-cadastro {
 }
 
 @media (min-width: 992px) {
+  body .dg-login-cookie .dg-header .dg-header-minhaconta-modal-conteudo {
+    padding-top: 6px;
+  }
   body .dg-header-minhaconta-modal {
     max-width: 673px;
     min-height: 254px;
