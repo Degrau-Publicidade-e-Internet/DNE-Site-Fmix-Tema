@@ -1934,6 +1934,9 @@ body {
         background-color: $corComplementar;
     }
     @media (min-width: 992px) {
+        &.dg-login-cookie .dg-header .dg-header-minhaconta-modal {
+            max-width: 673px;
+        }
         &.dg-login-cookie .dg-header .dg-header-minhaconta-modal-conteudo {
             padding-top: 6px;
         }

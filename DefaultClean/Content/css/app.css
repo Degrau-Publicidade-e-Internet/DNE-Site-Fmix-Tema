@@ -2296,6 +2296,9 @@ body.dg-login-cookie .dg-header form.dg-header-minhaconta-modal-login .dg-header
 }
 
 @media (min-width: 992px) {
+  body.dg-login-cookie .dg-header .dg-header-minhaconta-modal {
+    max-width: 673px;
+  }
   body.dg-login-cookie .dg-header .dg-header-minhaconta-modal-conteudo {
     padding-top: 6px;
   }
