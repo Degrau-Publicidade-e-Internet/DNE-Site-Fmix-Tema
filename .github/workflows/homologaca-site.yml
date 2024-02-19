@@ -1,7 +1,7 @@
 on:
   push:
     branches:    
-      - 'homologacao'
+      - 'Homologacao'
     paths: 
       - 'Themes/DefaultClean/**'
 name: 🚀 FTP Deploy
