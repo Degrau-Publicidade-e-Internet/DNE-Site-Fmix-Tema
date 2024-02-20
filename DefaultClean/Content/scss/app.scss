@@ -2283,6 +2283,12 @@ body {
                     .dg-header-busca-label, .dg-header-busca-input {
                         height: 38px;
                     }
+                    &.dg-ativo {
+                        .dg-header-busca-label {
+                            border-bottom-left-radius: 0;
+                            border-bottom-right-radius: 0;
+                        }
+                    }
                 }
                 .dg-header-busca-input:focus + .dg-header-busca-label, .dg-header-busca-input.dg-ativo + .dg-header-busca-label {
                     padding-top: 1px;
@@ -4429,10 +4435,8 @@ body {
     .dg-header-busca.dg-ativo .dg-header-busca-auto {
         display: block;
         @media (max-width: 991px) {
-            max-height: 300px;
-            max-height: calc(100% - 137px);
-            position: fixed;
-            top: 137px;
+            position: absolute;
+            top: 38px;
             overflow: auto;
             box-shadow: none;
         }
