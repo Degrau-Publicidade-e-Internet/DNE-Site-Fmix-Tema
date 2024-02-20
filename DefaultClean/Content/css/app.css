@@ -5456,7 +5456,8 @@ body .dg-header-busca-bdestaque {
 
 @media (max-width: 991px) {
   body .dg-header-busca-bdestaque {
-    display: none;
+    border-radius: 10px;
+    overflow: hidden;
   }
 }
 
@@ -5642,7 +5643,12 @@ body .dg-header-busca-auto-lista-vertodos {
   font-weight: 400;
   color: #002399;
   background-color: rgba(0, 0, 0, 0);
-  text-align: right;
+}
+
+@media (min-width: 992px) {
+  body .dg-header-busca-auto-lista-vertodos {
+    text-align: right;
+  }
 }
 
 body .dg-header-busca-auto-lista-vertodos:hover, body .dg-header-busca-auto-lista-vertodos:focus {

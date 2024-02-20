@@ -4552,7 +4552,9 @@ body {
     .dg-header-busca-bdestaque {
         margin-top: 13px;
         @media (max-width: 991px) {
-            display: none
+            // display: none;
+            border-radius: 10px;
+            overflow: hidden;
         }
     }
     .dg-header .dg-header-busca-auto-lista {
@@ -4712,7 +4714,9 @@ body {
         font-weight: 400;
         color: #002399;
         background-color: rgba(0,0,0,0);
-        text-align: right;
+        @media (min-width: 992px) {
+            text-align: right;
+        }
         &:hover, &:focus {
             color: #002399;
             background-color: rgba(0,0,0,0);
