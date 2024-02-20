@@ -2283,12 +2283,6 @@ body {
                     .dg-header-busca-label, .dg-header-busca-input {
                         height: 38px;
                     }
-                    &.dg-ativo {
-                        .dg-header-busca-label {
-                            border-bottom-left-radius: 0;
-                            border-bottom-right-radius: 0;
-                        }
-                    }
                 }
                 .dg-header-busca-input:focus + .dg-header-busca-label, .dg-header-busca-input.dg-ativo + .dg-header-busca-label {
                     padding-top: 1px;
@@ -4657,9 +4651,6 @@ body {
     .dg-header-busca.dg-ativo {
         .dg-header-busca-label {
             border-radius: 12px 12px 0 0;
-            @media (max-width: 991px) {
-                border-radius: 12px;
-            }
         }
     }
     .dg-header-busca-auto-lista-item {
