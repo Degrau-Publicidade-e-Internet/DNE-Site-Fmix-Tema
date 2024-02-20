@@ -1475,6 +1475,9 @@ body {
         display: block;
         overflow: unset;
     }
+    @media (max-width: 991px) {
+        display: block;
+    }
     > div:nth-child(3) ~ * {
         display: none
     }
@@ -1485,6 +1488,9 @@ body {
         }
         @media (min-width: 1280px) {
             margin: 0 31px;
+        }
+        @media (max-width: 991px) {
+            margin: 0;
         }
     }
     > div {

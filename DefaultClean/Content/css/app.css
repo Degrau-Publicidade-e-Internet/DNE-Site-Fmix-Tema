@@ -1707,6 +1707,12 @@ body .dg-home-sintomas .dg-home-sintomas-lista-txt {
   }
 }
 
+@media (max-width: 991px) {
+  .dg-home-produtos-estruturados {
+    display: block;
+  }
+}
+
 .dg-home-produtos-estruturados > div:nth-child(3) ~ * {
   display: none;
 }
@@ -1724,6 +1730,12 @@ body .dg-home-sintomas .dg-home-sintomas-lista-txt {
 @media (min-width: 1280px) {
   .dg-home-produtos-estruturados > div:nth-child(2) {
     margin: 0 31px;
+  }
+}
+
+@media (max-width: 991px) {
+  .dg-home-produtos-estruturados > div:nth-child(2) {
+    margin: 0;
   }
 }
 
