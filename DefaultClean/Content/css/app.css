@@ -1721,12 +1721,6 @@ body .dg-home-sintomas .dg-home-sintomas-lista-txt {
   margin: 0 16px;
 }
 
-@media (max-width: 575px) {
-  .dg-home-produtos-estruturados > div:nth-child(2) {
-    margin: 0;
-  }
-}
-
 @media (min-width: 1280px) {
   .dg-home-produtos-estruturados > div:nth-child(2) {
     margin: 0 31px;
@@ -1753,12 +1747,6 @@ body .dg-home-sintomas .dg-home-sintomas-lista-txt {
 
 .dg-home-produtos-estruturados > div .dg-boxproduto {
   width: 100%;
-}
-
-@media (max-width: 575px) {
-  .dg-home-produtos-estruturados > div:nth-child(3) {
-    display: none;
-  }
 }
 
 .dg-boxproduto-horizontal {

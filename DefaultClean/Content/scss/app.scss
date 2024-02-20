@@ -1483,9 +1483,6 @@ body {
     }
     > div:nth-child(2) {
         margin: 0 16px;
-        @media (max-width: 575px) {
-            margin: 0;
-        }
         @media (min-width: 1280px) {
             margin: 0 31px;
         }
@@ -1500,11 +1497,6 @@ body {
         flex: 1;
         .dg-boxproduto {
             width: 100%;
-        }
-        @media (max-width: 575px) {
-            &:nth-child(3) {
-                display: none;
-            }
         }
     }
 }
