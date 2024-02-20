@@ -5289,11 +5289,15 @@ body .dg-header-busca.dg-ativo .dg-header-busca-auto {
 
 @media (max-width: 991px) {
   body .dg-header-busca.dg-ativo .dg-header-busca-auto {
-    position: absolute;
-    top: 38px;
+    position: fixed;
+    top: 119px;
     overflow: auto;
     -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
+    margin: 0 20px;
+    width: auto;
+    max-height: 300px;
+    max-height: calc(100% - 137px);
   }
 }
 
