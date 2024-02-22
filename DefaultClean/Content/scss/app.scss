@@ -1475,16 +1475,19 @@ body {
         display: block;
         overflow: unset;
     }
+    @media (max-width: 991px) {
+        display: block;
+    }
     > div:nth-child(3) ~ * {
         display: none
     }
     > div:nth-child(2) {
         margin: 0 16px;
-        @media (max-width: 575px) {
-            margin: 0;
-        }
         @media (min-width: 1280px) {
             margin: 0 31px;
+        }
+        @media (max-width: 991px) {
+            margin: 0;
         }
     }
     > div {
@@ -1494,11 +1497,6 @@ body {
         flex: 1;
         .dg-boxproduto {
             width: 100%;
-        }
-        @media (max-width: 575px) {
-            &:nth-child(3) {
-                display: none;
-            }
         }
     }
 }
@@ -1923,13 +1921,45 @@ body {
     .dg-header-minhaconta-modal-conteudo {
         padding-top: 10px;
     }
+    &.dg-login-cookie .dg-header form.dg-header-minhaconta-modal-cadastro {
+        border-bottom: 0;
+        padding-top: 8px;
+    }
+    &.dg-login-cookie .dg-header form.dg-header-minhaconta-modal-cadastro a.dg-header-minhaconta-modal-cadastrar-footer-btn {
+        background-color: $corComplementar;
+        &:hover, &:focus {
+            background-color: $corComplementar;
+        }
+    }
+    &.dg-login-cookie .dg-header form.dg-header-minhaconta-modal-login .dg-header-minhaconta-modal-footer-btn {
+        background-color: $corSecundaria;
+        &:hover, &:focus {
+            background-color: $corSecundaria;
+        }
+    }
+    &.dg-login-cookie {
+        .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer-voltar-style, .dg-form-senha-step[data-form-senha-step="2"] .dg-header-minhaconta-modal-footer-btn {
+            flex: 0;
+        }
+    }
     @media (min-width: 992px) {
+        &.dg-login-cookie .dg-header .dg-header-minhaconta-modal {
+            max-width: 673px;
+        }
+        &.dg-login-cookie .dg-header .dg-header-minhaconta-modal-conteudo {
+            padding-top: 6px;
+        }
         .dg-header-minhaconta-modal {
             max-width: 673px;
             min-height: 254px;
             height: auto;
             form {
                 min-height: 254px;
+            }
+        }
+        &.dg-login-cookie {
+            form {
+                min-height: auto;
             }
         }
     }
@@ -4399,12 +4429,15 @@ body {
     .dg-header-busca.dg-ativo .dg-header-busca-auto {
         display: block;
         @media (max-width: 991px) {
-            max-height: 300px;
-            max-height: calc(100% - 137px);
             position: fixed;
-            top: 137px;
+            top: 119px;
             overflow: auto;
+            -webkit-box-shadow: none;
             box-shadow: none;
+            margin: 0 20px;
+            width: auto;
+            max-height: 300px;
+            max-height: calc(100% - 119px);
         }
         &::before {
             display: none;
@@ -4519,7 +4552,9 @@ body {
     .dg-header-busca-bdestaque {
         margin-top: 13px;
         @media (max-width: 991px) {
-            display: none
+            // display: none;
+            border-radius: 10px;
+            overflow: hidden;
         }
     }
     .dg-header .dg-header-busca-auto-lista {
@@ -4623,9 +4658,6 @@ body {
     .dg-header-busca.dg-ativo {
         .dg-header-busca-label {
             border-radius: 12px 12px 0 0;
-            @media (max-width: 991px) {
-                border-radius: 12px;
-            }
         }
     }
     .dg-header-busca-auto-lista-item {
@@ -4682,7 +4714,9 @@ body {
         font-weight: 400;
         color: #002399;
         background-color: rgba(0,0,0,0);
-        text-align: right;
+        @media (min-width: 992px) {
+            text-align: right;
+        }
         &:hover, &:focus {
             color: #002399;
             background-color: rgba(0,0,0,0);
@@ -7896,5 +7930,10 @@ body {
             background-color: #eee;
         }
     }
+}
 
+.dg-landing-banner {
+    img {
+        border-radius: 20px;
+    }
 }

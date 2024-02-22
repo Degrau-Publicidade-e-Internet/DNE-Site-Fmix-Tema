@@ -1,0 +1,50 @@
+﻿@inject DNE.Site.ViewServices.HeadView oHeadView
+@{
+    var OHead = oHeadView.GetHeadCheckout();
+
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<!--Head-->
+@await Html.PartialAsync("HeadCheckout")
+<!--Head-->
+
+@{
+    var isTacita = "";
+    var isFiltrair = ""; 
+
+
+    if(ViewData["isTacita"] != null && ViewData["isTacita"].ToString().Equals("True"))
+    { 
+        isTacita = "dg-tacita";
+    }  
+
+    if(ViewData["isFiltrair"] != null && ViewData["isFiltrair"].ToString().Equals("True"))
+    { 
+        isTacita = "dg-filtrair";
+    }  
+
+    
+}
+
+<body id="home-pg" class="@isTacita @isFiltrair @OHead.cssCustom" >
+
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QHM64" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    @await Html.PartialAsync("HeaderCheckout") 
+
+    @RenderBody()
+
+    @await Html.PartialAsync("FooterCheckout")
+
+    @Html.CssFiles(ResourceLocation.Footer)
+    @Html.ScriptsFiles(ResourceLocation.Footer)
+
+    @await Html.PartialAsync("TemplatesCheckout")
+
+</body>
+
+</html>

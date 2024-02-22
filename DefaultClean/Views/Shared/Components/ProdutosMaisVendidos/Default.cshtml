@@ -1,0 +1,9 @@
+﻿@model DNE.Site.Models.Pages.PageHomeModel
+
+@{
+    ViewData["compretambemCheckout"] = "compretambemCheckout";
+}
+
+@await Html.PartialAsync("_TemplateBoxProduto", Model.MaisVendidos)
+
+

@@ -20,3 +20,4 @@ jobs:
         username: FMX_HM_FTP
         password: ${{ secrets.FTP_PASSWORD_HOMOLOG_FMIX }}
         server-dir: httpdocs/Themes/
+
