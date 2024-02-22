@@ -212,6 +212,11 @@
                         <a href="@sURL" title="@Produto" alt="@Produto" idImpression="@product.ID_SubProduto" lista="lista @ReplaceImpression" nome="@Produto" link="@sURL">@Produto  @if (product.Generico) { @product.Fabricante } @product.ComplementoBrindes
                         </a>
                     </h2>
+                } else if (ViewData["boxProduto"] == "CadaUmPor") {
+                    <h2 class="dg-boxproduto-titulo jsTituloHover">
+                        <a href="@sURL" title="@Produto" alt="@Produto" idImpression="@product.ID_SubProduto" lista="lista @ReplaceImpression" nome="@Produto" link="@sURL">@Produto  @if (product.Generico) { @product.Fabricante } @product.ComplementoBrindes
+                        </a>
+                    </h2>
                 } else if (!isTemosTambem) {
                     <h3 class="dg-boxproduto-titulo jsTituloHover">
                         <a href="@sURL" title="@Produto" alt="@Produto" idImpression="@product.ID_SubProduto" lista="lista @ReplaceImpression" nome="@Produto" link="@sURL">@Produto  @if (product.Generico) { @product.Fabricante } @product.ComplementoBrindes
