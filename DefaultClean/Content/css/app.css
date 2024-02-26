@@ -288,7 +288,7 @@ body {
 }
 
 .dg-boxproduto .dg-boxproduto-titulo {
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
 }
 
 .dg-boxproduto .dg-boxproduto-preco-de, .dg-boxproduto .dg-boxproduto-preco-por {
