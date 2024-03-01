@@ -5420,6 +5420,14 @@ body .dg-header-busca-sugestao-pesquisa__lista li:last-child {
   margin-bottom: 0;
 }
 
+body .dg-header-busca-sugestao-pesquisa__lista li a {
+  color: #354350;
+}
+
+body .dg-header-busca-sugestao-pesquisa__lista li a:hover, body .dg-header-busca-sugestao-pesquisa__lista li a:focus {
+  color: #354350;
+}
+
 @media (max-height: 680px) and (min-width: 992px) {
   body .dg-header-busca-sugestao-pesquisa__lista li:nth-child(3) ~ li {
     display: none;

@@ -4522,6 +4522,12 @@ body {
                 &:last-child {
                     margin-bottom: 0;
                 }
+                a {
+                    color: #354350;
+                    &:hover, &:focus {
+                        color: #354350;
+                    }
+                }
                 @media (max-height: 680px) and (min-width: 992px) {
                     &:nth-child(3) ~ li {
                         display: none;

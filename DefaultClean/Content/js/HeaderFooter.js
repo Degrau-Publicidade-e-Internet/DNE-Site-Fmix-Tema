@@ -206,7 +206,7 @@ function GetAutoCompleteBusca(e, Pagina) {
                 if (response.Lista.Sugestoes.length > 0) {
                     buscaInfo.Sugestoes = response.Lista.Sugestoes.map(function(e, i) {
                         var valueUppercase = item.Busca.toUpperCase();
-                        return { busca: e, buscaBold: e.replace(valueUppercase, "<b>" + valueUppercase + "</b>" ) }
+                        return { busca: e.Produto, link: e.UrlProduto, buscaBold: e.Produto.replace(valueUppercase, "<b>" + valueUppercase + "</b>" ) }
                     });
                 } else {
                     buscaInfo.Sugestoes = response.Lista.Sugestoes;
