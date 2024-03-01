@@ -1,0 +1,26 @@
+@import 'base/variables';
+@import 'base/reset';
+@import 'base/geral';
+
+@import '../icones/styles.scss';
+@import 'components/tooltip';
+@import 'components/loading';
+@import 'components/modal';
+@import 'components/alert';
+
+@import 'components/header';
+@import 'components/footer';
+
+@import 'components/menuAberto'; 
+@import 'components/loginAberto';
+@import 'components/autocompleteAberto';
+@import 'components/miniCarrinho';
+@import 'components/boxproduto';
+@import 'components/mascote';
+@import 'components/erroForm';
+@import 'components/404';
+
+@import 'components/modalSms';
+@import 'components/modalAmigo';
+@import 'components/modalFarmaceutico';
+@import 'components/modalAvise';

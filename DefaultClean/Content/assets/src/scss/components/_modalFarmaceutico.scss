@@ -1,0 +1,195 @@
+.dg-modal-farmaceutico {
+    max-width: 800px;
+    &-wrapper {
+        display: flex;
+        padding-top: 20px;
+        overflow: hidden;
+        @media (max-width: $screen-md - 1) {
+            display: block;
+            padding-top: 0;
+        }
+    }
+    .dg-input:not([type="file"]) {
+        position: absolute;
+        background: transparent;
+        z-index: 2;
+        width: 100%;
+        left: 0px;
+        top: 0;
+        bottom: 20px;
+        right: 0px;
+        border-radius: 10px;
+        display: block;
+        min-height: 45px;
+        border: 0;
+        box-shadow: none;
+        outline: none;
+        padding-top: 8px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 13px;
+        &:focus + .dg-label, &.dg-ativo + .dg-label {
+            font-size: 10px;
+            padding-top: 7px;
+            color: #333;
+        }
+    }
+    .dg-form-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    .dg-form-control {
+        position: relative;
+        width: 50%;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 20px;
+
+        &--full {
+            width: 100%
+        }
+        @media (max-width: $screen-sm - 1) {
+            width: 100%;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    h3 {
+        padding: 0;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        color: #545363;
+        font-size: 20px;
+        font-weight: 400;
+    }
+    a {
+        font-size: 12px;
+    }
+    form {
+        padding-left: 20px;
+        flex: 1;
+        margin-left: 20px;
+        border-left: 1px dashed #eee;    
+        @media (max-width: $screen-md - 1) {
+            padding-left: 0;
+            margin-top: 20px;
+            margin-left: 0;
+            border-left: 0;
+        }
+    }
+    b {
+        font-weight: bold
+    }
+    .dg-label {
+        position: relative;
+        z-index: 1;
+        background: #E4E7ED;
+        height: 45px;
+        border-radius: 10px;
+        margin-bottom: 0;
+        color: #54616d;
+        font-size: 13px;
+        padding: 13px 10px 0px 20px;
+        transition: 300ms ease all;
+    }
+    button {
+        height: 45px;
+        padding: 4px 16px;
+        border-radius: 23px;
+        text-align: center;
+        outline: none;
+        background-color: #094684;
+        font-size: 13px;
+        color: #fff;
+        font-weight: 600;
+        z-index: 12;
+        margin-top: 20px;
+        float: right;
+        transition: 300ms ease background-color;
+    }
+
+    .dg-label-comum {
+        font-size: 13px;
+        color: #7699A8;
+    }
+    
+    textarea {
+        padding-top: 10px;
+        background-color: #E4E7ED;
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        height: 80px;
+        padding-left: 25px;
+        padding-right: 25px;
+        font-size: 13px;
+        border-radius: 10px;
+        transition: 300ms ease border-color;
+    }
+
+    label + .dg-erroForm {
+        top: 20px;
+        + textarea {
+            border: 2px solid red
+        }
+    }
+
+    &--textarea-control {
+        label + .dg-erroForm {
+            top: 6px;
+        }
+    }
+    h4 {
+        margin-bottom: 8px;
+    }
+}
+
+.dg-modal-farmaceutico {
+    input {
+        width: 100%;
+    }
+    .mensagem-anexo {
+        padding: 4px 8px;
+        background: #505d6d;
+        color: #fff;
+        border-radius: 7px;
+        margin-top: 4px;
+        font-size: 12px;
+        float: left;
+        display: block;
+        &:empty {
+            display: none;
+        }
+    }
+    textarea {
+        &:focus {
+            outline: none
+        }
+    }
+}
+
+
+.dg-modal-farmaceutico .dg-form-control {
+    margin-bottom: 10px;
+}
+
+.dg-modal-farmaceutico button {
+    margin-top: 0;
+}
+
+.dg-form-control-flex {
+    @media (max-width: 559px) {
+        button {
+            float: left;
+            margin-top: 10px;
+        }
+    }
+    @media (min-width: 560px) {
+        display: flex;
+        // flex-direction: column;
+        justify-content: space-between;
+    }
+}

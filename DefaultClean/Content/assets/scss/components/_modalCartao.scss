@@ -1,0 +1,122 @@
+// Modal compra negada
+.dg-modal-cartao-hide {
+    display: none;
+    position: relative;
+    z-index: 999999;
+}
+.dg-modal-cartao {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    
+}
+
+
+.dg-modal-cartao-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background: rgba(#36404B,0.7);
+}
+
+.dg-modal-cartao-box {
+    position: relative;
+    z-index: 2;
+    background: #EFF2F5;
+    border-radius: 15px;
+    overflow: hidden;
+    
+    width: 90%;
+    max-width: 670px;
+}
+
+.dg-modal-cartao-img {
+    background: url(../img/footer/modal-erro-fundo.png) no-repeat top center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 190px;
+    @media(max-width: 991px) {
+        height: 110px;
+    }
+    
+    img {
+        position: relative;
+        z-index: 1;
+        margin: 0 auto 0 auto;
+        top: 92px;
+        display: block;
+        
+        @media(max-width: 991px) {
+            width: 120px;
+            top: 45px;
+        }
+    }
+}
+
+.dg-modal-cartao-txt {
+    text-align: center;
+    padding: 120px 60px 30px 60px;
+    color: #6B6B7B;
+    font-size: 16px;
+    
+    @media(max-width: 991px) {
+        padding-top: 80px;
+    }
+    
+    strong {
+        font-weight: 600;
+    }
+}
+
+.dg-modal-cartao-btn {
+    a {
+        background: #1EC765;
+        display: block;
+        text-align: center;
+        color: #fff;
+        font-weight: 600;
+        margin: 0 auto;
+        max-width: 250px;
+        font-size: 16px;
+        padding: 10px 5px;
+        border-radius: 50px;
+        box-shadow: 0 10px 30px rgba(#1EC765,0.3);
+        
+        &:hover, &:focus {
+            text-decoration: none;
+            background: darken(#1EC765,10%);
+        }
+    }
+    padding-bottom: 60px;
+    
+    @media(max-width: 991px) {
+        padding-bottom: 40px;
+    }
+}

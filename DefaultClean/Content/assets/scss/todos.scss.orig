@@ -1,0 +1,63 @@
+
+// Bases
+@import 'base/variables';
+@import 'base/funcoes';
+@import 'base/mixins';
+@import 'base/placeholders';
+
+@import 'base/reset';
+
+
+// Componentes
+@import 'components/tooltip';
+@import 'components/boxproduto';
+@import 'components/slick';
+@import 'components/loading';
+ 
+// Layout
+@import 'layout/geral';
+
+@import 'components/header';
+<<<<<<< HEAD
+@import 'components/menuAberto'; 
+@import 'components/loginAberto';
+=======
+@import 'components/menuAberto';
+>>>>>>> 209429c0272cf3e52fa2c404448b6bc3f091e620
+@import 'components/miniCarrinho';
+@import 'components/footer';
+
+
+// Páginas
+@import 'layout/home'; 
+@import 'layout/categoria';
+<<<<<<< HEAD
+@import 'layout/busca';
+@import 'layout/marca';
+@import 'layout/produto';
+
+@import 'layout/usuario';
+@import 'layout/cadastro';
+@import 'layout/login';
+
+=======
+>>>>>>> 209429c0272cf3e52fa2c404448b6bc3f091e620
+
+
+
+
+
+
+// Checkout
+@import 'checkout/header';
+@import 'checkout/footer';
+@import 'checkout/conteudo';
+@import 'checkout/sidebar';
+
+@import 'checkout/carrinho';
+@import 'checkout/entrega';
+@import 'checkout/frete';
+@import 'checkout/pagamento'; 
+@import 'checkout/recibo';
+
+
