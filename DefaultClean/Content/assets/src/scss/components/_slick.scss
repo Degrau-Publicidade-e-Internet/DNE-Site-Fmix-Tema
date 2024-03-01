@@ -1,0 +1,59 @@
+.tns-outer {
+    position: relative;
+}
+
+.tns-controls button {
+    width: 28px;
+    height: 28px;
+    background-color: rgba(0,0,0,.5);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    font-size: 0;
+    padding-top: 3px;
+    transform: translateY(-50%);
+    margin-top: -4px;
+}
+
+.tns-controls button[data-controls="prev"] {
+    left: -10px;
+    &::before {
+        content: "\63";
+        font-size: 17px;
+        font-family: "dne-2021" !important;
+        font-style: normal !important;
+        font-weight: normal !important;
+        font-variant: normal !important;
+        text-transform: none !important;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+.tns-controls button[data-controls="next"] {
+    right: -10px;
+    &::before {
+        content: "\64";
+        font-size: 17px;
+        font-family: "dne-2021" !important;
+        font-style: normal !important;
+        font-weight: normal !important;
+        font-variant: normal !important;
+        text-transform: none !important;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+.dg-home-produtos {
+    @media (max-width: 575px) {
+        .tns-ovh {
+            overflow: visible;
+        }
+    }
+}

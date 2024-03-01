@@ -1,0 +1,92 @@
+.dg-login {
+    .dg-header-minhaconta-modal-cadastro {
+        display: flex !important;
+    }
+    .dg-header-minhaconta-flex {
+        padding: 24px 0;
+        > form {
+            border-radius: 10px 0 0 10px;
+            + div form {
+                border-radius: 0 10px 10px 0;
+            }
+        }
+    }
+    .dg-header-minhaconta-flex form {
+        height: auto;
+        background-color: #fff;
+        @media (min-width: 992px) {
+            min-height: 310px;
+        }
+    }
+    [data-form-senha-step="2"], [data-form-senha-step="3"] {
+        border-bottom: 32px solid #36404B;
+    }
+    .dg-no__beforeafter {
+        &::after, &::before {
+            display: flex !important
+        }
+    }
+    @media (min-width: 992px) {
+        .dg-header-minhaconta-modal-esquecisenha div[data-form-senha-step="1"] .dg-header-minhaconta-modal-conteudo>div>input {
+            padding-left: 20px;
+        }
+    }
+    @media (max-width: 991px) {
+        .dg-header-minhaconta-flex {
+            flex-direction: column-reverse;
+            padding-top: 0;
+            #modalLogin .dg-header-minhaconta-modal-footer, #form-senha .dg-header-minhaconta-modal-footer, [data-form-senha-step="2"], [data-form-senha-step="3"] {
+                border-bottom: 0;
+            }
+        }
+        .dg-header-minhaconta-flex>*:last-child{
+            margin-bottom: 0;
+            border-bottom: 0;
+        }
+        form.dg-header-minhaconta-modal-cadastro::before{
+            bottom: unset;
+            top: 0px;
+        }
+        form.dg-header-minhaconta-modal-cadastro::after{
+            bottom: unset;
+            top: -20px;
+        }
+        .dg-header-minhaconta-flex>form{
+            border-radius: 0 0 10px 10px;
+        }
+        .dg-header-minhaconta-flex>form+div form{
+            border-radius: 10px 10px 0 0;
+        }
+        .dg-form-senha-step[data-form-senha-step="3"]:not(:empty) {
+            padding-bottom: 30px;
+        }
+        .dg-header-minhaconta-flex .dg-titulo {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+        .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-input-wrapper input {
+            width: 40px;
+            height: 40px;
+            margin: 0 1px;
+        }
+        .dg-header-minhaconta-modal-conteudo {
+            padding: 20px 16px 0px 16px;
+        }
+        .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-input-wrapper {
+            max-width: 360px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .dg-header-minhaconta-modal-footer {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+    }
+    @media (max-width: 432px) {
+        .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-wrapper-btns {
+            button {
+                margin-bottom: 8px !important;
+            }
+        }
+    }
+}

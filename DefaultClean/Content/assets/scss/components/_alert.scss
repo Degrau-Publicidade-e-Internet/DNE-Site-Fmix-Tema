@@ -1,0 +1,273 @@
+
+$alertCorPositiva: #094684;
+$alertCorNeutra: #444;
+$alertCorNegativa: #d81c2a;
+
+// APARECER OVERLAY
+
+@keyframes alertAparecerOverlay{
+    from {
+      background-color: rgba(255,255,255,0);
+    }
+  
+    to {
+      background-color: rgba(255,255,255,0.6);
+    }
+  }
+  
+  @-moz-keyframes alertAparecerOverlay{
+    from {
+      background-color: rgba(255,255,255,0);
+    }
+  
+    to {
+      background-color: rgba(255,255,255,0.6);
+    }
+  }
+  
+  @-webkit-keyframes alertAparecerOverlay {
+    from {
+      background-color: rgba(255,255,255,0);
+    }
+  
+    to {
+      background-color: rgba(255,255,255,0.6);
+    }
+  }
+  
+  @-o-keyframes alertAparecerOverlay {
+    from {
+      background-color: rgba(255,255,255,0);
+    }
+  
+    to {
+      background-color: rgba(255,255,255,0.6);
+    }
+  }
+  
+  @-ms-keyframes alertAparecerOverlay {
+    from {
+      background-color: rgba(255,255,255,0);
+    }
+  
+    to {
+      background-color: rgba(255,255,255,0.6);
+    }
+  }
+
+.dg-alert-overlay {
+    -webkit-animation: alertAparecerOverlay 500ms linear forwards;
+    -moz-animation: alertAparecerOverlay 500ms linear forwards;
+    -o-animation: alertAparecerOverlay 500ms linear forwards;
+    -ms-animation: alertAparecerOverlay 500ms linear forwards;
+    animation: alertAparecerOverlay 500ms linear forwards;
+    background-color: rgba(255,255,255,0.6);
+    z-index: 999999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+}
+
+
+// APARECER
+
+@keyframes alertAparecer{
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @-moz-keyframes alertAparecer{
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @-webkit-keyframes alertAparecer {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @-o-keyframes alertAparecer {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @-ms-keyframes alertAparecer {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+
+  
+
+.dg-alert-container {
+    max-width: 100%;
+    display: inline-block;
+
+    position: absolute;
+    // @include box-shadow();
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    background-color: #fff;
+
+    -webkit-animation: alertAparecer 300ms linear forwards;
+    -moz-animation: alertAparecer 300ms linear forwards;
+    -o-animation: alertAparecer 300ms linear forwards;
+    -ms-animation: alertAparecer 300ms linear forwards;
+    animation: alertAparecer 300ms linear forwards;
+
+    top: 40%;
+    left: 50%;
+    text-align: center;
+    padding: 16px;
+    z-index: 850;
+    font-size: 1.143em;
+
+    border-radius: 5px;
+    transform: translateX(-50%);
+
+    @media (max-width: 991px) {
+        top: 20%;
+        max-width: 360px;
+        width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        top: 20%;
+    }
+    
+    border: 2px solid $alertCorNeutra;
+    color: $alertCorNeutra;
+
+    &.dg-positivo {
+        border: 2px solid $alertCorPositiva;
+        color: $alertCorPositiva;
+    }
+
+    &.dg-negativo {
+        border: 2px solid $alertCorNegativa;
+        color: $alertCorNegativa;
+    }
+  
+    .dg-text-alert {
+        padding-bottom: 10px;
+    }
+}
+
+
+.dg-btn-alert-ok, .dg-btn-alert-cancelar {
+    float: right;
+    display: block;
+    padding: 10px 20px 5px 20px;
+    
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 5px;
+    min-height: 44px;
+    margin-top: 10px;
+    
+    border: 2px solid $alertCorNeutra;
+    background: $alertCorNeutra;
+    
+    &:hover, &:focus {
+        color: #fff;
+        text-decoration: none;
+        border: 2px solid darken($alertCorNeutra,12%);
+        background: darken($alertCorNeutra,12%);
+    }
+
+}
+
+.dg-positivo {
+    .dg-btn-alert-ok {
+        border: 2px solid $alertCorPositiva;
+        background: $alertCorPositiva;
+        
+        &:hover, &:focus {
+            border: 2px solid darken($alertCorPositiva,10%);
+            background: darken($alertCorPositiva,10%);
+        }
+    }
+}
+
+.dg-negativo {
+    .dg-btn-alert-ok {
+        border: 2px solid $alertCorNegativa;
+        background: $alertCorNegativa;
+        
+        &:hover, &:focus {
+            border: 2px solid darken($alertCorNegativa,20%);
+            background: darken($alertCorNegativa,20%);
+        }
+    }
+}
+
+.dg-btn-alert-ok {
+    min-width: 100px;
+}
+
+.dg-btn-alert-cancelar {
+    margin-right: 10px;
+    background: transparent !important;
+    color: $alertCorNeutra !important;
+    &:hover, &:focus {
+        text-decoration: none;
+        opacity: 0.7;
+    }
+    opacity: 0.3;
+}
+
+.dg-erro-sem-estoque {
+    position: relative;
+    background-color: #fd3141;
+    padding: 2px 9px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 12px;
+    margin-top: 5px;
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    white-space: nowrap;
+    margin-top: 0;
+    &:after {
+        border-color: #0e3d90 transparent transparent;
+        border-style: solid;
+        border-width: 10px 10px 0;
+        bottom: -10px;
+        content: "";
+        height: 0;
+        left: 35px;
+        position: absolute;
+        width: 0;
+        border-color: transparent transparent #fd3141;
+        border-width: 0 10px 10px;
+        top: -4px;
+    }
+}

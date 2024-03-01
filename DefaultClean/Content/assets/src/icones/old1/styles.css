@@ -1,0 +1,178 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "dne-2021";
+  src:url("fonts/dne-2021.eot");
+  src:url("fonts/dne-2021.eot?#iefix") format("embedded-opentype"),
+    url("fonts/dne-2021.woff") format("woff"),
+    url("fonts/dne-2021.ttf") format("truetype"),
+    url("fonts/dne-2021.svg#dne-2021") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "dne-2021" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="dg-icon-"]:before,
+[class*=" dg-icon-"]:before {
+  font-family: "dne-2021" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dg-icon-:before {
+  content: "\61";
+}
+.dg-icon-arrow01-down:before {
+  content: "\62";
+}
+.dg-icon-arrow01-left:before {
+  content: "\63";
+}
+.dg-icon-arrow01-right:before {
+  content: "\64";
+}
+.dg-icon-arrow01-up:before {
+  content: "\65";
+}
+.dg-icon-avise-me:before {
+  content: "\66";
+}
+.dg-icon-boleto:before {
+  content: "\67";
+}
+.dg-icon-calm:before {
+  content: "\68";
+}
+.dg-icon-cart:before {
+  content: "\69";
+}
+.dg-icon-generico:before {
+  content: "\6a";
+}
+.dg-icon-controlado:before {
+  content: "\6b";
+}
+.dg-icon-dermo:before {
+  content: "\6c";
+}
+.dg-icon-descontos:before {
+  content: "\6d";
+}
+.dg-icon-diabetes:before {
+  content: "\6e";
+}
+.dg-icon-dor-febre:before {
+  content: "\6f";
+}
+.dg-icon-dor-musc:before {
+  content: "\70";
+}
+.dg-icon-elo:before {
+  content: "\71";
+}
+.dg-icon-estoque:before {
+  content: "\72";
+}
+.dg-icon-familia:before {
+  content: "\73";
+}
+.dg-icon-favorito:before {
+  content: "\74";
+}
+.dg-icon-fb:before {
+  content: "\75";
+}
+.dg-icon-gastro:before {
+  content: "\76";
+}
+.dg-icon-gripe:before {
+  content: "\77";
+}
+.dg-icon-pix:before {
+  content: "\78";
+}
+.dg-icon-perfumaria:before {
+  content: "\79";
+}
+.dg-icon-percent:before {
+  content: "\7a";
+}
+.dg-icon-nutricao:before {
+  content: "\41";
+}
+.dg-icon-menu:before {
+  content: "\42";
+}
+.dg-icon-medi:before {
+  content: "\43";
+}
+.dg-icon-mastercard:before {
+  content: "\44";
+}
+.dg-icon-mais-comprados:before {
+  content: "\45";
+}
+.dg-icon-linkedin:before {
+  content: "\46";
+}
+.dg-icon-leve-mais:before {
+  content: "\47";
+}
+.dg-icon-insta:before {
+  content: "\48";
+}
+.dg-icon-promo-do-dia:before {
+  content: "\49";
+}
+.dg-icon-star:before {
+  content: "\4a";
+}
+.dg-icon-televendas:before {
+  content: "\4b";
+}
+.dg-icon-twitter:before {
+  content: "\4c";
+}
+.dg-icon-user:before {
+  content: "\4d";
+}
+.dg-icon-visa:before {
+  content: "\4e";
+}
+.dg-icon-vitamina:before {
+  content: "\4f";
+}
+.dg-icon-yt:before {
+  content: "\50";
+}
+.dg-icon-search:before {
+  content: "\51";
+}
+.dg-icon-sac:before {
+  content: "\52";
+}
+.dg-icon-allergy:before {
+  content: "\53";
+}
+.dg-icon-american-express:before {
+  content: "\54";
+}

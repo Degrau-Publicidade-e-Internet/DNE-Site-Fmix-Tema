@@ -1,0 +1,61 @@
+.dg-institucional-nossaslojas-wrapper {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    
+    > img {
+        width: 50%;
+        @media (min-width: 992px) {
+            border-radius: 40px 0 0 40px;
+        }
+        @media(max-width: 991px) {
+            width: 100%;
+            border-radius: 40px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.dg-institucional-nossaslojas-map {
+    width: 50%;
+    @media(max-width: 991px) {
+        width: 100%;
+        border-radius: 40px;
+    }
+    div[role="dialog"] {
+        max-width: 215px !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1279px) {
+    .dg-institucional-nossaslojas-map {
+        height: 195px !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .dg-institucional-nossaslojas-map {
+        height: auto !important;
+        padding-top: 56.25%;
+    }
+}
+
+.dg-institucional-nossaslojas-item + .dg-institucional-nossaslojas-item  {
+    border-top: 1px solid #ededed;
+    margin-top: 30px;
+}

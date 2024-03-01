@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="273.169" height="164.895" viewBox="0 0 273.169 164.895">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#36404b"/>
+      <stop offset="1" stop-color="#283038"/>
+    </linearGradient>
+    <clipPath id="clip-path">
+      <rect id="Retângulo_2315" data-name="Retângulo 2315" width="273.169" height="164.895" rx="7" fill="url(#linear-gradient)"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_de_máscara_15" data-name="Grupo de máscara 15" clip-path="url(#clip-path)">
+    <g id="Grupo_3190" data-name="Grupo 3190">
+      <g id="Retângulo_2313" data-name="Retângulo 2313" transform="translate(54.158 0.001)" fill="none" stroke="#576b80" stroke-width="1" opacity="0.4">
+        <rect width="229.005" height="164.895" rx="82.447" stroke="none"/>
+        <rect x="0.5" y="0.5" width="228.005" height="163.895" rx="81.947" fill="none"/>
+      </g>
+      <g id="Retângulo_2314" data-name="Retângulo 2314" transform="translate(91.413 9.159)" fill="none" stroke="#576b80" stroke-width="1" opacity="0.5">
+        <rect width="266.482" height="146.577" rx="73.289" stroke="none"/>
+        <rect x="0.5" y="0.5" width="265.482" height="145.577" rx="72.789" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

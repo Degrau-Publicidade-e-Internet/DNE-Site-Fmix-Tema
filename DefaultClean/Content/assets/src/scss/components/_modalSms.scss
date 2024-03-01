@@ -1,0 +1,202 @@
+.dg-modal-id-templateCadastrarSmsEmail {
+    .dg-modal-container {
+        max-width: 450px;
+        min-width: 1px;
+    }
+    
+    &.dg-email {
+        .dg-modal-templateCadastrar-email {
+            display: block;
+        }
+        
+        .dg-modal-templateCadastrar-btn.dg-sms {
+            opacity: 0.3;
+        }
+    }
+    
+    &.dg-sms {
+        .dg-modal-templateCadastrar-sms {
+            display: block;
+        }
+        
+        .dg-modal-templateCadastrar-btn.dg-email {
+            opacity: 0.3;
+        }
+    }
+}
+
+.dg-modal-templateCadastrar-btns {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.dg-modal-templateCadastrar-btn {
+    padding: 10px 30px;
+    // height: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 3px;
+    background-color: #b0c24d;
+    color: #fff;
+    border-radius: 40px;
+    transition: 300ms ease background-color;
+    z-index: 1;
+    display: inline-block;
+    &:hover, &:focus {
+        background-color: darken(#b0c24d,15%);
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    &.dg-sms {
+        background-color: #3a63ae;
+        
+        &:hover, &:focus {
+            background-color: darken(#3a63ae,15%);
+        }
+    }
+}
+
+.dg-modal-templateCadastrar-email {
+    display: none;
+    background: rgba(0,0,0,0.1);
+    padding: 7px 25px 13px 25px;
+    border-radius: 5px;
+    
+    a {
+        color: #3a63ae;
+    }
+}
+
+.dg-modal-templateCadastrar-sms {
+    display: none;
+    background: rgba(0,0,0,0.1);
+    padding: 7px 25px 13px 25px;
+    border-radius: 5px;
+    
+    a {
+        color: #3a63ae;
+    }
+    
+    .dg-titulo {
+        font-size: 16px;
+        margin-top: 10px;
+        margin-bottom: 7px;
+    }
+}
+
+
+.dg-modal-templateCadastrar-sms-form {
+    position: relative;
+    .dg-titulo {
+        font-weight: bold;
+    }
+    > div {
+        position: relative;
+        
+        > input {
+            position: relative;
+            border: 0;
+            box-shadow: 0;
+            outline: 0;
+            background: transparent;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 45px;
+            border-radius: 25px;
+            width: 100%;
+            z-index: 1;
+            padding-left: 25px;
+            padding-right: 50px;
+            padding-top: 12px;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:focus, &.dg-ativo {
+                +label {
+                    font-size: 11px;
+                    padding-top: 3px;
+                }
+            }
+        }
+
+        > label {
+            background: #fff;
+            border-radius: 25px;
+            height: 45px;
+            color: #777;
+            font-weight: 600;
+            padding-left: 25px;
+            padding-top: 14px;
+            font-size: 13px;
+            display: block;
+            transition: 300ms ease all;
+
+        }
+    }
+    
+    
+}
+
+.dg-modal-templateCadastrar-sms-form-btn {
+    padding: 14px 20px 0 20px;
+    height: 45px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 3px;
+    background-color: #1EC765;
+    color: #fff !important;
+    border-radius: 40px;
+    transition: 300ms ease background-color;
+    z-index: 1;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: -5px;
+    z-index: 10;
+    &:hover, &:focus {
+        background-color: darken(#1EC765,15%);
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+.dg-modal-id-templateCadastrarSmsEmail {
+    .dg-msg-error-cod, .dg-msg-error-envio-conf {
+        border-radius: 38px;
+        padding: 6px 26px;
+        margin-bottom: 8px;
+        font-size: 12px;
+        background-color: #FF3141;
+        color: #fff;
+        box-shadow: 0 0 10px rgba(255, 49, 65, .5);
+        &:empty {
+            display: none;
+        }
+    }
+    .dg-msg-error-envio-conf {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 991px) {
+    .dg-modal-templateCadastrar-sms, .dg-modal-templateCadastrar-email {
+        padding: 8px 16px 16px;
+        margin: 0 -16px -16px;
+    }
+    .dg-modal-templateCadastrar-btns {
+        padding: 20px 0 15px;
+    }
+}
+
+.dg-green {
+    color: green;
+    font-weight: 500;
+}

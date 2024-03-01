@@ -1,0 +1,473 @@
+.dg-modal-recompra-1clique {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    @media (max-width: ($screen-md - 1)) {
+        position: fixed;
+    }
+    &__background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(#03192F, .35);
+    }
+    &__modal {
+        position: absolute;
+        top: 113px;
+        left: 50%;
+        max-width: 1022px;
+        width: 100%;
+        margin-left: -511px;
+        border-radius: 24px;
+        background-color: #fff;
+        @media (max-width: ($screen-md - 1)) {
+            position: relative;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            width: 98%;
+            height: 98%;
+            margin: 1%;
+            overflow: auto;
+            &-wrapper {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                overflow: hidden;
+                border-bottom: 1px solid #e3e8ed;
+            }
+        }
+    }
+    @media (max-width: ($screen-md - 1)) {
+        &__content-wrapper {
+            flex: 1;
+            overflow: auto;
+        }
+    }
+    &__header {
+        padding: 19px 45px;
+        text-align: center;
+        @media (max-width: ($screen-md - 1)) {
+            padding: 10px;
+        }
+        &-titulo {
+            font-size: 16px;
+            color: #6B6B7B;
+            @media (max-width: ($screen-md - 1)) {
+                font-size: 14px;
+            }
+            span {
+                font-weight: 600;
+                color: #1EC765;
+            }
+        }
+    }
+    &__mascote {
+        position: absolute;
+        left: 25px;
+        z-index: 1;
+        top: -14px;
+        @media (max-width: ($screen-md - 1)) {
+            display: none;
+        }
+    }
+    &__fechar {
+        position: absolute;
+        right: 0;
+        top: 16px;
+        right: 20px;
+        margin: 0;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0,0,0,0);
+        @media (max-width: ($screen-md - 1)) {
+            top: 8px;
+        }
+    }
+    &__tabela-titulo {
+        padding: 15px 45px;
+        border-bottom: 1px solid #E4E5EC;
+        text-align: center;
+        font-size: 14px;
+        color: #6B6B7B;
+        background-color: #EFF2F5;
+        @media (max-width: ($screen-md - 1)) {
+            padding: 6px;
+            font-size: 12px;
+        }
+        span {
+            font-weight: 600;
+            color: #FD3141;
+        }
+    }
+    &__tabela-produtos {
+        width: 100%;
+        text-align: left;
+        font-size: 12px;
+        color: #6B6B7B;
+        th, td {
+            @media (max-width: ($screen-md - 1)) {
+                width: auto !important;       
+            }
+        }
+        thead {
+            @media (max-width: ($screen-md - 1)) {
+                display: none;
+            }
+            th {
+                position: sticky;
+                top: 0;
+                left: 0;
+                padding: 10px 0;
+                font-weight: 600;
+                background-color: #EFF2F5;
+                &:first-child {
+                    padding-left: 45px;
+                    
+                }
+                &:last-child {
+                    padding-right: 45px;
+                }
+            }
+        }
+        tbody {
+            td {
+                padding: 4px 0;
+                font-size: 14px;
+                font-weight: 600;
+                &:first-child {
+                    padding-left: 45px;
+                }
+                &:last-child {
+                    padding-right: 45px;
+                }
+                &:nth-child(4) {
+                    color: #BEBEC3;
+                }
+            }
+            tr:first-child {
+                td {
+                    padding-top: 14px;
+                }
+            }
+            tr:last-child {
+                td {
+                    padding-bottom: 0;
+                }
+            }
+            @media (max-width: ($screen-md - 1)) {
+                tr {
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin: 5px;
+                    background-color: #f5f5f5;
+                    padding: 8px;
+                }
+                td {
+                    padding: 0 !important;
+                    font-size: 11px;
+                    &:nth-child(2) {
+                        flex-basis: 100%;
+                        border-bottom: 1px solid rgba(115, 115, 130, .25);
+                        padding-bottom: 4px !important;
+                        display: block;
+                        margin-bottom: 8px;
+                        ~ td {
+                            margin-right: 12px;
+                        }
+                    }
+                }
+            }
+        }
+        @media (max-width: ($screen-md - 1)) {
+            display: block;
+            tbody {
+                display: block;
+            }
+        }
+    }
+    &__produto {
+        @media (max-width: ($screen-md - 1)) {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+            img {
+                margin-right: 4px;
+                flex-shrink: 0;
+                + div {
+                    flex: 1;
+                }
+            }
+        }
+    }
+    &__info {
+        display: flex;
+        padding: 6px 45px 0;
+        flex-wrap: wrap;
+        margin-left: -33px;
+        margin-right: -33px;
+        @media (max-width: ($screen-md - 1)) {
+            display: block;
+            padding: 0px 16px 6px;
+            margin: 0;
+        }
+        &-bloco {
+            flex: 1;
+            padding-left: 33px;
+            padding-right: 33px;
+            @media (max-width: ($screen-md - 1)) {
+                padding: 0;
+            }
+            &:nth-child(2) {
+                flex: 0;
+                flex-basis: 387px;
+                @media (max-width: ($screen-md - 1)) {
+                    margin: 10px 0 20px;
+                }
+            }
+            &-titulo {
+                padding-bottom: 2px;
+                border-bottom: 1px solid #E4E5EC;
+                font-size: 12px;
+                font-weight: 600;
+                line-height: 17px;
+                color: #36404B;
+            }
+            &-lista {
+                font-size: 11px;
+                line-height: 16px;
+                color: #36404B;
+                li {
+                    display: flex;
+                    &:first-child {
+                        padding-top: 8px;
+                    }
+                    &:last-child {
+                        padding-bottom: 8px;
+                    }
+                    > div:first-child {
+                        padding-right: 4px;
+                        margin-right: auto;
+                    }
+                    &.dg-not-pushed {
+                        > div:first-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+                + div {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+    &__total {
+        padding: 8px 0 13px;
+        border-bottom: 1px solid #E4E5EC;
+        font-size: 14px;
+        @media (max-width: ($screen-md - 1)) {
+            border-bottom: 0;
+        }
+        span {
+            font-size: 18px;
+            color: #FD3141;
+        }
+    }
+    [data-bandeira="Master"] {
+        background-image: url(/assets/img/home/modal-recompra/mastercard.png);
+    }
+    &__select {
+        width: 100%;
+        height: 40px;
+        padding: 0 14px;
+        border-radius: 8px;
+        background-color: #e4e7ed;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        transition: none;
+        background-position: center left 20px, center right 10px;
+        text-align: left;
+        padding-right: 40px;
+        padding-left: 60px;
+        font-size: 13px;
+        text-transform: uppercase;
+        background-repeat: no-repeat;
+
+        &[data-bandeira="Master"] {
+            background-image: url(/assets/img/checkout/bandeiras-parcelas/mastercard.png), url(/assets/img/home/modal-recompra/chevron-down.png);
+            background-repeat: no-repeat;
+            background-size: 28px, 13px;
+        }
+        
+        &[data-bandeira="Mastercard"] {
+            background-image: url(/assets/img/checkout/bandeiras-parcelas/mastercard.png), url(/assets/img/home/modal-recompra/chevron-down.png);
+            background-repeat: no-repeat;
+            background-size: 28px, 13px;
+        }
+        
+        &[data-bandeira="visa"] {
+            background-image: url(/assets/img/checkout/bandeiras-parcelas/visa.png), url(/assets/img/home/modal-recompra/chevron-down.png);
+            background-repeat: no-repeat;
+            background-size: 28px, 13px;
+        }
+
+        &[data-bandeira="Visa"] {
+            background-image: url(/assets/img/checkout/bandeiras-parcelas/visa.png), url(/assets/img/home/modal-recompra/chevron-down.png);
+            background-repeat: no-repeat;
+            background-size: 28px, 13px;
+        }
+        
+        &[data-bandeira="Elo"] {
+            background-image: url(/assets/img/checkout/bandeiras-parcelas/elo.png), url(/assets/img/home/modal-recompra/chevron-down.png);
+            background-repeat: no-repeat;
+            background-size: 28px, 13px;
+        }
+        
+        &[data-bandeira="elo"] {
+            background-image: url(/assets/img/checkout/bandeiras-parcelas/elo.png), url(/assets/img/home/modal-recompra/chevron-down.png);
+            background-repeat: no-repeat;
+            background-size: 28px, 13px;
+        }
+        
+        &[data-bandeira="Diners"] {
+            background-image: url(/assets/img/checkout/bandeiras-parcelas/diners.png), url(/assets/img/home/modal-recompra/chevron-down.png);
+            background-repeat: no-repeat;
+            background-size: 28px, 13px;
+        }
+        
+        &[data-bandeira="diners"] {
+            background-image: url(/assets/img/checkout/bandeiras-parcelas/diners.png), url(/assets/img/home/modal-recompra/chevron-down.png);
+            background-repeat: no-repeat;
+            background-size: 28px, 13px;
+        }
+        
+        &[data-bandeira="amex"] {
+            background-image: url(/assets/img/checkout/bandeiras-parcelas/amex.png), url(/assets/img/home/modal-recompra/chevron-down.png);
+            background-repeat: no-repeat;
+            background-size: 28px, 13px;
+        }
+
+        &[data-bandeira="Amex"] {
+            background-image: url(/assets/img/checkout/bandeiras-parcelas/amex.png), url(/assets/img/home/modal-recompra/chevron-down.png);
+            background-repeat: no-repeat;
+            background-size: 28px, 13px;
+        }
+        
+    }
+    hr {
+        max-width: 932px;
+        margin: 13px auto 20px;
+        border-color: rgba(#BEC7CF, .4);
+        @media (max-width: ($screen-md - 1)) {
+            display: none;
+        }
+        &.dg-modal-hr {
+            margin: 0 auto 10px
+        }
+    }
+    &__overflow {
+        overflow: auto;
+        max-height: 180px;
+        @media (max-width: ($screen-md - 1)) {
+            min-height: 180px;
+            margin: 10px;
+        }
+    }
+    &__editar-info {
+        position: relative;
+        height: auto;
+        padding: 11px 19px;
+        margin-top: -38px;
+        margin-right: 45px;
+        float: right;
+        border-radius: 23px;
+        font-size: 16px;
+        font-weight: 600;
+        background-color: #4D869F;
+        color: #fff;
+        z-index: 1;
+        @media (max-width: ($screen-md - 1)) {
+            margin: 10px auto 0;
+            float: none;
+            font-size: 12px;
+        }
+    }
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 19px 45px;
+        margin-top: 32px;
+        border-radius: 0 0 24px 24px;
+        background-color: #EFF2F5;
+        @media (max-width: ($screen-md - 1)) {
+            padding: 10px;
+            margin-top: 10px;
+        }
+        @media (max-width: ($screen-sm - 1)) {
+            flex-direction: column;
+        }
+        &-expand-p {
+            display: none;
+            @media (max-width: ($screen-md - 1)) {
+                display: block;
+                position: absolute;
+                top: -1px;
+                right: 0;
+                svg {
+                    fill: #36404b;
+                }
+            }
+        }
+        p {
+            position: relative;
+            max-width: 471px;
+            font-size: 11px;
+            color: #36404B;
+            @media (max-width: ($screen-md - 1)) {
+                max-width: 100%;
+                margin-bottom: 10px;
+                padding-right: 20px;
+                &:not(.dg-expandido) {
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+                &.dg-expandido button {
+                    svg {
+                        fill: #1ec765;
+                    }
+                }
+            }
+        }
+        &-botao {
+            height: auto;
+            padding: 11px 19px;
+            border-radius: 23px;
+            font-size: 16px;
+            font-weight: 600;
+            background-color: #1EC765;
+            color: #fff;
+            @media (max-width: ($screen-md - 1)) {
+                padding: 8px;
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+html.dg-recompra-overflow-hidden, body.dg-recompra-overflow-hidden {
+    @media (max-width: ($screen-md - 1)) {
+        overflow: hidden;
+    }
+}
