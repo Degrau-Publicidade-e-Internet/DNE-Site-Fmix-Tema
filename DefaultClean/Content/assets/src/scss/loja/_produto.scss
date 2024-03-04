@@ -108,6 +108,11 @@
                 margin-right: 0;
             }
         }
+        .dg-produto-desconto-vacina ~ {
+            .dg-produto-tag-wrapper {
+                flex: 0;
+            }
+        }
     }
 }
 
