@@ -7936,6 +7936,9 @@ body {
             background-color: #eee;
         }
     }
+    .dg-produto-desconto-vacina ~ .dg-produto-tag-wrapper {
+        flex: 0;
+    }
 }
 
 .dg-landing-banner {
