@@ -9418,7 +9418,7 @@ body .dg-produto .dg-produto-acoes-proibido-tel p + p {
   }
 }
 
-body .dg-produto-desconto-vacina ~ .dg-produto-tag-wrapper {
+body .dg-produto-img-box .dg-produto-tags .dg-produto-desconto-vacina ~ .dg-produto-tag-wrapper {
   -webkit-box-flex: 0;
       -ms-flex: 0;
           flex: 0;
