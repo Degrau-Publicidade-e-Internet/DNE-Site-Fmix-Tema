@@ -392,7 +392,7 @@ var Header = {
             $(".dg-header-minhaconta-modal-login").css('display', 'flex');
         });
     
-        // var menuLoginMobileWrapper = $('.dg-menuA .dg-header-menu-login');
+        var menuLoginMobileWrapper = $('.dg-menuA .dg-header-menu-login');
     
         $('.jsMobileAbrirEntrar').click(function() {
             startMenuLoginMobile();
