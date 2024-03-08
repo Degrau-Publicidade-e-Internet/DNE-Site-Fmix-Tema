@@ -1,0 +1,548 @@
+$screen-md: 992px;
+
+.dg-relative {
+    position: relative;
+}
+
+.dg-modal-classe-modalTermoPBM {
+    .dg-modal-container {
+        width: 90%;
+        height: 90%;
+    }
+    .dg-modal-conteudo {
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        padding: 16px;
+        background-color: #fff;
+        overflow: hidden;
+        border-radius: 30px;
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .dg-termoProsseguirBtn {
+        position: absolute;
+        right: -6px;
+        bottom: -16px;
+        padding: 4px 8px;
+        border-radius: 6px;
+        text-align: center;
+        outline: none;
+        background-color: #1EC765;
+        font-size: 12px;
+        color: #fff;
+        font-weight: 600;
+        text-align: left;
+        span.dg-icon {
+            display: inline-block;
+            margin-left: 4px;
+            color: rgba(255,255,255,.5);
+        }
+    }
+}
+
+.dg-modal-id-template-logincadastro-pdv {
+    .dg-titulo {
+        font-size: 17px;
+    }
+}
+
+.dg-modal-id-template-login-pdv {
+    .dg-icon {
+        vertical-align: middle;
+    }
+    .dg-header-minhaconta-modal-conteudo {
+        padding: 0;
+    }
+    .dg-header-minhaconta-modal-esquecisenha, .dg-header-minhaconta-modal-login {
+        flex-direction: column;
+        > * {
+            width: 100%;
+        }
+    }
+    .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-input-wrapper input {
+        @media (max-width: 415px) {
+            width: 41px;
+        }
+    }
+    .dg-input-wrapper {
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .dg-form-senha-step[data-form-senha-step="3"]:not(:empty) {
+        .dg-titulo {
+            padding-bottom: 0;
+            border-bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+    @media (max-width: 991px) {
+        .dg-header-minhaconta-modal-esquecisenha {
+            padding-bottom: 0;
+        }
+        .dg-form-senha-step[data-form-senha-step="3"]:not(:empty) {
+            padding-bottom: 0;
+            .dg-titulo {
+                margin-bottom: 0;
+            }
+        }
+        .dg-form-senha-step[data-form-senha-step="3"] .dg-form-senha-celular .dg-wrapper-btns {
+            .dg-header-minhaconta-modal-footer-btn {
+                margin-bottom: 10px !important;
+            }
+        }
+    }
+
+    [data-form-senha-step="2"] {
+        .dg-header-minhaconta-modal-conteudo {
+            padding: 0 8px;
+            flex-direction: column;
+            > * {
+                width: 100%;
+            }
+            label {
+                display: flex;
+                align-items: center;
+                padding: 8px 12px;
+                background-color: #fff;
+                border-radius: 12px;
+                margin-bottom: 10px;
+                input[type="radio"] {
+                    margin-right: 12px;
+                }
+                p {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    .dg-header-minhaconta-modal-footer {
+        padding: 0;
+        background: none;
+        border-bottom: 0;
+        justify-content: space-between;
+    }
+    .dg-header-minhaconta-modal-esquecisenha {
+        p {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 12px;
+        }
+    }
+    .dg-titulo {
+        font-weight: bold;
+        p {
+            font-weight: 400;
+        }
+    }
+    #EsqueciSenhaEmail {
+        padding-left: 27px;
+    }
+}
+
+.dg-modalPBM-button {
+    height: 45px;
+    padding: 4px 32px;
+    border-radius: 23px;
+    text-align: center;
+    outline: none;
+    background-color: #094684;
+    font-size: 13px;
+    color: #fff;
+    font-weight: 600;
+    z-index: 12;
+    text-transform: uppercase;
+    float: right;
+    transition: 300ms ease background-color;
+    &-wrapper {
+        display: flex;
+        align-items: center;
+        &.is-separeted {
+            justify-content: space-between;
+        }
+    }
+    &--no {
+        background-color: #ccc;
+        color: #666;
+    }
+}
+
+.jsModalPBMLogin.dg-loading::after {
+    background-color: rgba(239, 242, 245, .75);
+}
+
+.dg-modal-overflow-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.dg-modal-id-templateModalPBMPDV, .dg-modal-id-templateModalEpharma_formulario  {
+    .dg-cadastro-conteudo-permissoes.dg-ativo {
+        flex-direction: column;
+        .dg-titulo {
+            margin-bottom: 8px
+        }
+    }
+    .dg-modal-container {
+        max-width: 1200px;
+        width: 100%;
+    }
+    .dg-select {
+        background: transparent url(../img/select-vermelho.png) no-repeat top right 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 10px;
+        z-index: 2;
+        height: 45px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        color: #333;
+        font-size: 13px;
+        padding-top: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+        transition: 300ms ease all;
+        width: 100%;
+        outline: none!important;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        + label {
+            position: relative;
+            z-index: 1;
+            background: #e4e7ed;
+            height: 45px;
+            border-radius: 10px;
+            margin-bottom: 0;
+            color: #707d88;
+            font-size: 13px;
+            padding: 13px 10px 0 20px;
+            transition: 300ms ease all;
+            font-size: 10px;
+            padding-top: 7px;
+        }
+    }
+    .dg-modal-conteudo {
+        display: flex;
+        flex-direction: column;
+        .dg-modal-form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            .dg-modal-overflow-content {
+                background-color: #fff;
+                padding: 20px 20px 0;
+                border-radius: 0 0 20px 20px;
+                flex: 1;
+            }
+        }
+    }
+    #cep + label {
+        transition: 300ms ease font-size, 300ms ease padding-top;
+        &.dg-isLoading {
+            background-image: url(../img/loading.svg);
+            background-repeat: no-repeat;
+            background-position: center right 16px;
+            + a {
+                display: none;
+            }
+   
+        }
+    }
+    .dg-modal-header {
+        display: flex;
+        background-color: #fff;
+        border-radius: 8px 8px 0 0;
+        font-weight: 600;
+        overflow: unset;
+        font-size: 16px;
+        background-image: linear-gradient(to top, rgba(#6B6B7B, .2), #fff);
+        background-size: 100% 2px, 100% 100%;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        &__esquerda {
+            padding: 12px;
+            @media (min-width: $screen-md) {
+                padding: 18px 35px 15px;
+                border-top-left-radius: 8px;
+                line-height: 15px;
+            }
+            background-color: #354350;
+            color: #fff;
+            flex: 1;
+			span {
+				color: #1EC765;
+            }
+        }
+        &__direita {
+            padding: 12px;
+            @media (min-width: $screen-md) {
+                padding:  10px 46px 10px 32px;
+                text-align: center;
+            }
+        }
+        @media (max-width: $screen-md - 1) {
+            flex-direction: column;
+        }
+    }
+    .dg-input:not([type="file"]) {
+        position: absolute;
+        background: transparent;
+        z-index: 2;
+        width: 100%;
+        left: 0px;
+        top: 0;
+        bottom: 20px;
+        right: 0px;
+        border-radius: 10px;
+        display: block;
+        min-height: 45px;
+        border: 0;
+        box-shadow: none;
+        outline: none;
+        padding-top: 8px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 13px;
+        &:focus + .dg-label, &.dg-ativo + .dg-label {
+            font-size: 10px;
+            padding-top: 7px;
+            color: #333;
+        }
+    }
+    .dg-form-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    .dg-form-control {
+        position: relative;
+        width: 33.333%;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 20px;
+
+        &--full {
+            width: 100%;
+            overflow: unset;
+            &.btn-footer {
+                margin-bottom: 0;
+            }
+        }
+        @media (max-width: $screen-sm - 1) {
+            width: 100%;
+        }
+    }
+    .dg-titulo {
+        padding: 0 0 4px;
+        margin-bottom: 0px;
+        color: #545363;
+        font-size: 16px;
+        font-weight: 500;
+        border-bottom: 1px solid #E4E7ED;
+        text-transform: none;
+    }
+    h3 {
+        padding: 0;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        color: #545363;
+        font-size: 20px;
+        font-weight: 400;
+    }
+    .dg-cadastro-conteudo-versenha {
+        right: 20px;
+    }
+    // form {
+    //     flex: 1;
+    //     @media (max-width: $screen-md - 1) {
+    //         padding-left: 0;
+    //         margin-top: 20px;
+    //         margin-left: 0;
+    //         border-left: 0;
+    //     }
+    // }
+    b {
+        font-weight: bold
+    }
+
+    .dg-checkbox-form-error-wrapper .dg-erroForm {
+        top: unset;
+        bottom: 0;
+    }
+
+    .dg-senha-form-error-wrapper .dg-erroForm {
+        padding: 5px;
+        top: -15px;
+        right: 15px;
+        max-width: 100%;
+        font-size: 11px;
+    }
+
+    .dg-label {
+        position: relative;
+        z-index: 1;
+        background: #E4E7ED;
+        height: 45px;
+        border-radius: 10px;
+        margin-bottom: 0;
+        color: #54616d;
+        font-size: 13px;
+        padding: 13px 10px 0px 20px;
+        transition: 300ms ease all;
+        border: 0 !important;
+    }
+    button {
+        height: 45px;
+        padding: 4px 32px;
+        border-radius: 23px;
+        text-align: center;
+        outline: none;
+        background-color: #094684;
+        font-size: 13px;
+        color: #fff;
+        font-weight: 600;
+        z-index: 12;
+        margin-top: 20px;
+        float: right;
+        transition: 300ms ease background-color;
+    }
+
+    .dg-label-comum {
+        font-size: 13px;
+        color: #7699A8;
+    }
+    
+    textarea {
+        padding-top: 10px;
+        background-color: #E4E7ED;
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        height: 80px;
+        padding-left: 25px;
+        padding-right: 25px;
+        font-size: 13px;
+        border-radius: 10px;
+        transition: 300ms ease border-color;
+    }
+
+    label + .dg-erroForm {
+        top: 20px;
+        + textarea {
+            border: 2px solid red
+        }
+    }
+
+    &--textarea-control {
+        label + .dg-erroForm {
+            top: 6px;
+        }
+    }
+    h4 {
+        margin-bottom: 8px;
+    }
+
+    input[type="checkbox"] {
+        position: absolute;
+        left: 10px;
+        top: 0px;
+        opacity: 0;
+    }
+    
+    input[type="checkbox"] + label {
+        position: relative;
+        padding-left: 20px;
+        line-height: 1.2;
+        margin-bottom: 8px;
+        
+        &:before {
+            content: " ";
+            width: 14px;
+            height: 14px;
+            border: 3px solid #777;
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-radius: 50%;
+        }
+
+        &:after {
+            content: " ";
+            width: 4px;
+            height: 4px;
+            background: transparent;
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            border-radius: 50%;
+        }
+    }
+
+    input:checked+label:before {
+        border: 3px solid #FA3447;
+    }
+    
+    input:checked+label:after {
+        background: #FA3447;
+    }
+}
+
+.dg-modalPBMCadastro__titulo--login, .dg-modalPBMCadastro__titulo--cadastro {
+    display: none;
+}
+
+.dg-modal-classe-loginPBM-modal .dg-modalPBMCadastro__titulo--login {
+    display: block;
+}
+
+.dg-modal-classe-cadastroPBM-modal .dg-modalPBMCadastro__titulo--cadastro {
+    display: block;
+}
+
+.dg-produto-lista-valores-PBM {
+    margin-bottom: 20px;
+    .dg-select {
+        background: transparent url(../img/select-vermelho.png) no-repeat top right 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 10px;
+        z-index: 2;
+        height: 45px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        color: #333;
+        font-size: 13px;
+        padding-top: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+        transition: 300ms ease all;
+        width: 100%;
+        outline: none!important;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        + label {
+            position: relative;
+            z-index: 1;
+            background: #e4e7ed;
+            height: 45px;
+            border-radius: 10px;
+            margin-bottom: 0;
+            color: #707d88;
+            font-size: 13px;
+            padding: 13px 10px 0 20px;
+            transition: 300ms ease all;
+            font-size: 10px;
+            padding-top: 7px;
+        }
+    }
+}

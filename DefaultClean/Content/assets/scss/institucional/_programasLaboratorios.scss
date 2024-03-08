@@ -1,0 +1,191 @@
+.dg-institucional-pl {
+    .dg-institucional-titulo {
+        height: 310px;
+        padding: 24px;
+        margin-top: 20px;
+        background-image: url('../img/institucional/programas-laboratorios/topo.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        color: #fff;
+        @media (max-width: $screen-sm - 1) {
+            padding: 16px;
+            height: auto;
+            background-image: none;
+            background-color: #152435
+        }
+        h1 {
+            font-size: 34px;
+            font-weight: 400;
+            line-height: 1.2;
+            margin: 0 20px 0 50px;
+            max-width: 430px;
+            padding-bottom: 30px;
+            padding-top: 24px;
+            position: relative;
+            color: #fff;
+            @media (max-width: $screen-sm - 1) {
+                padding-top: 0;
+                margin: 0;
+                font-size: 24px;
+            }
+            &:before {
+                background-color: #ef3443;
+                border-radius: 10px;
+                bottom: 0;
+                content: "";
+                height: 8px;
+                left: 0;
+                position: absolute;
+                width: 100px;
+            }
+        }
+        p {
+            font-size: 14px;
+            margin-top: 35px;
+            max-width: 640px;
+            padding-left: 50px;
+            padding-right: 30px;
+            position: relative;
+            @media (max-width: $screen-sm - 1) {
+                padding-left: 0;
+            }
+        }
+    }
+    .dg-text-center {
+        text-align: center
+    }
+
+    .dg-texto-comum {
+        color: #b2b2b2;
+        font-size: 16px;
+        font-weight: 700;
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 930px;
+    }
+
+    .dg-participantes-row, .dg-comprar-row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    .dg-comprar-item {
+        margin-top: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 50%;
+        @media (max-width: $screen-md - 1) {
+            width: 100%
+        }
+        .dg-green {
+            color: #5bc210
+        }
+    }
+    .dg-comprar-item-card {
+        height: 100%;
+        background: #fff;
+        border: 1px solid #e6e6e6;
+        border-radius: 10px;
+        padding: 20px 30px;
+    }
+    .dg-comprar-item-header {
+        display: flex;
+        border-bottom: 1px solid hsla(0,0%,44%,.1);
+        color: #595959;
+        font-size: 15px;
+        font-weight: 400;
+        margin-bottom: 30px;
+        min-height: 75px;
+        padding-bottom: 10px;
+        position: relative;
+        &::before {
+            content: attr(data-position)'º';
+            background: #ef3443;
+            margin-right: 12px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 25px;
+            font-weight: 700;
+            height: 45px;
+            left: 0;
+            line-height: 45px;
+            text-align: center;
+            width: 45px;
+            flex-shrink: 0;
+        }
+    }
+    h2 {
+        margin-top: 50px;
+        font-size: 24px;
+    }
+    .dg-participantes {
+        h2 {
+            margin-top: 50px;
+        }
+        .dg-participantes-item {
+            margin-top: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+            width: 25%;
+            text-align: center;
+            @media (max-width: $screen-sm - 1) {
+                width: 50%
+            }
+            a {
+                background: #fff;
+                border: 1px solid #e6e6e6;
+                border-radius: 10px;
+                display: block;
+                padding: 10px;
+                font-size: 12px;
+                color: #999;
+                text-decoration: none;
+            }
+            img {
+                max-height: 80px;
+            }
+            .dg-img {
+                height: 80px;
+                line-height: 80px;
+            }
+        }
+    }
+    .dg-perguntas-list {
+        background: #0e3d90;
+        background: linear-gradient(0deg,#0e3d90,#3a63ae);
+        border-radius: 5px;
+        box-shadow: 0 4px rgba(0, 0, 0, .2);
+        color: #fff;
+        .dg-perguntas-item {
+            border-bottom: 1px solid hsla(0,0%,100%,.1);
+            padding: 20px 30px;
+            text-align: center;
+            @media (min-width: $screen-md) {
+                display: flex;
+                padding: 25px 30px 25px 0;
+            }
+        }
+        .dg-img {
+            padding: 0 70px
+        }
+        .dg-titulo {
+            font-size: 18px;
+            margin-bottom: 10px;
+            padding-top: 0;
+            text-align: left;
+            color: #fff;
+        }
+        .dg-txt {
+            font-size: 16px;
+            text-align: left;
+        }
+    }
+    .dg-perguntas-titulo {
+        margin-bottom: 20px
+    }
+    .dg-conteudo {
+        line-height: 1.25;
+    }
+}

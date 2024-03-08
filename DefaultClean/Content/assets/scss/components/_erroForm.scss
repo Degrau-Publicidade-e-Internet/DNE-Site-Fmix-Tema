@@ -1,0 +1,69 @@
+.dg-erroForm {
+    background: red;
+    color: #fff;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 15;
+    top: -15px;
+    right: 15px;
+    max-width:80%;
+    text-align: center;
+    
+    &:hover, &:focus {
+        color: #fff;
+        background: darken(red,10%);
+        text-decoration: none;
+    }
+    
+    + input:not([type="radio"]):not([type="checkbox"]), + select {
+        border: 2px solid red;
+    }
+
+	@media (max-width: 991px) {
+		right: 5px;
+		max-width: 100%;
+		font-size: 7.15pt !important;
+		padding: 5px;
+	}
+}
+
+// Animação
+
+.dg-erroForm {
+    -webkit-animation-name: fadeInUpErroForm;
+	animation-name: fadeInUpErroForm;
+    -webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+
+@-webkit-keyframes fadeInUpErroForm {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 100%, 0);
+		transform: translate3d(0, 100%, 0)
+	}
+	to {
+		opacity: 1;
+		-webkit-transform: translateZ(0);
+		transform: translateZ(0)
+	}
+}
+
+@keyframes fadeInUpErroForm {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, 100%, 0);
+		transform: translate3d(0, 100%, 0)
+	}
+	to {
+		opacity: 1;
+		-webkit-transform: translateZ(0);
+		transform: translateZ(0)
+	}
+}

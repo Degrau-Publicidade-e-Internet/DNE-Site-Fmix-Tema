@@ -73,7 +73,7 @@
                             {
                                 foreach (var item in OHeader.MaisBuscados)
                                 {
-                                    <li class="jsTermoParaPesquisa" tabindex="0" data-termo="@item"> @item</li>
+                                    <li class="jsTermoParaPesquisa" tabindex="0" data-termo="@item.Produto"> @item.Produto</li>
                                 }
                             }
 
@@ -991,11 +991,8 @@
                 <div class="dg-header-busca-sugestao-pesquisa__titulo">Sugestões de pesquisa</div>
                 <ol class="dg-header-busca-sugestao-pesquisa__lista">
                     {for Sugestao in buscaInfo.Sugestoes}
-                     <li class="jsTermoParaPesquisa" tabindex="0"
-                        data-termo="${Sugestao.busca}"
-                        >
-                        @* <b>${buscaInfo.Termo}</b> Lorem *@
-                        ${Sugestao.buscaBold}
+                     <li>
+                        <a href="${Sugestao.link}">${Sugestao.buscaBold}</a>
                     </li>
                     {/for}
                     @* <li class="jsTermoParaPesquisa" tabindex="0"

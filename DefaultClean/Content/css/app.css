@@ -288,7 +288,7 @@ body {
 }
 
 .dg-boxproduto .dg-boxproduto-titulo {
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
 }
 
 .dg-boxproduto .dg-boxproduto-preco-de, .dg-boxproduto .dg-boxproduto-preco-por {
@@ -330,7 +330,7 @@ body {
 .dg-boxproduto .dg-boxproduto-main {
   min-height: auto;
   margin-top: 29px;
-  min-height: 39px;
+  min-height: 53px;
 }
 
 .dg-boxproduto .dg-boxproduto-main:hover {
@@ -5420,6 +5420,14 @@ body .dg-header-busca-sugestao-pesquisa__lista li:last-child {
   margin-bottom: 0;
 }
 
+body .dg-header-busca-sugestao-pesquisa__lista li a {
+  color: #354350;
+}
+
+body .dg-header-busca-sugestao-pesquisa__lista li a:hover, body .dg-header-busca-sugestao-pesquisa__lista li a:focus {
+  color: #354350;
+}
+
 @media (max-height: 680px) and (min-width: 992px) {
   body .dg-header-busca-sugestao-pesquisa__lista li:nth-child(3) ~ li {
     display: none;
@@ -9408,6 +9416,12 @@ body .dg-produto .dg-produto-acoes-proibido-tel p + p {
   body .dg-categoria-sidebar-listagem::-webkit-scrollbar-track {
     background-color: #eee;
   }
+}
+
+body .dg-produto-img-box .dg-produto-tags .dg-produto-desconto-vacina ~ .dg-produto-tag-wrapper {
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
 }
 
 .dg-landing-banner img {

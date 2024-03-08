@@ -238,7 +238,7 @@ body {
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05);
     padding: 22px 15px 32px;
     .dg-boxproduto-titulo {
-        -webkit-line-clamp: 2
+        -webkit-line-clamp: 3
     }
     .dg-boxproduto-preco-de, .dg-boxproduto-preco-por {
         color: $corPrimaria;
@@ -273,7 +273,7 @@ body {
     .dg-boxproduto-main {
         min-height: auto;
         margin-top: 29px;
-        min-height: 39px;
+        min-height: 53px;
         &:hover {
             z-index: 23;
         }
@@ -4522,6 +4522,12 @@ body {
                 &:last-child {
                     margin-bottom: 0;
                 }
+                a {
+                    color: #354350;
+                    &:hover, &:focus {
+                        color: #354350;
+                    }
+                }
                 @media (max-height: 680px) and (min-width: 992px) {
                     &:nth-child(3) ~ li {
                         display: none;
@@ -7929,6 +7935,9 @@ body {
         .dg-categoria-sidebar-listagem::-webkit-scrollbar-track {
             background-color: #eee;
         }
+    }
+    .dg-produto-img-box .dg-produto-tags .dg-produto-desconto-vacina ~ .dg-produto-tag-wrapper {
+        flex: 0;
     }
 }
 
